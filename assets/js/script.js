@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initNewsModal();
   initEnquiryModal();
+  initHeroSlider();
 });
 
 /* ============================================
@@ -616,4 +617,27 @@ function initEnquiryModal() {
       }
     });
   }
+}
+
+/* ============================================
+   HERO SLIDER
+   ============================================ */
+function initHeroSlider() {
+  const slider = document.getElementById('heroSlider');
+  if (!slider) return;
+
+  const slides = slider.querySelectorAll('.hero-slider__slide');
+  let current = 0;
+
+  function goToSlide(index) {
+    slides[current].classList.remove('hero-slider__slide--active');
+    current = index;
+    slides[current].classList.add('hero-slider__slide--active');
+  }
+
+  function nextSlide() {
+    goToSlide((current + 1) % slides.length);
+  }
+
+  setInterval(nextSlide, 4000);
 }

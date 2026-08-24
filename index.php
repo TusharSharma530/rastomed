@@ -138,57 +138,17 @@ $homeBlogs = [
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
-    <!-- 2. HERO SECTION -->
-    <section class="hero-section">
-      <div class="container">
-        <div class="hero-section__grid">
-          <div class="hero-section__content">
-            <span class="hero-section__label">CARING FOR LIFE</span>
-            <h1 class="hero-section__title">
-              Advancing Healthcare Through <span class="hero-section__title--highlight">Innovation</span>
-            </h1>
-            <p class="hero-section__text">
-              Medixon Pharmaceuticals is committed to improving lives by delivering high-quality, effective and affordable pharmaceutical products trusted worldwide.
-            </p>
-            <div class="hero-section__buttons">
-              <?= renderButton('Explore Products', 'products.php', 'primary', 'lg', '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
-              <?= renderButton('Contact Us', 'contact.php', 'outline', 'lg', '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
-            </div>
-          </div>
-          <div class="hero-section__visual">
-            <div class="hero-section__image-wrapper">
-              <img src="assets/images/hero-lab2.jpg" alt="Medixon Pharmaceuticals Laboratory" class="hero-section__image" width="600" height="450">
-            </div>
-          </div>
-        </div>
-        <!-- Trust Badges -->
-        <div class="hero-section__trust">
-          <div class="trust-badge-item">
-            <div class="trust-badge-item__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <span class="trust-badge-item__text">WHO-GMP<br>Certified</span>
-          </div>
-          <div class="trust-badge-item">
-            <div class="trust-badge-item__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            </div>
-            <span class="trust-badge-item__text">Quality<br>Assurance</span>
-          </div>
-          <div class="trust-badge-item">
-            <div class="trust-badge-item__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            </div>
-            <span class="trust-badge-item__text">Timely<br>Delivery</span>
-          </div>
-          <div class="trust-badge-item">
-            <div class="trust-badge-item__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v11l-3 3-3-3z"/><path d="M6 21h12"/></svg>
-            </div>
-            <span class="trust-badge-item__text">R&amp;D<br>Driven</span>
-          </div>
-        </div>
-      </div>
+    <!-- 2. HERO SECTION - Image Slider -->
+    <section class="hero-slider" id="heroSlider">
+      <a href="products.php" class="hero-slider__slide hero-slider__slide--active">
+        <img src="assets/images/banner1.png" alt="High Quality And Affordable Medicines" class="hero-slider__img">
+      </a>
+      <a href="contact.php" class="hero-slider__slide">
+        <img src="assets/images/banner2.png" alt="Experience And Expertise" class="hero-slider__img">
+      </a>
+      <a href="about.php" class="hero-slider__slide">
+        <img src="assets/images/banner3.png" alt="Maintaining Highest Standards" class="hero-slider__img">
+      </a>
     </section>
 
     <!-- 3. ABOUT US -->
