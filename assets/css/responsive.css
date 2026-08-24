@@ -1,0 +1,365 @@
+/* ============================================
+   PHARMA DEMO - RESPONSIVE STYLES
+   ============================================ */
+
+/* --- 1440px+ (Large Desktop) --- */
+@media (min-width: 1440px) {
+  .container {
+    max-width: var(--container-wide);
+  }
+}
+
+/* --- 1200px (Desktop) --- */
+@media (max-width: 1200px) {
+  .footer__main {
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+    max-width: 100%;
+  }
+
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- 992px (Tablet Landscape) --- */
+@media (max-width: 992px) {
+  :root {
+    --header-height: 72px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .header__cta {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+
+  .grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-block {
+    padding: clamp(2rem, 4vw, 3rem);
+  }
+}
+
+/* --- 768px (Tablet Portrait) --- */
+@media (max-width: 768px) {
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+
+  [style*="grid-template-columns:1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns:1.3fr 1fr"],
+  [style*="grid-template-columns: 1.3fr 1fr"],
+  [style*="grid-template-columns:1.2fr 1fr"],
+  [style*="grid-template-columns: 1.2fr 1fr"],
+  [style*="grid-template-columns:2fr 1fr"],
+  [style*="grid-template-columns: 2fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .page-hero {
+    padding: calc(var(--header-height) + var(--space-10)) 0 var(--space-10);
+  }
+
+  .section {
+    padding: clamp(3rem, 6vw, 5rem) 0;
+  }
+
+  .footer__main {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer__legal {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Legal layout: sidebar above content */
+  .legal-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .legal-sidebar {
+    position: static;
+  }
+
+  .legal-sidebar__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .legal-sidebar__header,
+  .legal-sidebar__meta {
+    display: none;
+  }
+
+  .legal-sidebar__nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .legal-sidebar__link {
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--fs-xs);
+  }
+
+  .legal-sidebar__link:hover {
+    border-left-color: transparent;
+    border-bottom-color: var(--color-primary);
+  }
+
+  .legal-content {
+    max-width: 100%;
+  }
+
+  .legal-contact-card__row {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .legal-contact-card__label {
+    min-width: auto;
+  }
+
+  .back-to-top {
+    bottom: var(--space-6);
+    right: var(--space-6);
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* --- 576px (Mobile Landscape) --- */
+@media (max-width: 576px) {
+  .stat-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cta-block__buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-block__buttons .btn {
+    width: 100%;
+  }
+
+  .card__body {
+    padding: var(--space-4);
+  }
+
+  .product-card__body {
+    padding: var(--space-4);
+  }
+
+  .news-card__body {
+    padding: var(--space-4);
+  }
+
+  .page-hero__title {
+    font-size: var(--fs-h2);
+  }
+}
+
+/* --- 375px (Mobile) --- */
+@media (max-width: 375px) {
+  :root {
+    --container-padding: 1rem;
+  }
+
+  .header__logo-text {
+    font-size: 1.125rem;
+  }
+
+  .header__logo-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .stat__number {
+    font-size: 1.75rem;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- 320px (Small Mobile) --- */
+@media (max-width: 320px) {
+  :root {
+    --container-padding: 0.875rem;
+  }
+
+  .header__logo-text {
+    font-size: 1rem;
+  }
+
+  .mobile-nav__link {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--fs-small);
+  }
+
+  .btn--lg {
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--fs-body);
+  }
+}
+
+/* ============================================
+   TOUCH DEVICE ADJUSTMENTS
+   ============================================ */
+@media (hover: none) and (pointer: coarse) {
+  .card:hover {
+    transform: none;
+  }
+
+  .product-card:hover {
+    transform: none;
+  }
+
+  .news-card:hover {
+    transform: none;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+
+  .back-to-top:hover {
+    transform: none;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  .header,
+  .mobile-nav,
+  .back-to-top,
+  .footer,
+  .theme-toggle,
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .page-hero {
+    background: none;
+    color: #000;
+    padding: 0;
+  }
+
+  .page-hero__title {
+    color: #000;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================
+   HIGH CONTRAST
+   ============================================ */
+@media (prefers-contrast: high) {
+  .btn--primary {
+    border: 2px solid #000;
+  }
+
+  .card {
+    border-width: 2px;
+  }
+
+  .nav__link:focus-visible,
+  .btn:focus-visible {
+    outline-width: 3px;
+  }
+}
