@@ -25,11 +25,10 @@ pharma-demo/
 ├── about.php              # About page
 ├── products.php           # Products listing
 ├── product-details.php    # Product detail page
-├── quality.php            # Quality assurance
-├── research.php           # R&D page
-├── manufacturing.php      # Manufacturing capabilities
-├── careers.php            # Careers page
-├── news.php               # News & updates
+├── gallery.php            # Corporate & facility gallery
+├── careers.php            # Careers page & open positions
+├── blogs.php              # Blogs & scientific insights listing
+├── blog-details.php       # Blog article detail view
 ├── contact.php            # Contact form
 ├── privacy-policy.php     # Privacy policy
 ├── disclaimer.php         # Disclaimer
@@ -69,15 +68,14 @@ Then open `http://localhost:8000` in your browser.
 
 | Page | File | Description |
 |------|------|-------------|
-| Home | `index.php` | Hero, stats, products, quality, R&D, news, CTA |
+| Home | `index.php` | Enterprise hero, metrics, products, R&D spotlight, CTA |
 | About | `about.php` | Story, vision, leadership, global presence |
 | Products | `products.php` | Portfolio, therapeutic areas, new launches |
 | Product Details | `product-details.php` | Individual product information |
-| Quality | `quality.php` | Certifications, quality process |
-| R&D | `research.php` | Capabilities, research pipeline |
-| Manufacturing | `manufacturing.php` | Facilities, capabilities |
-| Careers | `careers.php` | Why join, open positions |
-| News | `news.php` | Press releases, updates |
+| Gallery | `gallery.php` | Facility photos, R&D labs, events showcase |
+| Careers | `careers.php` | Job openings, company culture, apply form |
+| Blogs | `blogs.php` | Articles, research whitepapers, R&D insights |
+| Blog Details | `blog-details.php` | Individual article detail view |
 | Contact | `contact.php` | Contact form, info, map placeholder |
 | Privacy Policy | `privacy-policy.php` | Legal privacy information |
 | Disclaimer | `disclaimer.php` | Legal disclaimer |

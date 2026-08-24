@@ -1,67 +1,86 @@
 <?php
 /**
- * Careers Page - PharmaCorp
- * Build the Future of Healthcare With Us
+ * Careers Page - PharmaCorp Enterprise
+ * Opportunities to join our global pharmaceutical team
  */
 require_once __DIR__ . '/includes/components.php';
 
-$whyJoin = [
-    ['icon' => '&#9733;', 'title' => 'Growth Opportunities', 'description' => 'Accelerated career paths with mentorship programs and leadership development initiatives.'],
-    ['icon' => '&#128218;', 'title' => 'Learning & Development', 'description' => 'Continuous skill enhancement through training programs, workshops, and industry conferences.'],
-    ['icon' => '&#127968;', 'title' => 'Workplace Culture', 'description' => 'Inclusive, collaborative environment that values diversity, innovation, and work-life balance.'],
-    ['icon' => '&#128176;', 'title' => 'Competitive Benefits', 'description' => 'Comprehensive compensation packages including health benefits, retirement plans, and wellness programs.'],
-    ['icon' => '&#127758;', 'title' => 'Global Exposure', 'description' => 'Opportunity to work across international markets and collaborate with global teams.'],
-    ['icon' => '&#128161;', 'title' => 'Innovation Driven', 'description' => 'Be part of cutting-edge pharmaceutical research and development that impacts millions of lives.'],
+$breadcrumbs = [
+    ['label' => 'Home', 'url' => 'index.php'],
+    ['label' => 'Careers', 'url' => 'careers.php'],
 ];
 
-$jobs = [
+$benefits = [
     [
-        'title' => 'Medical Representative',
-        'department' => 'Sales & Marketing',
+        'icon' => '&#128161;',
+        'title' => 'Scientific Innovation',
+        'description' => 'Work alongside leading pharmaceutical scientists and R&D experts on cutting-edge formulations.',
+    ],
+    [
+        'icon' => '&#127757;',
+        'title' => 'Global Impact',
+        'description' => 'Contribute to healthcare solutions that improve the quality of life for millions across 50+ countries.',
+    ],
+    [
+        'icon' => '&#128200;',
+        'title' => 'Career Acceleration',
+        'description' => 'Structured leadership programs, continuous training, and transparent career advancement pathways.',
+    ],
+    [
+        'icon' => '&#9878;',
+        'title' => 'Comprehensive Benefits',
+        'description' => 'Competitive compensation, medical insurance, wellness stipends, and flexible work life balance.',
+    ],
+];
+
+$openings = [
+    [
+        'title' => 'Senior Formulation Scientist (R&D)',
+        'department' => 'Research & Development',
         'location' => 'Mumbai, India',
         'type' => 'Full-time',
-        'experience' => '1-3 years',
-        'icon' => '&#128105;&#8205;&#9877;&#65039;',
+        'experience' => '5-8 Years',
+        'description' => 'Lead solid oral dosage formulation development, bioequivalence studies, and technology transfer.',
     ],
     [
-        'title' => 'Quality Executive',
+        'title' => 'Quality Assurance Manager (WHO-GMP)',
         'department' => 'Quality Assurance',
-        'location' => 'Pune, India',
+        'location' => 'Mumbai, India',
         'type' => 'Full-time',
-        'experience' => '2-4 years',
-        'icon' => '&#10003;',
+        'experience' => '7-10 Years',
+        'description' => 'Oversee plant compliance, audit readiness, batch release protocols, and international regulatory filings.',
     ],
     [
-        'title' => 'Research Associate',
-        'department' => 'R&D',
-        'location' => 'Hyderabad, India',
+        'title' => 'Global Business Development Executive',
+        'department' => 'International Sales',
+        'location' => 'Mumbai, India',
         'type' => 'Full-time',
-        'experience' => '0-2 years',
-        'icon' => '&#128300;',
-    ],
-    [
-        'title' => 'Production Executive',
-        'department' => 'Manufacturing',
-        'location' => 'Ahmedabad, India',
-        'type' => 'Full-time',
-        'experience' => '2-5 years',
-        'icon' => '&#9881;',
+        'experience' => '3-5 Years',
+        'description' => 'Drive export market expansion, distributor partnerships, and international product licensing in LATAM & SEA.',
     ],
     [
         'title' => 'Regulatory Affairs Specialist',
-        'department' => 'Regulatory',
-        'location' => 'Delhi, India',
+        'department' => 'Regulatory Affairs',
+        'location' => 'Mumbai, India',
         'type' => 'Full-time',
-        'experience' => '3-6 years',
-        'icon' => '&#128220;',
+        'experience' => '4-6 Years',
+        'description' => 'Prepare CTD/eCTD dossier submissions, respond to health authority queries, and manage market authorizations.',
     ],
     [
-        'title' => 'Data Analyst',
-        'department' => 'IT & Analytics',
-        'location' => 'Bangalore, India',
+        'title' => 'Production Supervisor (Tableting & Capsules)',
+        'department' => 'Manufacturing',
+        'location' => 'Pune, India',
         'type' => 'Full-time',
-        'experience' => '1-3 years',
-        'icon' => '&#128202;',
+        'experience' => '3-5 Years',
+        'description' => 'Supervise daily shift operations in automated tableting compression and hard gelatin encapsulation lines.',
+    ],
+    [
+        'title' => 'Clinical Research Associate',
+        'department' => 'Clinical Trials',
+        'location' => 'Mumbai, India',
+        'type' => 'Full-time',
+        'experience' => '2-4 Years',
+        'description' => 'Monitor Phase III bioequivalence clinical trials, ensure GCP compliance, and coordinate site operations.',
     ],
 ];
 ?>
@@ -70,8 +89,8 @@ $jobs = [
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Join PharmaCorp - Build the future of healthcare with a career in pharmaceutical innovation.">
-  <title>Careers - PharmaCorp</title>
+  <meta name="description" content="Build your career at PharmaCorp. Explore global pharmaceutical career opportunities in R&amp;D, QA, Manufacturing, and Sales.">
+  <title>Careers &amp; Opportunities - PharmaCorp</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,107 +102,70 @@ $jobs = [
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
-    <?= renderPageHero('Careers', [
-      ['label' => 'Home', 'url' => 'index.php'],
-      ['label' => 'Careers', 'url' => 'careers.php'],
-    ], 'Build the Future of Healthcare With Us') ?>
+    <!-- Page Hero -->
+    <?= renderPageHero('Careers at PharmaCorp', $breadcrumbs, 'Shape the future of global healthcare with an organization driven by innovation, integrity, and scientific excellence.') ?>
 
-    <!-- ========== WHY JOIN US ========== -->
+    <!-- Why Work With Us -->
     <section class="section">
       <div class="container">
-        <?= renderSectionHeader('Why PharmaCorp', 'Why Join Our Team', 'A workplace that values your growth, celebrates your contributions, and supports your aspirations.') ?>
-
-        <div class="grid grid--3 reveal">
-          <?php foreach ($whyJoin as $item): ?>
-            <div class="culture-card">
-              <div class="culture-card__icon"><?= $item['icon'] ?></div>
-              <h4 class="culture-card__title"><?= $item['title'] ?></h4>
-              <p class="culture-card__desc"><?= $item['description'] ?></p>
+        <div class="section__header">
+          <span class="section-label">Why Join Us</span>
+          <h2 class="section__title">Empowering Growth &amp; Innovation</h2>
+        </div>
+        <div class="rd-grid">
+          <?php foreach ($benefits as $benefit): ?>
+            <div class="rd-card reveal">
+              <div class="rd-card__icon"><?= $benefit['icon'] ?></div>
+              <h3 class="rd-card__title"><?= $benefit['title'] ?></h3>
+              <p class="rd-card__text"><?= $benefit['description'] ?></p>
             </div>
           <?php endforeach; ?>
         </div>
       </div>
     </section>
 
-    <!-- ========== OUR CULTURE ========== -->
+    <!-- Open Positions -->
     <section class="section section--alt">
       <div class="container">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem, 5vw, 5rem); align-items:center;">
-          <div class="reveal reveal--left">
-            <span class="section-label">Life at PharmaCorp</span>
-            <h2 style="font-size:var(--fs-h2); margin-bottom:var(--space-4);">A Culture of Innovation & Care</h2>
-            <p style="color:var(--color-text-secondary); line-height:var(--lh-relaxed); margin-bottom:var(--space-4);">
-              At PharmaCorp, we believe that our people are our greatest asset. We foster an environment where curiosity is encouraged, ideas are valued, and every team member can make a meaningful impact on global healthcare.
-            </p>
-            <p style="color:var(--color-text-secondary); line-height:var(--lh-relaxed); margin-bottom:var(--space-6);">
-              Our teams work collaboratively across departments and geographies, united by our passion for improving lives through pharmaceutical excellence.
-            </p>
-            <div style="display:flex; gap:var(--space-8);">
-              <div style="text-align:center;">
-                <div style="font-size:var(--fs-h3); font-weight:800; color:var(--color-primary);">10K+</div>
-                <div style="font-size:var(--fs-xs); color:var(--color-text-muted);">Team Members</div>
-              </div>
-              <div style="text-align:center;">
-                <div style="font-size:var(--fs-h3); font-weight:800; color:var(--color-primary);">50+</div>
-                <div style="font-size:var(--fs-xs); color:var(--color-text-muted);">Countries</div>
-              </div>
-              <div style="text-align:center;">
-                <div style="font-size:var(--fs-h3); font-weight:800; color:var(--color-primary);">90%</div>
-                <div style="font-size:var(--fs-xs); color:var(--color-text-muted);">Satisfaction</div>
-              </div>
-            </div>
-          </div>
-          <div class="reveal reveal--right" style="background:linear-gradient(135deg, var(--color-surface-alt), var(--color-surface)); border-radius:var(--radius-2xl); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; border:1px solid var(--color-border-light);">
-            <div style="text-align:center; padding:var(--space-8);">
-              <div style="width:80px; height:80px; margin:0 auto var(--space-4); background:linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); border-radius:var(--radius-xl); display:flex; align-items:center; justify-content:center; color:#fff; font-size:2rem;">&#127968;</div>
-              <p style="color:var(--color-text-muted); font-size:var(--fs-small);">Team Culture Image</p>
-            </div>
-          </div>
+        <div class="section__header">
+          <span class="section-label">Current Openings</span>
+          <h2 class="section__title">Explore Career Opportunities</h2>
         </div>
-      </div>
-    </section>
 
-    <!-- ========== OPEN POSITIONS ========== -->
-    <section id="openings" class="section">
-      <div class="container">
-        <?= renderSectionHeader('Open Positions', 'Current Opportunities', 'Find a role that matches your skills, experience, and career aspirations.') ?>
-
-        <div class="grid grid--2 reveal">
-          <?php foreach ($jobs as $job): ?>
-            <div class="job-card">
-              <div class="job-card__header">
-                <div class="job-card__icon"><?= $job['icon'] ?></div>
+        <div class="rd-grid">
+          <?php foreach ($openings as $job): ?>
+            <div class="rd-card reveal">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:var(--space-3);">
+                <span class="trust-pill" style="font-size:10px;"><?= htmlspecialchars($job['department']) ?></span>
+                <span style="font-size:var(--fs-xs); color:var(--color-text-muted); font-weight:600;"><?= htmlspecialchars($job['type']) ?></span>
               </div>
-              <h4 class="job-card__title"><?= $job['title'] ?></h4>
-              <div class="job-card__dept"><?= $job['department'] ?></div>
-              <div class="job-card__meta">
-                <div class="job-card__meta-item">
-                  <svg class="job-card__meta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <?= $job['location'] ?>
-                </div>
-                <div class="job-card__meta-item">
-                  <svg class="job-card__meta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  <?= $job['type'] ?>
-                </div>
-                <div class="job-card__meta-item">
-                  <svg class="job-card__meta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                  <?= $job['experience'] ?>
-                </div>
-              </div>
-              <?= renderButton('Apply Now', 'contact.php', 'primary', 'sm') ?>
+              <h3 class="rd-card__title" style="margin-bottom:var(--space-2);"><?= htmlspecialchars($job['title']) ?></h3>
+              <p style="font-size:var(--fs-small); color:var(--color-primary); font-weight:600; margin-bottom:var(--space-3);">
+                📍 <?= htmlspecialchars($job['location']) ?> &bull; ⏱ <?= htmlspecialchars($job['experience']) ?>
+              </p>
+              <p class="rd-card__text" style="margin-bottom:var(--space-5);"><?= htmlspecialchars($job['description']) ?></p>
+              <a href="contact.php?subject=Application+for+<?= urlencode($job['title']) ?>" class="btn btn--primary btn--sm" style="width:100%; text-align:center;">
+                Apply For This Position
+              </a>
             </div>
           <?php endforeach; ?>
         </div>
       </div>
     </section>
 
-    <!-- ========== CTA ========== -->
+    <!-- Application Form Section -->
     <section class="section">
       <div class="container">
-        <?= renderCtaBlock(
-          'Dont See Your Role?',
-          'We are always looking for talented individuals. Send us your resume and we will keep you in mind for future opportunities that match your skills.'
-        ) ?>
+        <div class="cta-clean">
+          <div class="cta-clean__content">
+            <h2 class="cta-clean__title">Don't See a Matching Role?</h2>
+            <p class="cta-clean__text">We are always searching for passionate scientists, engineers, regulatory experts, and business leaders. Send us your CV for general consideration.</p>
+            <div class="cta-clean__buttons">
+              <?= renderButton('Submit Resume', 'contact.php', 'primary', 'lg') ?>
+              <?= renderButton('Contact HR Team', 'mailto:careers@pharmacorp.com', 'outline', 'lg') ?>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>

@@ -38,7 +38,9 @@
         <a href="index.php" class="footer__link">Home</a>
         <a href="about.php" class="footer__link">About Us</a>
         <a href="products.php" class="footer__link">Products</a>
-        <a href="careers.php" class="footer__link">Career</a>
+        <a href="gallery.php" class="footer__link">Gallery</a>
+        <a href="careers.php" class="footer__link">Careers</a>
+        <a href="blogs.php" class="footer__link">Blogs &amp; Insights</a>
         <a href="contact.php" class="footer__link">Contact Us</a>
       </div>
 

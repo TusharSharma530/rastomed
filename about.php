@@ -73,7 +73,7 @@ $leaders = [
             </p>
             <div style="display:flex; gap:var(--space-4); flex-wrap:wrap;">
               <?= renderButton('Our Products', 'products.php', 'primary') ?>
-              <?= renderButton('Quality Standards', 'quality.php', 'secondary') ?>
+              <?= renderButton('Contact Us', 'contact.php', 'outline') ?>
             </div>
           </div>
           <div class="reveal reveal--right" style="position:relative;">

@@ -31,19 +31,9 @@ $navItems = [
         ]
     ],
     [
-        'label' => 'Quality',
-        'url' => 'quality.php',
-        'key' => 'quality',
-    ],
-    [
-        'label' => 'R&D',
-        'url' => 'research.php',
-        'key' => 'research',
-    ],
-    [
-        'label' => 'Manufacturing',
-        'url' => 'manufacturing.php',
-        'key' => 'manufacturing',
+        'label' => 'Gallery',
+        'url' => 'gallery.php',
+        'key' => 'gallery',
     ],
     [
         'label' => 'Careers',
@@ -51,9 +41,9 @@ $navItems = [
         'key' => 'careers',
     ],
     [
-        'label' => 'News',
-        'url' => 'news.php',
-        'key' => 'news',
+        'label' => 'Blogs',
+        'url' => 'blogs.php',
+        'key' => 'blogs',
     ],
     [
         'label' => 'Contact',
