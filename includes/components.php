@@ -283,23 +283,35 @@ function renderFilterableProductCard($product) {
     $description = $product['description'] ?? '';
     $badge = $product['badge'] ?? '';
     $icon = $product['icon'] ?? '&#9830;';
+    $image = $product['image'] ?? '';
     $url = $product['url'] ?? 'product-details.php';
 
     $badgeHtml = $badge ? '<span class="product-card__badge">' . $badge . '</span>' : '';
 
+    $imageHtml = '';
+    if ($image) {
+        $imageHtml = '
+        <div class="product-card__image-enterprise">
+            <img src="' . htmlspecialchars($image) . '" alt="' . htmlspecialchars($name) . ' Packaging" loading="lazy">
+        </div>';
+    } else {
+        $imageHtml = '
+        <div class="product-card__image">
+            <div class="product-card__image-placeholder">' . $icon . '</div>
+        </div>';
+    }
+
     return '
     <div class="product-card product-card--visible" data-product="' . $id . '" data-name="' . htmlspecialchars($name) . '" data-category="' . htmlspecialchars($category) . '" data-therapy="' . htmlspecialchars($therapy) . '">
         ' . $badgeHtml . '
-        <div class="product-card__image">
-            <div class="product-card__image-placeholder">' . $icon . '</div>
-        </div>
+        ' . $imageHtml . '
         <div class="product-card__body">
-            <div class="product-card__category">' . $category . '</div>
-            <h3 class="product-card__title">' . $name . '</h3>
-            <p class="product-card__description">' . $description . '</p>
+            <div class="product-card__category">' . htmlspecialchars($category) . '</div>
+            <h3 class="product-card__title">' . htmlspecialchars($name) . '</h3>
+            <p class="product-card__description">' . htmlspecialchars($description) . '</p>
             <div class="product-card__footer">
                 <a href="' . $url . '" class="card__link">
-                    View Details
+                    View Specifications
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"/>
                         <polyline points="12 5 19 12 12 19"/>
