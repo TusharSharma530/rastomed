@@ -9,31 +9,31 @@ $productCategories = [
     [
         'name' => 'Capsules',
         'description' => 'Wide range of high-quality capsule formulations.',
-        'image' => 'assets/images/capsules.jpg',
+        'image' => 'assets/images/prod-capsules.jpg',
         'url' => 'products.php',
     ],
     [
         'name' => 'Tablets',
         'description' => 'Reliable and effective tablet formulations.',
-        'image' => 'assets/images/tablets.jpg',
+        'image' => 'assets/images/prod-tablets.jpg',
         'url' => 'products.php',
     ],
     [
         'name' => 'Syrups',
         'description' => 'Clinically tested syrups for every need.',
-        'image' => 'assets/images/syrups.jpg',
+        'image' => 'assets/images/prod-syrups.jpg',
         'url' => 'products.php',
     ],
     [
         'name' => 'Injections',
         'description' => 'Safe, sterile & trusted injection range.',
-        'image' => 'assets/images/injections.jpg',
+        'image' => 'assets/images/prod-injections.jpg',
         'url' => 'products.php',
     ],
     [
         'name' => 'Ointments',
         'description' => 'Topical care with reliable and safe formulations.',
-        'image' => 'assets/images/ointments.jpg',
+        'image' => 'assets/images/prod-ointments.jpg',
         'url' => 'products.php',
     ],
 ];
@@ -98,7 +98,7 @@ $homeBlogs = [
         'title' => 'Latest Trends in Pharmaceutical Industry in 2024',
         'category' => 'Pharma News',
         'date' => 'May 10, 2024',
-        'image' => 'assets/images/blog-1.jpg',
+        'image' => 'assets/images/blog-research.jpg',
         'excerpt' => 'Exploring the latest advancements and trends shaping the pharmaceutical industry.',
     ],
     [
@@ -106,7 +106,7 @@ $homeBlogs = [
         'title' => '5 Simple Ways to Boost Your Immunity Naturally',
         'category' => 'Health Tips',
         'date' => 'May 05, 2024',
-        'image' => 'assets/images/blog-2.jpg',
+        'image' => 'assets/images/blog-health.jpg',
         'excerpt' => 'Natural approaches to strengthen your immune system and stay healthy.',
     ],
     [
@@ -114,7 +114,7 @@ $homeBlogs = [
         'title' => 'How Quality Manufacturing Ensures Better Healthcare',
         'category' => 'Pharma Updates',
         'date' => 'April 28, 2024',
-        'image' => 'assets/images/blog-3.jpg',
+        'image' => 'assets/images/blog-manufacturing.jpg',
         'excerpt' => 'The role of quality manufacturing in delivering safe and effective medicines.',
     ],
 ];
@@ -157,7 +157,7 @@ $homeBlogs = [
           </div>
           <div class="hero-section__visual">
             <div class="hero-section__image-wrapper">
-              <img src="assets/images/hero-lab.jpg" alt="Medixon Pharmaceuticals Laboratory" class="hero-section__image" width="600" height="450">
+              <img src="assets/images/hero-lab2.jpg" alt="Medixon Pharmaceuticals Laboratory" class="hero-section__image" width="600" height="450">
             </div>
           </div>
         </div>
@@ -197,7 +197,7 @@ $homeBlogs = [
         <div class="about-split">
           <div class="about-split__image reveal reveal--left">
             <div class="enterprise-img-wrapper">
-              <img src="assets/images/about-building.jpg" alt="Medixon Pharmaceuticals Corporate Headquarters" class="enterprise-img" width="600" height="450">
+              <img src="assets/images/about-factory.jpg" alt="Medixon Pharmaceuticals Corporate Headquarters" class="enterprise-img" width="600" height="450">
             </div>
             <div class="about-split__badge">
               <strong>18+</strong>

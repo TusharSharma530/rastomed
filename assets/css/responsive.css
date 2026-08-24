@@ -582,8 +582,12 @@
     height: 150px;
   }
 
-  .map-placeholder {
-    height: 280px;
+  .map-wrapper {
+    min-height: 300px;
+  }
+
+  .map-wrapper iframe {
+    min-height: 300px;
   }
 
   .footer__bottom {
