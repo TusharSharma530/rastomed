@@ -10,20 +10,12 @@ $navItems = [
     [
         'label' => 'Home',
         'url' => 'index.php',
-        'key' => 'home',
+        'key' => 'index',
     ],
     [
         'label' => 'About',
         'url' => 'about.php',
         'key' => 'about',
-        'hasDropdown' => true,
-        'dropdown' => [
-            ['label' => 'Our Story', 'url' => 'about.php', 'icon' => '&#9826;'],
-            ['label' => 'Leadership', 'url' => 'about.php#leadership', 'icon' => '&#9830;'],
-            ['label' => 'Vision & Mission', 'url' => 'about.php#vision', 'icon' => '&#9733;'],
-            ['label' => 'Sustainability', 'url' => 'about.php#sustainability', 'icon' => '&#9752;'],
-            ['label' => 'Global Presence', 'url' => 'about.php#global', 'icon' => '&#9707;'],
-        ]
     ],
     [
         'label' => 'Products',
@@ -31,9 +23,11 @@ $navItems = [
         'key' => 'products',
         'hasDropdown' => true,
         'dropdown' => [
-            ['label' => 'Product Portfolio', 'url' => 'products.php', 'icon' => '&#9830;'],
-            ['label' => 'Therapeutic Areas', 'url' => 'products.php#therapeutic', 'icon' => '&#9733;'],
-            ['label' => 'New Launches', 'url' => 'products.php#launches', 'icon' => '&#10038;'],
+            ['label' => 'All Products', 'url' => 'products.php', 'icon' => '&#9830;'],
+            ['label' => 'Gastro', 'url' => 'products.php', 'icon' => '&#129516;'],
+            ['label' => 'Gynae', 'url' => 'products.php', 'icon' => '&#9792;'],
+            ['label' => 'Ortho', 'url' => 'products.php', 'icon' => '&#129462;'],
+            ['label' => 'General Care', 'url' => 'products.php', 'icon' => '&#128138;'],
         ]
     ],
     [
@@ -55,6 +49,11 @@ $navItems = [
         'label' => 'Careers',
         'url' => 'careers.php',
         'key' => 'careers',
+    ],
+    [
+        'label' => 'News',
+        'url' => 'news.php',
+        'key' => 'news',
     ],
     [
         'label' => 'Contact',
