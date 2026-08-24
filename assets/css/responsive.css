@@ -487,12 +487,12 @@
     gap: var(--space-8);
   }
 
-  .top-bar__left {
+  .top-bar__contact {
     gap: var(--space-4);
   }
 
-  .top-bar__item:nth-child(3) {
-    display: none;
+  .top-bar__contact-text strong {
+    font-size: 0.8rem;
   }
 }
 
