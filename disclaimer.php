@@ -227,11 +227,11 @@ $sections = [
                   </div>
                   <div class="legal-contact-card__row">
                     <span class="legal-contact-card__label">Phone</span>
-                    <span>+91 22 1234 5678</span>
+                    <span>+91 9410666599 (WhatsApp) | +91 7906752047</span>
                   </div>
                   <div class="legal-contact-card__row">
                     <span class="legal-contact-card__label">Postal Address</span>
-                    <span>PharmaCorp Ltd.<br>123 Pharma Avenue, Science Park<br>Mumbai, Maharashtra 400001, India</span>
+                    <span>RastoMed Pharma<br>353, Shivaji Road<br>Meerut, Uttar Pradesh-250001</span>
                   </div>
                 </div>
               </div>

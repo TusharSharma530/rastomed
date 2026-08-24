@@ -330,15 +330,15 @@ $homeBlogs = [
             <div class="map-info-item">
               <div class="map-info-icon">&#128205;</div>
               <div class="map-info-text">
-                <strong>Corporate Headquarters</strong>
-                <p>123 Pharma Avenue, Science Park<br>Mumbai 400001, India</p>
+                <strong>Head Office</strong>
+                <p>353, Shivaji Road, Meerut,<br>Uttar Pradesh-250001</p>
               </div>
             </div>
             <div class="map-info-item">
               <div class="map-info-icon">&#128222;</div>
               <div class="map-info-text">
                 <strong>Contact Support</strong>
-                <p>+91 22 1234 5678<br>info@pharmacorp.com</p>
+                <p>+91 9410666599<br>info@rastomed.com</p>
               </div>
             </div>
             <div class="map-info-item">

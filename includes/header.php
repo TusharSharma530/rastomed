@@ -14,9 +14,8 @@
 <header class="header" role="banner">
   <div class="header__inner">
     <!-- Logo -->
-    <a href="index.php" class="header__logo" aria-label="PharmaCorp Home">
-      <span class="header__logo-icon">P</span>
-      <span class="header__logo-text">Pharma<span>Corp</span></span>
+    <a href="index.php" class="header__logo" aria-label="RastoMed Home">
+      <img src="assets/images/rastomed.jpeg" alt="RastoMed Pharma" style="height:50px; width:auto; display:block;">
     </a>
 
     <!-- Desktop Navigation -->

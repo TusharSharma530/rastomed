@@ -8,42 +8,30 @@ require_once __DIR__ . '/includes/components.php';
 $contactInfo = [
     [
         'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
-        'label' => 'Global Headquarters',
-        'value' => '123 Pharma Avenue, Science Park, Mumbai, Maharashtra 400001, India',
+        'label' => 'Address',
+        'value' => '353, Shivaji Road, Meerut, Uttar Pradesh-250001',
         'sub' => 'WHO-GMP & ISO 9001:2015 Registered Facility',
     ],
     [
         'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
-        'label' => 'Direct Sales & Hotline',
-        'value' => '+91 22 1234 5678',
-        'sub' => 'Mon - Fri, 9:00 AM - 6:00 PM IST',
+        'label' => 'Phone',
+        'value' => '+91 9410666599 (WhatsApp) | +91 7906752047',
+        'sub' => 'Mon - Sat, 9:00 AM - 6:00 PM IST',
     ],
     [
         'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>',
-        'label' => 'Official Communications',
-        'value' => 'info@pharmacorp.com',
+        'label' => 'Email',
+        'value' => 'info@rastomed.com',
         'sub' => 'Guaranteed response within 24 business hours',
     ],
 ];
 
 $offices = [
     [
-        'city' => 'Mumbai, India',
-        'type' => 'Global HQ & Regulatory Affairs',
-        'address' => '123 Pharma Avenue, Science Park, Mumbai 400001',
-        'phone' => '+91 22 1234 5678',
-    ],
-    [
-        'city' => 'Pune, India',
-        'type' => 'R&D & Formulation Facility',
-        'address' => 'Biotech Innovation Campus, MIDC Phase II, Pune 411057',
-        'phone' => '+91 20 9876 5432',
-    ],
-    [
-        'city' => 'Dubai, UAE',
-        'type' => 'Middle East & Africa Liaison',
-        'address' => 'Dubai Healthcare City, Building 45, Dubai, UAE',
-        'phone' => '+971 4 123 4567',
+        'city' => 'Meerut, India',
+        'type' => 'Head Office',
+        'address' => '353, Shivaji Road, Meerut, Uttar Pradesh-250001',
+        'phone' => '+91 9410666599',
     ],
 ];
 

@@ -79,8 +79,7 @@ $leaders = [
           <div class="reveal reveal--right" style="position:relative;">
             <div style="background:linear-gradient(135deg, var(--color-surface-alt), var(--color-surface)); border-radius:var(--radius-2xl); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; border:1px solid var(--color-border-light);">
               <div style="text-align:center; padding:var(--space-8);">
-                <div style="width:80px; height:80px; margin:0 auto var(--space-4); background:linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); border-radius:var(--radius-xl); display:flex; align-items:center; justify-content:center; color:#fff; font-size:2rem;">P</div>
-                <p style="color:var(--color-text-muted); font-size:var(--fs-small);">Company Image Placeholder</p>
+                <img src="assets/images/rastomed.jpeg" alt="RastoMed Pharma" style="max-width:100%; max-height:220px; object-fit:contain; border-radius:var(--radius-lg);">
               </div>
             </div>
           </div>
