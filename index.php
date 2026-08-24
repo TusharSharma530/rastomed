@@ -1,133 +1,121 @@
 <?php
 /**
- * Homepage - PharmaCorp Enterprise
- * Exact layout structure: Header, Banner, About Us, Products, Awards, Testimonials, Blogs, Map, Footer
+ * Homepage - Medixon Pharmaceuticals
+ * Exact layout: Header, Hero, About Us, Products, Awards, Testimonials, Blogs, Map/Contact, Footer
  */
 require_once __DIR__ . '/includes/components.php';
 
-$homepageProducts = [
+$productCategories = [
     [
-        'id' => 1,
-        'name' => 'CardioShield Plus',
-        'category' => 'Cardiology',
-        'description' => 'Advanced cardiovascular medication for managing hypertension and reducing cardiac risk factors.',
-        'badge' => 'Best Seller',
-        'image' => 'assets/images/product-card-1.svg',
+        'name' => 'Capsules',
+        'description' => 'Wide range of high-quality capsule formulations.',
+        'image' => 'assets/images/capsules.jpg',
+        'url' => 'products.php',
     ],
     [
-        'id' => 2,
-        'name' => 'RespiCare Forte',
-        'category' => 'General Care',
-        'description' => 'Comprehensive respiratory therapy for asthma and COPD management with rapid onset.',
-        'badge' => 'Popular',
-        'image' => 'assets/images/product-card-2.svg',
+        'name' => 'Tablets',
+        'description' => 'Reliable and effective tablet formulations.',
+        'image' => 'assets/images/tablets.jpg',
+        'url' => 'products.php',
     ],
     [
-        'id' => 3,
-        'name' => 'NeuroBalance',
-        'category' => 'Neurology',
-        'description' => 'Innovative neurological treatment for neuropathic pain and mood stabilization.',
-        'badge' => 'New',
-        'image' => 'assets/images/product-card-3.svg',
+        'name' => 'Syrups',
+        'description' => 'Clinically tested syrups for every need.',
+        'image' => 'assets/images/syrups.jpg',
+        'url' => 'products.php',
     ],
     [
-        'id' => 4,
-        'name' => 'OsteoFlex',
-        'category' => 'Ortho',
-        'description' => 'Premium joint care supplement for mobility and bone strength support.',
-        'badge' => 'High Demand',
-        'image' => 'assets/images/product-card-4.svg',
+        'name' => 'Injections',
+        'description' => 'Safe, sterile & trusted injection range.',
+        'image' => 'assets/images/injections.jpg',
+        'url' => 'products.php',
     ],
     [
-        'id' => 5,
-        'name' => 'GastroEase',
-        'category' => 'Gastro',
-        'description' => 'Effective digestive care solution for gastrointestinal comfort and gut health.',
-        'badge' => '',
-        'image' => 'assets/images/product-card-5.svg',
-    ],
-    [
-        'id' => 6,
-        'name' => 'GynoCare',
-        'category' => 'Gynae',
-        'description' => 'Trusted gynecological care product for women\'s health and wellness.',
-        'badge' => '',
-        'image' => 'assets/images/product-card-6.svg',
+        'name' => 'Ointments',
+        'description' => 'Topical care with reliable and safe formulations.',
+        'image' => 'assets/images/ointments.jpg',
+        'url' => 'products.php',
     ],
 ];
 
 $awards = [
     [
-        'year' => '2026',
-        'icon' => '&#127942;',
-        'title' => 'WHO-GMP Excellence Award',
-        'description' => 'Honored for outstanding quality assurance & zero-defect pharmaceutical manufacturing standards.',
+        'image' => 'assets/images/award-1.jpg',
+        'title' => 'Business Excellence Award 2024',
+        'desc' => 'Recognized for outstanding business practices and excellence in pharmaceutical manufacturing.',
     ],
     [
-        'year' => '2025',
-        'icon' => '&#9733;',
-        'title' => 'ISO 9001:2015 Certification',
-        'description' => 'Certified high-precision quality management system across international product lines.',
+        'image' => 'assets/images/award-2.jpg',
+        'title' => 'India Pharma Award 2023',
+        'desc' => 'Honored for innovation and contribution to the Indian pharmaceutical industry.',
     ],
     [
-        'year' => '2025',
-        'icon' => '&#128161;',
-        'title' => 'Pharma Innovation Award',
-        'description' => 'Recognized for pioneering solid oral bio-availability enhancement technologies.',
+        'image' => 'assets/images/award-3.jpg',
+        'title' => 'GMP Certified',
+        'desc' => 'Certified for Good Manufacturing Practices ensuring product quality and safety.',
     ],
     [
-        'year' => '2024',
-        'icon' => '&#127757;',
-        'title' => 'Top Healthcare Exporter',
-        'description' => 'Awarded for expanding high-quality affordable medicines to over 50 countries.',
+        'image' => 'assets/images/award-4.jpg',
+        'title' => 'ISO 9001:2015',
+        'desc' => 'International standard certification for quality management systems.',
+    ],
+    [
+        'image' => 'assets/images/award-5.jpg',
+        'title' => 'WHO-GMP Certified',
+        'desc' => 'World Health Organization Good Manufacturing Practices certified facility.',
+    ],
+    [
+        'image' => 'assets/images/award-6.jpg',
+        'title' => '15+ Years of Trust',
+        'desc' => 'Over 15 years of trusted service in pharmaceutical manufacturing and distribution.',
     ],
 ];
 
 $testimonials = [
     [
-        'quote' => 'PharmaCorp\'s unwavering commitment to product consistency and international GMP standards has made them our most trusted pharmaceutical partner.',
-        'name' => 'Dr. Alok Nath',
-        'role' => 'Chief Cardiologist, Metro Health Institute',
-        'avatar' => 'A',
+        'quote' => 'Medixon Pharmaceuticals has been our trusted partner for years. Their quality and commitment are truly exceptional.',
+        'name' => 'Dr. Rakesh Sharma',
+        'role' => 'Senior Consultant',
+        'avatar' => 'RS',
     ],
     [
-        'quote' => 'Their rapid formulation turnarounds and transparent regulatory documentation have accelerated our international medicine distribution.',
-        'name' => 'Sarah Jenkins',
-        'role' => 'VP of Supply Chain, EuroCare Global',
-        'avatar' => 'S',
+        'quote' => 'The quality of their products and timely delivery helps us serve our patients better every day.',
+        'name' => 'Dr. Anjali Verma',
+        'role' => 'MD, Physician',
+        'avatar' => 'AV',
     ],
     [
-        'quote' => 'The therapeutic efficacy of PharmaCorp\'s respiratory and gastroenterology formulations is consistently backed by clinical excellence.',
-        'name' => 'Dr. Maria Santos',
-        'role' => 'Regional Medical Director',
-        'avatar' => 'M',
+        'quote' => 'Excellent services, wide product range and strong support team. Highly recommended.',
+        'name' => 'Mr. Sandeep Patel',
+        'role' => 'Distributor',
+        'avatar' => 'SP',
     ],
 ];
 
 $homeBlogs = [
     [
         'id' => 1,
-        'title' => 'Breakthroughs in Solid Oral Dosage Formulations',
-        'category' => 'R&D Insights',
-        'date' => 'August 18, 2026',
-        'image' => 'assets/images/blog-1.svg',
-        'excerpt' => 'Exploring self-emulsifying drug delivery systems for poorly soluble active pharmaceutical ingredients.',
+        'title' => 'Latest Trends in Pharmaceutical Industry in 2024',
+        'category' => 'Pharma News',
+        'date' => 'May 10, 2024',
+        'image' => 'assets/images/blog-1.jpg',
+        'excerpt' => 'Exploring the latest advancements and trends shaping the pharmaceutical industry.',
     ],
     [
         'id' => 2,
-        'title' => 'Navigating Global WHO-GMP & ISO Compliance',
-        'category' => 'Regulatory',
-        'date' => 'August 10, 2026',
-        'image' => 'assets/images/blog-2.svg',
-        'excerpt' => 'Maintaining zero-defect audit readiness across health authority inspections.',
+        'title' => '5 Simple Ways to Boost Your Immunity Naturally',
+        'category' => 'Health Tips',
+        'date' => 'May 05, 2024',
+        'image' => 'assets/images/blog-2.jpg',
+        'excerpt' => 'Natural approaches to strengthen your immune system and stay healthy.',
     ],
     [
         'id' => 3,
-        'title' => 'The Role of AI & Molecular Modeling in Drug Discovery',
-        'category' => 'Innovation',
-        'date' => 'July 28, 2026',
-        'image' => 'assets/images/blog-3.svg',
-        'excerpt' => 'How machine learning accelerates target-ligand binding affinity predictions.',
+        'title' => 'How Quality Manufacturing Ensures Better Healthcare',
+        'category' => 'Pharma Updates',
+        'date' => 'April 28, 2024',
+        'image' => 'assets/images/blog-3.jpg',
+        'excerpt' => 'The role of quality manufacturing in delivering safe and effective medicines.',
     ],
 ];
 ?>
@@ -136,8 +124,8 @@ $homeBlogs = [
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="PharmaCorp - High quality and affordable medicines to improve quality of life globally.">
-  <title>PharmaCorp - Enterprise Pharmaceutical R&amp;D &amp; Healthcare</title>
+  <meta name="description" content="Medixon Pharmaceuticals - Trusted by Doctors, Chosen by Millions. High-quality medicines for a healthier tomorrow.">
+  <title>Medixon Pharmaceuticals - Advancing Healthcare Through Innovation</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -150,31 +138,54 @@ $homeBlogs = [
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
-    <!-- 2. BANNER / HERO -->
-    <section class="hero hero--clean hero--enterprise">
+    <!-- 2. HERO SECTION -->
+    <section class="hero-section">
       <div class="container">
-        <div class="hero__grid">
-          <div class="hero__content">
-            <div class="trust-pills">
-              <span class="trust-pill">&#10003; WHO-GMP Certified</span>
-              <span class="trust-pill">&#9733; ISO 9001:2015</span>
-              <span class="trust-pill">&#127757; Global Distribution</span>
-            </div>
-            <h1 class="hero__title">
-              High Quality &amp; Affordable Medicines To Improve Global Healthcare.
+        <div class="hero-section__grid">
+          <div class="hero-section__content">
+            <span class="hero-section__label">CARING FOR LIFE</span>
+            <h1 class="hero-section__title">
+              Advancing Healthcare Through <span class="hero-section__title--highlight">Innovation</span>
             </h1>
-            <p class="hero__text">
-              Delivering trusted enterprise-grade pharmaceutical formulations with an unyielding commitment to scientific innovation, patient safety, and international quality standards.
+            <p class="hero-section__text">
+              Medixon Pharmaceuticals is committed to improving lives by delivering high-quality, effective and affordable pharmaceutical products trusted worldwide.
             </p>
-            <div class="hero__buttons">
-              <?= renderButton('Explore Products', 'products.php', 'primary', 'lg') ?>
-              <?= renderButton('Corporate Profile', 'about.php', 'outline', 'lg') ?>
+            <div class="hero-section__buttons">
+              <?= renderButton('Explore Products', 'products.php', 'primary', 'lg', '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
+              <?= renderButton('Contact Us', 'contact.php', 'outline', 'lg', '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
             </div>
           </div>
-          <div class="hero__visual">
-            <div class="enterprise-img-wrapper">
-              <img src="assets/images/hero-enterprise.svg" alt="PharmaCorp Enterprise R&amp;D Laboratory Showcase" class="enterprise-img" width="800" height="500">
+          <div class="hero-section__visual">
+            <div class="hero-section__image-wrapper">
+              <img src="assets/images/hero-lab.jpg" alt="Medixon Pharmaceuticals Laboratory" class="hero-section__image" width="600" height="450">
             </div>
+          </div>
+        </div>
+        <!-- Trust Badges -->
+        <div class="hero-section__trust">
+          <div class="trust-badge-item">
+            <div class="trust-badge-item__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="trust-badge-item__text">WHO-GMP<br>Certified</span>
+          </div>
+          <div class="trust-badge-item">
+            <div class="trust-badge-item__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <span class="trust-badge-item__text">Quality<br>Assurance</span>
+          </div>
+          <div class="trust-badge-item">
+            <div class="trust-badge-item__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <span class="trust-badge-item__text">Timely<br>Delivery</span>
+          </div>
+          <div class="trust-badge-item">
+            <div class="trust-badge-item__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v11l-3 3-3-3z"/><path d="M6 21h12"/></svg>
+            </div>
+            <span class="trust-badge-item__text">R&amp;D<br>Driven</span>
           </div>
         </div>
       </div>
@@ -186,19 +197,53 @@ $homeBlogs = [
         <div class="about-split">
           <div class="about-split__image reveal reveal--left">
             <div class="enterprise-img-wrapper">
-              <img src="assets/images/about-enterprise.svg" alt="PharmaCorp Corporate Headquarters and R&amp;D Facility" class="enterprise-img" width="600" height="450">
+              <img src="assets/images/about-building.jpg" alt="Medixon Pharmaceuticals Corporate Headquarters" class="enterprise-img" width="600" height="450">
+            </div>
+            <div class="about-split__badge">
+              <strong>18+</strong>
+              <span>Years of<br>Excellence</span>
+              <small>Serving healthcare with trust since 2006</small>
             </div>
           </div>
           <div class="about-split__content reveal reveal--right">
-            <span class="section-label">About Us</span>
-            <h2 class="section__title" style="text-align:left;">PharmaCorp Private Limited</h2>
+            <span class="section-label">ABOUT US</span>
+            <h2 class="section__title" style="text-align:left;">Trusted by Doctors.<br>Chosen by <span style="color:var(--color-primary);">Millions.</span></h2>
             <p class="about-split__text">
-              PharmaCorp is a premier global pharmaceutical organization engaged in developing, manufacturing, and supplying life-changing medicinal products. We offer an extensive portfolio spanning Capsules, Syrups, Tablets, Injectables, and Specialized Formulations.
+              Medixon Pharmaceuticals is a fast-growing pharmaceutical company dedicated to manufacturing and marketing a wide range of high-quality medicines.
             </p>
-            <p class="about-split__text">
-              Engineered within state-of-the-art WHO-GMP and ISO certified manufacturing facilities, all formulations adhere to stringent international regulatory guidelines for maximum efficacy and purity.
-            </p>
-            <?= renderButton('Discover Our Story', 'about.php', 'primary', '', '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
+            <div class="about-stats-grid">
+              <div class="about-stat">
+                <div class="about-stat__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="about-stat__number">18+</div>
+                <div class="about-stat__label">Years<br>Experience</div>
+              </div>
+              <div class="about-stat">
+                <div class="about-stat__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                <div class="about-stat__number">300+</div>
+                <div class="about-stat__label">Quality<br>Products</div>
+              </div>
+              <div class="about-stat">
+                <div class="about-stat__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <div class="about-stat__number">25+</div>
+                <div class="about-stat__label">Countries<br>Presence</div>
+              </div>
+              <div class="about-stat">
+                <div class="about-stat__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="about-stat__number">500+</div>
+                <div class="about-stat__label">Happy<br>Associates</div>
+              </div>
+            </div>
+            <div style="margin-top: var(--space-6);">
+              <?= renderButton('Know More About Us', 'about.php', 'primary', '', '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
+            </div>
           </div>
         </div>
       </div>
@@ -208,24 +253,20 @@ $homeBlogs = [
     <section class="section section--alt">
       <div class="container">
         <div class="section__header">
-          <span class="section-label">Quality &amp; Reliable</span>
-          <h2 class="section__title">Featured Products</h2>
+          <span class="section-label">OUR PRODUCTS</span>
+          <h2 class="section__title">Quality Products for a <span style="color:var(--color-primary);">Healthier Tomorrow</span></h2>
         </div>
-        <div class="product-grid product-grid--home reveal">
-          <?php foreach ($homepageProducts as $product): ?>
-            <div class="product-card product-card--clean">
-              <?php if (!empty($product['badge'])): ?>
-                <span class="product-card__badge"><?= $product['badge'] ?></span>
-              <?php endif; ?>
-              <div class="product-card__image-enterprise">
-                <img src="<?= $product['image'] ?>" alt="<?= htmlspecialchars($product['name']) ?> Packaging Render" width="400" height="300" loading="lazy">
+        <div class="product-categories-grid reveal">
+          <?php foreach ($productCategories as $product): ?>
+            <div class="product-category-card">
+              <div class="product-category-card__image">
+                <img src="<?= $product['image'] ?>" alt="<?= htmlspecialchars($product['name']) ?>" width="200" height="160" loading="lazy">
               </div>
-              <div class="product-card__body">
-                <div class="product-card__category"><?= $product['category'] ?></div>
-                <h4 class="product-card__title"><?= $product['name'] ?></h4>
-                <p style="font-size: var(--fs-small); color: var(--color-text-secondary); margin-bottom: var(--space-4);"><?= $product['description'] ?></p>
-                <a href="product-details.php" class="product-card__link">
-                  View Specifications
+              <div class="product-category-card__body">
+                <h3 class="product-category-card__title"><?= htmlspecialchars($product['name']) ?></h3>
+                <p class="product-category-card__desc"><?= htmlspecialchars($product['description']) ?></p>
+                <a href="<?= $product['url'] ?>" class="product-category-card__link">
+                  View Details
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
               </div>
@@ -233,25 +274,34 @@ $homeBlogs = [
           <?php endforeach; ?>
         </div>
         <div style="text-align:center; margin-top:var(--space-10);">
-          <?= renderButton('Explore Full Product Catalog', 'products.php', 'primary', 'lg') ?>
+          <?= renderButton('View All Products', 'products.php', 'primary', 'lg', '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
         </div>
       </div>
     </section>
 
-    <!-- 5. AWARDS -->
-    <section class="section">
+    <!-- 5. AWARDS & CERTIFICATIONS -->
+    <section class="section awards-section">
       <div class="container">
-        <div class="section__header">
-          <span class="section-label">Excellence &amp; Honor</span>
-          <h2 class="section__title">Awards &amp; Industry Recognition</h2>
+        <div class="awards-header">
+          <span class="awards-header__label">AWARDS &amp; CERTIFICATIONS</span>
+          <h2 class="awards-header__title">Recognized for Excellence</h2>
+          <p class="awards-header__text">Our commitment to quality has been acknowledged by leading industry bodies and regulatory authorities worldwide.</p>
         </div>
         <div class="awards-grid">
-          <?php foreach ($awards as $award): ?>
-            <div class="award-card reveal">
-              <div class="award-card__icon"><?= $award['icon'] ?></div>
-              <span class="award-card__year"><?= $award['year'] ?></span>
-              <h3 class="award-card__title"><?= htmlspecialchars($award['title']) ?></h3>
-              <p class="award-card__desc"><?= htmlspecialchars($award['description']) ?></p>
+          <?php foreach ($awards as $index => $award): ?>
+            <div class="award-card reveal" style="animation-delay: <?= $index * 0.1 ?>s;">
+              <div class="award-card__image">
+                <img src="<?= $award['image'] ?>" alt="<?= htmlspecialchars($award['title']) ?>" loading="lazy">
+                <div class="award-card__overlay">
+                  <div class="award-card__icon-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="award-card__content">
+                <h3 class="award-card__title"><?= htmlspecialchars($award['title']) ?></h3>
+                <p class="award-card__desc"><?= htmlspecialchars($award['desc']) ?></p>
+              </div>
             </div>
           <?php endforeach; ?>
         </div>
@@ -259,93 +309,126 @@ $homeBlogs = [
     </section>
 
     <!-- 6. TESTIMONIALS -->
-    <section class="section section--alt">
+    <section class="section">
       <div class="container">
         <div class="section__header">
-          <span class="section-label">Client &amp; Partner Voices</span>
-          <h2 class="section__title">What Our Partners Say</h2>
+          <span class="section-label">TESTIMONIALS</span>
+          <h2 class="section__title">What Our Clients Say</h2>
         </div>
-        <div class="testimonials-grid">
-          <?php foreach ($testimonials as $t): ?>
-            <div class="testimonial-card reveal">
-              <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <p class="testimonial-card__quote">&ldquo;<?= htmlspecialchars($t['quote']) ?>&rdquo;</p>
-              <div class="testimonial-card__author">
-                <div class="testimonial-card__avatar"><?= $t['avatar'] ?></div>
-                <div>
-                  <div class="testimonial-card__name"><?= htmlspecialchars($t['name']) ?></div>
-                  <div class="testimonial-card__role"><?= htmlspecialchars($t['role']) ?></div>
+        <div class="testimonials-carousel">
+          <div class="testimonials-track">
+            <?php foreach ($testimonials as $t): ?>
+              <div class="testimonial-card-clean reveal">
+                <div class="testimonial-card-clean__quote-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+                </div>
+                <div class="testimonial-card-clean__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="testimonial-card-clean__quote"><?= htmlspecialchars($t['quote']) ?></p>
+                <div class="testimonial-card-clean__author">
+                  <div class="testimonial-card-clean__avatar"><?= $t['avatar'] ?></div>
+                  <div>
+                    <div class="testimonial-card-clean__name"><?= htmlspecialchars($t['name']) ?></div>
+                    <div class="testimonial-card-clean__role"><?= htmlspecialchars($t['role']) ?></div>
+                  </div>
                 </div>
               </div>
-            </div>
-          <?php endforeach; ?>
+            <?php endforeach; ?>
+          </div>
+          <div class="testimonials-nav">
+            <button class="testimonials-nav__dot testimonials-nav__dot--active" aria-label="Slide 1"></button>
+            <button class="testimonials-nav__dot" aria-label="Slide 2"></button>
+            <button class="testimonials-nav__dot" aria-label="Slide 3"></button>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- 7. BLOGS -->
-    <section class="section">
+    <section class="section section--alt">
       <div class="container">
-        <div class="section__header">
-          <span class="section-label">Scientific Insights</span>
-          <h2 class="section__title">Latest Blogs &amp; Articles</h2>
+        <div class="section__header" style="display:flex; align-items:center; justify-content:space-between; text-align:left; max-width:100;">
+          <div>
+            <span class="section-label">OUR BLOGS</span>
+            <h2 class="section__title" style="text-align:left;">Latest Insights &amp; Updates</h2>
+          </div>
+          <?= renderButton('View All Blogs', 'blogs.php', 'outline', 'sm', '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
         </div>
-        <div class="rd-grid">
+        <div class="blogs-grid">
           <?php foreach ($homeBlogs as $b): ?>
-            <div class="rd-card reveal">
-              <div style="width:100%; height:160px; border-radius:var(--radius-md); overflow:hidden; margin-bottom:var(--space-4);">
-                <img src="<?= $b['image'] ?>" alt="<?= htmlspecialchars($b['title']) ?>" style="width:100%; height:100%; object-fit:cover;">
+            <div class="blog-card reveal">
+              <div class="blog-card__image">
+                <img src="<?= $b['image'] ?>" alt="<?= htmlspecialchars($b['title']) ?>" width="400" height="220" loading="lazy">
               </div>
-              <span class="trust-pill" style="font-size:10px; margin-bottom:var(--space-2);"><?= htmlspecialchars($b['category']) ?></span>
-              <h3 class="rd-card__title" style="font-size:var(--fs-h4); margin-bottom:var(--space-2);"><?= htmlspecialchars($b['title']) ?></h3>
-              <p class="rd-card__text" style="font-size:var(--fs-small); margin-bottom:var(--space-4);"><?= htmlspecialchars($b['excerpt']) ?></p>
-              <a href="blog-details.php?id=<?= $b['id'] ?>" class="card__link" style="font-size:var(--fs-xs);">Read Article &rarr;</a>
+              <div class="blog-card__body">
+                <div class="blog-card__meta">
+                  <span class="blog-card__category"><?= htmlspecialchars($b['category']) ?></span>
+                  <span class="blog-card__date"><?= htmlspecialchars($b['date']) ?></span>
+                </div>
+                <h3 class="blog-card__title"><?= htmlspecialchars($b['title']) ?></h3>
+                <a href="blog-details.php?id=<?= $b['id'] ?>" class="blog-card__link">
+                  Read More
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
             </div>
           <?php endforeach; ?>
-        </div>
-        <div style="text-align:center; margin-top:var(--space-8);">
-          <?= renderButton('View All Blogs', 'blogs.php', 'outline', 'lg') ?>
         </div>
       </div>
     </section>
 
-    <!-- 8. MAP / LOCATION -->
-    <section class="section section--alt">
+    <!-- 8. MAP / CONTACT -->
+    <section class="section">
       <div class="container">
-        <div class="section__header">
-          <span class="section-label">Global Headquarters</span>
-          <h2 class="section__title">Our Location &amp; Reach</h2>
-        </div>
-        <div class="map-grid">
+        <div class="map-contact-grid">
           <div class="map-wrapper reveal reveal--left">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.8256193798!2d72.8776559!3d19.0759837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.123456789!2d76.9466!3d30.6942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390afc7a5ec2f45b%3A0x1234567890abcdef!2sPanchkula%2C%20Haryana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              width="100%"
+              height="450"
+              style="border:0; border-radius: var(--radius-2xl);"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              title="PharmaCorp Headquarters Location Map">
+              title="Medixon Pharmaceuticals Location Map">
             </iframe>
           </div>
-          <div class="map-info-card reveal reveal--right">
-            <div class="map-info-item">
-              <div class="map-info-icon">&#128205;</div>
-              <div class="map-info-text">
-                <strong>Head Office</strong>
-                <p>353, Shivaji Road, Meerut,<br>Uttar Pradesh-250001</p>
+          <div class="map-contact-info reveal reveal--right">
+            <span class="section-label">GET IN TOUCH</span>
+            <h2 class="section__title" style="text-align:left; margin-bottom: var(--space-6);">We Are Here to Help You</h2>
+            <div class="map-contact-item">
+              <div class="map-contact-item__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="map-contact-item__text">
+                <strong>Medixon Pharmaceuticals</strong>
+                <p>Plot No. 123, Industrial Area,<br>Phase 1, Panchkula,<br>Haryana, India - 134113</p>
               </div>
             </div>
-            <div class="map-info-item">
-              <div class="map-info-icon">&#128222;</div>
-              <div class="map-info-text">
-                <strong>Contact Support</strong>
-                <p>+91 9410666599<br>info@rastomed.com</p>
+            <div class="map-contact-item">
+              <div class="map-contact-item__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="map-contact-item__text">
+                <strong>+91 98765 43210</strong>
+                <strong>+91 98765 43211</strong>
               </div>
             </div>
-            <div class="map-info-item">
-              <div class="map-info-icon">&#128336;</div>
-              <div class="map-info-text">
-                <strong>Working Hours</strong>
-                <p>Monday &ndash; Friday: 9:00 AM &ndash; 6:00 PM (IST)<br>Saturday &ndash; Sunday: Closed</p>
+            <div class="map-contact-item">
+              <div class="map-contact-item__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="map-contact-item__text">
+                <strong>info@medixonpharma.com</strong>
+                <strong>www.medixonpharma.com</strong>
+              </div>
+            </div>
+            <div class="map-contact-item">
+              <div class="map-contact-item__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="map-contact-item__text">
+                <strong>Monday - Saturday</strong>
+                <p>9:00 AM - 6:00 PM</p>
               </div>
             </div>
           </div>

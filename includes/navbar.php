@@ -13,7 +13,7 @@ $navItems = [
         'key' => 'index',
     ],
     [
-        'label' => 'About',
+        'label' => 'About Us',
         'url' => 'about.php',
         'key' => 'about',
     ],
@@ -23,17 +23,17 @@ $navItems = [
         'key' => 'products',
         'hasDropdown' => true,
         'dropdown' => [
-            ['label' => 'All Products', 'url' => 'products.php', 'icon' => '&#9830;'],
-            ['label' => 'Gastro', 'url' => 'products.php', 'icon' => '&#129516;'],
-            ['label' => 'Gynae', 'url' => 'products.php', 'icon' => '&#9792;'],
-            ['label' => 'Ortho', 'url' => 'products.php', 'icon' => '&#129462;'],
-            ['label' => 'General Care', 'url' => 'products.php', 'icon' => '&#128138;'],
+            ['label' => 'Capsules', 'url' => 'products.php', 'icon' => '&#128138;'],
+            ['label' => 'Tablets', 'url' => 'products.php', 'icon' => '&#9830;'],
+            ['label' => 'Syrups', 'url' => 'products.php', 'icon' => '&#127860;'],
+            ['label' => 'Injections', 'url' => 'products.php', 'icon' => '&#129656;'],
+            ['label' => 'Ointments', 'url' => 'products.php', 'icon' => '&#129516;'],
         ]
     ],
     [
-        'label' => 'Gallery',
-        'url' => 'gallery.php',
-        'key' => 'gallery',
+        'label' => 'Awards',
+        'url' => 'about.php#awards',
+        'key' => 'awards',
     ],
     [
         'label' => 'Careers',
@@ -46,7 +46,7 @@ $navItems = [
         'key' => 'blogs',
     ],
     [
-        'label' => 'Contact',
+        'label' => 'Contact Us',
         'url' => 'contact.php',
         'key' => 'contact',
     ],
@@ -110,7 +110,7 @@ $navItems = [
 
   <div class="mobile-nav__actions">
     <?php include __DIR__ . '/theme-toggle.php'; ?>
-    <a href="contact.php" class="mobile-nav__cta">Get in Touch</a>
+    <a href="contact.php" class="mobile-nav__cta">Enquire Now</a>
   </div>
 </div>
 
