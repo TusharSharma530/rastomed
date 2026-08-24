@@ -1,31 +1,22 @@
 <?php
 /**
  * Homepage - PharmaCorp
- * Premium Pharmaceutical Corporate Website
+ * Jannocks Pharma-inspired pharmaceutical corporate website
  */
 require_once __DIR__ . '/includes/components.php';
 
-$stats = [
-    ['number' => 25, 'label' => 'Years of Excellence', 'suffix' => '+'],
-    ['number' => 100, 'label' => 'Products Manufactured', 'suffix' => '+'],
-    ['number' => 15, 'label' => 'Therapeutic Areas', 'suffix' => '+'],
-    ['number' => 5, 'label' => 'Manufacturing Capabilities', 'suffix' => '+'],
+$categories = [
+    ['name' => 'Gastro', 'icon' => '&#129516;', 'description' => 'Digestive health and gastrointestinal care products for comprehensive patient wellness.'],
+    ['name' => 'Gynae', 'icon' => '&#9792;', 'description' => 'Specialized gynecological healthcare solutions supporting women\'s health at every stage.'],
+    ['name' => 'Ortho', 'icon' => '&#129462;', 'description' => 'Orthopedic and musculoskeletal care products for bone and joint health.'],
+    ['name' => 'General Care', 'icon' => '&#128138;', 'description' => 'Everyday healthcare essentials for general wellness and common health needs.'],
 ];
 
-$values = [
-    ['icon' => '&#9733;', 'title' => 'Quality', 'description' => 'Every product meets the highest international standards of safety, purity, and efficacy through rigorous quality control processes.'],
-    ['icon' => '&#9878;', 'title' => 'Innovation', 'description' => 'Continuously investing in R&D to develop advanced formulations and drug delivery systems that improve patient outcomes.'],
-    ['icon' => '&#9830;', 'title' => 'Integrity', 'description' => 'Operating with transparency and ethical practices in every aspect of our business, from sourcing to distribution.'],
-    ['icon' => '&#10022;', 'title' => 'Excellence', 'description' => 'Striving for the highest standards in manufacturing, research, and customer service across all operations.'],
-    ['icon' => '&#9829;', 'title' => 'Patient First', 'description' => 'Designing every process and product with the patient\'s well-being and safety as the central priority.'],
-    ['icon' => '&#9764;', 'title' => 'Responsibility', 'description' => 'Committed to sustainable practices and environmental stewardship in pharmaceutical manufacturing.'],
-];
-
-$products = [
+$homepageProducts = [
     [
         'id' => 1,
         'name' => 'CardioShield Plus',
-        'category' => 'Tablets',
+        'category' => 'Cardiology',
         'therapy' => 'Cardiology',
         'description' => 'Advanced cardiovascular medication for managing hypertension and reducing cardiac risk factors.',
         'badge' => 'Best Seller',
@@ -34,8 +25,8 @@ $products = [
     [
         'id' => 2,
         'name' => 'RespiCare Forte',
-        'category' => 'Capsules',
-        'therapy' => 'General Medicine',
+        'category' => 'General Care',
+        'therapy' => 'General Care',
         'description' => 'Comprehensive respiratory therapy for asthma and COPD management with rapid onset.',
         'badge' => '',
         'icon' => '&#9736;',
@@ -43,39 +34,46 @@ $products = [
     [
         'id' => 3,
         'name' => 'NeuroBalance',
-        'category' => 'Tablets',
+        'category' => 'Neurology',
         'therapy' => 'Neurology',
         'description' => 'Innovative neurological treatment for neuropathic pain and mood stabilization.',
         'badge' => 'New',
         'icon' => '&#9883;',
     ],
+    [
+        'id' => 4,
+        'name' => 'OsteoFlex',
+        'category' => 'Ortho',
+        'therapy' => 'Ortho',
+        'description' => 'Premium joint care supplement for mobility and bone strength support.',
+        'badge' => '',
+        'icon' => '&#9883;',
+    ],
+    [
+        'id' => 5,
+        'name' => 'GastroEase',
+        'category' => 'Gastro',
+        'therapy' => 'Gastro',
+        'description' => 'Effective digestive care solution for gastrointestinal comfort and gut health.',
+        'badge' => '',
+        'icon' => '&#129516;',
+    ],
+    [
+        'id' => 6,
+        'name' => 'GynoCare',
+        'category' => 'Gynae',
+        'therapy' => 'Gynae',
+        'description' => 'Trusted gynecological care product for women\'s health and wellness.',
+        'badge' => '',
+        'icon' => '&#9792;',
+    ],
 ];
 
-$features = [
-    ['icon' => '&#9733;', 'title' => 'Pharmaceutical Expertise', 'description' => 'Over two decades of specialized experience in pharmaceutical development, manufacturing, and distribution across global markets.'],
-    ['icon' => '&#10003;', 'title' => 'Quality Focus', 'description' => 'Rigorous quality management systems at every stage, from raw material sourcing to final product release and post-market surveillance.'],
-    ['icon' => '&#9878;', 'title' => 'Innovation', 'description' => 'State-of-the-art R&D facilities driving continuous innovation in drug delivery, formulation science, and therapeutic solutions.'],
-    ['icon' => '&#9830;', 'title' => 'Strong Portfolio', 'description' => 'Diverse product portfolio spanning multiple therapeutic areas, catering to varied healthcare needs and patient demographics.'],
-    ['icon' => '&#9829;', 'title' => 'Patient-Centric Approach', 'description' => 'Every decision is guided by our commitment to improving patient outcomes and enhancing quality of life through accessible medicines.'],
-    ['icon' => '&#9881;', 'title' => 'Reliable Manufacturing', 'description' => 'WHO-GMP compliant manufacturing facilities ensuring consistent quality, timely supply, and scalable production capacity.'],
-    ['icon' => '&#9830;', 'title' => 'Ethical Practices', 'description' => 'Transparent operations, fair pricing, and responsible marketing practices that uphold the highest ethical standards in the industry.'],
-];
-
-$qualityFeatures = [
-    ['icon' => '&#10003;', 'title' => 'Quality Assurance', 'description' => 'Comprehensive quality management system covering all aspects of pharmaceutical manufacturing.'],
-    ['icon' => '&#128270;', 'title' => 'Quality Control', 'description' => 'State-of-the-art analytical laboratories with advanced instrumentation for rigorous testing.'],
-    ['icon' => '&#9989;', 'title' => 'GMP Compliance', 'description' => 'Strict adherence to Good Manufacturing Practices across all production facilities.'],
-    ['icon' => '&#128220;', 'title' => 'Regulatory Compliance', 'description' => 'Full compliance with national and international regulatory requirements and guidelines.'],
-    ['icon' => '&#9881;', 'title' => 'Manufacturing Standards', 'description' => 'Advanced manufacturing processes with continuous monitoring and process optimization.'],
-    ['icon' => '&#128260;', 'title' => 'Continuous Improvement', 'description' => 'Ongoing enhancement of processes, systems, and outcomes through data-driven decision making.'],
-];
-
-$sustainabilityItems = [
-    ['icon' => '&#127793;', 'title' => 'Environmental Responsibility', 'description' => 'Minimizing our environmental footprint through sustainable practices and green manufacturing.', 'color' => 'green'],
-    ['icon' => '&#128106;', 'title' => 'Community Healthcare', 'description' => 'Providing accessible healthcare solutions to underserved communities worldwide.', 'color' => 'blue'],
-    ['icon' => '&#128588;', 'title' => 'Employee Wellbeing', 'description' => 'Fostering a safe, inclusive workplace that promotes health and professional growth.', 'color' => 'primary'],
-    ['icon' => '&#9881;', 'title' => 'Responsible Manufacturing', 'description' => 'Implementing eco-efficient processes and waste reduction across all operations.', 'color' => 'green'],
-    ['icon' => '&#128640;', 'title' => 'Sustainable Growth', 'description' => 'Balancing business growth with social responsibility and environmental stewardship.', 'color' => 'blue'],
+$whyChoose = [
+    ['icon' => '&#10003;', 'title' => 'Quality Assurance', 'description' => 'We ensure that development and packaging of our products is done under hygienic environment with international standards.'],
+    ['icon' => '&#9733;', 'title' => 'Our Strengths', 'description' => 'Our business ethics, zero tolerance quality policy and a highly qualified team are our strengths.'],
+    ['icon' => '&#128293;', 'title' => 'Passion for Excellence', 'description' => 'We tenaciously chase excellence through continuous improvement in all our projects, processes and products.'],
+    ['icon' => '&#128101;', 'title' => 'Customer Focus', 'description' => 'We believe in understanding and meeting customer needs in a professional and responsive manner.'],
 ];
 ?>
 <!DOCTYPE html>
@@ -83,7 +81,7 @@ $sustainabilityItems = [
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="PharmaCorp - Advancing healthcare through scientific innovation, quality manufacturing, and commitment to improving lives worldwide.">
+  <meta name="description" content="PharmaCorp - High quality and affordable medicines to improve quality of life.">
   <title>PharmaCorp - Advancing Healthcare</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -97,213 +95,157 @@ $sustainabilityItems = [
 
   <main>
     <!-- ========== HERO ========== -->
-    <section class="hero" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));">
-      <!-- Background Pattern -->
-      <div style="position:absolute; inset:0; background: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;); opacity:0.5;"></div>
-
-      <!-- Floating Particles -->
-      <div class="hero__particles">
-        <div class="hero__particle"></div>
-        <div class="hero__particle"></div>
-        <div class="hero__particle"></div>
-        <div class="hero__particle"></div>
-      </div>
-
-      <!-- Gradient Overlay -->
-      <div style="position:absolute; bottom:-1px; left:0; right:0; height:120px; background:linear-gradient(to top, var(--color-bg), transparent); z-index:1;"></div>
-
-      <!-- Hero Content -->
-      <div class="container" style="position:relative; z-index:2; padding-top: calc(var(--header-height) + 4rem); padding-bottom: 6rem;">
-        <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap:var(--space-12); align-items:center;">
-          <div>
-            <span class="section-label" style="color:rgba(255,255,255,0.9); margin-bottom:var(--space-6);">
-              <span style="display:inline-block; width:2rem; height:2px; background:rgba(255,255,255,0.9); border-radius:999px;"></span>
-              PHARMACEUTICAL EXCELLENCE
-            </span>
-            <h1 style="font-size:var(--fs-hero); font-weight:800; color:#fff; line-height:1.08; margin-bottom:var(--space-6); letter-spacing:-0.03em;">
-              Advancing Healthcare Through Quality, Innovation &amp; Care
+    <section class="hero hero--clean">
+      <div class="container">
+        <div class="hero__grid">
+          <div class="hero__content">
+            <h1 class="hero__title">
+              High Quality and Affordable Medicines To Improve Quality Of Life.
             </h1>
-            <p style="font-size:clamp(1rem, 1.2vw + 0.3rem, 1.2rem); color:rgba(255,255,255,0.85); line-height:1.75; max-width:540px; margin-bottom:var(--space-8);">
-              Delivering high-quality pharmaceutical products with a commitment to scientific excellence, patient safety, and global healthcare standards. Your trusted partner in better health.
+            <p class="hero__text">
+              Delivering trusted pharmaceutical products with a commitment to scientific excellence, patient safety, and global healthcare standards.
             </p>
-            <div style="display:flex; gap:var(--space-4); flex-wrap:wrap;">
-              <?= renderButton('Explore Products', 'products.php', 'white', 'lg', '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
-              <?= renderButton('Discover Our Story', 'about.php', 'outline-white', 'lg') ?>
+            <div class="hero__buttons">
+              <?= renderButton('View Products', 'products.php', 'primary', 'lg') ?>
+              <?= renderButton('Know More', 'about.php', 'outline', 'lg') ?>
             </div>
           </div>
-
-          <!-- Hero Visual -->
-          <div style="display:flex; align-items:center; justify-content:center;">
-            <div style="position:relative; width:100%; max-width:440px;">
-              <div style="background:rgba(255,255,255,0.08); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.15); border-radius:var(--radius-2xl); padding:var(--space-10); text-align:center;">
-                <div style="width:100px; height:100px; margin:0 auto var(--space-6); background:rgba(255,255,255,0.15); border-radius:var(--radius-2xl); display:flex; align-items:center; justify-content:center; color:#fff; font-size:2.5rem; border:2px solid rgba(255,255,255,0.2);">P</div>
-                <div style="color:#fff; font-size:var(--fs-h3); font-weight:700; margin-bottom:var(--space-2);">PharmaCorp</div>
-                <div style="color:rgba(255,255,255,0.7); font-size:var(--fs-small);">Advancing Lives Through Science</div>
-                <div style="display:flex; justify-content:center; gap:var(--space-6); margin-top:var(--space-8);">
-                  <div style="text-align:center;">
-                    <div style="font-size:var(--fs-h3); font-weight:800; color:#fff;">25+</div>
-                    <div style="font-size:var(--fs-xs); color:rgba(255,255,255,0.7);">Years</div>
-                  </div>
-                  <div style="width:1px; background:rgba(255,255,255,0.2);"></div>
-                  <div style="text-align:center;">
-                    <div style="font-size:var(--fs-h3); font-weight:800; color:#fff;">100+</div>
-                    <div style="font-size:var(--fs-xs); color:rgba(255,255,255,0.7);">Products</div>
-                  </div>
-                  <div style="width:1px; background:rgba(255,255,255,0.2);"></div>
-                  <div style="text-align:center;">
-                    <div style="font-size:var(--fs-h3); font-weight:800; color:#fff;">15+</div>
-                    <div style="font-size:var(--fs-xs); color:rgba(255,255,255,0.7);">Areas</div>
-                  </div>
-                </div>
+          <div class="hero__visual">
+            <div class="hero__image-placeholder">
+              <div class="hero__image-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
               </div>
-              <!-- Floating badge -->
-              <div style="position:absolute; top:-16px; right:-16px; background:#fff; border-radius:var(--radius-xl); padding:var(--space-3) var(--space-4); box-shadow:0 8px 24px rgba(0,0,0,0.15); display:flex; align-items:center; gap:var(--space-2); font-size:var(--fs-xs); font-weight:600; color:var(--color-primary);">
-                <span style="width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:rgba(var(--color-primary-rgb), 0.1); border-radius:var(--radius-full);">&#10003;</span>
-                WHO-GMP Certified
-              </div>
+              <span>Pharmaceutical Excellence</span>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Trust Badge -->
-      <div class="hero__trust-badge">
-        <span class="hero__trust-icon">&#128737;</span>
-        Trusted by 500+ Healthcare Partners Worldwide
-      </div>
-    </section>
-
-    <!-- ========== TRUST STATISTICS ========== -->
-    <section class="section" style="margin-top: -2rem; position: relative; z-index: 2;">
-      <div class="container">
-        <div style="background:var(--color-surface); border:1px solid var(--color-border-light); border-radius:var(--radius-2xl); padding: clamp(2rem, 4vw, 3rem); box-shadow:var(--shadow-xl);">
-          <div class="stat-grid">
-            <?php foreach ($stats as $stat): ?>
-              <?= renderAnimatedStat($stat['number'], $stat['label'], $stat['prefix'] ?? '', $stat['suffix'] ?? '') ?>
-            <?php endforeach; ?>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== ABOUT PREVIEW ========== -->
+    <!-- ========== ABOUT COMPANY ========== -->
     <section class="section">
       <div class="container">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem, 5vw, 5rem); align-items:center;">
-          <div class="reveal reveal--left">
-            <span class="section-label">About PharmaCorp</span>
-            <h2 style="font-size:var(--fs-h2); margin-bottom:var(--space-4);">A Legacy of Pharmaceutical Excellence</h2>
-            <p style="color:var(--color-text-secondary); line-height:var(--lh-relaxed); margin-bottom:var(--space-4);">
-              Founded with a vision to make quality healthcare accessible, PharmaCorp has grown into a globally recognized pharmaceutical company serving patients across multiple continents.
-            </p>
-            <p style="color:var(--color-text-secondary); line-height:var(--lh-relaxed); margin-bottom:var(--space-4);">
-              Our mission is to discover, develop, and deliver high-quality pharmaceutical products that address critical healthcare needs while maintaining the highest standards of ethics and sustainability.
-            </p>
-            <p style="color:var(--color-text-secondary); line-height:var(--lh-relaxed); margin-bottom:var(--space-8);">
-              From drug discovery to manufacturing, we maintain rigorous quality processes ensuring safe and effective medicines reach those who need them most.
-            </p>
-            <?= renderButton('Discover Our Story', 'about.php', 'primary', '', '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
+        <div class="about-split">
+          <div class="about-split__image reveal reveal--left">
+            <div class="about-split__img-placeholder">
+              <div class="about-split__img-icon">P</div>
+              <span>Company Image</span>
+            </div>
+            <div class="about-split__badge">
+              <strong>25+</strong>
+              <span>Years of Excellence</span>
+            </div>
           </div>
-          <div class="reveal reveal--right" style="position:relative;">
-            <div style="background:linear-gradient(135deg, var(--color-surface-alt), var(--color-surface)); border-radius:var(--radius-2xl); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; border:1px solid var(--color-border-light);">
-              <div style="text-align:center; padding:var(--space-8);">
-                <div style="width:80px; height:80px; margin:0 auto var(--space-4); background:linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); border-radius:var(--radius-xl); display:flex; align-items:center; justify-content:center; color:#fff; font-size:2rem;">P</div>
-                <p style="color:var(--color-text-muted); font-size:var(--fs-small);">Company Image Placeholder</p>
-              </div>
-            </div>
-            <!-- Floating stat -->
-            <div style="position:absolute; bottom:-20px; left:-20px; background:var(--color-surface); border:1px solid var(--color-border-light); border-radius:var(--radius-xl); padding:var(--space-4) var(--space-5); box-shadow:var(--shadow-lg); display:flex; align-items:center; gap:var(--space-3);">
-              <div style="width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:rgba(var(--color-primary-rgb), 0.1); border-radius:var(--radius-lg); color:var(--color-primary); font-size:1.25rem;">&#9733;</div>
-              <div>
-                <div style="font-size:var(--fs-h4); font-weight:700; color:var(--color-text);">25+ Years</div>
-                <div style="font-size:var(--fs-xs); color:var(--color-text-muted);">of Trusted Healthcare</div>
-              </div>
-            </div>
+          <div class="about-split__content reveal reveal--right">
+            <span class="section-label">About Company</span>
+            <h2 class="section__title" style="text-align:left;">PharmaCorp Private Limited</h2>
+            <p class="about-split__text">
+              PharmaCorp Private Limited is a reliable leading organization, engaged in providing highly effective ranges of Pharmaceutical Medicines. We have a wide range of healthcare products: Capsules, Syrups, Tablets, and other Pharmaceutical Products.
+            </p>
+            <p class="about-split__text">
+              All these products are processed under strict international standards, following the rules of appropriate composition of compounds.
+            </p>
+            <?= renderButton('Read More', 'about.php', 'primary', '', '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== CORE VALUES ========== -->
+    <!-- ========== PRODUCT CATEGORIES ========== -->
     <section class="section section--alt">
       <div class="container">
-        <?= renderSectionHeader('Our Values', 'Built on Principles That Matter', 'The core values that guide every decision we make and every product we deliver.') ?>
-
-        <div class="grid grid--3 reveal">
-          <?php foreach ($values as $value): ?>
-            <?= renderValueCard($value['icon'], $value['title'], $value['description']) ?>
+        <div class="section__header">
+          <span class="section-label">Explore &amp; Trust</span>
+          <h2 class="section__title">Our Range of Solutions</h2>
+        </div>
+        <div class="category-grid reveal">
+          <?php foreach ($categories as $cat): ?>
+            <a href="products.php" class="category-card">
+              <div class="category-card__icon"><?= $cat['icon'] ?></div>
+              <h4 class="category-card__name"><?= $cat['name'] ?></h4>
+              <p class="category-card__desc"><?= $cat['description'] ?></p>
+              <span class="category-card__link">
+                Explore
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </a>
           <?php endforeach; ?>
         </div>
       </div>
     </section>
 
-    <!-- ========== PRODUCT PORTFOLIO ========== -->
+    <!-- ========== PRODUCTS ========== -->
     <section class="section">
       <div class="container">
-        <?= renderSectionHeader('Our Products', 'Comprehensive Pharmaceutical Solutions', 'From essential medicines to specialized therapies, our diverse product portfolio addresses critical healthcare needs across multiple therapeutic areas.') ?>
-
-        <div class="product-grid reveal">
-          <?php foreach ($products as $product): ?>
-            <?= renderFilterableProductCard($product) ?>
+        <div class="section__header">
+          <span class="section-label">Quality &amp; Reliable</span>
+          <h2 class="section__title">Our Products</h2>
+        </div>
+        <div class="product-grid product-grid--home reveal">
+          <?php foreach ($homepageProducts as $product): ?>
+            <div class="product-card product-card--clean">
+              <div class="product-card__image">
+                <div class="product-card__image-placeholder"><?= $product['icon'] ?></div>
+              </div>
+              <div class="product-card__body">
+                <div class="product-card__category"><?= $product['category'] ?></div>
+                <h4 class="product-card__title"><?= $product['name'] ?></h4>
+                <a href="product-details.php" class="product-card__link">
+                  Read More
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
           <?php endforeach; ?>
         </div>
-
         <div style="text-align:center; margin-top:var(--space-10);">
-          <?= renderButton('View All Products', 'products.php', 'secondary', 'lg', '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== QUALITY SECTION ========== -->
-    <section class="section section--alt">
-      <div class="container">
-        <?= renderSectionHeader('Quality Assurance', 'Quality Is at the Heart of Everything We Do', 'Our commitment to quality spans every aspect of pharmaceutical manufacturing, from raw materials to finished products.') ?>
-
-        <div class="grid grid--3 reveal">
-          <?php foreach ($qualityFeatures as $qf): ?>
-            <?= renderQualityFeature($qf['icon'], $qf['title'], $qf['description']) ?>
-          <?php endforeach; ?>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== SUSTAINABILITY SECTION ========== -->
-    <section class="section">
-      <div class="container">
-        <?= renderSectionHeader('Sustainability', 'Committed to a Healthier Planet', 'Sustainability is at the core of our operations, guiding how we manufacture, innovate, and serve communities.') ?>
-
-        <div class="grid grid--3 reveal">
-          <?php foreach ($sustainabilityItems as $item): ?>
-            <?= renderSustainCard($item['icon'], $item['title'], $item['description'], $item['color']) ?>
-          <?php endforeach; ?>
-        </div>
-
-        <div style="text-align:center; margin-top:var(--space-10);">
-          <?= renderButton('Our Sustainability Commitment', 'about.php#sustainability', 'secondary', 'lg', '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
+          <?= renderButton('View All Products', 'products.php', 'primary', 'lg') ?>
         </div>
       </div>
     </section>
 
     <!-- ========== WHY CHOOSE US ========== -->
-    <section class="section">
+    <section class="section section--alt">
       <div class="container">
-        <?= renderSectionHeader('Why PharmaCorp', 'Why Leading Healthcare Partners Choose Us', 'A combination of expertise, quality, and commitment that sets us apart in the pharmaceutical industry.') ?>
-
-        <div class="grid grid--2 reveal" style="gap:var(--space-5);">
-          <?php foreach ($features as $feature): ?>
-            <?= renderFeatureCard($feature['icon'], $feature['title'], $feature['description']) ?>
-          <?php endforeach; ?>
+        <div class="why-choose">
+          <div class="why-choose__content">
+            <span class="section-label">Why Choose Us</span>
+            <h2 class="section__title" style="text-align:left;">What Makes Us Better Than Others</h2>
+            <div class="why-choose__features">
+              <?php foreach ($whyChoose as $item): ?>
+                <div class="why-choose__item">
+                  <div class="why-choose__icon"><?= $item['icon'] ?></div>
+                  <div>
+                    <h4 class="why-choose__title"><?= $item['title'] ?></h4>
+                    <p class="why-choose__desc"><?= $item['description'] ?></p>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            </div>
+          </div>
+          <div class="why-choose__image reveal reveal--right">
+            <div class="why-choose__img-placeholder">
+              <div class="why-choose__img-icon">&#10003;</div>
+              <span>Quality &amp; Trust</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== CTA ========== -->
+    <!-- ========== HAVE QUESTIONS CTA ========== -->
     <section class="section">
       <div class="container">
-        <?= renderCtaBlock(
-          'Partner With PharmaCorp',
-          'Whether you are looking for quality pharmaceutical products, exploring partnership opportunities, or seeking career growth, we would love to connect.'
-        ) ?>
+        <div class="cta-clean">
+          <div class="cta-clean__content">
+            <h2 class="cta-clean__title">Have Questions?</h2>
+            <p class="cta-clean__text">Our measurement of success is our customers. We succeed when they succeed. We are committed to solving current and future needs with innovation.</p>
+            <div class="cta-clean__buttons">
+              <?= renderButton('Contact Us', 'contact.php', 'primary', 'lg') ?>
+              <?= renderButton('Call Now', 'tel:+912212345678', 'outline', 'lg') ?>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>

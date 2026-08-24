@@ -128,7 +128,7 @@ $relatedProducts = [
 
             <!-- Actions -->
             <div style="display:flex; gap:var(--space-4);">
-              <?= renderButton('Request Information', 'contact.php', 'primary', 'lg') ?>
+              <button type="button" class="btn btn--primary btn--lg" onclick="document.getElementById('enquiryBtn').click();">Enquire Now</button>
               <?= renderButton('Download Brochure', '#', 'ghost', 'lg') ?>
             </div>
           </div>

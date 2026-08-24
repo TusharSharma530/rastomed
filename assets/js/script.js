@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAccordion();
   initContactForm();
   initNewsModal();
+  initEnquiryModal();
 });
 
 /* ============================================
@@ -555,4 +556,64 @@ function initNewsModal() {
       closeModal();
     }
   });
+}
+
+/* ============================================
+   ENQUIRY MODAL (DEMO ONLY - NO EMAIL)
+   ============================================ */
+function initEnquiryModal() {
+  var btn = document.getElementById('enquiryBtn');
+  var modal = document.getElementById('enquiryModal');
+  if (!btn || !modal) return;
+
+  var overlay = modal.querySelector('.enquiry-modal__overlay');
+  var closeBtn = modal.querySelector('.enquiry-modal__close');
+  var form = document.getElementById('enquiryForm');
+  var success = document.getElementById('enquirySuccess');
+
+  function openModal() {
+    modal.classList.add('enquiry-modal--open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('enquiry-modal--open');
+    document.body.style.overflow = '';
+  }
+
+  btn.addEventListener('click', openModal);
+  if (overlay) overlay.addEventListener('click', closeModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('enquiry-modal--open')) {
+      closeModal();
+    }
+  });
+
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var isValid = true;
+      var fields = form.querySelectorAll('[required]');
+      fields.forEach(function(field) {
+        if (!field.value.trim()) {
+          isValid = false;
+          field.style.borderColor = 'var(--color-error)';
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+      if (isValid) {
+        form.style.display = 'none';
+        if (success) success.style.display = 'block';
+        setTimeout(function() {
+          form.reset();
+          form.style.display = '';
+          if (success) success.style.display = 'none';
+          closeModal();
+        }, 4000);
+      }
+    });
+  }
 }
