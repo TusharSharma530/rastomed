@@ -15,7 +15,7 @@ $posts = [
         'readTime' => '5 min read',
         'author' => 'Dr. Rajesh Mehta',
         'authorRole' => 'VP of Formulation R&D',
-        'image' => 'assets/images/blog-1.svg',
+        'image' => 'assets/images/blog-1.jpg',
         'highlights' => [
             'Overcoming aqueous solubility barriers in BCS Class II & IV compounds.',
             'Implementation of Self-Emulsifying Drug Delivery Systems (SEDDS).',
@@ -52,7 +52,7 @@ $posts = [
         'readTime' => '7 min read',
         'author' => 'Priya Sharma',
         'authorRole' => 'Head of Global Quality Assurance',
-        'image' => 'assets/images/blog-2.svg',
+        'image' => 'assets/images/blog-2.jpg',
         'highlights' => [
             'Enforcing ALCOA+ data integrity across electronic batch records.',
             'HVAC differential pressure and HEPA cleanroom environmental controls.',
@@ -62,12 +62,75 @@ $posts = [
             <p class="lead" style="font-size:var(--fs-h4); color:var(--color-text); line-height:var(--lh-relaxed); font-weight:500; margin-bottom:var(--space-6);">Quality Assurance in modern pharmaceutical manufacturing is a continuous operational discipline that guarantees every tablet, vial, and syrup meets international therapeutic specifications.</p>
 
             <h3>Core Compliance Pillars</h3>
-            <p>PharmaCorp’s Quality Management System (QMS) enforces strict standards across all manufacturing operations:</p>
+            <p>PharmaCorp\'s Quality Management System (QMS) enforces strict standards across all manufacturing operations:</p>
             <ul>
                 <li><strong>Data Integrity & ALCOA+ Standards:</strong> All analytical software and electronic batch record (eBR) systems comply with US FDA 21 CFR Part 11 regulations.</li>
                 <li><strong>Cleanroom Environmental Validation:</strong> HEPA air filtration maintaining Class 10,000 (ISO Grade 7) HVAC differential pressure zones for non-sterile and sterile areas.</li>
                 <li><strong>CAPA & Deviation Control:</strong> Automated corrective and preventive action workflows guaranteeing root cause identification for any batch variation.</li>
             </ul>
+        ',
+    ],
+    3 => [
+        'id' => 3,
+        'title' => 'The Role of AI & Molecular Modeling in Accelerating Drug Discovery Pipelines',
+        'category' => 'Innovation',
+        'date' => 'July 28, 2026',
+        'readTime' => '6 min read',
+        'author' => 'Dr. Aris Thorne',
+        'authorRole' => 'Chief Scientific Officer',
+        'image' => 'assets/images/blog-3.jpg',
+        'highlights' => [
+            'Machine learning algorithms for target-ligand binding predictions.',
+            'Reducing pre-clinical screening timelines by over 40%.',
+            'AI-driven molecular simulation platforms.',
+        ],
+        'content' => '
+            <p class="lead" style="font-size:var(--fs-h4); color:var(--color-text); line-height:var(--lh-relaxed); font-weight:500; margin-bottom:var(--space-6);">Artificial Intelligence is revolutionizing pharmaceutical drug discovery by enabling rapid virtual screening of millions of molecular candidates against therapeutic targets.</p>
+
+            <h3>AI-Powered Drug Discovery</h3>
+            <p>Machine learning algorithms can predict target-ligand binding affinities with remarkable accuracy, reducing early-stage pre-clinical screening timelines by over 40%.</p>
+        ',
+    ],
+    4 => [
+        'id' => 4,
+        'title' => 'Ensuring Cold-Chain Integrity for Temperature-Sensitive Biologics & Vaccines',
+        'category' => 'Logistics',
+        'date' => 'July 14, 2026',
+        'readTime' => '4 min read',
+        'author' => 'Sanjay Verma',
+        'authorRole' => 'Director of Global Supply Chain',
+        'image' => 'assets/images/blog-4.jpg',
+        'highlights' => [
+            'IoT temperature-logging sensors for real-time monitoring.',
+            'Validated thermal packaging solutions.',
+            'International transit hub compliance.',
+        ],
+        'content' => '
+            <p class="lead" style="font-size:var(--fs-h4); color:var(--color-text); line-height:var(--lh-relaxed); font-weight:500; margin-bottom:var(--space-6);">Maintaining cold-chain integrity is critical for preserving the potency and efficacy of temperature-sensitive biologics and vaccines throughout the supply chain.</p>
+
+            <h3>Cold-Chain Technologies</h3>
+            <p>Leveraging IoT temperature-logging sensors and validated thermal packaging solutions to preserve product potency across international transit hubs.</p>
+        ',
+    ],
+    5 => [
+        'id' => 5,
+        'title' => 'Quality by Design (QbD) Approaches in Bioequivalent Generic Manufacturing',
+        'category' => 'R&D Insights',
+        'date' => 'June 30, 2026',
+        'readTime' => '8 min read',
+        'author' => 'Dr. Ananya Roy',
+        'authorRole' => 'Principal Analytical Scientist',
+        'image' => 'assets/images/blog-5.jpg',
+        'highlights' => [
+            'Design of Experiments (DoE) principles.',
+            'Critical process parameters (CPPs) identification.',
+            'Critical quality attributes (CQAs) in tablet compression.',
+        ],
+        'content' => '
+            <p class="lead" style="font-size:var(--fs-h4); color:var(--color-text); line-height:var(--lh-relaxed); font-weight:500; margin-bottom:var(--space-6);">Quality by Design (QbD) is a systematic approach to pharmaceutical development that begins with predefined objectives and emphasizes product and process understanding.</p>
+
+            <h3>QbD Implementation</h3>
+            <p>Applying Design of Experiments (DoE) principles to identify critical process parameters (CPPs) and critical quality attributes (CQAs) in tablet compression.</p>
         ',
     ],
 ];
@@ -80,16 +143,18 @@ $relatedPosts = [
         'title' => 'The Role of AI & Molecular Modeling in Drug Discovery',
         'category' => 'Innovation',
         'date' => 'July 28, 2026',
-        'image' => 'assets/images/blog-3.svg',
+        'image' => 'assets/images/blog-3.jpg',
     ],
     [
         'id' => 2,
         'title' => 'Navigating Global WHO-GMP Compliance',
         'category' => 'Regulatory',
         'date' => 'August 10, 2026',
-        'image' => 'assets/images/blog-2.svg',
+        'image' => 'assets/images/blog-2.jpg',
     ],
 ];
+
+$post = isset($posts[$postId]) ? $posts[$postId] : $posts[1];
 
 $breadcrumbs = [
     ['label' => 'Home', 'url' => 'index.php'],

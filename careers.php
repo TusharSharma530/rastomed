@@ -1,96 +1,16 @@
 <?php
 /**
- * Careers Page - PharmaCorp Enterprise
- * Opportunities to join our global pharmaceutical team
+ * Careers Page - RastoMed Pharma
  */
 require_once __DIR__ . '/includes/components.php';
-
-$breadcrumbs = [
-    ['label' => 'Home', 'url' => 'index.php'],
-    ['label' => 'Careers', 'url' => 'careers.php'],
-];
-
-$benefits = [
-    [
-        'icon' => '&#128161;',
-        'title' => 'Scientific Innovation',
-        'description' => 'Work alongside leading pharmaceutical scientists and R&D experts on cutting-edge formulations.',
-    ],
-    [
-        'icon' => '&#127757;',
-        'title' => 'Global Impact',
-        'description' => 'Contribute to healthcare solutions that improve the quality of life for millions across 50+ countries.',
-    ],
-    [
-        'icon' => '&#128200;',
-        'title' => 'Career Acceleration',
-        'description' => 'Structured leadership programs, continuous training, and transparent career advancement pathways.',
-    ],
-    [
-        'icon' => '&#9878;',
-        'title' => 'Comprehensive Benefits',
-        'description' => 'Competitive compensation, medical insurance, wellness stipends, and flexible work life balance.',
-    ],
-];
-
-$openings = [
-    [
-        'title' => 'Senior Formulation Scientist (R&D)',
-        'department' => 'Research & Development',
-        'location' => 'Mumbai, India',
-        'type' => 'Full-time',
-        'experience' => '5-8 Years',
-        'description' => 'Lead solid oral dosage formulation development, bioequivalence studies, and technology transfer.',
-    ],
-    [
-        'title' => 'Quality Assurance Manager (WHO-GMP)',
-        'department' => 'Quality Assurance',
-        'location' => 'Mumbai, India',
-        'type' => 'Full-time',
-        'experience' => '7-10 Years',
-        'description' => 'Oversee plant compliance, audit readiness, batch release protocols, and international regulatory filings.',
-    ],
-    [
-        'title' => 'Global Business Development Executive',
-        'department' => 'International Sales',
-        'location' => 'Mumbai, India',
-        'type' => 'Full-time',
-        'experience' => '3-5 Years',
-        'description' => 'Drive export market expansion, distributor partnerships, and international product licensing in LATAM & SEA.',
-    ],
-    [
-        'title' => 'Regulatory Affairs Specialist',
-        'department' => 'Regulatory Affairs',
-        'location' => 'Mumbai, India',
-        'type' => 'Full-time',
-        'experience' => '4-6 Years',
-        'description' => 'Prepare CTD/eCTD dossier submissions, respond to health authority queries, and manage market authorizations.',
-    ],
-    [
-        'title' => 'Production Supervisor (Tableting & Capsules)',
-        'department' => 'Manufacturing',
-        'location' => 'Pune, India',
-        'type' => 'Full-time',
-        'experience' => '3-5 Years',
-        'description' => 'Supervise daily shift operations in automated tableting compression and hard gelatin encapsulation lines.',
-    ],
-    [
-        'title' => 'Clinical Research Associate',
-        'department' => 'Clinical Trials',
-        'location' => 'Mumbai, India',
-        'type' => 'Full-time',
-        'experience' => '2-4 Years',
-        'description' => 'Monitor Phase III bioequivalence clinical trials, ensure GCP compliance, and coordinate site operations.',
-    ],
-];
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Build your career at PharmaCorp. Explore global pharmaceutical career opportunities in R&amp;D, QA, Manufacturing, and Sales.">
-  <title>Careers &amp; Opportunities - PharmaCorp</title>
+  <meta name="description" content="Build your career at RastoMed Pharma Private Limited.">
+  <title>Careers - RastoMed Pharma</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,68 +22,66 @@ $openings = [
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
-    <!-- Page Hero -->
-    <?= renderPageHero('Careers at PharmaCorp', $breadcrumbs, 'Shape the future of global healthcare with an organization driven by innovation, integrity, and scientific excellence.') ?>
-
-    <!-- Why Work With Us -->
-    <section class="section">
-      <div class="container">
-        <div class="section__header">
-          <span class="section-label">Why Join Us</span>
-          <h2 class="section__title">Empowering Growth &amp; Innovation</h2>
-        </div>
-        <div class="rd-grid">
-          <?php foreach ($benefits as $benefit): ?>
-            <div class="rd-card reveal">
-              <div class="rd-card__icon"><?= $benefit['icon'] ?></div>
-              <h3 class="rd-card__title"><?= $benefit['title'] ?></h3>
-              <p class="rd-card__text"><?= $benefit['description'] ?></p>
-            </div>
-          <?php endforeach; ?>
-        </div>
+    <!-- Careers Banner -->
+    <section class="about-banner">
+      <div class="about-banner__overlay"></div>
+      <div class="container about-banner__content">
+        <h1 class="about-banner__title">Careers</h1>
+        <nav class="about-banner__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.php" class="about-banner__breadcrumb-link">Home</a>
+          <span class="about-banner__breadcrumb-sep">&#9656;</span>
+          <span class="about-banner__breadcrumb-current">Careers</span>
+        </nav>
       </div>
     </section>
 
-    <!-- Open Positions -->
-    <section class="section section--alt">
+    <!-- Career Form Section -->
+    <section class="section">
       <div class="container">
-        <div class="section__header">
-          <span class="section-label">Current Openings</span>
-          <h2 class="section__title">Explore Career Opportunities</h2>
-        </div>
-
-        <div class="rd-grid">
-          <?php foreach ($openings as $job): ?>
-            <div class="rd-card reveal">
-              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:var(--space-3);">
-                <span class="trust-pill" style="font-size:10px;"><?= htmlspecialchars($job['department']) ?></span>
-                <span style="font-size:var(--fs-xs); color:var(--color-text-muted); font-weight:600;"><?= htmlspecialchars($job['type']) ?></span>
+        <div class="career-form-grid">
+          <div class="career-form-wrapper">
+            <form id="careerForm" class="career-form">
+              <div class="career-form__row">
+                <div class="career-form__group">
+                  <label class="career-form__label">Name<span>*</span></label>
+                  <input type="text" class="career-form__input" placeholder="Name" required>
+                </div>
+                <div class="career-form__group">
+                  <label class="career-form__label">Mobile<span>*</span></label>
+                  <input type="tel" class="career-form__input" placeholder="Mobile" required>
+                </div>
               </div>
-              <h3 class="rd-card__title" style="margin-bottom:var(--space-2);"><?= htmlspecialchars($job['title']) ?></h3>
-              <p style="font-size:var(--fs-small); color:var(--color-primary); font-weight:600; margin-bottom:var(--space-3);">
-                📍 <?= htmlspecialchars($job['location']) ?> &bull; ⏱ <?= htmlspecialchars($job['experience']) ?>
-              </p>
-              <p class="rd-card__text" style="margin-bottom:var(--space-5);"><?= htmlspecialchars($job['description']) ?></p>
-              <a href="contact.php?subject=Application+for+<?= urlencode($job['title']) ?>" class="btn btn--primary btn--sm" style="width:100%; text-align:center;">
-                Apply For This Position
-              </a>
-            </div>
-          <?php endforeach; ?>
-        </div>
-      </div>
-    </section>
-
-    <!-- Application Form Section -->
-    <section class="section">
-      <div class="container">
-        <div class="cta-clean">
-          <div class="cta-clean__content">
-            <h2 class="cta-clean__title">Don't See a Matching Role?</h2>
-            <p class="cta-clean__text">We are always searching for passionate scientists, engineers, regulatory experts, and business leaders. Send us your CV for general consideration.</p>
-            <div class="cta-clean__buttons">
-              <?= renderButton('Submit Resume', 'contact.php', 'primary', 'lg') ?>
-              <?= renderButton('Contact HR Team', 'mailto:careers@pharmacorp.com', 'outline', 'lg') ?>
-            </div>
+              <div class="career-form__row">
+                <div class="career-form__group">
+                  <label class="career-form__label">Email<span>*</span></label>
+                  <input type="email" class="career-form__input" placeholder="Email" required>
+                </div>
+                <div class="career-form__group">
+                  <label class="career-form__label">Designation</label>
+                  <input type="text" class="career-form__input" placeholder="Designation">
+                </div>
+              </div>
+              <div class="career-form__group">
+                <label class="career-form__label">Resume</label>
+                <div class="career-form__file-wrapper">
+                  <input type="file" class="career-form__file" id="resumeFile" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx">
+                  <label for="resumeFile" class="career-form__file-label">Choose file</label>
+                  <span class="career-form__file-btn">Browse</span>
+                </div>
+                <small class="career-form__file-hint">Allowed only Image, PDF and DOC file.</small>
+              </div>
+              <div class="career-form__group">
+                <label class="career-form__label">Message</label>
+                <textarea class="career-form__textarea" placeholder="Message" rows="4"></textarea>
+              </div>
+              <button type="submit" class="career-form__submit">
+                Submit
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </form>
+          </div>
+          <div class="career-form-image">
+            <img src="assets/images/carrer image.jpg" alt="Career at RastoMed Pharma">
           </div>
         </div>
       </div>

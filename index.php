@@ -9,32 +9,32 @@ $ourProducts = [
     [
         'name' => 'RESPIRO',
         'image' => 'assets/images/respiro.png',
-        'url' => 'product-details.php',
+        'url' => 'product-details.php?id=1',
     ],
     [
         'name' => 'RAPORZ-M1',
         'image' => 'assets/images/raporz-m1.png',
-        'url' => 'product-details.php',
+        'url' => 'product-details.php?id=2',
     ],
     [
         'name' => 'NIMEXO-Q',
         'image' => 'assets/images/nimex-q.jpeg',
-        'url' => 'product-details.php',
+        'url' => 'product-details.php?id=3',
     ],
     [
         'name' => 'JANOHEME 170',
         'image' => 'assets/images/janoheme170.png',
-        'url' => 'product-details.php',
+        'url' => 'product-details.php?id=4',
     ],
     [
         'name' => 'RAPORZ-D170',
         'image' => 'assets/images/rapordz170.png',
-        'url' => 'product-details.php',
+        'url' => 'product-details.php?id=5',
     ],
     [
         'name' => 'BRANCH',
         'image' => 'assets/images/branch.png',
-        'url' => 'product-details.php',
+        'url' => 'product-details.php?id=6',
     ],
 ];
 

@@ -607,6 +607,23 @@
     grid-template-columns: 1fr;
   }
 
+  .pd-detail-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .career-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .career-form-image {
+    order: -1;
+  }
+
+  .career-form__row {
+    grid-template-columns: 1fr;
+  }
+
   .awards-grid {
     grid-template-columns: 1fr;
     max-width: 500px;

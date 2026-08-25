@@ -21,19 +21,6 @@ $navItems = [
         'label' => 'Products',
         'url' => 'products.php',
         'key' => 'products',
-        'hasDropdown' => true,
-        'dropdown' => [
-            ['label' => 'Capsules', 'url' => 'products.php', 'icon' => '&#128138;'],
-            ['label' => 'Tablets', 'url' => 'products.php', 'icon' => '&#9830;'],
-            ['label' => 'Syrups', 'url' => 'products.php', 'icon' => '&#127860;'],
-            ['label' => 'Injections', 'url' => 'products.php', 'icon' => '&#129656;'],
-            ['label' => 'Ointments', 'url' => 'products.php', 'icon' => '&#129516;'],
-        ]
-    ],
-    [
-        'label' => 'Awards',
-        'url' => 'about.php#awards',
-        'key' => 'awards',
     ],
     [
         'label' => 'Careers',

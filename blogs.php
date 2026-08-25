@@ -17,7 +17,7 @@ $featuredPost = [
     'readTime' => '5 min read',
     'author' => 'Dr. Rajesh Mehta',
     'authorRole' => 'VP of Formulation R&D',
-    'image' => 'assets/images/blog-1.svg',
+    'image' => 'assets/images/blog-1.jpg',
     'excerpt' => 'Exploring state-of-the-art self-emulsifying drug delivery systems (SEDDS) and hot-melt extrusion techniques for poorly soluble active pharmaceutical ingredients (APIs). Discover how our scientists achieved a 4-fold increase in drug absorption.',
 ];
 
@@ -31,7 +31,7 @@ $blogPosts = [
         'readTime' => '7 min read',
         'author' => 'Priya Sharma',
         'authorRole' => 'Head of Global Quality Assurance',
-        'image' => 'assets/images/blog-2.svg',
+        'image' => 'assets/images/blog-2.jpg',
         'excerpt' => 'A comprehensive guide on maintaining zero-defect audit readiness across international health authority inspections including EU-GMP and US FDA regulatory standards.',
     ],
     [
@@ -43,7 +43,7 @@ $blogPosts = [
         'readTime' => '6 min read',
         'author' => 'Dr. Aris Thorne',
         'authorRole' => 'Chief Scientific Officer',
-        'image' => 'assets/images/blog-3.svg',
+        'image' => 'assets/images/blog-3.jpg',
         'excerpt' => 'How machine learning algorithms predict target-ligand binding affinities, reducing early-stage pre-clinical screening timelines by over 40%.',
     ],
     [
@@ -55,7 +55,7 @@ $blogPosts = [
         'readTime' => '4 min read',
         'author' => 'Sanjay Verma',
         'authorRole' => 'Director of Global Supply Chain',
-        'image' => 'assets/images/gallery-2.svg',
+        'image' => 'assets/images/blog-4.jpg',
         'excerpt' => 'Leveraging IoT temperature-logging sensors and validated thermal packaging solutions to preserve product potency across international transit hubs.',
     ],
     [
@@ -67,7 +67,7 @@ $blogPosts = [
         'readTime' => '8 min read',
         'author' => 'Dr. Ananya Roy',
         'authorRole' => 'Principal Analytical Scientist',
-        'image' => 'assets/images/gallery-3.svg',
+        'image' => 'assets/images/blog-5.jpg',
         'excerpt' => 'Applying Design of Experiments (DoE) principles to identify critical process parameters (CPPs) and critical quality attributes (CQAs) in tablet compression.',
     ],
 ];
@@ -177,8 +177,18 @@ $blogPosts = [
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
-    <!-- Page Hero -->
-    <?= renderPageHero('Scientific Insights &amp; Publications', $breadcrumbs, 'In-depth research papers, pharmaceutical whitepapers, and regulatory updates written by PharmaCorp scientists and industry experts.') ?>
+    <!-- Blogs Banner -->
+    <section class="about-banner">
+      <div class="about-banner__overlay"></div>
+      <div class="container about-banner__content">
+        <h1 class="about-banner__title">Blogs</h1>
+        <nav class="about-banner__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.php" class="about-banner__breadcrumb-link">Home</a>
+          <span class="about-banner__breadcrumb-sep">&#9656;</span>
+          <span class="about-banner__breadcrumb-current">Blogs</span>
+        </nav>
+      </div>
+    </section>
 
     <section class="section">
       <div class="container">

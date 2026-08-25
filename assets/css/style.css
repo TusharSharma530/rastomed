@@ -9,21 +9,21 @@
    CSS CUSTOM PROPERTIES (DESIGN TOKENS)
    ============================================ */
 :root {
-  /* --- Light Theme Colors (Pharmaceutical Blue) --- */
-  --color-primary: #0d6efd;
-  --color-primary-light: #3d8bfd;
-  --color-primary-dark: #0b5ed7;
-  --color-primary-rgb: 13, 110, 253;
+  /* --- Light Theme Colors (RastoMed Blue) --- */
+  --color-primary: #1565C0;
+  --color-primary-light: #1E88E5;
+  --color-primary-dark: #0D47A1;
+  --color-primary-rgb: 21, 101, 192;
 
   --color-secondary: #0d9488;
   --color-secondary-light: #14b8a6;
   --color-secondary-dark: #0f766e;
   --color-secondary-rgb: 13, 148, 136;
 
-  --color-accent: #0d6efd;
-  --color-accent-light: #3d8bfd;
-  --color-accent-dark: #0b5ed7;
-  --color-accent-rgb: 13, 110, 253;
+  --color-accent: #1565C0;
+  --color-accent-light: #1E88E5;
+  --color-accent-dark: #0D47A1;
+  --color-accent-rgb: 21, 101, 192;
 
   --color-bg: #ffffff;
   --color-bg-alt: #f8f9fa;
@@ -173,10 +173,10 @@
   --color-shadow-md: var(--dark-shadow-md);
   --color-shadow-lg: var(--dark-shadow-lg);
 
-  --color-primary: #6ea8fe;
-  --color-primary-light: #97c4fe;
-  --color-primary-dark: #3d8bfd;
-  --color-primary-rgb: 110, 168, 254;
+  --color-primary: #64b5f6;
+  --color-primary-light: #90caf9;
+  --color-primary-dark: #42a5f5;
+  --color-primary-rgb: 100, 181, 246;
 
   --color-secondary: #5eead4;
   --color-secondary-light: #99f6e4;
@@ -375,7 +375,6 @@ p {
 }
 
 .header--scrolled {
-  height: var(--header-height-scrolled);
   box-shadow: var(--shadow-md);
 }
 
@@ -387,6 +386,7 @@ p {
   max-width: var(--container-wide);
   margin-inline: auto;
   padding-inline: var(--container-padding);
+  gap: var(--space-4);
 }
 
 .header__logo {
@@ -421,9 +421,11 @@ p {
   display: flex;
   align-items: center;
   gap: var(--space-1);
-  overflow-x: auto;
+  overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
 }
 
 .nav::-webkit-scrollbar {
@@ -3826,12 +3828,12 @@ p {
 .hero--enterprise {
   position: relative;
   padding: calc(var(--header-height) + var(--space-8)) 0 var(--space-12);
-  background: linear-gradient(135deg, rgba(13, 110, 253, 0.04) 0%, rgba(13, 148, 136, 0.06) 100%);
+  background: linear-gradient(135deg, rgba(21, 101, 192, 0.04) 0%, rgba(13, 148, 136, 0.06) 100%);
   overflow: hidden;
 }
 
 [data-theme="dark"] .hero--enterprise {
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(13, 71, 161, 0.3) 0%, rgba(30, 41, 59, 0.9) 100%);
 }
 
 .trust-pills {
@@ -4263,6 +4265,8 @@ p {
   padding: var(--space-2) 0;
   font-size: var(--fs-xs);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: calc(var(--z-fixed) + 1);
 }
 
 .top-bar__inner {
@@ -4313,9 +4317,9 @@ p {
 
 /* --- Header Adjustments for RastoMed --- */
 .top-bar {
-  background: #ffffff;
+  background: var(--color-surface);
   padding: var(--space-5) 0;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 .top-bar__inner {
@@ -4356,9 +4360,9 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fde8e8;
+  background: rgba(21, 101, 192, 0.1);
   border-radius: var(--radius-lg);
-  color: #b91c1c;
+  color: var(--color-primary);
   flex-shrink: 0;
 }
 
@@ -4379,10 +4383,14 @@ p {
 }
 
 .header {
-  background-color: #b91c1c;
+  background-color: var(--color-primary-dark);
   position: sticky;
   top: 0;
   z-index: var(--z-sticky);
+}
+
+[data-theme="dark"] .header {
+  background-color: #1a237e;
 }
 
 .header .nav__link {
@@ -4410,8 +4418,8 @@ p {
 }
 
 .header .nav__dropdown-link:hover {
-  background: #fef2f2;
-  color: #b91c1c;
+  background: #e8f0fe;
+  color: #0D47A1;
 }
 
 .header__cta {
@@ -4449,7 +4457,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #b91c1c;
+  color: #1565C0;
   flex-shrink: 0;
 }
 
@@ -4615,7 +4623,7 @@ p {
 /* --- About Section (New Style) --- */
 .about-section {
   padding: clamp(3rem, 5.5vw, 5.5rem) 0;
-  background: #ffffff;
+  background: var(--color-bg);
   position: relative;
   overflow: hidden;
 }
@@ -4627,9 +4635,9 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(circle, #fde8e8 1px, transparent 1px);
+  background-image: radial-gradient(circle, var(--color-primary) 1px, transparent 1px);
   background-size: 40px 40px;
-  opacity: 0.3;
+  opacity: 0.05;
   pointer-events: none;
 }
 
@@ -4661,6 +4669,7 @@ p {
   height: 100%;
   object-fit: fill;
   display: block;
+  filter: hue-rotate(180deg);
 }
 
 .about-section__img--1 {
@@ -4687,14 +4696,14 @@ p {
 .about-section__title {
   font-size: clamp(1.75rem, 2.5vw + 0.5rem, 2.5rem);
   font-weight: 800;
-  color: #b91c1c;
+  color: var(--color-primary);
   line-height: 1.2;
   margin-bottom: var(--space-6);
 }
 
 .about-section__text {
   font-size: clamp(0.9375rem, 1vw + 0.2rem, 1.0625rem);
-  color: #475569;
+  color: var(--color-text-secondary);
   line-height: 1.8;
   margin-bottom: var(--space-8);
 }
@@ -4704,7 +4713,7 @@ p {
   align-items: center;
   gap: 8px;
   padding: 14px 28px;
-  background: #b91c1c;
+  background: var(--color-primary);
   color: #ffffff;
   font-weight: 600;
   font-size: 0.95rem;
@@ -4714,9 +4723,9 @@ p {
 }
 
 .about-section__btn:hover {
-  background: #991b1b;
+  background: var(--color-primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(185, 28, 28, 0.3);
+  box-shadow: 0 4px 12px rgba(13, 71, 161, 0.3);
 }
 
 @media (max-width: 992px) {
@@ -4759,7 +4768,7 @@ p {
   margin-top: 0;
   overflow: hidden;
   line-height: 0;
-  background-color: #f8d7d7;
+  background-color: var(--color-bg-alt);
 }
 
 .hero-slider__slide {
@@ -4938,7 +4947,7 @@ p {
 }
 
 .about-banner__breadcrumb-link {
-  color: #c0392b;
+  color: #1565C0;
   text-decoration: none;
   font-weight: var(--fw-medium);
   transition: color var(--transition-base);
@@ -4957,12 +4966,200 @@ p {
   font-weight: var(--fw-medium);
 }
 
+/* --- Career Form Page --- */
+.career-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.career-form-wrapper {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  padding: clamp(2rem, 4vw, 3rem);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.career-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.career-form__group {
+  margin-bottom: var(--space-4);
+}
+
+.career-form__label {
+  display: block;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.career-form__label span {
+  color: #1565C0;
+}
+
+.career-form__input,
+.career-form__textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-body);
+  font-family: inherit;
+  color: var(--color-text);
+  background: #fff;
+  transition: border-color var(--transition-base);
+}
+
+.career-form__input:focus,
+.career-form__textarea:focus {
+  outline: none;
+  border-color: #1565C0;
+}
+
+.career-form__input::placeholder,
+.career-form__textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.career-form__textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.career-form__file-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.career-form__file {
+  display: none;
+}
+
+.career-form__file-label {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.career-form__file-btn {
+  padding: 12px 20px;
+  background: #1565C0;
+  color: #fff;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+}
+
+.career-form__file-hint {
+  display: block;
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+}
+
+.career-form__submit {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 12px 32px;
+  background: #1565C0;
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  float: right;
+}
+
+.career-form__submit:hover {
+  background: #a93226;
+  transform: translateY(-1px);
+}
+
+.career-form-image {
+  text-align: center;
+}
+
+.career-form-image img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+/* --- Product Detail Page --- */
+.pd-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.pd-detail-grid__image {
+  text-align: center;
+}
+
+.pd-detail-grid__image img {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.pd-detail-grid__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: var(--fw-bold);
+  color: #1565C0;
+  margin-bottom: var(--space-5);
+}
+
+.pd-detail-grid__list {
+  list-style: disc;
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.pd-detail-grid__list li {
+  color: var(--color-text-secondary);
+  line-height: var(--lh-relaxed);
+  margin-bottom: var(--space-3);
+}
+
+.pd-detail-grid__btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #1565C0;
+  color: #fff;
+  border-radius: var(--radius-md);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.pd-detail-grid__btn:hover {
+  background: #a93226;
+  transform: translateY(-1px);
+}
+
 /* --- Our Values Section --- */
 .values-section__title {
   text-align: center;
   font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-weight: var(--fw-bold);
-  color: #c0392b;
+  color: #1565C0;
   margin-bottom: var(--space-4);
 }
 
@@ -4997,7 +5194,7 @@ p {
 .value-card-new__line {
   width: 30px;
   height: 4px;
-  background: #c0392b;
+  background: #1565C0;
   border-radius: 2px;
   margin-bottom: var(--space-4);
 }
@@ -5031,7 +5228,7 @@ p {
   text-align: center;
   font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-weight: var(--fw-bold);
-  color: #c0392b;
+  color: #1565C0;
   margin-bottom: var(--space-10);
 }
 
@@ -5060,13 +5257,13 @@ p {
   width: 64px;
   height: 64px;
   background: #fff;
-  border: 3px solid #c0392b;
+  border: 3px solid #1565C0;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
-  box-shadow: 0 2px 8px rgba(192, 57, 43, 0.15);
+  box-shadow: 0 2px 8px rgba(21, 101, 192, 0.15);
 }
 
 .mv-card__title {
@@ -5087,7 +5284,7 @@ p {
   bottom: 0;
   width: 50px;
   height: 50px;
-  background: #c0392b;
+  background: #1565C0;
   z-index: 1;
 }
 
@@ -5120,7 +5317,7 @@ p {
   display: block;
   font-size: var(--fs-body);
   font-weight: var(--fw-semibold);
-  color: #c0392b;
+  color: #1565C0;
   margin-bottom: var(--space-2);
 }
 
@@ -5143,7 +5340,7 @@ p {
 }
 
 .our-products-viewall:hover {
-  color: #c0392b;
+  color: #1565C0;
 }
 
 .our-products-slider {
@@ -5206,14 +5403,14 @@ p {
   right: 20px;
   width: 44px;
   height: 44px;
-  background: #c0392b;
+  background: #1565C0;
   color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(192, 57, 43, 0.4);
+  box-shadow: 0 4px 12px rgba(21, 101, 192, 0.4);
   transition: all var(--transition-base);
   z-index: 2;
 }
@@ -5240,7 +5437,7 @@ p {
 .our-product-card__btn {
   display: inline-block;
   padding: 10px 28px;
-  background: #c0392b;
+  background: #1565C0;
   color: #fff;
   border-radius: var(--radius-md);
   font-size: var(--fs-small);
@@ -5251,8 +5448,8 @@ p {
 
 .our-product-card__btn:hover {
   background: #fff;
-  color: #c0392b;
-  border: 2px solid #c0392b;
+  color: #1565C0;
+  border: 2px solid #1565C0;
   transform: translateY(-1px);
 }
 
@@ -5276,9 +5473,9 @@ p {
 }
 
 .our-products-nav:hover {
-  background: #c0392b;
+  background: #1565C0;
   color: #fff;
-  border-color: #c0392b;
+  border-color: #1565C0;
 }
 
 .our-products-nav--prev {

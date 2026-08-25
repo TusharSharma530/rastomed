@@ -14,6 +14,7 @@ $allProducts = [
         'description' => 'High-quality respiratory formulation for effective lung and airway support.',
         'badge' => '',
         'image' => 'assets/images/respiro.png',
+        'url' => 'product-details.php?id=1',
     ],
     [
         'id' => 2,
@@ -23,6 +24,7 @@ $allProducts = [
         'description' => 'Reliable and effective tablet formulation for daily health management.',
         'badge' => '',
         'image' => 'assets/images/raporz-m1.png',
+        'url' => 'product-details.php?id=2',
     ],
     [
         'id' => 3,
@@ -32,6 +34,7 @@ $allProducts = [
         'description' => 'Co-Enzyme Q10 softgel capsules with Eicosapentaenoic Acid, Docosahexaenoic Acid, L-Arginine & Selenium.',
         'badge' => '',
         'image' => 'assets/images/nimex-q.jpeg',
+        'url' => 'product-details.php?id=3',
     ],
     [
         'id' => 4,
@@ -41,6 +44,7 @@ $allProducts = [
         'description' => 'Iron supplementation tablets for effective management of iron deficiency.',
         'badge' => '',
         'image' => 'assets/images/janoheme170.png',
+        'url' => 'product-details.php?id=4',
     ],
     [
         'id' => 5,
@@ -50,6 +54,7 @@ $allProducts = [
         'description' => 'Cholecalciferol Oral Solution 60000 IU for Vitamin D deficiency management.',
         'badge' => '',
         'image' => 'assets/images/rapordz170.png',
+        'url' => 'product-details.php?id=5',
     ],
     [
         'id' => 6,
@@ -59,6 +64,7 @@ $allProducts = [
         'description' => 'Premium liver support formulation for hepatoprotection and detoxification.',
         'badge' => '',
         'image' => 'assets/images/branch.png',
+        'url' => 'product-details.php?id=6',
     ],
 ];
 
