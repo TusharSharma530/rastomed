@@ -1,7 +1,7 @@
 <?php
 /**
  * Header Component
- * Top info bar + Logo, navigation, theme toggle, mobile menu
+ * Top info bar + Logo, navigation, mobile menu
  */
 ?>
 <script>
@@ -48,7 +48,7 @@
   <div class="header__inner">
     <!-- Mobile Logo -->
     <a href="index.php" class="header__logo-mobile" aria-label="RastoMed Pharma Home">
-      <img src="assets/images/rastomed.jpeg" alt="RastoMed Pharma" style="height:45px; width:auto;">
+      <img src="assets/images/rastomed.jpeg" alt="RastoMed Pharma" class="header-logo-img">
     </a>
 
     <!-- Desktop Navigation -->
@@ -57,7 +57,6 @@
     <!-- Header Actions -->
     <div class="header__actions">
       <?php include __DIR__ . '/theme-toggle.php'; ?>
-
       <a href="contact.php" class="header__cta">
         Enquiry
       </a>

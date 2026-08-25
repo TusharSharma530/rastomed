@@ -32,33 +32,6 @@ $product = $allProducts[$id];
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
-  <style>
-    .product-spec-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--space-4);
-      margin-bottom: var(--space-6);
-    }
-    .product-spec-item {
-      background: var(--color-surface-alt);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-      border: 1px solid var(--color-border-light);
-    }
-    .product-spec-label {
-      font-size: var(--fs-xs);
-      color: var(--color-text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: bold;
-      margin-bottom: 0.25rem;
-    }
-    .product-spec-val {
-      font-size: var(--fs-small);
-      font-weight: bold;
-      color: var(--color-text);
-    }
-  </style>
 </head>
 <body>
   <?php include __DIR__ . '/includes/header.php'; ?>

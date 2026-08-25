@@ -466,6 +466,10 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .featured-blog-card {
+    grid-template-columns: 1fr;
+  }
+
   .map-contact-grid {
     grid-template-columns: 1fr;
     gap: var(--space-8);

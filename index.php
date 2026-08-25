@@ -100,22 +100,22 @@ $homeBlogs = [
 
   <main>
     <!-- 2. HERO SECTION - Banner Image with Content -->
-    <section style="width:100%; margin-top:0; position:relative; height:480px; overflow:hidden;">
-      <img src="assets/images/home banner.jpg" alt="RastoMed Pharma" style="width:100%; height:100%; display:block; object-fit:cover;">
-      <div style="position:absolute; top:0; left:0; width:50%; height:100%; display:flex; flex-direction:column; justify-content:center; padding:var(--space-12) clamp(2rem, 5vw, 6rem); background:linear-gradient(90deg, rgba(13, 71, 161, 0.85) 0%, rgba(13, 71, 161, 0.4) 70%, transparent 100%);">
-        <span style="display:block; font-size:var(--fs-xs); font-weight:700; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.8); margin-bottom:var(--space-4);">CARING FOR LIFE</span>
-        <h1 style="font-size:clamp(2rem, 4vw, 3.5rem); font-weight:800; color:#ffffff; line-height:1.15; margin-bottom:var(--space-6);">
-          Advancing Healthcare Through <span style="color:#64b5f6;">Innovation</span>
+    <section class="home-hero">
+      <img src="assets/images/home banner.jpg" alt="RastoMed Pharma" class="home-hero__image">
+      <div class="home-hero__overlay">
+        <span class="home-hero__subtitle">CARING FOR LIFE</span>
+        <h1 class="home-hero__title">
+          Advancing Healthcare Through <span>Innovation</span>
         </h1>
-        <p style="font-size:clamp(0.9rem, 1.2vw, 1.1rem); color:rgba(255,255,255,0.85); line-height:1.7; margin-bottom:var(--space-8); max-width:520px;">
+        <p class="home-hero__text">
           RastoMed Pharma Private Limited is committed to improving lives by delivering high-quality, effective and affordable pharmaceutical products trusted worldwide.
         </p>
-        <div style="display:flex; gap:var(--space-4); flex-wrap:wrap;">
-          <a href="products.php" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:var(--color-primary); color:#fff; font-weight:600; font-size:0.95rem; border-radius:var(--radius-md); text-decoration:none; transition:all 0.3s;">
+        <div class="home-hero__buttons">
+          <a href="products.php" class="home-hero__btn home-hero__btn--primary">
             Explore Products
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a href="contact.php" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:transparent; color:#fff; font-weight:600; font-size:0.95rem; border-radius:var(--radius-md); border:2px solid rgba(255,255,255,0.5); text-decoration:none; transition:all 0.3s;">
+          <a href="contact.php" class="home-hero__btn home-hero__btn--outline">
             Contact Us
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -170,10 +170,10 @@ $homeBlogs = [
                   </a>
                 </div>
                 <div class="our-product-card__body">
-                  <div style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-3);">
+                  <div class="home-product-card__row">
                 <div>
-                  <h3 class="our-product-card__title" style="margin:0; text-align:left;">QOREST-10</h3>
-                  <span style="font-size:var(--fs-body); font-weight:700; color:var(--color-primary); white-space:nowrap;">&#8377; 655</span>
+                  <h3 class="our-product-card__title home-product-card__title">QOREST-10</h3>
+                  <span class="home-product-card__price">&#8377; 655</span>
                 </div>
                 <div>
                   <a href="product-details.php?id=1" class="our-product-card__btn">Read More</a>
@@ -195,11 +195,11 @@ $homeBlogs = [
             <h2 class="our-products-title">Recognized for Excellence</h2>
           </div>
         </div>
-        <div style="display:flex; gap:var(--space-8); justify-content:center; flex-wrap:nowrap; padding:var(--space-6) 0;">
+        <div class="home-awards-grid">
           <?php foreach ($awards as $award): ?>
-            <div style="flex:0 0 calc(25% - var(--space-6)); max-width:280px;">
-              <div style="border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-md);">
-                <img src="<?= $award['image'] ?>" alt="<?= htmlspecialchars($award['title']) ?>" style="width:100%; height:auto; display:block;" loading="lazy">
+            <div class="home-awards-grid__item">
+              <div class="home-awards-grid__image-wrap">
+                <img src="<?= $award['image'] ?>" alt="<?= htmlspecialchars($award['title']) ?>" loading="lazy">
               </div>
             </div>
           <?php endforeach; ?>
@@ -278,7 +278,7 @@ $homeBlogs = [
     </section>
 
     <!-- 8. MAP / CONTACT -->
-    <section class="section" style="padding-bottom:80px;">
+    <section class="section map-section">
       <div class="container">
         <div class="map-contact-grid">
           <div class="map-wrapper reveal reveal--left">
@@ -286,7 +286,7 @@ $homeBlogs = [
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.123456789!2d76.9466!3d30.6942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390afc7a5ec2f45b%3A0x1234567890abcdef!2sPanchkula%2C%20Haryana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
               width="100%"
               height="450"
-              style="border:0; border-radius: var(--radius-2xl);"
+               class="map-frame"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"

@@ -53,7 +53,7 @@ function renderPageHero($title, $breadcrumbs = [], $subtitle = '') {
     if (!empty($breadcrumbs)) {
         $breadcrumbHtml = renderBreadcrumbs($breadcrumbs);
     }
-    $subtitleHtml = $subtitle ? '<p style="color:rgba(255,255,255,0.85); font-size:var(--fs-body); max-width:600px; margin:0 auto var(--space-6); line-height:var(--lh-relaxed);">' . $subtitle . '</p>' : '';
+    $subtitleHtml = $subtitle ? '<p class="page-hero__subtitle">' . $subtitle . '</p>' : '';
 
     return '
     <section class="page-hero page-hero--banner">

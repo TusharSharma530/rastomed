@@ -68,78 +68,6 @@ $galleryItems = [
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
-  <style>
-    .gallery-filter {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-      margin-bottom: var(--space-8);
-    }
-    .gallery-filter__btn {
-      padding: 0.5rem 1.25rem;
-      border-radius: var(--radius-full);
-      font-size: var(--fs-small);
-      font-weight: var(--fw-bold);
-      background: var(--color-surface-alt);
-      color: var(--color-text-secondary);
-      border: 1px solid var(--color-border);
-      transition: all var(--transition-fast);
-      cursor: pointer;
-    }
-    .gallery-filter__btn:hover,
-    .gallery-filter__btn.active {
-      background: var(--color-primary);
-      color: #ffffff;
-      border-color: var(--color-primary);
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: var(--space-8);
-    }
-    .gallery-card {
-      background: var(--color-surface);
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      border: 1px solid var(--color-border);
-      transition: transform var(--transition-base), box-shadow var(--transition-base);
-    }
-    .gallery-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-xl);
-      border-color: var(--color-primary-light);
-    }
-    .gallery-card__img-wrapper {
-      position: relative;
-      width: 100%;
-      height: 240px;
-      overflow: hidden;
-      background: var(--color-surface-alt);
-    }
-    .gallery-card__img-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform var(--transition-slow);
-    }
-    .gallery-card:hover .gallery-card__img-wrapper img {
-      transform: scale(1.05);
-    }
-    .gallery-card__body {
-      padding: var(--space-6);
-    }
-    .gallery-card__title {
-      font-size: var(--fs-h4);
-      font-weight: var(--fw-bold);
-      margin-bottom: var(--space-2);
-    }
-    .gallery-card__desc {
-      font-size: var(--fs-small);
-      color: var(--color-text-secondary);
-      line-height: var(--lh-normal);
-    }
-  </style>
 </head>
 <body>
   <?php include __DIR__ . '/includes/header.php'; ?>
@@ -167,7 +95,7 @@ $galleryItems = [
                 <img src="<?= $item['image'] ?>" alt="<?= htmlspecialchars($item['title']) ?>" width="600" height="400" loading="lazy">
               </div>
               <div class="gallery-card__body">
-                <span class="trust-pill" style="font-size:10px; margin-bottom:var(--space-2);"><?= htmlspecialchars($item['categoryLabel']) ?></span>
+                <span class="trust-pill gallery-trust-pill"><?= htmlspecialchars($item['categoryLabel']) ?></span>
                 <h3 class="gallery-card__title"><?= htmlspecialchars($item['title']) ?></h3>
                 <p class="gallery-card__desc"><?= htmlspecialchars($item['description']) ?></p>
               </div>

@@ -58,8 +58,8 @@ sort($therapies);
     <!-- ========== PRODUCT CATALOG ========== -->
     <section class="section">
       <div class="container">
-        <div style="display:flex;">
-          <div class="our-product-card" style="max-width:320px; width:100%;">
+        <div class="products-list">
+          <div class="our-product-card product-single">
             <div class="our-product-card__image">
               <img src="assets/images/qorest-10.png" alt="QOREST-10" loading="lazy">
               <a href="product-details.php?id=1" class="our-product-card__plus">
@@ -67,10 +67,10 @@ sort($therapies);
               </a>
             </div>
             <div class="our-product-card__body">
-              <div style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-3);">
+              <div class="product-card__row">
                 <div>
-                  <h3 class="our-product-card__title" style="margin:0; text-align:left;">QOREST-10</h3>
-                  <span style="font-size:var(--fs-body); font-weight:700; color:var(--color-primary); white-space:nowrap;">&#8377; 655</span>
+                  <h3 class="our-product-card__title product-card__title-inline">QOREST-10</h3>
+                  <span class="product-card__price">&#8377; 655</span>
                 </div>
                 <div>
                   <a href="product-details.php?id=1" class="our-product-card__btn">Read More</a>

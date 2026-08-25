@@ -12,7 +12,7 @@
       <!-- Brand Column -->
       <div class="footer__brand">
         <a href="index.php" class="footer__logo" aria-label="RastoMed Pharma Home">
-          <img src="assets/images/rastomed.jpeg" alt="RastoMed Pharma" style="height:60px; width:auto; object-fit:contain;">
+          <img src="assets/images/rastomed.jpeg" alt="RastoMed Pharma" class="footer-logo-img">
         </a>
         <p class="footer__description">
           We are dedicated to providing high-quality medicines that improve lives and build a healthier tomorrow.
@@ -92,7 +92,7 @@
         &copy; <?= date('Y') ?> RastoMed Pharma Private Limited. All Rights Reserved.
       </p>
       <p class="footer__tagline">
-        Designed with <span style="color:#e74c3c;">&#10084;</span> for a Healthier Tomorrow
+        Designed with <span class="footer-heart">&#10084;</span> for a Healthier Tomorrow
       </p>
     </div>
   </div>
@@ -140,7 +140,7 @@
         <label class="form-label" for="enqEmail">Email</label>
         <input type="email" id="enqEmail" class="form-input" placeholder="your@email.com">
       </div>
-      <button type="submit" class="btn btn--primary btn--lg" style="width:100%;">Submit Enquiry</button>
+      <button type="submit" class="btn btn--primary btn--lg enquiry-submit-full">Submit Enquiry</button>
     </form>
     <div id="enquirySuccess" class="enquiry-modal__success">
       <div class="enquiry-modal__success-icon">&#10003;</div>

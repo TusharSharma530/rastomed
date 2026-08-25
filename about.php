@@ -73,28 +73,28 @@ $values = [
     <!-- ========== COMPANY OVERVIEW ========== -->
     <section class="section">
       <div class="container">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem, 5vw, 5rem); align-items:center;">
+        <div class="about-overview">
           <div class="reveal reveal--left">
             <span class="section-label">Our Story</span>
-            <h2 style="font-size:var(--fs-h2); margin-bottom:var(--space-4);">A Legacy of Healthcare Excellence</h2>
-            <p style="color:var(--color-text-secondary); line-height:var(--lh-relaxed); margin-bottom:var(--space-4);">
+            <h2 class="about-overview__title">A Legacy of Healthcare Excellence</h2>
+            <p class="about-overview__text">
               Founded with a vision to make quality healthcare accessible, PharmaCorp has grown from a small pharmaceutical venture into a globally recognized healthcare company serving patients across multiple continents.
             </p>
-            <p style="color:var(--color-text-secondary); line-height:var(--lh-relaxed); margin-bottom:var(--space-4);">
+            <p class="about-overview__text">
               Over the past 25 years, we have built our reputation on scientific rigor, manufacturing excellence, and an unwavering commitment to patient safety. Our journey is marked by continuous innovation and expansion into new therapeutic areas.
             </p>
-            <p style="color:var(--color-text-secondary); line-height:var(--lh-relaxed); margin-bottom:var(--space-6);">
+            <p class="about-overview__text about-overview__text--last">
               Today, we serve patients in over 50 countries, with a portfolio spanning cardiovascular, respiratory, neurology, and many other therapeutic segments. Our team of dedicated professionals works tirelessly to ensure that quality medicines reach those who need them most.
             </p>
-            <div style="display:flex; gap:var(--space-4); flex-wrap:wrap;">
+            <div class="about-overview__buttons">
               <?= renderButton('Our Products', 'products.php', 'primary') ?>
               <?= renderButton('Contact Us', 'contact.php', 'outline') ?>
             </div>
           </div>
-          <div class="reveal reveal--right" style="position:relative;">
-            <div style="background:linear-gradient(135deg, var(--color-surface-alt), var(--color-surface)); border-radius:var(--radius-2xl); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; border:1px solid var(--color-border-light);">
-              <div style="text-align:center; padding:var(--space-8);">
-                <img src="assets/images/rastomed.jpeg" alt="RastoMed Pharma" style="max-width:100%; max-height:220px; object-fit:contain; border-radius:var(--radius-lg);">
+          <div class="reveal reveal--right about-image-wrapper">
+            <div class="about-image-placeholder">
+              <div class="about-image-inner">
+                <img src="assets/images/rastomed.jpeg" alt="RastoMed Pharma">
               </div>
             </div>
           </div>
