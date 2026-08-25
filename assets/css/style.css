@@ -4157,14 +4157,6 @@ p {
 }
 
 /* ============================================
-   GALLERY PAGE COMPONENTS
-   ============================================ */
-.gallery-trust-pill {
-  font-size: 10px;
-  margin-bottom: var(--space-2);
-}
-
-/* ============================================
    INDEX PAGE COMPONENTS
    ============================================ */
 .map-section {
@@ -4284,91 +4276,6 @@ p {
   left: 0;
   color: var(--color-primary);
   font-weight: bold;
-}
-
-/* ============================================
-   GALLERY PAGE
-   ============================================ */
-.gallery-filter {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-bottom: var(--space-8);
-}
-
-.gallery-filter__btn {
-  padding: 0.5rem 1.25rem;
-  border-radius: var(--radius-full);
-  font-size: var(--fs-small);
-  font-weight: var(--fw-bold);
-  background: var(--color-surface-alt);
-  color: var(--color-text-secondary);
-  border: 1px solid var(--color-border);
-  transition: all var(--transition-fast);
-  cursor: pointer;
-}
-
-.gallery-filter__btn:hover,
-.gallery-filter__btn.active {
-  background: var(--color-primary);
-  color: #ffffff;
-  border-color: var(--color-primary);
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--space-8);
-}
-
-.gallery-card {
-  background: var(--color-surface);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  border: 1px solid var(--color-border);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-
-.gallery-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--color-primary-light);
-}
-
-.gallery-card__img-wrapper {
-  position: relative;
-  width: 100%;
-  height: 240px;
-  overflow: hidden;
-  background: var(--color-surface-alt);
-}
-
-.gallery-card__img-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-slow);
-}
-
-.gallery-card:hover .gallery-card__img-wrapper img {
-  transform: scale(1.05);
-}
-
-.gallery-card__body {
-  padding: var(--space-6);
-}
-
-.gallery-card__title {
-  font-size: var(--fs-h4);
-  font-weight: var(--fw-bold);
-  margin-bottom: var(--space-2);
-}
-
-.gallery-card__desc {
-  font-size: var(--fs-small);
-  color: var(--color-text-secondary);
-  line-height: var(--lh-normal);
 }
 
 /* ============================================
