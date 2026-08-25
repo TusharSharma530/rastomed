@@ -8,84 +8,57 @@ require_once __DIR__ . '/includes/components.php';
 $allProducts = [
     [
         'id' => 1,
-        'name' => 'CardioShield Plus',
-        'category' => 'Tablets',
-        'therapy' => 'Cardiology',
-        'description' => 'Advanced cardiovascular medication for managing hypertension and reducing cardiac risk factors in adult patients.',
-        'badge' => 'Best Seller',
-        'image' => 'assets/images/product-card-1.svg',
+        'name' => 'RESPIRO',
+        'category' => 'Capsules',
+        'therapy' => 'General Medicine',
+        'description' => 'High-quality respiratory formulation for effective lung and airway support.',
+        'badge' => '',
+        'image' => 'assets/images/respiro.png',
     ],
     [
         'id' => 2,
-        'name' => 'RespiCare Forte',
-        'category' => 'Capsules',
+        'name' => 'RAPORZ-M1',
+        'category' => 'Tablets',
         'therapy' => 'General Medicine',
-        'description' => 'Comprehensive respiratory therapy for asthma and COPD management with rapid onset and sustained relief.',
-        'badge' => 'Popular',
-        'image' => 'assets/images/product-card-2.svg',
+        'description' => 'Reliable and effective tablet formulation for daily health management.',
+        'badge' => '',
+        'image' => 'assets/images/raporz-m1.png',
     ],
     [
         'id' => 3,
-        'name' => 'NeuroBalance',
-        'category' => 'Tablets',
-        'therapy' => 'Neurology',
-        'description' => 'Innovative neurological treatment for neuropathic pain and mood stabilization with minimal side effects.',
-        'badge' => 'New',
-        'image' => 'assets/images/product-card-3.svg',
+        'name' => 'NIMEXO-Q',
+        'category' => 'Capsules',
+        'therapy' => 'General Medicine',
+        'description' => 'Co-Enzyme Q10 softgel capsules with Eicosapentaenoic Acid, Docosahexaenoic Acid, L-Arginine & Selenium.',
+        'badge' => '',
+        'image' => 'assets/images/nimex-q.jpeg',
     ],
     [
         'id' => 4,
-        'name' => 'OsteoFlex',
+        'name' => 'JANOHEME 170',
         'category' => 'Tablets',
-        'therapy' => 'Orthopaedics',
-        'description' => 'Joint health support formula designed to improve mobility and reduce discomfort in musculoskeletal conditions.',
-        'badge' => 'High Demand',
-        'image' => 'assets/images/product-card-4.svg',
+        'therapy' => 'General Medicine',
+        'description' => 'Iron supplementation tablets for effective management of iron deficiency.',
+        'badge' => '',
+        'image' => 'assets/images/janoheme170.png',
     ],
     [
         'id' => 5,
-        'name' => 'GastroEase',
-        'category' => 'Syrups',
-        'therapy' => 'Gastroenterology',
-        'description' => 'Effective gastrointestinal treatment for GERD and peptic ulcer disease with improved patient compliance.',
+        'name' => 'RAPORZ-D170',
+        'category' => 'Tablets',
+        'therapy' => 'General Medicine',
+        'description' => 'Cholecalciferol Oral Solution 60000 IU for Vitamin D deficiency management.',
         'badge' => '',
-        'image' => 'assets/images/product-card-5.svg',
+        'image' => 'assets/images/rapordz170.png',
     ],
     [
         'id' => 6,
-        'name' => 'GynoCare',
-        'category' => 'Tablets',
-        'therapy' => 'Gynaecology',
-        'description' => 'Women\'s health formulation addressing hormonal balance and reproductive wellness support.',
-        'badge' => '',
-        'image' => 'assets/images/product-card-6.svg',
-    ],
-    [
-        'id' => 7,
-        'name' => 'CardioShield Max',
-        'category' => 'Tablets',
-        'therapy' => 'Cardiology',
-        'description' => 'Next-generation cardiovascular therapy with enhanced bioavailability and improved patient outcomes.',
-        'badge' => 'Launched 2026',
-        'image' => 'assets/images/product-card-1.svg',
-    ],
-    [
-        'id' => 8,
-        'name' => 'RespiCare Lite',
+        'name' => 'BRANCH',
         'category' => 'Syrups',
         'therapy' => 'General Medicine',
-        'description' => 'Targeted pediatric and adult bronchodilator syrup for upper respiratory congestion.',
+        'description' => 'Premium liver support formulation for hepatoprotection and detoxification.',
         'badge' => '',
-        'image' => 'assets/images/product-card-2.svg',
-    ],
-    [
-        'id' => 9,
-        'name' => 'NeuroVita Plus',
-        'category' => 'Capsules',
-        'therapy' => 'Neurology',
-        'description' => 'Novel neurological formulation targeting cognitive support and nerve health regeneration.',
-        'badge' => 'Coming Soon',
-        'image' => 'assets/images/product-card-3.svg',
+        'image' => 'assets/images/branch.png',
     ],
 ];
 
@@ -100,8 +73,8 @@ sort($therapies);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore PharmaCorp's enterprise pharmaceutical portfolio across Cardiology, Respiratory, Neurology, Orthopaedics, Gastro, and Gynaecology.">
-  <title>Pharmaceutical Products - PharmaCorp Enterprise</title>
+  <meta name="description" content="Explore RastoMed Pharma's quality pharmaceutical products including RESPIRO, RAPORZ-M1, NIMEXO-Q, JANOHEME 170, RAPORZ-D170, and BRANCH.">
+  <title>Our Products - RastoMed Pharma Private Limited</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,10 +86,18 @@ sort($therapies);
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
-    <?= renderPageHero('Enterprise Product Portfolio', [
-      ['label' => 'Home', 'url' => 'index.php'],
-      ['label' => 'Products', 'url' => 'products.php'],
-    ], 'Browse WHO-GMP and ISO certified pharmaceutical formulations engineered for high bioavailability and therapeutic precision.') ?>
+    <!-- Products Banner -->
+    <section class="about-banner">
+      <div class="about-banner__overlay"></div>
+      <div class="container about-banner__content">
+        <h1 class="about-banner__title">Our Products</h1>
+        <nav class="about-banner__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.php" class="about-banner__breadcrumb-link">Home</a>
+          <span class="about-banner__breadcrumb-sep">&#9656;</span>
+          <span class="about-banner__breadcrumb-current">Products</span>
+        </nav>
+      </div>
+    </section>
 
     <!-- ========== PRODUCT FILTERS & CATALOG ========== -->
     <section class="section">
@@ -163,32 +144,6 @@ sort($therapies);
             <p style="font-size:var(--fs-small); color:var(--color-text-muted);">Try resetting your search query or selecting a different dosage filter.</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ========== THERAPEUTIC SPECIALIZATIONS ========== -->
-    <section id="therapeutic" class="section section--alt">
-      <div class="container">
-        <?= renderSectionHeader('Therapeutic Domains', 'Specialized Healthcare Portfolios', 'Engineered across major therapeutic categories to deliver reliable clinical solutions globally.') ?>
-
-        <div class="grid grid--3 reveal">
-          <?= renderTherapyCard('&#9829;', 'Cardiology', '45+ Approved Products') ?>
-          <?= renderTherapyCard('&#9736;', 'General Medicine', '40+ Approved Products') ?>
-          <?= renderTherapyCard('&#9883;', 'Neurology', '25+ Approved Products') ?>
-          <?= renderTherapyCard('&#129516;', 'Gastroenterology', '35+ Approved Products') ?>
-          <?= renderTherapyCard('&#129462;', 'Orthopaedics', '20+ Approved Products') ?>
-          <?= renderTherapyCard('&#9792;', 'Gynaecology', '18+ Approved Products') ?>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== CDMO & INQUIRY CTA ========== -->
-    <section class="section">
-      <div class="container">
-        <?= renderCtaBlock(
-          'Require Turnkey CDMO & Contract Manufacturing?',
-          'Our enterprise technical team provides complete technology transfer, COA specification sheets, and international regulatory dossiers for commercial distribution.'
-        ) ?>
       </div>
     </section>
   </main>

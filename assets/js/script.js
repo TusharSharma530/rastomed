@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNewsModal();
   initEnquiryModal();
   initHeroSlider();
+  initOurProductsSlider();
 });
 
 /* ============================================
@@ -419,10 +420,6 @@ function animateCounter(el) {
 
   requestAnimationFrame(update);
 }
-
-/* ============================================
-   FAQ ACCORDION
-   ============================================ */
 function initAccordion() {
   document.querySelectorAll('.accordion__trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
@@ -640,4 +637,23 @@ function initHeroSlider() {
   }
 
   setInterval(nextSlide, 4000);
+}
+function initOurProductsSlider() {
+  const slider = document.querySelector('.our-products-slider');
+  if (!slider) return;
+
+  const track = slider.querySelector('.our-products-track');
+  const prevBtn = slider.querySelector('.our-products-nav--prev');
+  const nextBtn = slider.querySelector('.our-products-nav--next');
+  if (!track || !prevBtn || !nextBtn) return;
+
+  const scrollAmount = 280;
+
+  prevBtn.addEventListener('click', () => {
+    track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
 }

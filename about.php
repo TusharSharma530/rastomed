@@ -6,39 +6,46 @@
 require_once __DIR__ . '/includes/components.php';
 
 $values = [
-    ['icon' => '&#9733;', 'title' => 'Quality', 'description' => 'Every product meets the highest international standards of safety, purity, and efficacy.'],
-    ['icon' => '&#9878;', 'title' => 'Innovation', 'description' => 'Continuously investing in R&D to develop advanced formulations and drug delivery systems.'],
-    ['icon' => '&#9830;', 'title' => 'Integrity', 'description' => 'Operating with transparency and ethical practices in every aspect of our business.'],
-    ['icon' => '&#10022;', 'title' => 'Excellence', 'description' => 'Striving for the highest standards in manufacturing, research, and customer service.'],
-    ['icon' => '&#9829;', 'title' => 'Patient First', 'description' => 'Designing every process and product with the patient\'s well-being as the central priority.'],
-    ['icon' => '&#9764;', 'title' => 'Responsibility', 'description' => 'Committed to sustainable practices and environmental stewardship in manufacturing.'],
+    [
+        'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 16l-6.5 4.5 2-7L2 9h7z"/></svg>',
+        'title' => 'Passion For Excellence',
+        'description' => 'We tenaciously chase excellence through continuous improvement in all our processes and products and to set our standards, we benchmark with the best in the world.',
+    ],
+    [
+        'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+        'title' => 'Integrity',
+        'description' => 'We believe in uncompromising integrity and honesty and insist on the highest human values from our employees in all endeavours.',
+    ],
+    [
+        'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><circle cx="19" cy="7" r="4"/></svg>',
+        'title' => 'Teamwork',
+        'description' => 'We align efforts and energies of our people across all levels to deliver outstanding results. We encourage diverse opinions and yet work together in supportive way.',
+    ],
+    [
+        'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>',
+        'title' => 'Entrepreneurial Spirit',
+        'description' => 'We motivate our employees to foster new ideas, explore avenues and offer solutions that add exceptional value.',
+    ],
+    [
+        'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><path d="M11 8a3 3 0 0 0-3 3"/></svg>',
+        'title' => 'Customer Focus',
+        'description' => 'We believe in understanding and meeting customer needs in a professional and responsive manner. We focus on building and nurturing long term partnerships.',
+    ],
+    [
+        'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15l-2 5l9-13h-5l2-5l-9 13h5z"/></svg>',
+        'title' => 'Robust Quality Standards',
+        'description' => 'We prioritize stringent quality assurance measures to ensure that our products meet and exceed industry standards.',
+    ],
 ];
 
-$milestones = [
-    ['year' => '2001', 'title' => 'Foundation', 'description' => 'PharmaCorp was established with a vision to make quality healthcare accessible.'],
-    ['year' => '2005', 'title' => 'First Manufacturing Facility', 'description' => 'Inaugurated our first WHO-GMP compliant manufacturing unit in Maharashtra.'],
-    ['year' => '2010', 'title' => 'International Expansion', 'description' => 'Expanded operations to serve patients across 15+ countries worldwide.'],
-    ['year' => '2015', 'title' => 'R&D Center', 'description' => 'Established state-of-the-art research and development center for drug discovery.'],
-    ['year' => '2020', 'title' => 'Digital Transformation', 'description' => 'Embraced digital technologies for smart manufacturing and supply chain optimization.'],
-    ['year' => '2025', 'title' => 'Global Recognition', 'description' => 'Recognized as a leading pharmaceutical company with 100+ products across therapeutic areas.'],
-];
-
-$leaders = [
-    ['name' => 'Dr. Rajesh Kumar', 'role' => 'Chairman & Managing Director', 'initials' => 'RK', 'bio' => 'Visionary leader with over 30 years of pharmaceutical industry experience.'],
-    ['name' => 'Dr. Priya Sharma', 'role' => 'Chief Executive Officer', 'initials' => 'PS', 'bio' => 'Strategic thinker driving organizational growth and global expansion.'],
-    ['name' => 'Mr. Arjun Mehta', 'role' => 'Chief Operating Officer', 'initials' => 'AM', 'bio' => 'Operational excellence expert ensuring efficient manufacturing and supply chain.'],
-    ['name' => 'Dr. Anita Desai', 'role' => 'Chief Scientific Officer', 'initials' => 'AD', 'bio' => 'Leading innovation in pharmaceutical research and drug development.'],
-    ['name' => 'Mr. Vikram Singh', 'role' => 'Chief Financial Officer', 'initials' => 'VS', 'bio' => 'Driving financial strategy and sustainable business growth.'],
-    ['name' => 'Dr. Meera Nair', 'role' => 'Head of Quality', 'initials' => 'MN', 'bio' => 'Ensuring the highest quality standards across all operations.'],
-];
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn about PharmaCorp - our history, leadership, vision, and mission to advance global healthcare.">
-  <title>About Us - PharmaCorp</title>
+  <meta name="description" content="Learn about RastoMed Pharma Private Limited - our history, leadership, vision, and mission to advance healthcare.">
+  <title>About Us - RastoMed Pharma Private Limited</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,10 +57,18 @@ $leaders = [
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
-    <?= renderPageHero('About Us', [
-      ['label' => 'Home', 'url' => 'index.php'],
-      ['label' => 'About Us', 'url' => 'about.php'],
-    ], 'Discover our story, our mission, and the values that drive our commitment to global healthcare.') ?>
+    <!-- About Us Banner -->
+    <section class="about-banner">
+      <div class="about-banner__overlay"></div>
+      <div class="container about-banner__content">
+        <h1 class="about-banner__title">About Us</h1>
+        <nav class="about-banner__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.php" class="about-banner__breadcrumb-link">Home</a>
+          <span class="about-banner__breadcrumb-sep">&#9656;</span>
+          <span class="about-banner__breadcrumb-current">About Us</span>
+        </nav>
+      </div>
+    </section>
 
     <!-- ========== COMPANY OVERVIEW ========== -->
     <section class="section">
@@ -90,22 +105,31 @@ $leaders = [
     <!-- ========== MISSION & VISION ========== -->
     <section class="section section--alt">
       <div class="container">
-        <?= renderSectionHeader('Our Purpose', 'Mission & Vision', 'Guided by purpose, driven by impact.') ?>
+        <h2 class="mv-section__title">Mission &amp; Vision</h2>
 
-        <div class="grid grid--2 reveal">
-          <div style="background:var(--color-surface); border:1px solid var(--color-border-light); border-radius:var(--radius-2xl); padding:clamp(2rem, 4vw, 3rem); text-align:center;">
-            <div style="width:72px; height:72px; margin:0 auto var(--space-5); background:linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); border-radius:var(--radius-xl); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.75rem;">&#9733;</div>
-            <h3 style="font-size:var(--fs-h3); margin-bottom:var(--space-4);">Our Vision</h3>
-            <p style="color:var(--color-text-secondary); line-height:var(--lh-relaxed);">
-              To be a globally trusted pharmaceutical leader, recognized for innovation, quality, and our commitment to improving human health and well-being through accessible, effective medicines.
-            </p>
+        <div class="mv-cards reveal">
+          <div class="mv-card">
+            <div class="mv-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <div class="mv-card__content">
+              <h3 class="mv-card__title">Our Mission</h3>
+              <p class="mv-card__text">Our mission is to provide excellent quality products to our customers, improve the lives of patients by providing latest and advanced treatments. Customer Satisfaction with quality and service is our main motto.</p>
+            </div>
+            <div class="mv-card__corner mv-card__corner--left"></div>
+            <div class="mv-card__corner mv-card__corner--right"></div>
           </div>
-          <div style="background:var(--color-surface); border:1px solid var(--color-border-light); border-radius:var(--radius-2xl); padding:clamp(2rem, 4vw, 3rem); text-align:center;">
-            <div style="width:72px; height:72px; margin:0 auto var(--space-5); background:linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark)); border-radius:var(--radius-xl); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.75rem;">&#9826;</div>
-            <h3 style="font-size:var(--fs-h3); margin-bottom:var(--space-4);">Our Mission</h3>
-            <p style="color:var(--color-text-secondary); line-height:var(--lh-relaxed);">
-              To discover, develop, and deliver high-quality pharmaceutical products that address critical healthcare needs, while maintaining the highest standards of ethics, sustainability, and patient safety.
-            </p>
+
+          <div class="mv-card">
+            <div class="mv-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+            </div>
+            <div class="mv-card__content">
+              <h3 class="mv-card__title">Our Vision</h3>
+              <p class="mv-card__text">Our vision is to be the India's One Of The Best &amp; Leading Pharmaceutical Company, being the best in terms of products, values, service, employee talent and consistent and predictable growth.</p>
+            </div>
+            <div class="mv-card__corner mv-card__corner--left"></div>
+            <div class="mv-card__corner mv-card__corner--right"></div>
           </div>
         </div>
       </div>
@@ -114,68 +138,21 @@ $leaders = [
     <!-- ========== CORE VALUES ========== -->
     <section class="section">
       <div class="container">
-        <?= renderSectionHeader('Our Values', 'The Principles That Define Us', 'Core values that guide every decision we make and every product we deliver.') ?>
+        <h2 class="values-section__title">Our Values</h2>
+        <p class="values-section__subtitle">We live by our values and we make sure our values help us to achieve 100% customer satisfaction.</p>
 
-        <div class="grid grid--3 reveal">
+        <div class="values-grid reveal">
           <?php foreach ($values as $value): ?>
-            <?= renderValueCard($value['icon'], $value['title'], $value['description']) ?>
-          <?php endforeach; ?>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== MILESTONES ========== -->
-    <section class="section section--alt">
-      <div class="container">
-        <?= renderSectionHeader('Our Journey', 'Key Milestones', 'A timeline of our growth and achievements over the years.') ?>
-
-        <div class="grid grid--3 reveal">
-          <?php foreach ($milestones as $milestone): ?>
-            <?= renderMilestoneCard($milestone['year'], $milestone['title'], $milestone['description']) ?>
-          <?php endforeach; ?>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== LEADERSHIP ========== -->
-    <section id="leadership" class="section">
-      <div class="container">
-        <?= renderSectionHeader('Leadership', 'Our Leadership Team', 'Experienced professionals driving pharmaceutical excellence with vision and dedication.') ?>
-
-        <div class="grid grid--3 reveal">
-          <?php foreach ($leaders as $leader): ?>
-            <div style="background:var(--color-surface); border:1px solid var(--color-border-light); border-radius:var(--radius-xl); padding:var(--space-6); text-align:center; transition: all var(--transition-base);" class="card-hover-target">
-              <div style="width:90px; height:90px; margin:0 auto var(--space-4); background:linear-gradient(135deg, var(--color-surface-alt), var(--color-surface)); border:2px solid var(--color-border); border-radius:var(--radius-full); display:flex; align-items:center; justify-content:center; font-size:1.375rem; font-weight:700; color:var(--color-primary);"><?= $leader['initials'] ?></div>
-              <h4 style="font-size:var(--fs-body); font-weight:var(--fw-semibold); margin-bottom:var(--space-1);"><?= $leader['name'] ?></h4>
-              <p style="font-size:var(--fs-xs); color:var(--color-primary); font-weight:var(--fw-medium); margin-bottom:var(--space-3);"><?= $leader['role'] ?></p>
-              <p style="font-size:var(--fs-xs); color:var(--color-text-muted); line-height:var(--lh-normal);"><?= $leader['bio'] ?></p>
+            <div class="value-card-new">
+              <div class="value-card-new__line"></div>
+              <div class="value-card-new__icon">
+                <?= $value['icon'] ?>
+              </div>
+              <h3 class="value-card-new__title"><?= htmlspecialchars($value['title']) ?></h3>
+              <p class="value-card-new__text"><?= htmlspecialchars($value['description']) ?></p>
             </div>
           <?php endforeach; ?>
         </div>
-      </div>
-    </section>
-
-    <!-- ========== GLOBAL PRESENCE ========== -->
-    <section class="section section--alt">
-      <div class="container">
-        <?= renderSectionHeader('Global Reach', 'Our Global Presence', 'Serving healthcare needs across continents with dedication and excellence.') ?>
-
-        <div class="stat-grid reveal">
-          <?= renderStat('50+', 'Countries') ?>
-          <?= renderStat('15+', 'Manufacturing Sites') ?>
-          <?= renderStat('25+', 'Years Experience') ?>
-          <?= renderStat('10,000+', 'Team Members') ?>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== CTA ========== -->
-    <section class="section">
-      <div class="container">
-        <?= renderCtaBlock(
-          'Join Our Journey',
-          'Be part of a team that is making a real difference in global healthcare. Explore career opportunities with PharmaCorp.'
-        ) ?>
       </div>
     </section>
   </main>

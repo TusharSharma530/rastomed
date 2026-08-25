@@ -186,7 +186,7 @@ function renderPageHero($title, $breadcrumbs = [], $subtitle = '') {
     $subtitleHtml = $subtitle ? '<p style="color:rgba(255,255,255,0.85); font-size:var(--fs-body); max-width:600px; margin:0 auto var(--space-6); line-height:var(--lh-relaxed);">' . $subtitle . '</p>' : '';
 
     return '
-    <section class="page-hero">
+    <section class="page-hero page-hero--banner">
         <div class="container page-hero__content">
             <h1 class="page-hero__title">' . $title . '</h1>
             ' . $subtitleHtml . '

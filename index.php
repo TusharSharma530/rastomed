@@ -5,36 +5,36 @@
  */
 require_once __DIR__ . '/includes/components.php';
 
-$productCategories = [
+$ourProducts = [
     [
-        'name' => 'Capsules',
-        'description' => 'Wide range of high-quality capsule formulations.',
-        'image' => 'assets/images/prod-capsules.jpg',
-        'url' => 'products.php',
+        'name' => 'RESPIRO',
+        'image' => 'assets/images/respiro.png',
+        'url' => 'product-details.php',
     ],
     [
-        'name' => 'Tablets',
-        'description' => 'Reliable and effective tablet formulations.',
-        'image' => 'assets/images/prod-tablets.jpg',
-        'url' => 'products.php',
+        'name' => 'RAPORZ-M1',
+        'image' => 'assets/images/raporz-m1.png',
+        'url' => 'product-details.php',
     ],
     [
-        'name' => 'Syrups',
-        'description' => 'Clinically tested syrups for every need.',
-        'image' => 'assets/images/prod-syrups.jpg',
-        'url' => 'products.php',
+        'name' => 'NIMEXO-Q',
+        'image' => 'assets/images/nimex-q.jpeg',
+        'url' => 'product-details.php',
     ],
     [
-        'name' => 'Injections',
-        'description' => 'Safe, sterile & trusted injection range.',
-        'image' => 'assets/images/prod-injections.jpg',
-        'url' => 'products.php',
+        'name' => 'JANOHEME 170',
+        'image' => 'assets/images/janoheme170.png',
+        'url' => 'product-details.php',
     ],
     [
-        'name' => 'Ointments',
-        'description' => 'Topical care with reliable and safe formulations.',
-        'image' => 'assets/images/prod-ointments.jpg',
-        'url' => 'products.php',
+        'name' => 'RAPORZ-D170',
+        'image' => 'assets/images/rapordz170.png',
+        'url' => 'product-details.php',
+    ],
+    [
+        'name' => 'BRANCH',
+        'image' => 'assets/images/branch.png',
+        'url' => 'product-details.php',
     ],
 ];
 
@@ -174,32 +174,42 @@ $homeBlogs = [
       </div>
     </section>
 
-    <!-- 4. PRODUCTS -->
-    <section class="section section--alt">
+    <!-- 4. OUR PRODUCTS -->
+    <section class="section our-products-section">
       <div class="container">
-        <div class="section__header">
-          <span class="section-label">OUR PRODUCTS</span>
-          <h2 class="section__title">Quality Products for a <span style="color:var(--color-primary);">Healthier Tomorrow</span></h2>
+        <div class="our-products-header">
+          <div>
+            <span class="our-products-label">Quality &amp; Reliable</span>
+            <h2 class="our-products-title">Our Products</h2>
+          </div>
+          <a href="products.php" class="our-products-viewall">
+            View All
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </div>
-        <div class="product-categories-grid reveal">
-          <?php foreach ($productCategories as $product): ?>
-            <div class="product-category-card">
-              <div class="product-category-card__image">
-                <img src="<?= $product['image'] ?>" alt="<?= htmlspecialchars($product['name']) ?>" width="200" height="160" loading="lazy">
+        <div class="our-products-slider">
+          <div class="our-products-track">
+            <?php foreach ($ourProducts as $product): ?>
+              <div class="our-product-card">
+                <div class="our-product-card__image">
+                  <img src="<?= $product['image'] ?>" alt="<?= htmlspecialchars($product['name']) ?>" loading="lazy">
+                  <a href="<?= $product['url'] ?>" class="our-product-card__plus">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  </a>
+                </div>
+                <div class="our-product-card__body">
+                  <h3 class="our-product-card__title"><?= htmlspecialchars($product['name']) ?></h3>
+                  <a href="<?= $product['url'] ?>" class="our-product-card__btn">Read More</a>
+                </div>
               </div>
-              <div class="product-category-card__body">
-                <h3 class="product-category-card__title"><?= htmlspecialchars($product['name']) ?></h3>
-                <p class="product-category-card__desc"><?= htmlspecialchars($product['description']) ?></p>
-                <a href="<?= $product['url'] ?>" class="product-category-card__link">
-                  View Details
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </a>
-              </div>
-            </div>
-          <?php endforeach; ?>
-        </div>
-        <div style="text-align:center; margin-top:var(--space-10);">
-          <?= renderButton('View All Products', 'products.php', 'primary', 'lg', '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
+            <?php endforeach; ?>
+          </div>
+          <button class="our-products-nav our-products-nav--prev" aria-label="Previous">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="our-products-nav our-products-nav--next" aria-label="Next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
         </div>
       </div>
     </section>
