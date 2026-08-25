@@ -16,8 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initNewsModal();
   initEnquiryModal();
-  initHeroSlider();
-  initOurProductsSlider();
 });
 
 /* ============================================
@@ -271,13 +269,6 @@ function initDropdownKeyboard() {
       }, 150);
     });
   });
-}
-
-/* ============================================
-   UTILITY: Dynamic Page Title
-   ============================================ */
-function setPageTitle(title) {
-  document.title = title ? `${title} | PharmaCorp` : 'PharmaCorp - Advancing Healthcare';
 }
 
 /* ============================================
@@ -616,44 +607,4 @@ function initEnquiryModal() {
   }
 }
 
-/* ============================================
-   HERO SLIDER
-   ============================================ */
-function initHeroSlider() {
-  const slider = document.getElementById('heroSlider');
-  if (!slider) return;
 
-  const slides = slider.querySelectorAll('.hero-slider__slide');
-  let current = 0;
-
-  function goToSlide(index) {
-    slides[current].classList.remove('hero-slider__slide--active');
-    current = index;
-    slides[current].classList.add('hero-slider__slide--active');
-  }
-
-  function nextSlide() {
-    goToSlide((current + 1) % slides.length);
-  }
-
-  setInterval(nextSlide, 4000);
-}
-function initOurProductsSlider() {
-  const slider = document.querySelector('.our-products-slider');
-  if (!slider) return;
-
-  const track = slider.querySelector('.our-products-track');
-  const prevBtn = slider.querySelector('.our-products-nav--prev');
-  const nextBtn = slider.querySelector('.our-products-nav--next');
-  if (!track || !prevBtn || !nextBtn) return;
-
-  const scrollAmount = 280;
-
-  prevBtn.addEventListener('click', () => {
-    track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-  });
-
-  nextBtn.addEventListener('click', () => {
-    track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  });
-}

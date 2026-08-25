@@ -444,56 +444,17 @@
 
 /* --- 1200px (Desktop) --- */
 @media (max-width: 1200px) {
-  .awards-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .our-product-card {
     flex: 0 0 calc(33.333% - var(--space-4));
     min-width: 220px;
   }
-
-  .hero-section__trust {
-    gap: var(--space-6);
-  }
-
 }
 
 /* --- 992px (Tablet Landscape) --- */
 @media (max-width: 992px) {
-  .hero-section__grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .hero-section__text {
-    margin-inline: auto;
-  }
-
-  .hero-section__buttons {
-    justify-content: center;
-  }
-
-  .hero-section__visual {
-    display: none;
-  }
-
-  .hero-section__trust {
-    flex-wrap: wrap;
-    gap: var(--space-4);
-  }
-
-  .about-stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .our-product-card {
     flex: 0 0 calc(50% - var(--space-4));
     min-width: 200px;
-  }
-
-  .awards-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .testimonials-track {
@@ -525,29 +486,6 @@
     display: none;
   }
 
-  .hero-section {
-    min-height: auto;
-    padding: var(--space-10) 0 var(--space-8);
-  }
-
-  .hero-section__title {
-    font-size: clamp(1.75rem, 5vw, 2.5rem);
-  }
-
-  .hero-section__trust {
-    margin-top: var(--space-8);
-    padding-top: var(--space-6);
-  }
-
-  .trust-badge-item {
-    flex: 0 0 calc(50% - var(--space-4));
-  }
-
-  .about-stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-3);
-  }
-
   .our-product-card {
     flex: 0 0 calc(80% - var(--space-4));
     min-width: 200px;
@@ -562,15 +500,6 @@
   .mv-cards {
     grid-template-columns: 1fr;
     gap: var(--space-10);
-  }
-
-  .values-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .awards-showcase {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4);
   }
 
   .blogs-grid {
@@ -597,24 +526,6 @@
 
 /* --- 576px (Mobile Landscape) --- */
 @media (max-width: 576px) {
-  .hero-section__buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero-section__buttons .btn {
-    width: 100%;
-    max-width: 280px;
-  }
-
-  .about-stats-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .values-grid {
-    grid-template-columns: 1fr;
-  }
-
   .pd-detail-grid {
     grid-template-columns: 1fr;
     text-align: center;
@@ -632,16 +543,6 @@
     grid-template-columns: 1fr;
   }
 
-  .awards-grid {
-    grid-template-columns: 1fr;
-    max-width: 500px;
-    margin-inline: auto;
-  }
-
-  .award-card__image {
-    height: 150px;
-  }
-
   .map-wrapper {
     min-height: 300px;
   }
@@ -654,24 +555,5 @@
     flex-direction: column;
     text-align: center;
     gap: var(--space-2);
-  }
-}
-
-/* --- 375px (Mobile) --- */
-@media (max-width: 375px) {
-  .trust-badge-item {
-    flex: 0 0 100%;
-  }
-
-  .about-stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .awards-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .awards-header__label {
-    font-size: 0.625rem;
   }
 }
