@@ -389,6 +389,13 @@ p {
   gap: var(--space-4);
 }
 
+.header__logo-mobile {
+  display: none;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
 .header__logo {
   display: flex;
   align-items: center;
@@ -678,7 +685,7 @@ p {
   right: 0;
   bottom: 0;
   background-color: var(--color-bg);
-  z-index: var(--z-fixed);
+  z-index: calc(var(--z-overlay) + 1);
   padding: calc(var(--header-height) + var(--space-8)) var(--container-padding) var(--space-8);
   overflow-y: auto;
   transform: translateX(100%);
@@ -1554,7 +1561,7 @@ p {
    ============================================ */
 .back-to-top {
   position: fixed;
-  bottom: 80px;
+  bottom: 140px;
   right: 24px;
   width: 48px;
   height: 48px;
@@ -1690,7 +1697,7 @@ p {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: calc(var(--z-fixed) - 1);
+  z-index: var(--z-overlay);
   opacity: 0;
   visibility: hidden;
   transition: all var(--transition-base);
@@ -3662,6 +3669,15 @@ p {
   height: 18px;
 }
 
+.whatsapp-float__btn {
+  background: #25D366 !important;
+}
+
+.whatsapp-float__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
 /* --- Enquiry Modal --- */
 .enquiry-modal {
   display: none;
@@ -5378,7 +5394,7 @@ p {
 
 .our-product-card__image {
   position: relative;
-  background: #42A5F5;
+  background: #ffffff;
   border-radius: var(--radius-xl);
   padding: var(--space-6);
   display: flex;
@@ -5389,7 +5405,7 @@ p {
 }
 
 .our-product-card__image img {
-  max-width: 85%;
+  max-width: 95%;
   max-height: 100%;
   object-fit: contain;
   transition: transform 0.4s ease;
@@ -5424,7 +5440,6 @@ p {
 
 .our-product-card__body {
   padding: var(--space-6) var(--space-4) var(--space-4);
-  text-align: center;
 }
 
 .our-product-card__title {
@@ -5434,15 +5449,16 @@ p {
   margin-bottom: var(--space-3);
   text-transform: uppercase;
   letter-spacing: 0.02em;
+  text-align: center;
 }
 
 .our-product-card__btn {
   display: inline-block;
-  padding: 10px 28px;
+  padding: 6px 16px;
   background: #1565C0;
   color: #fff;
   border-radius: var(--radius-md);
-  font-size: var(--fs-small);
+  font-size: var(--fs-xs);
   font-weight: var(--fw-semibold);
   text-decoration: none;
   transition: all var(--transition-base);

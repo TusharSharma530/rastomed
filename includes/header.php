@@ -46,6 +46,11 @@
 <!-- Navigation Bar -->
 <header class="header" role="banner">
   <div class="header__inner">
+    <!-- Mobile Logo -->
+    <a href="index.php" class="header__logo-mobile" aria-label="RastoMed Pharma Home">
+      <img src="assets/images/rastomed.jpeg" alt="RastoMed Pharma" style="height:45px; width:auto;">
+    </a>
+
     <!-- Desktop Navigation -->
     <?php include __DIR__ . '/navbar.php'; ?>
 

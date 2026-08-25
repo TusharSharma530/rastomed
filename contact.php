@@ -77,7 +77,7 @@ require_once __DIR__ . '/includes/components.php';
                 </div>
                 <div>
                   <p style="font-size:var(--fs-body); color:var(--color-text-secondary); line-height:1.8; margin:0;">
-                    +91 9410666599 (WhatsApp)<br>
+                    +91 9410666599 <br>
                     +91 7906752047
                   </p>
                 </div>

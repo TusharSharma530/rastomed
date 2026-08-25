@@ -170,9 +170,11 @@ $homeBlogs = [
                   </a>
                 </div>
                 <div class="our-product-card__body">
-                  <h3 class="our-product-card__title"><?= htmlspecialchars($product['name']) ?></h3>
-                  <p style="font-size:var(--fs-h4); font-weight:700; color:var(--color-primary); margin-bottom:var(--space-4);">&#8377; 655</p>
-                  <a href="<?= $product['url'] ?>" class="our-product-card__btn">Read More</a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-3);">
+                    <h3 class="our-product-card__title" style="margin:0; text-align:left;"><?= htmlspecialchars($product['name']) ?></h3>
+                    <span style="font-size:var(--fs-body); font-weight:700; color:var(--color-primary); white-space:nowrap;">&#8377; 655</span>
+                    <a href="<?= $product['url'] ?>" class="our-product-card__btn">Read More</a>
+                  </div>
                 </div>
               </div>
             <?php endforeach; ?>
