@@ -152,58 +152,23 @@ $homeBlogs = [
     </section>
 
     <!-- 3. ABOUT US -->
-    <section class="section">
+    <section class="about-section">
       <div class="container">
-        <div class="about-split">
-          <div class="about-split__image reveal reveal--left">
-            <div class="enterprise-img-wrapper">
-              <img src="assets/images/about-factory.jpg" alt="Medixon Pharmaceuticals Corporate Headquarters" class="enterprise-img" width="600" height="450">
-            </div>
-            <div class="about-split__badge">
-              <strong>18+</strong>
-              <span>Years of<br>Excellence</span>
-              <small>Serving healthcare with trust since 2006</small>
+        <div class="about-section__grid">
+          <div class="about-section__images">
+            <div class="about-section__img about-section__img--1">
+              <img src="assets/images/about.png" alt="Pharmaceutical Medicines" width="400" height="350">
             </div>
           </div>
-          <div class="about-split__content reveal reveal--right">
-            <span class="section-label">ABOUT US</span>
-            <h2 class="section__title" style="text-align:left;">Trusted by Doctors.<br>Chosen by <span style="color:var(--color-primary);">Millions.</span></h2>
-            <p class="about-split__text">
-              Medixon Pharmaceuticals is a fast-growing pharmaceutical company dedicated to manufacturing and marketing a wide range of high-quality medicines.
+          <div class="about-section__content">
+            <h2 class="about-section__title">RastoMed Pharma Private Limited</h2>
+            <p class="about-section__text">
+              RastoMed Pharma Private Limited is a reliable leading organization, which is engaged in providing a highly effective ranges of Pharmaceutical Medicines. We have a wide range of healthcare products: Capsules, Syrups, Tablets, and other Pharmaceutical Products. All these products are processed under the strict guideline of international standards, following the rules of appropriate composition of compounds.
             </p>
-            <div class="about-stats-grid">
-              <div class="about-stat">
-                <div class="about-stat__icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
-                <div class="about-stat__number">18+</div>
-                <div class="about-stat__label">Years<br>Experience</div>
-              </div>
-              <div class="about-stat">
-                <div class="about-stat__icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-                </div>
-                <div class="about-stat__number">300+</div>
-                <div class="about-stat__label">Quality<br>Products</div>
-              </div>
-              <div class="about-stat">
-                <div class="about-stat__icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                </div>
-                <div class="about-stat__number">25+</div>
-                <div class="about-stat__label">Countries<br>Presence</div>
-              </div>
-              <div class="about-stat">
-                <div class="about-stat__icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <div class="about-stat__number">500+</div>
-                <div class="about-stat__label">Happy<br>Associates</div>
-              </div>
-            </div>
-            <div style="margin-top: var(--space-6);">
-              <?= renderButton('Know More About Us', 'about.php', 'primary', '', '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
-            </div>
+            <a href="about.php" class="about-section__btn">
+              Read More
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
           </div>
         </div>
       </div>
