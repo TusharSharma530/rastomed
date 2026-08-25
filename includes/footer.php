@@ -1,7 +1,7 @@
 <?php
 /**
  * Footer Component
- * Medixon Pharmaceuticals corporate footer
+ * RastoMed Pharma corporate footer
  */
 ?>
 <footer class="footer" role="contentinfo">
@@ -11,19 +11,16 @@
 
       <!-- Brand Column -->
       <div class="footer__brand">
-        <a href="index.php" class="footer__logo" aria-label="Medixon Pharma Home">
-          <div class="footer__logo-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L12 22"/><path d="M2 12L22 12"/></svg>
-          </div>
-          <div class="footer__logo-text">Medixon <span>PHARMACEUTICALS</span></div>
+        <a href="index.php" class="footer__logo" aria-label="RastoMed Pharma Home">
+          <img src="assets/images/rastomed.jpeg" alt="RastoMed Pharma" style="height:60px; width:auto; object-fit:contain;">
         </a>
         <p class="footer__description">
           We are dedicated to providing high-quality medicines that improve lives and build a healthier tomorrow.
         </p>
       
         <div class="footer__social">
-          <a href="https://x.com/RastoMedPharma" target="_blank" class="footer__social-link" aria-label="Facebook">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <a href="https://x.com/RastoMedPharma" target="_blank" class="footer__social-link" aria-label="X (Twitter)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
           <a href="https://www.linkedin.com/company/rastomed-pharma/" target="_blank" class="footer__social-link" aria-label="LinkedIn">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -76,15 +73,15 @@
         <h4 class="footer__column-title">Contact Us</h4>
         <div class="footer__contact-item">
           <svg class="footer__contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>Plot No. 123, Industrial Area,<br>Phase 1, Panchkula,<br>Haryana, India - 134113</span>
+          <span>353, Shivaji Road, Meerut,<br>Uttar Pradesh-250001</span>
         </div>
         <div class="footer__contact-item">
           <svg class="footer__contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span>+91 98765 43210<br>+91 98765 43211</span>
+          <span>+91 9410666599<br>+91 7906752047</span>
         </div>
         <div class="footer__contact-item">
           <svg class="footer__contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span>info@medixonpharma.com<br>www.medixonpharma.com</span>
+          <span>info@rastomedpharma.com<br>rastomedpharma@gmail.com</span>
         </div>
       </div>
     </div>
@@ -92,7 +89,7 @@
     <!-- Footer Bottom -->
     <div class="footer__bottom">
       <p class="footer__copyright">
-        &copy; <?= date('Y') ?> Medixon Pharmaceuticals. All Rights Reserved.
+        &copy; <?= date('Y') ?> RastoMed Pharma Private Limited. All Rights Reserved.
       </p>
       <p class="footer__tagline">
         Designed with <span style="color:#e74c3c;">&#10084;</span> for a Healthier Tomorrow
@@ -133,7 +130,7 @@
       </div>
       <div class="form-group">
         <label class="form-label" for="enqMobile">Mobile *</label>
-        <input type="tel" id="enqMobile" class="form-input" placeholder="+91 98765 43210" required>
+        <input type="tel" id="enqMobile" class="form-input" placeholder="+91 9410666599" required>
       </div>
       <div class="form-group">
         <label class="form-label" for="enqEmail">Email</label>

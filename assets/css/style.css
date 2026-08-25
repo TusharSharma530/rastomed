@@ -1554,8 +1554,8 @@ p {
    ============================================ */
 .back-to-top {
   position: fixed;
-  bottom: var(--space-8);
-  right: var(--space-8);
+  bottom: 80px;
+  right: 24px;
   width: 48px;
   height: 48px;
   display: flex;
@@ -4028,18 +4028,19 @@ p {
 .product-card__image-enterprise {
   position: relative;
   width: 100%;
-  height: 220px;
+  height: 260px;
   overflow: hidden;
   background: var(--color-surface-alt);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: var(--space-4);
 }
 
 .product-card__image-enterprise img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform var(--transition-slow);
 }
 
@@ -4318,7 +4319,7 @@ p {
 /* --- Header Adjustments for RastoMed --- */
 .top-bar {
   background: var(--color-surface);
-  padding: var(--space-5) 0;
+  padding: 0;
   border-bottom: 1px solid var(--color-border-light);
 }
 
@@ -4335,9 +4336,10 @@ p {
 }
 
 .top-bar__logo-img {
-  height: 90px;
+  height: 85px;
   width: auto;
   object-fit: contain;
+  padding: 8px 15px;
 }
 
 .top-bar__contact {
@@ -4383,14 +4385,14 @@ p {
 }
 
 .header {
-  background-color: var(--color-primary-dark);
+  background-color: #1E88E5;
   position: sticky;
   top: 0;
   z-index: var(--z-sticky);
 }
 
 [data-theme="dark"] .header {
-  background-color: #1a237e;
+  background-color: #1E88E5;
 }
 
 .header .nav__link {
@@ -5302,7 +5304,7 @@ p {
 
 /* --- Our Products Section --- */
 .our-products-section {
-  padding: clamp(3rem, 6vw, 5rem) 0;
+  padding: clamp(0.5rem, 1vw, 0.75rem) 0;
   background: var(--color-bg);
 }
 
@@ -5376,7 +5378,7 @@ p {
 
 .our-product-card__image {
   position: relative;
-  background: #fde8e8;
+  background: #42A5F5;
   border-radius: var(--radius-xl);
   padding: var(--space-6);
   display: flex;
@@ -5399,8 +5401,8 @@ p {
 
 .our-product-card__plus {
   position: absolute;
-  bottom: -16px;
-  right: 20px;
+  bottom: 12px;
+  right: 12px;
   width: 44px;
   height: 44px;
   background: #1565C0;
@@ -5416,7 +5418,7 @@ p {
 }
 
 .our-product-card__plus:hover {
-  background: #a93226;
+  background: #0D47A1;
   transform: scale(1.1);
 }
 

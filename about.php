@@ -135,26 +135,6 @@ $values = [
       </div>
     </section>
 
-    <!-- ========== CORE VALUES ========== -->
-    <section class="section">
-      <div class="container">
-        <h2 class="values-section__title">Our Values</h2>
-        <p class="values-section__subtitle">We live by our values and we make sure our values help us to achieve 100% customer satisfaction.</p>
-
-        <div class="values-grid reveal">
-          <?php foreach ($values as $value): ?>
-            <div class="value-card-new">
-              <div class="value-card-new__line"></div>
-              <div class="value-card-new__icon">
-                <?= $value['icon'] ?>
-              </div>
-              <h3 class="value-card-new__title"><?= htmlspecialchars($value['title']) ?></h3>
-              <p class="value-card-new__text"><?= htmlspecialchars($value['description']) ?></p>
-            </div>
-          <?php endforeach; ?>
-        </div>
-      </div>
-    </section>
   </main>
 
   <?php include __DIR__ . '/includes/footer.php'; ?>

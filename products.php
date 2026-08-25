@@ -8,63 +8,13 @@ require_once __DIR__ . '/includes/components.php';
 $allProducts = [
     [
         'id' => 1,
-        'name' => 'RESPIRO',
+        'name' => 'QOREST-10',
         'category' => 'Capsules',
         'therapy' => 'General Medicine',
-        'description' => 'High-quality respiratory formulation for effective lung and airway support.',
+        'description' => 'High-quality softgel capsules for effective health supplementation.',
         'badge' => '',
-        'image' => 'assets/images/respiro.png',
+        'image' => 'assets/images/qorest-10.png',
         'url' => 'product-details.php?id=1',
-    ],
-    [
-        'id' => 2,
-        'name' => 'RAPORZ-M1',
-        'category' => 'Tablets',
-        'therapy' => 'General Medicine',
-        'description' => 'Reliable and effective tablet formulation for daily health management.',
-        'badge' => '',
-        'image' => 'assets/images/raporz-m1.png',
-        'url' => 'product-details.php?id=2',
-    ],
-    [
-        'id' => 3,
-        'name' => 'NIMEXO-Q',
-        'category' => 'Capsules',
-        'therapy' => 'General Medicine',
-        'description' => 'Co-Enzyme Q10 softgel capsules with Eicosapentaenoic Acid, Docosahexaenoic Acid, L-Arginine & Selenium.',
-        'badge' => '',
-        'image' => 'assets/images/nimex-q.jpeg',
-        'url' => 'product-details.php?id=3',
-    ],
-    [
-        'id' => 4,
-        'name' => 'JANOHEME 170',
-        'category' => 'Tablets',
-        'therapy' => 'General Medicine',
-        'description' => 'Iron supplementation tablets for effective management of iron deficiency.',
-        'badge' => '',
-        'image' => 'assets/images/janoheme170.png',
-        'url' => 'product-details.php?id=4',
-    ],
-    [
-        'id' => 5,
-        'name' => 'RAPORZ-D170',
-        'category' => 'Tablets',
-        'therapy' => 'General Medicine',
-        'description' => 'Cholecalciferol Oral Solution 60000 IU for Vitamin D deficiency management.',
-        'badge' => '',
-        'image' => 'assets/images/rapordz170.png',
-        'url' => 'product-details.php?id=5',
-    ],
-    [
-        'id' => 6,
-        'name' => 'BRANCH',
-        'category' => 'Syrups',
-        'therapy' => 'General Medicine',
-        'description' => 'Premium liver support formulation for hepatoprotection and detoxification.',
-        'badge' => '',
-        'image' => 'assets/images/branch.png',
-        'url' => 'product-details.php?id=6',
     ],
 ];
 
@@ -105,49 +55,22 @@ sort($therapies);
       </div>
     </section>
 
-    <!-- ========== PRODUCT FILTERS & CATALOG ========== -->
+    <!-- ========== PRODUCT CATALOG ========== -->
     <section class="section">
       <div class="container">
-        <!-- Filter Control Bar -->
-        <div class="filter-bar reveal" style="background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-2xl); padding:var(--space-6); box-shadow:var(--shadow-md); margin-bottom:var(--space-10);">
-          <div class="filter-bar__search">
-            <svg class="filter-bar__search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            <input type="text" id="productSearch" class="filter-bar__search-input" placeholder="Search formulations by name or API...">
-          </div>
-
-          <select id="categoryFilter" class="filter-bar__select">
-            <option value="">All Dosage Forms</option>
-            <?php foreach ($categories as $cat): ?>
-              <option value="<?= htmlspecialchars($cat) ?>"><?= htmlspecialchars($cat) ?></option>
-            <?php endforeach; ?>
-          </select>
-
-          <select id="therapyFilter" class="filter-bar__select">
-            <option value="">All Therapeutic Segments</option>
-            <?php foreach ($therapies as $therapy): ?>
-              <option value="<?= htmlspecialchars($therapy) ?>"><?= htmlspecialchars($therapy) ?></option>
-            <?php endforeach; ?>
-          </select>
-
-          <button id="clearFilters" class="filter-bar__clear">Reset Filters</button>
-          <span id="productCount" class="filter-bar__count" style="font-weight:bold; color:var(--color-primary);"><?= count($allProducts) ?> Formulations Found</span>
-        </div>
-
-        <!-- ========== PRODUCT GRID ========== -->
-        <div class="product-grid reveal">
-          <?php foreach ($allProducts as $product): ?>
-            <?= renderFilterableProductCard($product) ?>
-          <?php endforeach; ?>
-        </div>
-
-        <!-- Empty Search State -->
-        <div class="product-grid__empty" style="display:none; min-height:300px;">
-          <div style="text-align:center; padding:var(--space-12);">
-            <div style="width:64px; height:64px; margin:0 auto var(--space-4); display:flex; align-items:center; justify-content:center; background:var(--color-surface-alt); border-radius:var(--radius-full); font-size:1.5rem; color:var(--color-text-muted);">&#128269;</div>
-            <h3 style="font-size:var(--fs-h4); margin-bottom:var(--space-2);">No Matching Formulations Found</h3>
-            <p style="font-size:var(--fs-small); color:var(--color-text-muted);">Try resetting your search query or selecting a different dosage filter.</p>
+        <div style="display:flex; justify-content:center;">
+          <div class="our-product-card" style="max-width:320px; width:100%;">
+            <div class="our-product-card__image">
+              <img src="assets/images/qorest-10.png" alt="QOREST-10" loading="lazy">
+              <a href="product-details.php?id=1" class="our-product-card__plus">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </a>
+            </div>
+            <div class="our-product-card__body">
+              <h3 class="our-product-card__title">QOREST-10</h3>
+              <p style="font-size:var(--fs-h4); font-weight:700; color:var(--color-primary); margin-bottom:var(--space-4);">&#8377; 655</p>
+              <a href="product-details.php?id=1" class="our-product-card__btn">Read More</a>
+            </div>
           </div>
         </div>
       </div>

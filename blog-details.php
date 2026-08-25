@@ -9,128 +9,86 @@ $postId = isset($_GET['id']) ? intval($_GET['id']) : 1;
 $posts = [
     1 => [
         'id' => 1,
-        'title' => 'Breakthroughs in Solid Oral Dosage Formulations: Bioavailability Enhancement',
-        'category' => 'R&D Insights',
-        'date' => 'August 18, 2026',
+        'title' => 'Latest Trends in Pharmaceutical Industry in 2024',
+        'category' => 'Pharma News',
+        'date' => 'May 10, 2024',
         'readTime' => '5 min read',
-        'author' => 'Dr. Rajesh Mehta',
-        'authorRole' => 'VP of Formulation R&D',
-        'image' => 'assets/images/blog-1.jpg',
+        'author' => 'RastoMed Pharma',
+        'authorRole' => 'Industry Insights',
+        'image' => 'assets/images/blog-research.jpg',
         'highlights' => [
-            'Overcoming aqueous solubility barriers in BCS Class II & IV compounds.',
-            'Implementation of Self-Emulsifying Drug Delivery Systems (SEDDS).',
-            'Hot-Melt Extrusion (HME) for molecular amorphous solid dispersions.',
-            '4-fold improvement in Cmax and AUC bioequivalence outcomes.',
+            'Latest pharmaceutical industry trends for 2024.',
+            'Innovation and technology advancements.',
+            'Market growth and opportunities.',
         ],
         'content' => '
-            <p class="lead" style="font-size:var(--fs-h4); color:var(--color-text); line-height:var(--lh-relaxed); font-weight:500; margin-bottom:var(--space-6);">Solid oral dosage forms, such as tablets and hard gelatin capsules, remain the gold standard of therapeutic drug administration worldwide. However, nearly 40% of newly synthesized active pharmaceutical ingredients (APIs) exhibit severe aqueous insolubility, posing critical challenges to gastrointestinal bioavailability.</p>
+            <p class="lead" style="font-size:var(--fs-h4); color:var(--color-text); line-height:var(--lh-relaxed); font-weight:500; margin-bottom:var(--space-6);">Exploring the latest advancements and trends shaping the pharmaceutical industry in 2024 and beyond.</p>
 
-            <h3>The Challenge of Poorly Soluble APIs</h3>
-            <p>Under the Biopharmaceutics Classification System (BCS), Class II (high permeability, low solubility) and Class IV (low permeability, low solubility) compounds require advanced solubilization technologies to achieve clinically effective plasma concentration profiles. Without enhanced drug delivery platforms, unformulated hydrophobic drugs suffer from erratic absorption and poor patient compliance.</p>
+            <h3>Industry Overview</h3>
+            <p>The pharmaceutical industry continues to evolve with new technologies, regulatory changes, and shifting market dynamics. This article explores the key trends that are shaping the future of healthcare and pharmaceutical manufacturing.</p>
 
-            <blockquote style="border-left:4px solid var(--color-primary); padding:var(--space-4) var(--space-6); background:var(--color-surface-alt); border-radius:var(--radius-md); font-style:italic; margin:var(--space-6) 0; font-size:var(--fs-body);">
-                "By tailoring lipid-based microemulsion vectors, PharmaCorp formulation teams achieved consistent zero-order dissolution profiles across varied pH environments."
-            </blockquote>
-
-            <h3>Key Technological Breakthroughs at PharmaCorp R&D</h3>
-            <p>At PharmaCorp R&D center, our analytical formulation scientists employ three primary technology platforms:</p>
+            <h3>Key Trends</h3>
             <ul>
-                <li><strong>Self-Emulsifying Drug Delivery Systems (SEDDS):</strong> Isotropic liquid mixtures composed of synthetic triglycerides, lipophilic surfactants, and co-solvents that rapidly form isotropic oil-in-water microemulsions upon contact with gastric fluids.</li>
-                <li><strong>Hot-Melt Extrusion (HME):</strong> Polymer matrix extrusion processing that disperses crystalline drug molecules into an amorphous state, preventing re-crystallization during shelf storage.</li>
-                <li><strong>High-Pressure Nanocrystallization:</strong> Wet media milling reducing particle size dimensions below 200 nanometers, expanding total effective surface area according to the Noyes-Whitney dissolution equation.</li>
+                <li><strong>Digital Transformation:</strong> AI and machine learning are revolutionizing drug discovery and development processes.</li>
+                <li><strong>Sustainability:</strong> Green manufacturing practices are becoming industry standards.</li>
+                <li><strong>Personalized Medicine:</strong> Tailored treatments based on genetic profiles are gaining momentum.</li>
             </ul>
-
-            <h3>Clinical Bioavailability Outcomes</h3>
-            <p>In-vivo bioequivalence studies conducted under strict Good Clinical Practice (GCP) guidelines confirmed a 400% elevation in AUC values compared to conventional un-formulated reference standards, validating the commercial viability of SEDDS for our next-generation oral therapeutics.</p>
         ',
     ],
     2 => [
         'id' => 2,
-        'title' => 'Navigating Global WHO-GMP & ISO 9001:2015 Compliance in Modern Pharma Plants',
-        'category' => 'Regulatory',
-        'date' => 'August 10, 2026',
-        'readTime' => '7 min read',
-        'author' => 'Priya Sharma',
-        'authorRole' => 'Head of Global Quality Assurance',
-        'image' => 'assets/images/blog-2.jpg',
+        'title' => '5 Simple Ways to Boost Your Immunity Naturally',
+        'category' => 'Health Tips',
+        'date' => 'May 05, 2024',
+        'readTime' => '4 min read',
+        'author' => 'RastoMed Pharma',
+        'authorRole' => 'Health & Wellness',
+        'image' => 'assets/images/blog-health.jpg',
         'highlights' => [
-            'Enforcing ALCOA+ data integrity across electronic batch records.',
-            'HVAC differential pressure and HEPA cleanroom environmental controls.',
-            'Comprehensive CAPA workflows for zero-defect audit readiness.',
+            'Natural approaches to strengthen immunity.',
+            'Diet and lifestyle tips for better health.',
+            'Supplements that support immune function.',
         ],
         'content' => '
-            <p class="lead" style="font-size:var(--fs-h4); color:var(--color-text); line-height:var(--lh-relaxed); font-weight:500; margin-bottom:var(--space-6);">Quality Assurance in modern pharmaceutical manufacturing is a continuous operational discipline that guarantees every tablet, vial, and syrup meets international therapeutic specifications.</p>
+            <p class="lead" style="font-size:var(--fs-h4); color:var(--color-text); line-height:var(--lh-relaxed); font-weight:500; margin-bottom:var(--space-6);">Natural approaches to strengthen your immune system and stay healthy throughout the year.</p>
 
-            <h3>Core Compliance Pillars</h3>
-            <p>PharmaCorp\'s Quality Management System (QMS) enforces strict standards across all manufacturing operations:</p>
+            <h3>Simple Ways to Boost Immunity</h3>
+            <p>A strong immune system is your body\'s first line of defense against infections and diseases. Here are five simple and effective ways to naturally boost your immunity.</p>
+
             <ul>
-                <li><strong>Data Integrity & ALCOA+ Standards:</strong> All analytical software and electronic batch record (eBR) systems comply with US FDA 21 CFR Part 11 regulations.</li>
-                <li><strong>Cleanroom Environmental Validation:</strong> HEPA air filtration maintaining Class 10,000 (ISO Grade 7) HVAC differential pressure zones for non-sterile and sterile areas.</li>
-                <li><strong>CAPA & Deviation Control:</strong> Automated corrective and preventive action workflows guaranteeing root cause identification for any batch variation.</li>
+                <li><strong>Balanced Diet:</strong> Eat a variety of fruits, vegetables, and whole grains rich in vitamins and minerals.</li>
+                <li><strong>Regular Exercise:</strong> Physical activity helps improve circulation and immune response.</li>
+                <li><strong>Adequate Sleep:</strong> Aim for 7-8 hours of quality sleep each night.</li>
+                <li><strong>Stay Hydrated:</strong> Drink plenty of water throughout the day.</li>
+                <li><strong>Manage Stress:</strong> Practice relaxation techniques like meditation and deep breathing.</li>
             </ul>
         ',
     ],
     3 => [
         'id' => 3,
-        'title' => 'The Role of AI & Molecular Modeling in Accelerating Drug Discovery Pipelines',
-        'category' => 'Innovation',
-        'date' => 'July 28, 2026',
-        'readTime' => '6 min read',
-        'author' => 'Dr. Aris Thorne',
-        'authorRole' => 'Chief Scientific Officer',
-        'image' => 'assets/images/blog-3.jpg',
+        'title' => 'How Quality Manufacturing Ensures Better Healthcare',
+        'category' => 'Pharma Updates',
+        'date' => 'April 28, 2024',
+        'readTime' => '5 min read',
+        'author' => 'RastoMed Pharma',
+        'authorRole' => 'Quality Assurance',
+        'image' => 'assets/images/blog-manufacturing.jpg',
         'highlights' => [
-            'Machine learning algorithms for target-ligand binding predictions.',
-            'Reducing pre-clinical screening timelines by over 40%.',
-            'AI-driven molecular simulation platforms.',
+            'Role of quality manufacturing in healthcare.',
+            'GMP standards and compliance.',
+            'Ensuring safe and effective medicines.',
         ],
         'content' => '
-            <p class="lead" style="font-size:var(--fs-h4); color:var(--color-text); line-height:var(--lh-relaxed); font-weight:500; margin-bottom:var(--space-6);">Artificial Intelligence is revolutionizing pharmaceutical drug discovery by enabling rapid virtual screening of millions of molecular candidates against therapeutic targets.</p>
+            <p class="lead" style="font-size:var(--fs-h4); color:var(--color-text); line-height:var(--lh-relaxed); font-weight:500; margin-bottom:var(--space-6);">The role of quality manufacturing in delivering safe and effective medicines to patients worldwide.</p>
 
-            <h3>AI-Powered Drug Discovery</h3>
-            <p>Machine learning algorithms can predict target-ligand binding affinities with remarkable accuracy, reducing early-stage pre-clinical screening timelines by over 40%.</p>
-        ',
-    ],
-    4 => [
-        'id' => 4,
-        'title' => 'Ensuring Cold-Chain Integrity for Temperature-Sensitive Biologics & Vaccines',
-        'category' => 'Logistics',
-        'date' => 'July 14, 2026',
-        'readTime' => '4 min read',
-        'author' => 'Sanjay Verma',
-        'authorRole' => 'Director of Global Supply Chain',
-        'image' => 'assets/images/blog-4.jpg',
-        'highlights' => [
-            'IoT temperature-logging sensors for real-time monitoring.',
-            'Validated thermal packaging solutions.',
-            'International transit hub compliance.',
-        ],
-        'content' => '
-            <p class="lead" style="font-size:var(--fs-h4); color:var(--color-text); line-height:var(--lh-relaxed); font-weight:500; margin-bottom:var(--space-6);">Maintaining cold-chain integrity is critical for preserving the potency and efficacy of temperature-sensitive biologics and vaccines throughout the supply chain.</p>
+            <h3>Quality Manufacturing Standards</h3>
+            <p>Quality manufacturing is the cornerstone of pharmaceutical production. It ensures that every product meets the highest standards of safety, efficacy, and consistency.</p>
 
-            <h3>Cold-Chain Technologies</h3>
-            <p>Leveraging IoT temperature-logging sensors and validated thermal packaging solutions to preserve product potency across international transit hubs.</p>
-        ',
-    ],
-    5 => [
-        'id' => 5,
-        'title' => 'Quality by Design (QbD) Approaches in Bioequivalent Generic Manufacturing',
-        'category' => 'R&D Insights',
-        'date' => 'June 30, 2026',
-        'readTime' => '8 min read',
-        'author' => 'Dr. Ananya Roy',
-        'authorRole' => 'Principal Analytical Scientist',
-        'image' => 'assets/images/blog-5.jpg',
-        'highlights' => [
-            'Design of Experiments (DoE) principles.',
-            'Critical process parameters (CPPs) identification.',
-            'Critical quality attributes (CQAs) in tablet compression.',
-        ],
-        'content' => '
-            <p class="lead" style="font-size:var(--fs-h4); color:var(--color-text); line-height:var(--lh-relaxed); font-weight:500; margin-bottom:var(--space-6);">Quality by Design (QbD) is a systematic approach to pharmaceutical development that begins with predefined objectives and emphasizes product and process understanding.</p>
-
-            <h3>QbD Implementation</h3>
-            <p>Applying Design of Experiments (DoE) principles to identify critical process parameters (CPPs) and critical quality attributes (CQAs) in tablet compression.</p>
+            <ul>
+                <li><strong>GMP Compliance:</strong> Following Good Manufacturing Practices ensures consistent product quality.</li>
+                <li><strong>Quality Control:</strong> Rigorous testing at every stage of production.</li>
+                <li><strong>Documentation:</strong> Comprehensive records for traceability and accountability.</li>
+            </ul>
         ',
     ],
 ];

@@ -52,19 +52,8 @@ require_once __DIR__ . '/includes/components.php';
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
                 <div>
-                  <strong style="color:var(--color-text); display:block; margin-bottom:4px; font-size:var(--fs-body); font-weight:bold;">Registered Address</strong>
-                  <p style="font-size:var(--fs-body); color:var(--color-text-secondary); line-height:1.5; margin:0;">Shed No. 67, 1st Floor, DSIDC Complex, K.M. Pur, New Delhi-110003</p>
-                </div>
-              </div>
-
-              <!-- Corporate Address -->
-              <div style="display:flex; gap:var(--space-4); align-items:flex-start;">
-                <div style="width:48px; height:48px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:rgba(21, 101, 192, 0.1); border-radius:var(--radius-lg); color:var(--color-primary);">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                </div>
-                <div>
-                  <strong style="color:var(--color-text); display:block; margin-bottom:4px; font-size:var(--fs-body); font-weight:bold;">Corporate Address</strong>
-                  <p style="font-size:var(--fs-body); color:var(--color-text-secondary); line-height:1.5; margin:0;">Plot no 3, Opp. Central Bank of India, Sagar Road, Raisen MP. 464551.</p>
+                  <strong style="color:var(--color-text); display:block; margin-bottom:4px; font-size:var(--fs-body); font-weight:bold;">Address</strong>
+                  <p style="font-size:var(--fs-body); color:var(--color-text-secondary); line-height:1.5; margin:0;">353, Shivaji Road, Meerut, Uttar Pradesh-250001</p>
                 </div>
               </div>
 
@@ -75,8 +64,8 @@ require_once __DIR__ . '/includes/components.php';
                 </div>
                 <div>
                   <p style="font-size:var(--fs-body); color:var(--color-text-secondary); line-height:1.8; margin:0;">
-                    info@jannockspharma.in<br>
-                    jannockspharma@gmail.com
+                    info@rastomedpharma.com<br>
+                    rastomedpharma@gmail.com
                   </p>
                 </div>
               </div>
@@ -88,8 +77,8 @@ require_once __DIR__ . '/includes/components.php';
                 </div>
                 <div>
                   <p style="font-size:var(--fs-body); color:var(--color-text-secondary); line-height:1.8; margin:0;">
-                    +91 88003 36704<br>
-                    +91 99906 85530
+                    +91 9410666599 (WhatsApp)<br>
+                    +91 7906752047
                   </p>
                 </div>
               </div>
@@ -150,14 +139,14 @@ require_once __DIR__ . '/includes/components.php';
       <div class="container">
         <div style="width:100%; height:450px; border-radius:var(--radius-2xl); overflow:hidden; border:1px solid var(--color-border); box-shadow:var(--shadow-md);">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5!2d77.2419!3d28.5714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1d5a0b0b0b0b%3A0x0b0b0b0b0b0b0b0b!2sDSIDC%20Complex%2C%20Kotla%20Mubarakpur%2C%20New%20Delhi%2C%20Delhi%20110003!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5!2d77.7107!3d28.9845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974b6a0b0b0b0b0%3A0x0b0b0b0b0b0b0b0b!2sShivaji+Road%2C+Meerut%2C+Uttar+Pradesh+250001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style="border:0;"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Jannocks Pharma Pvt Ltd Location">
+            title="RastoMed Pharma Location">
           </iframe>
         </div>
       </div>

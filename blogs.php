@@ -9,66 +9,30 @@ $breadcrumbs = [
     ['label' => 'Blogs & Insights', 'url' => 'blogs.php'],
 ];
 
-$featuredPost = [
-    'id' => 1,
-    'title' => 'Breakthroughs in Solid Oral Dosage Formulations: Bioavailability Enhancement & SEDDS Technologies',
-    'category' => 'R&D Insights',
-    'date' => 'August 18, 2026',
-    'readTime' => '5 min read',
-    'author' => 'Dr. Rajesh Mehta',
-    'authorRole' => 'VP of Formulation R&D',
-    'image' => 'assets/images/blog-1.jpg',
-    'excerpt' => 'Exploring state-of-the-art self-emulsifying drug delivery systems (SEDDS) and hot-melt extrusion techniques for poorly soluble active pharmaceutical ingredients (APIs). Discover how our scientists achieved a 4-fold increase in drug absorption.',
-];
-
 $blogPosts = [
     [
+        'id' => 1,
+        'title' => 'Latest Trends in Pharmaceutical Industry in 2024',
+        'category' => 'Pharma News',
+        'date' => 'May 10, 2024',
+        'image' => 'assets/images/blog-research.jpg',
+        'excerpt' => 'Exploring the latest advancements and trends shaping the pharmaceutical industry.',
+    ],
+    [
         'id' => 2,
-        'title' => 'Navigating Global WHO-GMP & ISO 9001:2015 Compliance in Modern Pharma Plants',
-        'category' => 'regulatory',
-        'categoryLabel' => 'Regulatory',
-        'date' => 'August 10, 2026',
-        'readTime' => '7 min read',
-        'author' => 'Priya Sharma',
-        'authorRole' => 'Head of Global Quality Assurance',
-        'image' => 'assets/images/blog-2.jpg',
-        'excerpt' => 'A comprehensive guide on maintaining zero-defect audit readiness across international health authority inspections including EU-GMP and US FDA regulatory standards.',
+        'title' => '5 Simple Ways to Boost Your Immunity Naturally',
+        'category' => 'Health Tips',
+        'date' => 'May 05, 2024',
+        'image' => 'assets/images/blog-health.jpg',
+        'excerpt' => 'Natural approaches to strengthen your immune system and stay healthy.',
     ],
     [
         'id' => 3,
-        'title' => 'The Role of AI & Molecular Modeling in Accelerating Drug Discovery Pipelines',
-        'category' => 'innovation',
-        'categoryLabel' => 'Innovation',
-        'date' => 'July 28, 2026',
-        'readTime' => '6 min read',
-        'author' => 'Dr. Aris Thorne',
-        'authorRole' => 'Chief Scientific Officer',
-        'image' => 'assets/images/blog-3.jpg',
-        'excerpt' => 'How machine learning algorithms predict target-ligand binding affinities, reducing early-stage pre-clinical screening timelines by over 40%.',
-    ],
-    [
-        'id' => 4,
-        'title' => 'Ensuring Cold-Chain Integrity for Temperature-Sensitive Biologics & Vaccines',
-        'category' => 'logistics',
-        'categoryLabel' => 'Logistics',
-        'date' => 'July 14, 2026',
-        'readTime' => '4 min read',
-        'author' => 'Sanjay Verma',
-        'authorRole' => 'Director of Global Supply Chain',
-        'image' => 'assets/images/blog-4.jpg',
-        'excerpt' => 'Leveraging IoT temperature-logging sensors and validated thermal packaging solutions to preserve product potency across international transit hubs.',
-    ],
-    [
-        'id' => 5,
-        'title' => 'Quality by Design (QbD) Approaches in Bioequivalent Generic Manufacturing',
-        'category' => 'rd',
-        'categoryLabel' => 'R&D Insights',
-        'date' => 'June 30, 2026',
-        'readTime' => '8 min read',
-        'author' => 'Dr. Ananya Roy',
-        'authorRole' => 'Principal Analytical Scientist',
-        'image' => 'assets/images/blog-5.jpg',
-        'excerpt' => 'Applying Design of Experiments (DoE) principles to identify critical process parameters (CPPs) and critical quality attributes (CQAs) in tablet compression.',
+        'title' => 'How Quality Manufacturing Ensures Better Healthcare',
+        'category' => 'Pharma Updates',
+        'date' => 'April 28, 2024',
+        'image' => 'assets/images/blog-manufacturing.jpg',
+        'excerpt' => 'The role of quality manufacturing in delivering safe and effective medicines.',
     ],
 ];
 ?>
@@ -192,71 +156,24 @@ $blogPosts = [
 
     <section class="section">
       <div class="container">
-        <!-- FEATURED POST SPOTLIGHT -->
-        <div class="featured-blog-card reveal">
-          <div style="overflow:hidden;">
-            <img src="<?= $featuredPost['image'] ?>" alt="<?= htmlspecialchars($featuredPost['title']) ?>" class="featured-blog-img">
-          </div>
-          <div class="featured-blog-content">
-            <div style="display:flex; gap:var(--space-3); align-items:center; margin-bottom:var(--space-3);">
-              <span class="trust-pill"><?= htmlspecialchars($featuredPost['category']) ?></span>
-              <span style="font-size:var(--fs-xs); color:var(--color-text-muted);"><?= htmlspecialchars($featuredPost['date']) ?> &bull; <?= htmlspecialchars($featuredPost['readTime']) ?></span>
+        <div class="blogs-grid">
+          <?php foreach ($blogPosts as $b): ?>
+            <div class="blog-card reveal">
+              <div class="blog-card__image">
+                <img src="<?= $b['image'] ?>" alt="<?= htmlspecialchars($b['title']) ?>" width="400" height="220" loading="lazy">
+              </div>
+              <div class="blog-card__body">
+                <div class="blog-card__meta">
+                  <span class="blog-card__category"><?= htmlspecialchars($b['category']) ?></span>
+                  <span class="blog-card__date"><?= htmlspecialchars($b['date']) ?></span>
+                </div>
+                <h3 class="blog-card__title"><?= htmlspecialchars($b['title']) ?></h3>
+                <a href="blog-details.php?id=<?= $b['id'] ?>" class="blog-card__link">
+                  Read More
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
             </div>
-            <h2 style="font-size:var(--fs-h3); font-weight:bold; margin-bottom:var(--space-3); line-height:var(--lh-snug);">
-              <a href="blog-details.php?id=<?= $featuredPost['id'] ?>" style="color:var(--color-text);"><?= htmlspecialchars($featuredPost['title']) ?></a>
-            </h2>
-            <p style="font-size:var(--fs-body); color:var(--color-text-secondary); line-height:var(--lh-relaxed); margin-bottom:var(--space-6);">
-              <?= htmlspecialchars($featuredPost['excerpt']) ?>
-            </p>
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-              <div>
-                <strong style="display:block; font-size:var(--fs-small); color:var(--color-text);"><?= htmlspecialchars($featuredPost['author']) ?></strong>
-                <span style="font-size:var(--fs-xs); color:var(--color-text-muted);"><?= htmlspecialchars($featuredPost['authorRole']) ?></span>
-              </div>
-              <a href="blog-details.php?id=<?= $featuredPost['id'] ?>" class="btn btn--primary btn--sm">
-                Read Article &rarr;
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- FILTER & SEARCH BAR -->
-        <div class="blog-filter-bar">
-          <div class="blog-filter-pills">
-            <button class="blog-filter-pill active" data-filter="all">All Articles</button>
-            <button class="blog-filter-pill" data-filter="rd">R&amp;D Insights</button>
-            <button class="blog-filter-pill" data-filter="regulatory">Regulatory</button>
-            <button class="blog-filter-pill" data-filter="innovation">Innovation</button>
-            <button class="blog-filter-pill" data-filter="logistics">Logistics</button>
-          </div>
-          <div class="blog-search-box">
-            <svg class="blog-search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" id="blogSearch" class="blog-search-input" placeholder="Search scientific articles...">
-          </div>
-        </div>
-
-        <!-- ARTICLES GRID -->
-        <div class="rd-grid" id="blogGrid">
-          <?php foreach ($blogPosts as $post): ?>
-            <article class="rd-card reveal blog-post-item" data-category="<?= $post['category'] ?>">
-              <div style="width:100%; height:180px; border-radius:var(--radius-lg); overflow:hidden; margin-bottom:var(--space-4);">
-                <img src="<?= $post['image'] ?>" alt="<?= htmlspecialchars($post['title']) ?>" style="width:100%; height:100%; object-fit:cover;">
-              </div>
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--space-3);">
-                <span class="trust-pill" style="font-size:10px;"><?= htmlspecialchars($post['categoryLabel']) ?></span>
-                <span style="font-size:var(--fs-xs); color:var(--color-text-muted);"><?= htmlspecialchars($post['date']) ?></span>
-              </div>
-              <h3 class="rd-card__title" style="font-size:var(--fs-h4); margin-bottom:var(--space-3); line-height:var(--lh-snug);">
-                <a href="blog-details.php?id=<?= $post['id'] ?>" style="color:var(--color-text);"><?= htmlspecialchars($post['title']) ?></a>
-              </h3>
-              <p class="rd-card__text" style="font-size:var(--fs-small); margin-bottom:var(--space-5); flex-grow:1;">
-                <?= htmlspecialchars($post['excerpt']) ?>
-              </p>
-              <div style="display:flex; justify-content:space-between; align-items:center; padding-top:var(--space-3); border-top:1px solid var(--color-border-light);">
-                <span style="font-size:var(--fs-xs); font-weight:bold; color:var(--color-text-secondary);"><?= htmlspecialchars($post['author']) ?></span>
-                <a href="blog-details.php?id=<?= $post['id'] ?>" class="card__link" style="font-size:var(--fs-xs);">Read &rarr;</a>
-              </div>
-            </article>
           <?php endforeach; ?>
         </div>
       </div>
@@ -265,43 +182,5 @@ $blogPosts = [
 
   <?php include __DIR__ . '/includes/footer.php'; ?>
   <script src="assets/js/script.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const filterPills = document.querySelectorAll('.blog-filter-pill');
-      const posts = document.querySelectorAll('.blog-post-item');
-      const searchInput = document.getElementById('blogSearch');
-
-      filterPills.forEach(pill => {
-        pill.addEventListener('click', function() {
-          filterPills.forEach(p => p.classList.remove('active'));
-          this.classList.add('active');
-          const filter = this.getAttribute('data-filter');
-
-          posts.forEach(post => {
-            if (filter === 'all' || post.getAttribute('data-category') === filter) {
-              post.style.display = 'block';
-            } else {
-              post.style.display = 'none';
-            }
-          });
-        });
-      });
-
-      if (searchInput) {
-        searchInput.addEventListener('input', function() {
-          const val = this.value.toLowerCase();
-          posts.forEach(post => {
-            const title = post.querySelector('.rd-card__title').innerText.toLowerCase();
-            const excerpt = post.querySelector('.rd-card__text').innerText.toLowerCase();
-            if (title.includes(val) || excerpt.includes(val)) {
-              post.style.display = 'block';
-            } else {
-              post.style.display = 'none';
-            }
-          });
-        });
-      }
-    });
-  </script>
 </body>
 </html>

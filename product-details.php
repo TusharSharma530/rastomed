@@ -6,34 +6,9 @@ require_once __DIR__ . '/includes/components.php';
 
 $allProducts = [
     1 => [
-        'name' => 'RESPIRO',
-        'image' => 'assets/images/respiro.png',
-        'description' => 'High-quality respiratory formulation for effective lung and airway support. Designed to improve breathing comfort and overall respiratory health.',
-    ],
-    2 => [
-        'name' => 'RAPORZ-M1',
-        'image' => 'assets/images/raporz-m1.png',
-        'description' => 'Reliable and effective tablet formulation for daily health management. Trusted by healthcare professionals for consistent results.',
-    ],
-    3 => [
-        'name' => 'NIMEXO-Q',
-        'image' => 'assets/images/nimex-q.jpeg',
-        'description' => 'Co-Enzyme Q10 softgel capsules with Eicosapentaenoic Acid, Docosahexaenoic Acid, L-Arginine & Selenium for comprehensive health support.',
-    ],
-    4 => [
-        'name' => 'JANOHEME 170',
-        'image' => 'assets/images/janoheme170.png',
-        'description' => 'Iron supplementation tablets for effective management of iron deficiency. Helps maintain healthy hemoglobin levels.',
-    ],
-    5 => [
-        'name' => 'RAPORZ-D170',
-        'image' => 'assets/images/rapordz170.png',
-        'description' => 'Cholecalciferol Oral Solution 60000 IU for Vitamin D deficiency management. Supports bone health and immunity.',
-    ],
-    6 => [
-        'name' => 'BRANCH',
-        'image' => 'assets/images/branch.png',
-        'description' => 'Premium liver support formulation for hepatoprotection and detoxification. Promotes healthy liver function.',
+        'name' => 'QOREST-10',
+        'image' => 'assets/images/qorest-10.png',
+        'description' => 'High-quality softgel capsules for effective health supplementation.',
     ],
 ];
 

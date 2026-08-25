@@ -306,9 +306,8 @@ function renderFilterableProductCard($product) {
         ' . $badgeHtml . '
         ' . $imageHtml . '
         <div class="product-card__body">
-            <div class="product-card__category">' . htmlspecialchars($category) . '</div>
             <h3 class="product-card__title">' . htmlspecialchars($name) . '</h3>
-            <p class="product-card__description">' . htmlspecialchars($description) . '</p>
+            <p class="product-card__price" style="font-size:var(--fs-h4); font-weight:700; color:var(--color-primary); margin-bottom:var(--space-4);">&#8377; 655</p>
             <div class="product-card__footer">
                 <a href="' . $url . '" class="card__link">
                     View Specifications

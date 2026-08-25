@@ -37,10 +37,17 @@ $sections = [
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
-    <?= renderPageHero('Privacy Policy', [
-      ['label' => 'Home', 'url' => 'index.php'],
-      ['label' => 'Privacy Policy', 'url' => 'privacy-policy.php'],
-    ], 'Your privacy matters to us. This policy explains how we handle your data.') ?>
+    <section class="about-banner">
+      <div class="about-banner__overlay"></div>
+      <div class="container about-banner__content">
+        <h1 class="about-banner__title">Privacy Policy</h1>
+        <nav class="about-banner__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.php" class="about-banner__breadcrumb-link">Home</a>
+          <span class="about-banner__breadcrumb-sep">&#9656;</span>
+          <span class="about-banner__breadcrumb-current">Privacy Policy</span>
+        </nav>
+      </div>
+    </section>
 
     <section class="section">
       <div class="container">

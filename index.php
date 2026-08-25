@@ -1,79 +1,40 @@
 <?php
 /**
- * Homepage - Medixon Pharmaceuticals
+ * Homepage - RastoMed Pharma Private Limited
  * Exact layout: Header, Hero, About Us, Products, Awards, Testimonials, Blogs, Map/Contact, Footer
  */
 require_once __DIR__ . '/includes/components.php';
 
 $ourProducts = [
     [
-        'name' => 'RESPIRO',
-        'image' => 'assets/images/respiro.png',
+        'name' => 'QOREST-10',
+        'image' => 'assets/images/qorest-10.png',
         'url' => 'product-details.php?id=1',
-    ],
-    [
-        'name' => 'RAPORZ-M1',
-        'image' => 'assets/images/raporz-m1.png',
-        'url' => 'product-details.php?id=2',
-    ],
-    [
-        'name' => 'NIMEXO-Q',
-        'image' => 'assets/images/nimex-q.jpeg',
-        'url' => 'product-details.php?id=3',
-    ],
-    [
-        'name' => 'JANOHEME 170',
-        'image' => 'assets/images/janoheme170.png',
-        'url' => 'product-details.php?id=4',
-    ],
-    [
-        'name' => 'RAPORZ-D170',
-        'image' => 'assets/images/rapordz170.png',
-        'url' => 'product-details.php?id=5',
-    ],
-    [
-        'name' => 'BRANCH',
-        'image' => 'assets/images/branch.png',
-        'url' => 'product-details.php?id=6',
     ],
 ];
 
 $awards = [
     [
-        'image' => 'assets/images/award-1.jpg',
-        'title' => 'Business Excellence Award 2024',
-        'desc' => 'Recognized for outstanding business practices and excellence in pharmaceutical manufacturing.',
-    ],
-    [
-        'image' => 'assets/images/award-2.jpg',
+        'image' => 'assets/images/awards2.jpg',
         'title' => 'India Pharma Award 2023',
-        'desc' => 'Honored for innovation and contribution to the Indian pharmaceutical industry.',
     ],
     [
-        'image' => 'assets/images/award-3.jpg',
+        'image' => 'assets/images/awards3.jpg',
         'title' => 'GMP Certified',
-        'desc' => 'Certified for Good Manufacturing Practices ensuring product quality and safety.',
     ],
     [
-        'image' => 'assets/images/award-4.jpg',
+        'image' => 'assets/images/awards4.jpg',
         'title' => 'ISO 9001:2015',
-        'desc' => 'International standard certification for quality management systems.',
     ],
     [
-        'image' => 'assets/images/award-5.jpg',
+        'image' => 'assets/images/award5.jpg',
         'title' => 'WHO-GMP Certified',
-        'desc' => 'World Health Organization Good Manufacturing Practices certified facility.',
-    ],
-    [
-        'image' => 'assets/images/award-6.jpg',
-        'title' => '15+ Years of Trust',
-        'desc' => 'Over 15 years of trusted service in pharmaceutical manufacturing and distribution.',
     ],
 ];
 
 $testimonials = [
     [
-        'quote' => 'Medixon Pharmaceuticals has been our trusted partner for years. Their quality and commitment are truly exceptional.',
+        'quote' => 'RastoMed Pharma has been our trusted partner for years. Their quality and commitment are truly exceptional.',
         'name' => 'Dr. Rakesh Sharma',
         'role' => 'Senior Consultant',
         'avatar' => 'RS',
@@ -124,8 +85,8 @@ $homeBlogs = [
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Medixon Pharmaceuticals - Trusted by Doctors, Chosen by Millions. High-quality medicines for a healthier tomorrow.">
-  <title>Medixon Pharmaceuticals - Advancing Healthcare Through Innovation</title>
+  <meta name="description" content="RastoMed Pharma Private Limited - Trusted by Doctors, Chosen by Millions. High-quality medicines for a healthier tomorrow.">
+  <title>RastoMed Pharma - Advancing Healthcare Through Innovation</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -138,17 +99,28 @@ $homeBlogs = [
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
-    <!-- 2. HERO SECTION - Image Slider -->
-    <section class="hero-slider" id="heroSlider">
-      <a href="products.php" class="hero-slider__slide hero-slider__slide--active">
-        <img src="assets/images/banner1.png" alt="High Quality And Affordable Medicines" class="hero-slider__img">
-      </a>
-      <a href="contact.php" class="hero-slider__slide">
-        <img src="assets/images/banner2.png" alt="Experience And Expertise" class="hero-slider__img">
-      </a>
-      <a href="about.php" class="hero-slider__slide">
-        <img src="assets/images/banner3.png" alt="Maintaining Highest Standards" class="hero-slider__img">
-      </a>
+    <!-- 2. HERO SECTION - Banner Image with Content -->
+    <section style="width:100%; margin-top:0; position:relative; height:480px; overflow:hidden;">
+      <img src="assets/images/home banner.jpg" alt="RastoMed Pharma" style="width:100%; height:100%; display:block; object-fit:cover;">
+      <div style="position:absolute; top:0; left:0; width:50%; height:100%; display:flex; flex-direction:column; justify-content:center; padding:var(--space-12) clamp(2rem, 5vw, 6rem); background:linear-gradient(90deg, rgba(13, 71, 161, 0.85) 0%, rgba(13, 71, 161, 0.4) 70%, transparent 100%);">
+        <span style="display:block; font-size:var(--fs-xs); font-weight:700; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.8); margin-bottom:var(--space-4);">CARING FOR LIFE</span>
+        <h1 style="font-size:clamp(2rem, 4vw, 3.5rem); font-weight:800; color:#ffffff; line-height:1.15; margin-bottom:var(--space-6);">
+          Advancing Healthcare Through <span style="color:#64b5f6;">Innovation</span>
+        </h1>
+        <p style="font-size:clamp(0.9rem, 1.2vw, 1.1rem); color:rgba(255,255,255,0.85); line-height:1.7; margin-bottom:var(--space-8); max-width:520px;">
+          RastoMed Pharma Private Limited is committed to improving lives by delivering high-quality, effective and affordable pharmaceutical products trusted worldwide.
+        </p>
+        <div style="display:flex; gap:var(--space-4); flex-wrap:wrap;">
+          <a href="products.php" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:var(--color-primary); color:#fff; font-weight:600; font-size:0.95rem; border-radius:var(--radius-md); text-decoration:none; transition:all 0.3s;">
+            Explore Products
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="contact.php" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:transparent; color:#fff; font-weight:600; font-size:0.95rem; border-radius:var(--radius-md); border:2px solid rgba(255,255,255,0.5); text-decoration:none; transition:all 0.3s;">
+            Contact Us
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- 3. ABOUT US -->
@@ -199,43 +171,30 @@ $homeBlogs = [
                 </div>
                 <div class="our-product-card__body">
                   <h3 class="our-product-card__title"><?= htmlspecialchars($product['name']) ?></h3>
+                  <p style="font-size:var(--fs-h4); font-weight:700; color:var(--color-primary); margin-bottom:var(--space-4);">&#8377; 655</p>
                   <a href="<?= $product['url'] ?>" class="our-product-card__btn">Read More</a>
                 </div>
               </div>
             <?php endforeach; ?>
           </div>
-          <button class="our-products-nav our-products-nav--prev" aria-label="Previous">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <button class="our-products-nav our-products-nav--next" aria-label="Next">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
         </div>
       </div>
     </section>
 
     <!-- 5. AWARDS & CERTIFICATIONS -->
-    <section class="section awards-section">
+    <section class="section our-products-section">
       <div class="container">
-        <div class="awards-header">
-          <span class="awards-header__label">AWARDS &amp; CERTIFICATIONS</span>
-          <h2 class="awards-header__title">Recognized for Excellence</h2>
-          <p class="awards-header__text">Our commitment to quality has been acknowledged by leading industry bodies and regulatory authorities worldwide.</p>
+        <div class="our-products-header">
+          <div>
+            <span class="our-products-label">AWARDS &amp; CERTIFICATIONS</span>
+            <h2 class="our-products-title">Recognized for Excellence</h2>
+          </div>
         </div>
-        <div class="awards-grid">
-          <?php foreach ($awards as $index => $award): ?>
-            <div class="award-card reveal" style="animation-delay: <?= $index * 0.1 ?>s;">
-              <div class="award-card__image">
-                <img src="<?= $award['image'] ?>" alt="<?= htmlspecialchars($award['title']) ?>" loading="lazy">
-                <div class="award-card__overlay">
-                  <div class="award-card__icon-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                  </div>
-                </div>
-              </div>
-              <div class="award-card__content">
-                <h3 class="award-card__title"><?= htmlspecialchars($award['title']) ?></h3>
-                <p class="award-card__desc"><?= htmlspecialchars($award['desc']) ?></p>
+        <div style="display:flex; gap:var(--space-8); justify-content:center; flex-wrap:nowrap; padding:var(--space-6) 0;">
+          <?php foreach ($awards as $award): ?>
+            <div style="flex:0 0 calc(25% - var(--space-6)); max-width:280px;">
+              <div style="border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-md);">
+                <img src="<?= $award['image'] ?>" alt="<?= htmlspecialchars($award['title']) ?>" style="width:100%; height:auto; display:block;" loading="lazy">
               </div>
             </div>
           <?php endforeach; ?>
@@ -244,11 +203,13 @@ $homeBlogs = [
     </section>
 
     <!-- 6. TESTIMONIALS -->
-    <section class="section">
+    <section class="section our-products-section">
       <div class="container">
-        <div class="section__header">
-          <span class="section-label">TESTIMONIALS</span>
-          <h2 class="section__title">What Our Clients Say</h2>
+        <div class="our-products-header">
+          <div>
+            <span class="our-products-label">TESTIMONIALS</span>
+            <h2 class="our-products-title">What Our Clients Say</h2>
+          </div>
         </div>
         <div class="testimonials-carousel">
           <div class="testimonials-track">
@@ -279,12 +240,12 @@ $homeBlogs = [
     </section>
 
     <!-- 7. BLOGS -->
-    <section class="section section--alt">
+    <section class="section our-products-section">
       <div class="container">
-        <div class="section__header" style="display:flex; align-items:center; justify-content:space-between; text-align:left; max-width:100;">
+        <div class="our-products-header">
           <div>
-            <span class="section-label">OUR BLOGS</span>
-            <h2 class="section__title" style="text-align:left;">Latest Insights &amp; Updates</h2>
+            <span class="our-products-label">OUR BLOGS</span>
+            <h2 class="our-products-title">Latest Insights &amp; Updates</h2>
           </div>
           <?= renderButton('View All Blogs', 'blogs.php', 'outline', 'sm', '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
         </div>
@@ -312,7 +273,7 @@ $homeBlogs = [
     </section>
 
     <!-- 8. MAP / CONTACT -->
-    <section class="section">
+    <section class="section" style="padding-bottom:80px;">
       <div class="container">
         <div class="map-contact-grid">
           <div class="map-wrapper reveal reveal--left">
@@ -324,19 +285,19 @@ $homeBlogs = [
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              title="Medixon Pharmaceuticals Location Map">
+              title="RastoMed Pharma Location Map">
             </iframe>
           </div>
           <div class="map-contact-info reveal reveal--right">
-            <span class="section-label">GET IN TOUCH</span>
-            <h2 class="section__title" style="text-align:left; margin-bottom: var(--space-6);">We Are Here to Help You</h2>
+            <span class="our-products-label">GET IN TOUCH</span>
+            <h2 class="our-products-title">We Are Here to Help You</h2>
             <div class="map-contact-item">
               <div class="map-contact-item__icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
               <div class="map-contact-item__text">
-                <strong>Medixon Pharmaceuticals</strong>
-                <p>Plot No. 123, Industrial Area,<br>Phase 1, Panchkula,<br>Haryana, India - 134113</p>
+                <strong>RastoMed Pharma Private Limited</strong>
+                <p>353, Shivaji Road, Meerut,<br>Uttar Pradesh-250001</p>
               </div>
             </div>
             <div class="map-contact-item">
@@ -344,8 +305,8 @@ $homeBlogs = [
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </div>
               <div class="map-contact-item__text">
-                <strong>+91 98765 43210</strong>
-                <strong>+91 98765 43211</strong>
+                <strong>+91 9410666599</strong>
+                <strong>+91 7906752047</strong>
               </div>
             </div>
             <div class="map-contact-item">
@@ -353,8 +314,8 @@ $homeBlogs = [
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               </div>
               <div class="map-contact-item__text">
-                <strong>info@medixonpharma.com</strong>
-                <strong>www.medixonpharma.com</strong>
+                <strong>info@rastomedpharma.com</strong>
+                <strong>rastomedpharma@gmail.com</strong>
               </div>
             </div>
             <div class="map-contact-item">
