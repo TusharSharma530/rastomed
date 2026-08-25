@@ -5402,6 +5402,7 @@ p {
   justify-content: center;
   height: 260px;
   overflow: hidden;
+  background: #1e88e514;
 }
 
 .our-product-card__image img {
