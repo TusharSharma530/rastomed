@@ -6,7 +6,7 @@ require_once __DIR__ . '/includes/components.php';
 
 $allProducts = [
     1 => [
-        'name' => 'QOREST-10',
+        'name' => 'CoRast-Q10',
         'image' => 'assets/images/qorest-10.png',
         'description' => 'High-quality softgel capsules for effective health supplementation.',
     ],

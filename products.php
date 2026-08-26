@@ -8,7 +8,7 @@ require_once __DIR__ . '/includes/components.php';
 $allProducts = [
     [
         'id' => 1,
-        'name' => 'QOREST-10',
+        'name' => 'CoRast-Q10',
         'category' => 'Capsules',
         'therapy' => 'General Medicine',
         'description' => 'High-quality softgel capsules for effective health supplementation.',
@@ -61,7 +61,7 @@ sort($therapies);
         <div style="display:flex;">
           <div class="our-product-card" style="max-width:320px; width:100%;">
             <div class="our-product-card__image">
-              <img src="assets/images/qorest-10.png" alt="QOREST-10" loading="lazy">
+              <img src="assets/images/qorest-10.png" alt="CoRast-Q10" loading="lazy">
               <a href="product-details.php?id=1" class="our-product-card__plus">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
               </a>
@@ -69,7 +69,7 @@ sort($therapies);
             <div class="our-product-card__body">
               <div style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-3);">
                 <div>
-                  <h3 class="our-product-card__title" style="margin:0; text-align:left;">QOREST-10</h3>
+                  <h3 class="our-product-card__title" style="margin:0; text-align:left;">CoRast-Q10</h3>
                   <span style="font-size:var(--fs-body); font-weight:700; color:var(--color-primary); white-space:nowrap;">&#8377; 655</span>
                 </div>
                 <div>

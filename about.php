@@ -94,7 +94,7 @@ $values = [
           <div class="reveal reveal--right" style="position:relative;">
             <div style="background:linear-gradient(135deg, var(--color-surface-alt), var(--color-surface)); border-radius:var(--radius-2xl); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; border:1px solid var(--color-border-light);">
               <div style="text-align:center; padding:var(--space-8);">
-                <img src="assets/images/rastomed.jpeg" alt="RastoMed Pharma" style="max-width:100%; max-height:220px; object-fit:contain; border-radius:var(--radius-lg);">
+                <img src="assets/images/rastomed.png" alt="RastoMed Pharma" style="max-width:100%; max-height:220px; object-fit:contain; border-radius:var(--radius-lg);">
               </div>
             </div>
           </div>

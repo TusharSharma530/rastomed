@@ -305,7 +305,7 @@ $sections = [
                 <div class="legal-contact-card">
                   <div class="legal-contact-card__row">
                     <span class="legal-contact-card__label">Data Protection Officer</span>
-                    <span>privacy@pharmacorp.com</span>
+                    <span>info@rastomedpharma.com</span>
                   </div>
                   <div class="legal-contact-card__row">
                     <span class="legal-contact-card__label">Phone</span>

@@ -230,7 +230,7 @@ $sections = [
                 <div class="legal-contact-card">
                   <div class="legal-contact-card__row">
                     <span class="legal-contact-card__label">Legal Department</span>
-                    <span>legal@pharmacorp.com</span>
+                    <span>info@rastomedpharma.com</span>
                   </div>
                   <div class="legal-contact-card__row">
                     <span class="legal-contact-card__label">Phone</span>

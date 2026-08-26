@@ -17,7 +17,7 @@
   <div class="container">
     <div class="top-bar__inner">
       <a href="index.php" class="top-bar__logo" aria-label="RastoMed Pharma Home">
-        <img src="assets/images/rastomed.jpeg" alt="RastoMed Pharma" class="top-bar__logo-img">
+        <img src="assets/images/rastomed.png" alt="RastoMed Pharma" class="top-bar__logo-img">
       </a>
       <div class="top-bar__contact">
         <a href="tel:+919410666599" class="top-bar__contact-item">
@@ -48,7 +48,7 @@
   <div class="header__inner">
     <!-- Mobile Logo -->
     <a href="index.php" class="header__logo-mobile" aria-label="RastoMed Pharma Home">
-      <img src="assets/images/rastomed.jpeg" alt="RastoMed Pharma" style="height:45px; width:auto;">
+      <img src="assets/images/rastomed.png" alt="RastoMed Pharma" style="height:45px; width:auto;">
     </a>
 
     <!-- Desktop Navigation -->

@@ -64,8 +64,7 @@ require_once __DIR__ . '/includes/components.php';
                 </div>
                 <div>
                   <p style="font-size:var(--fs-body); color:var(--color-text-secondary); line-height:1.8; margin:0;">
-                    info@rastomedpharma.com<br>
-                    rastomedpharma@gmail.com
+                    info@rastomedpharma.com
                   </p>
                 </div>
               </div>
