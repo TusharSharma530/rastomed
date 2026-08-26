@@ -88,7 +88,7 @@ $values = [
             </p>
             <div style="display:flex; gap:var(--space-4); flex-wrap:wrap;">
               <?= renderButton('Our Products', 'products.php', 'primary') ?>
-              <?= renderButton('Contact Us', 'contact.php', 'outline') ?>
+              <?= renderButton('CONTACT', 'contact.php', 'outline') ?>
             </div>
           </div>
           <div class="reveal reveal--right" style="position:relative;">

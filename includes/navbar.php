@@ -33,7 +33,7 @@ $navItems = [
         'key' => 'blogs',
     ],
     [
-        'label' => 'Contact Us',
+        'label' => 'CONTACT',
         'url' => 'contact.php',
         'key' => 'contact',
     ],

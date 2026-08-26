@@ -2,7 +2,6 @@
 /**
  * Careers Page - RastoMed Pharma
  */
-require_once __DIR__ . '/includes/components.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,67 +21,113 @@ require_once __DIR__ . '/includes/components.php';
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
-    <!-- Careers Banner -->
-    <section class="about-banner">
-      <div class="about-banner__overlay"></div>
-      <div class="container about-banner__content">
-        <h1 class="about-banner__title">Careers</h1>
-        <nav class="about-banner__breadcrumb" aria-label="Breadcrumb">
-          <a href="index.php" class="about-banner__breadcrumb-link">Home</a>
-          <span class="about-banner__breadcrumb-sep">&#9656;</span>
-          <span class="about-banner__breadcrumb-current">Careers</span>
-        </nav>
+    <!-- Hero Banner -->
+    <section class="career-hero">
+      <img src="assets/images/career-hero.jpg" alt="Career at RastoMed Pharma" class="career-hero__bg">
+      <div class="career-hero__overlay"></div>
+      <div class="career-hero__content">
+        <span class="career-hero__badge">Job openings</span>
+        <h1 class="career-hero__title">Shape Your Career With the Right Opportunity</h1>
       </div>
     </section>
 
-    <!-- Career Form Section -->
-    <section class="section">
+    <!-- No Openings -->
+    <section class="career-no-jobs">
       <div class="container">
-        <div class="career-form-grid">
-          <div class="career-form-wrapper">
-            <form id="careerForm" class="career-form">
-              <div class="career-form__row">
-                <div class="career-form__group">
-                  <label class="career-form__label">Name<span>*</span></label>
-                  <input type="text" class="career-form__input" placeholder="Name" required>
-                </div>
-                <div class="career-form__group">
-                  <label class="career-form__label">Mobile<span>*</span></label>
-                  <input type="tel" class="career-form__input" placeholder="Mobile" required>
-                </div>
-              </div>
-              <div class="career-form__row">
-                <div class="career-form__group">
-                  <label class="career-form__label">Email<span>*</span></label>
-                  <input type="email" class="career-form__input" placeholder="Email" required>
-                </div>
-                <div class="career-form__group">
-                  <label class="career-form__label">Designation</label>
-                  <input type="text" class="career-form__input" placeholder="Designation">
-                </div>
-              </div>
-              <div class="career-form__group">
-                <label class="career-form__label">Resume</label>
-                <div class="career-form__file-wrapper">
-                  <input type="file" class="career-form__file" id="resumeFile" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx">
-                  <label for="resumeFile" class="career-form__file-label">Choose file</label>
-                  <span class="career-form__file-btn">Browse</span>
-                </div>
-                <small class="career-form__file-hint">Allowed only Image, PDF and DOC file.</small>
-              </div>
-              <div class="career-form__group">
-                <label class="career-form__label">Message</label>
-                <textarea class="career-form__textarea" placeholder="Message" rows="4"></textarea>
-              </div>
-              <button type="submit" class="career-form__submit">
-                Submit
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-              </button>
-            </form>
+        <div class="career-no-jobs__card">
+          <div class="career-no-jobs__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <span class="career-no-jobs__cross">&times;</span>
           </div>
-          <div class="career-form-image">
-            <img src="assets/images/carrer image.jpg" alt="Career at RastoMed Pharma">
+          <h2 class="career-no-jobs__title">We are currently not hiring for any positions.</h2>
+          <p class="career-no-jobs__text">But we are always looking for talented people. Send us your resume and we will keep it on file for future opportunities.</p>
+          <a href="mailto:hr@rastomedpharma.com" class="career-no-jobs__btn">Send Your Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How We Bring Talent Onboard -->
+    <section class="career-process">
+      <div class="container">
+        <div class="career-process__header">
+          <div>
+            <h2 class="career-process__title">How We Bring Talent Onboard at RastoMed Pharma</h2>
+            <p class="career-process__subtitle">5 steps to become a <strong>Rastomedian</strong></p>
           </div>
+          <div class="career-process__nav">
+            <button class="career-process__nav-btn" aria-label="Previous">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            </button>
+            <button class="career-process__nav-btn" aria-label="Next">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="career-process__steps">
+          <div class="career-step-card">
+            <div class="career-step-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3 class="career-step-card__title">Personal<br>Interview</h3>
+            <p class="career-step-card__desc">A one-on-one discussion to understand your fit and potential.</p>
+          </div>
+          <div class="career-step-card">
+            <div class="career-step-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3 class="career-step-card__title">HR<br>Discussion</h3>
+            <p class="career-step-card__desc">Go over expectations, culture, and any queries you have.</p>
+          </div>
+          <div class="career-step-card">
+            <div class="career-step-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h3 class="career-step-card__title">Final<br>Evaluation</h3>
+            <p class="career-step-card__desc">Internal review and final decision. You'll hear from us shortly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Job Alert CTA -->
+    <section class="career-cta">
+      <div class="container">
+        <div class="career-cta__card">
+          <h2 class="career-cta__title">Create a job alert and stay tuned for future openings tailored to your expertise.</h2>
+          <a href="mailto:hr@rastomedpharma.com?subject=Job%20Alert%20Subscription" class="career-cta__btn">CREATE A JOB ALERT</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Know More About Us -->
+    <section class="career-know-more">
+      <div class="container">
+        <h2 class="career-know-more__title">Know more about us</h2>
+        <div class="career-know-more__grid">
+          <a href="index.php" class="career-know-more__card">
+            <span>Home</span>
+            <span class="career-know-more__arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </span>
+          </a>
+          <a href="about.php" class="career-know-more__card">
+            <span>About Us</span>
+            <span class="career-know-more__arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </span>
+          </a>
+          <a href="about.php" class="career-know-more__card">
+            <span>R&D</span>
+            <span class="career-know-more__arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </span>
+          </a>
+          <a href="about.php#quality" class="career-know-more__card">
+            <span>Quality</span>
+            <span class="career-know-more__arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </span>
+          </a>
         </div>
       </div>
     </section>

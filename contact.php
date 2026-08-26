@@ -10,120 +10,282 @@ require_once __DIR__ . '/includes/components.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contact RastoMed Pharma - Get in touch with our pharmaceutical team.">
-  <title>Contact Us - RastoMed Pharma</title>
+  <title>CONTACT - RastoMed Pharma</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
+  <style>
+    .contact-section {
+     
+      background: linear-gradient(135deg, var(--color-surface-alt) 0%, var(--color-surface) 100%);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
+    }
+    .contact-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-10);
+      box-shadow: var(--shadow-lg);
+    }
+    .contact-item {
+      display: flex;
+      gap: var(--space-5);
+      align-items: flex-start;
+      padding: var(--space-4) 0;
+    }
+    .contact-item + .contact-item {
+      border-top: 1px solid var(--color-border-light, rgba(0,0,0,0.06));
+    }
+    .contact-icon {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(var(--color-primary-rgb), 0.08);
+      border-radius: var(--radius-xl);
+      color: var(--color-primary);
+    }
+    .contact-item__label {
+      display: block;
+      font-size: var(--fs-body);
+      font-weight: var(--fw-semibold);
+      color: var(--color-text);
+      margin-bottom: 6px;
+    }
+    .contact-item__text {
+      font-size: var(--fs-body);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .contact-item__link {
+      font-size: var(--fs-body);
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: var(--fw-medium);
+      transition: color 0.2s;
+    }
+    .contact-item__link:hover {
+      color: var(--color-primary-dark);
+    }
+    .form-heading-tag {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    .form-heading-tag__line {
+      width: 36px;
+      height: 2px;
+      background: var(--color-primary);
+      border-radius: var(--radius-full);
+    }
+    .form-heading-tag__text {
+      font-size: var(--fs-small);
+      font-weight: var(--fw-semibold);
+      color: var(--color-primary);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-5);
+    }
+    .form-field label {
+      display: block;
+      font-size: var(--fs-body);
+      font-weight: var(--fw-medium);
+      color: var(--color-text);
+      margin-bottom: var(--space-2);
+    }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      padding: var(--space-4) var(--space-5);
+      background: var(--color-surface-alt);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      font-size: var(--fs-body);
+      color: var(--color-text);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: var(--color-text-muted, #999);
+    }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.12);
+      background: var(--color-surface);
+    }
+    .form-field textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    .btn-send {
+      width: 100%;
+      padding: var(--space-5) var(--space-8);
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark, #0D47A1) 100%);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-xl);
+      font-size: var(--fs-body);
+      font-weight: var(--fw-semibold);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(var(--color-primary-rgb), 0.3);
+      font-family: inherit;
+      letter-spacing: 0.02em;
+    }
+    .btn-send:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(var(--color-primary-rgb), 0.4);
+    }
+    @media (max-width: 968px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
     <!-- Contact Banner -->
-    <section class="about-banner">
-      <div class="about-banner__overlay"></div>
-      <div class="container about-banner__content">
-        <h1 class="about-banner__title">Contact Us</h1>
-        <nav class="about-banner__breadcrumb" aria-label="Breadcrumb">
-          <a href="index.php" class="about-banner__breadcrumb-link">Home</a>
-          <span class="about-banner__breadcrumb-sep">&#9656;</span>
-          <span class="about-banner__breadcrumb-current">Contact Us</span>
+    <section class="contact-banner">
+      <div class="container contact-banner__content">
+        <nav class="contact-banner__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.php" class="contact-banner__breadcrumb-link">Home</a>
+          <span class="contact-banner__breadcrumb-sep">&#9656;</span>
+          <span class="contact-banner__breadcrumb-current">CONTACT</span>
         </nav>
+        <span class="contact-banner__label">GET IN TOUCH</span>
+        <h1 class="contact-banner__title">Let's start a <span class="contact-banner__title-gradient">conversation.</span></h1>
+        <p class="contact-banner__desc">Drop us a line and we'll be in touch as soon as possible. Our team is ready to assist you on your journey to success.</p>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="section">
+    <section class="contact-section">
       <div class="container">
-        <div class="contact-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem, 5vw, 4rem); align-items:start;">
+        <div class="contact-grid">
 
-          <!-- Address Side -->
-          <div>
-            <h2 style="font-size:var(--fs-h2); font-weight:bold; margin-bottom:var(--space-3);">Address</h2>
-            <p style="color:var(--color-text-secondary); margin-bottom:var(--space-8); line-height:var(--lh-relaxed);">You can reach us via Call, Mail or Direct Visit.</p>
-
-            <div style="display:flex; flex-direction:column; gap:var(--space-6);">
-              <!-- Registered Address -->
-              <div style="display:flex; gap:var(--space-4); align-items:flex-start;">
-                <div style="width:48px; height:48px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:rgba(21, 101, 192, 0.1); border-radius:var(--radius-lg); color:var(--color-primary);">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                </div>
-                <div>
-                  <strong style="color:var(--color-text); display:block; margin-bottom:4px; font-size:var(--fs-body); font-weight:bold;">Address</strong>
-                  <p style="font-size:var(--fs-body); color:var(--color-text-secondary); line-height:1.5; margin:0;">353, Shivaji Road, Meerut, Uttar Pradesh-250001</p>
-                </div>
+          <!-- Address Side Card -->
+          <div class="contact-card">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
               </div>
-
-              <!-- Email -->
-              <div style="display:flex; gap:var(--space-4); align-items:flex-start;">
-                <div style="width:48px; height:48px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:rgba(21, 101, 192, 0.1); border-radius:var(--radius-lg); color:var(--color-primary);">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </div>
-                <div>
-                  <p style="font-size:var(--fs-body); color:var(--color-text-secondary); line-height:1.8; margin:0;">
-                    info@rastomedpharma.com
-                  </p>
-                </div>
-              </div>
-
-              <!-- Phone -->
-              <div style="display:flex; gap:var(--space-4); align-items:flex-start;">
-                <div style="width:48px; height:48px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:rgba(21, 101, 192, 0.1); border-radius:var(--radius-lg); color:var(--color-primary);">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                </div>
-                <div>
-                  <p style="font-size:var(--fs-body); color:var(--color-text-secondary); line-height:1.8; margin:0;">
-                    +91 9410666599 <br>
-                    +91 7906752047
-                  </p>
-                </div>
+              <div>
+                <strong class="contact-item__label">Address</strong>
+                <p class="contact-item__text">353, Shivaji Road, Meerut, Uttar Pradesh-250001</p>
               </div>
             </div>
 
-            <!-- Social Icons -->
-            <div style="display:flex; gap:var(--space-3); margin-top:var(--space-8);">
-              <a href="#" style="width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:var(--color-primary); color:#fff; border-radius:var(--radius-md); transition:all 0.3s;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              </a>
-              <a href="#" style="width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:#1a1a2e; color:#fff; border-radius:var(--radius-md); transition:all 0.3s;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              </a>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <strong class="contact-item__label">Our Phone</strong>
+                <p class="contact-item__text">
+                  +91 9410666599<br>
+                  +91 7906752047
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <strong class="contact-item__label">Got a Question?</strong>
+                <p class="contact-item__text" style="margin-bottom:6px;">Drop us an email and we'll be in touch asap.</p>
+                <a href="mailto:partners@riskevite.com" class="contact-item__link">partners@riskevite.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <strong class="contact-item__label">Open Hours</strong>
+                <p class="contact-item__text">Everyday, 9 AM &ndash; 5 PM</p>
+              </div>
             </div>
           </div>
 
           <!-- Contact Form Side -->
-          <div style="background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-2xl); padding:var(--space-8); box-shadow:var(--shadow-md);">
-            <h2 style="font-size:var(--fs-h2); font-weight:bold; margin-bottom:var(--space-3);">Contact Us</h2>
-            <p style="color:var(--color-text-secondary); margin-bottom:var(--space-8); line-height:var(--lh-relaxed);">Please fill the form and we will get back to you soon.</p>
+          <div class="contact-card">
+            <div class="form-heading-tag">
+              <span class="form-heading-tag__line"></span>
+              <span class="form-heading-tag__text">LET'S CONNECT</span>
+            </div>
+            <h2 style="font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: var(--fw-bold); margin-bottom: var(--space-8); color: var(--color-text); line-height: 1.2;">Send us a message</h2>
 
-            <form id="contactForm" style="display:flex; flex-direction:column; gap:var(--space-5);">
-              <div class="form-group">
-                <label class="form-label" for="contactName">Name*</label>
-                <input type="text" id="contactName" name="name" class="form-input" placeholder="Name" required>
+            <form id="contactForm" style="display:flex; flex-direction:column; gap: var(--space-5);">
+              <!-- Row 1: Name + Email -->
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="contactName">Full Name *</label>
+                  <input type="text" id="contactName" name="name" placeholder="Your name" required>
+                </div>
+                <div class="form-field">
+                  <label for="contactEmail">Email Address *</label>
+                  <input type="email" id="contactEmail" name="email" placeholder="you@company.com" required>
+                </div>
               </div>
 
-              <div class="form-group">
-                <label class="form-label" for="contactPhone">Mobile*</label>
-                <input type="tel" id="contactPhone" name="phone" class="form-input" placeholder="Mobile" required>
+              <!-- Row 2: Phone + Interest -->
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="contactPhone">Phone</label>
+                  <input type="tel" id="contactPhone" name="phone" placeholder="+91 ...">
+                </div>
+                <div class="form-field">
+                  <label for="contactInterest">I'm interested in</label>
+                  <select id="contactInterest" name="interest">
+                    <option value="general">General inquiry</option>
+                    <option value="product">Product information</option>
+                    <option value="partnership">Partnership opportunity</option>
+                    <option value="support">Customer support</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
               </div>
 
-              <div class="form-group">
-                <label class="form-label" for="contactEmail">Email*</label>
-                <input type="email" id="contactEmail" name="email" class="form-input" placeholder="Email" required>
+              <!-- Row 3: Message -->
+              <div class="form-field">
+                <label for="contactMessage">Your Message *</label>
+                <textarea id="contactMessage" name="message" rows="5" placeholder="Tell us a little about your organization and what you need..."></textarea>
               </div>
 
-              <div class="form-group">
-                <label class="form-label" for="contactMessage">Comments</label>
-                <textarea id="contactMessage" name="message" class="form-input" rows="4" placeholder="Comments"></textarea>
-              </div>
-
+              <!-- Submit Button -->
               <div>
-                <button type="submit" class="btn btn--primary btn--lg" style="min-width:160px; display:inline-flex; align-items:center; gap:var(--space-2);">
-                  Submit
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                <button type="submit" class="btn-send">
+                  Send Message
                 </button>
               </div>
             </form>
@@ -134,7 +296,7 @@ require_once __DIR__ . '/includes/components.php';
     </section>
 
     <!-- Map Section -->
-    <section style="padding:0 0 var(--space-12);">
+    <section style="padding:var(--space-10) 0 var(--space-12);">
       <div class="container">
         <div style="width:100%; height:450px; border-radius:var(--radius-2xl); overflow:hidden; border:1px solid var(--color-border); box-shadow:var(--shadow-md);">
           <iframe

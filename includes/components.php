@@ -132,7 +132,7 @@ function renderNewsCard($title, $excerpt, $date, $category, $url = '#') {
 /**
  * Render a CTA block
  */
-function renderCtaBlock($title, $text, $primaryText = 'Contact Us', $primaryUrl = 'contact.php', $secondaryText = 'View Products', $secondaryUrl = 'products.php') {
+function renderCtaBlock($title, $text, $primaryText = 'CONTACT', $primaryUrl = 'contact.php', $secondaryText = 'View Products', $secondaryUrl = 'products.php') {
     return '
     <div class="cta-block">
         <div class="cta-block__content">

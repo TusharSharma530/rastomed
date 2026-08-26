@@ -15,19 +15,19 @@ $ourProducts = [
 
 $awards = [
     [
-        'image' => 'assets/images/awards2.jpg',
+        'image' => 'assets/images/award1.jpeg',
         'title' => 'India Pharma Award 2023',
     ],
     [
-        'image' => 'assets/images/awards3.jpg',
+        'image' => 'assets/images/award2.png',
         'title' => 'GMP Certified',
     ],
     [
-        'image' => 'assets/images/awards4.jpg',
+        'image' => 'assets/images/award3.jpeg',
         'title' => 'ISO 9001:2015',
     ],
     [
-        'image' => 'assets/images/award5.jpg',
+        'image' => 'assets/images/award4.jpeg',
         'title' => 'WHO-GMP Certified',
     ],
 ];
@@ -100,8 +100,8 @@ $homeBlogs = [
 
   <main>
     <!-- 2. HERO SECTION - Banner Image with Content -->
-    <section style="width:100%; margin-top:0; position:relative; height:480px; overflow:hidden;">
-      <img src="assets/images/home banner.jpg" alt="RastoMed Pharma" style="width:100%; height:100%; display:block; object-fit:cover;">
+    <section style="width:100%; margin-top:var(--space-3); position:relative; height:480px; overflow:hidden;">
+      <img src="assets/images/home banner.png" alt="RastoMed Pharma" style="width:100%; height:100%; display:block; object-fit:cover;">
       <div style="position:absolute; top:0; left:0; width:50%; height:100%; display:flex; flex-direction:column; justify-content:center; padding:var(--space-12) clamp(2rem, 5vw, 6rem); background:linear-gradient(90deg, rgba(13, 71, 161, 0.85) 0%, rgba(13, 71, 161, 0.4) 70%, transparent 100%);">
         <span style="display:block; font-size:var(--fs-xs); font-weight:700; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.8); margin-bottom:var(--space-4);">CARING FOR LIFE</span>
         <h1 style="font-size:clamp(2rem, 4vw, 3.5rem); font-weight:800; color:#ffffff; line-height:1.15; margin-bottom:var(--space-6);">
@@ -116,7 +116,7 @@ $homeBlogs = [
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
           <a href="contact.php" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:transparent; color:#fff; font-weight:600; font-size:0.95rem; border-radius:var(--radius-md); border:2px solid rgba(255,255,255,0.5); text-decoration:none; transition:all 0.3s;">
-            Contact Us
+            CONTACT
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
@@ -152,7 +152,7 @@ $homeBlogs = [
         <div class="our-products-header">
           <div>
             <span class="our-products-label">Quality &amp; Reliable</span>
-            <h2 class="our-products-title">Our Products</h2>
+            <h3 class="our-products-title">Our Products</h3>
           </div>
           <a href="products.php" class="our-products-viewall">
             View All
@@ -192,7 +192,7 @@ $homeBlogs = [
         <div class="our-products-header">
           <div>
             <span class="our-products-label">AWARDS &amp; CERTIFICATIONS</span>
-            <h2 class="our-products-title">Recognized for Excellence</h2>
+            <h3 class="our-products-title">Recognized for Excellence</h3>
           </div>
         </div>
         <div style="display:flex; gap:var(--space-8); justify-content:center; flex-wrap:nowrap; padding:var(--space-6) 0;">
@@ -213,7 +213,7 @@ $homeBlogs = [
         <div class="our-products-header">
           <div>
             <span class="our-products-label">TESTIMONIALS</span>
-            <h2 class="our-products-title">What Our Clients Say</h2>
+            <h3 class="our-products-title">What Our Clients Say</h3>
           </div>
         </div>
         <div class="testimonials-carousel">
@@ -250,7 +250,7 @@ $homeBlogs = [
         <div class="our-products-header">
           <div>
             <span class="our-products-label">OUR BLOGS</span>
-            <h2 class="our-products-title">Latest Insights &amp; Updates</h2>
+            <h3 class="our-products-title">Latest Insights &amp; Updates</h3>
           </div>
           <?= renderButton('View All Blogs', 'blogs.php', 'outline', 'sm', '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
         </div>
@@ -278,7 +278,7 @@ $homeBlogs = [
     </section>
 
     <!-- 8. MAP / CONTACT -->
-    <section class="section" style="padding-bottom:80px;">
+    <section class="section" style="padding-top:20px; padding-bottom:20px;">
       <div class="container">
         <div class="map-contact-grid">
           <div class="map-wrapper reveal reveal--left">
@@ -295,7 +295,7 @@ $homeBlogs = [
           </div>
           <div class="map-contact-info reveal reveal--right">
             <span class="our-products-label">GET IN TOUCH</span>
-            <h2 class="our-products-title">We Are Here to Help You</h2>
+            <h3 class="our-products-title">We Are Here to Help You</h3>
             <div class="map-contact-item">
               <div class="map-contact-item__icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>

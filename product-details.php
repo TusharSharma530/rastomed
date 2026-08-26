@@ -8,7 +8,7 @@ $allProducts = [
     1 => [
         'name' => 'CoRast-Q10',
         'image' => 'assets/images/qorest-10.png',
-        'description' => 'High-quality softgel capsules for effective health supplementation.',
+        'description' => 'CoRaST-Q10 is a CoQ10-based nutritional supplement designed to support cellular energy production and antioxidant protection. Coenzyme Q10 is naturally present in the body and plays an important role in mitochondrial energy production. The product is presented in a consumer supplement pack and may be intended for nutritional support of energy, cardiovascular function, and overall cellular health.',
     ],
 ];
 
@@ -80,7 +80,7 @@ $product = $allProducts[$id];
     </section>
 
     <!-- Product Details -->
-    <section class="section">
+    <section class="section" style="padding-top:20px;">
       <div class="container">
         <div class="pd-detail-grid">
           <div class="pd-detail-grid__image">

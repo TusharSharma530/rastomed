@@ -20,13 +20,13 @@
       
         <div class="footer__social">
           <a href="https://www.linkedin.com/company/rastomed-pharma/" target="_blank" class="footer__social-link" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            <img src="assets/images/linkedin.png" alt="LinkedIn" style="width:22px; height:22px; object-fit:contain;">
           </a>
           <a href="https://x.com/RastoMedPharma" target="_blank" class="footer__social-link" aria-label="X (Twitter)">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <img src="assets/images/x-twitter.svg" alt="X" style="width:22px; height:22px; object-fit:contain; filter: brightness(0) invert(1);">
           </a>
           <a href="https://www.instagram.com/rastomedpharma?igsh=MTZqa3VmNWljNXBuYQ==" target="_blank" class="footer__social-link" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <img src="assets/images/instagram.png" alt="Instagram" style="width:22px; height:22px; object-fit:contain;">
           </a>
         </div>
       </div>
@@ -40,7 +40,7 @@
         <a href="about.php#awards" class="footer__link">Awards</a>
         <a href="careers.php" class="footer__link">Careers</a>
         <a href="blogs.php" class="footer__link">Blogs</a>
-        <a href="contact.php" class="footer__link">Contact Us</a>
+        <a href="contact.php" class="footer__link">CONTACT</a>
       </div>
 
       <!-- Our Products -->
@@ -57,17 +57,14 @@
       <!-- Resources -->
       <div class="footer__column">
         <h4 class="footer__column-title">Resources</h4>
-        <a href="privacy-policy.php" class="footer__link">Quality Policy</a>
-        <a href="privacy-policy.php" class="footer__link">Certifications</a>
-        <a href="about.php" class="footer__link">R&amp;D Center</a>
-        <a href="disclaimer.php" class="footer__link">Downloads</a>
+        <a href="careers.php" class="footer__link">Careers</a>
         <a href="privacy-policy.php" class="footer__link">Privacy Policy</a>
-        <a href="disclaimer.php" class="footer__link">Terms &amp; Conditions</a>
+        <a href="disclaimer.php" class="footer__link">Disclaimer</a>
       </div>
 
-      <!-- Contact Us -->
+      <!-- CONTACT -->
       <div class="footer__column">
-        <h4 class="footer__column-title">Contact Us</h4>
+        <h4 class="footer__column-title">CONTACT</h4>
         <div class="footer__contact-item">
           <svg class="footer__contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <span>353, Shivaji Road, Meerut,<br>Uttar Pradesh-250001</span>
@@ -87,9 +84,6 @@
     <div class="footer__bottom">
       <p class="footer__copyright">
         &copy; <?= date('Y') ?> RastoMed Pharma Private Limited. All Rights Reserved.
-      </p>
-      <p class="footer__tagline">
-        Designed with <span style="color:#e74c3c;">&#10084;</span> for a Healthier Tomorrow
       </p>
     </div>
   </div>
