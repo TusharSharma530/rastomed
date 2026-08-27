@@ -26,7 +26,7 @@ require_once __DIR__ . '/includes/components.php';
       display: grid;
       grid-template-columns: 1fr 1.2fr;
       gap: clamp(2rem, 5vw, 4rem);
-      align-items: start;
+      align-items: stretch;
     }
     .contact-card {
       background: var(--color-surface);
@@ -172,7 +172,7 @@ require_once __DIR__ . '/includes/components.php';
 
   <main>
     <!-- Contact Banner -->
-    <section style="position: relative; margin-top: calc(-1 * var(--header-height) + 16px); height: calc(320px + var(--header-height)); overflow: hidden; margin-bottom: 40px;">
+    <section style="position: relative; margin-top: calc(-1 * var(--header-height) + 16px); height: calc(320px + var(--header-height)); overflow: hidden; margin-bottom: 10px;">
       <img src="assets/images/contact-hero.jpg" alt="Contact Us" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;">
       <div style="position: absolute; inset: 0; background: transparent; display: flex; align-items: center; justify-content: center;">
         <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; color: #fff; margin: 0;">Contact Us</h1>

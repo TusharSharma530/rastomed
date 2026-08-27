@@ -3838,6 +3838,60 @@ p {
   color: var(--color-text-muted);
 }
 
+/* --- Enquiry Modal Dark Mode --- */
+[data-theme="dark"] .enquiry-modal__content {
+  background: var(--dark-surface, #1e1e2e);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .enquiry-modal__close {
+  background: #2a2a3a;
+  color: #b0b0b0;
+}
+
+[data-theme="dark"] .enquiry-modal__close:hover {
+  background: #3a3a4a;
+  color: #fff;
+}
+
+[data-theme="dark"] .enquiry-modal__title {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .enquiry-modal__subtitle {
+  color: #909090;
+}
+
+[data-theme="dark"] .enquiry-modal__form .form-label {
+  color: #c0c0c0;
+}
+
+[data-theme="dark"] .enquiry-modal__form .form-input {
+  background: #2a2a3a;
+  border-color: #3a3a4a;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .enquiry-modal__form .form-input::placeholder {
+  color: #707070;
+}
+
+[data-theme="dark"] .enquiry-modal__form .form-input:focus {
+  border-color: #64b5f6;
+}
+
+[data-theme="dark"] .enquiry-modal__form .form-select {
+  background: #2a2a3a;
+  border-color: #3a3a4a;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .enquiry-modal__form textarea.form-input {
+  background: #2a2a3a;
+  border-color: #3a3a4a;
+  color: #e0e0e0;
+}
+
 /* --- Section Label --- */
 .section-label {
   display: inline-flex;
@@ -5014,7 +5068,7 @@ p {
 }
 
 .about-banner__breadcrumb-link {
-  color: #1565C0;
+  color: #ffffff;
   text-decoration: none;
   font-weight: var(--fw-medium);
   transition: color var(--transition-base);
@@ -5443,7 +5497,7 @@ p {
 
 /* No Jobs Section */
 .career-no-jobs {
-  padding: clamp(2rem, 4vw, 3rem) 0;
+  padding: clamp(1rem, 2vw, 1.5rem) 0;
   margin-top: -60px;
   position: relative;
   z-index: 2;
@@ -5515,14 +5569,14 @@ p {
 
 /* Process Steps */
 .career-process {
-  padding: clamp(2rem, 4vw, 4rem) 0;
+  padding: clamp(1rem, 2vw, 2rem) 0 0.5rem;
 }
 
 .career-process__header {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+  margin-bottom: clamp(0.5rem, 1vw, 1rem);
 }
 
 .career-process__title {
@@ -5642,7 +5696,7 @@ p {
 
 /* Job Alert CTA */
 .career-cta {
-  padding: clamp(1rem, 2vw, 2rem) 0;
+  padding: clamp(0.5rem, 1vw, 1rem) 0;
 }
 
 .career-cta__card {
@@ -5684,7 +5738,7 @@ p {
 
 /* Know More About Us */
 .career-know-more {
-  padding: clamp(2rem, 4vw, 3rem) 0 clamp(3rem, 5vw, 4rem);
+  padding: clamp(0.5rem, 1vw, 1rem) 0 clamp(1rem, 2vw, 1.5rem);
 }
 
 .career-know-more__title {
@@ -5692,7 +5746,7 @@ p {
   font-weight: var(--fw-bold);
   color: var(--color-text);
   text-align: center;
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 13px;
 }
 
 .career-know-more__grid {
@@ -6036,19 +6090,23 @@ p {
 /* --- Product Detail Page --- */
 .pd-detail-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: clamp(1rem, 2vw, 2rem);
-  align-items: center;
+  grid-template-columns: 1fr 1.5fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: start;
 }
 
 .pd-detail-grid__image {
-  text-align: center;
+  text-align: left;
 }
 
 .pd-detail-grid__image img {
   max-width: 100%;
-  max-height: 400px;
+  max-height: 450px;
   object-fit: contain;
+}
+
+.pd-detail-grid__content {
+  min-width: 0;
 }
 
 .pd-detail-grid__title {

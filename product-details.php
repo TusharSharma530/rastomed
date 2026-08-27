@@ -103,13 +103,13 @@ $product = $allProducts[$id];
     </section>
 
     <!-- Product Details -->
-    <section class="section" style="padding-top:20px; padding-bottom:0;">
+    <section class="section" style="padding: 1rem;">
       <div class="container">
-        <div class="pd-detail-grid">
-          <div class="pd-detail-grid__image">
-            <img src="<?= $product['image'] ?>" alt="<?= htmlspecialchars($product['name']) ?>">
+        <div class="pd-detail-grid" style="display:grid; grid-template-columns:1fr 1.5fr; gap:3rem; align-items:start;">
+          <div class="pd-detail-grid__image" style="display:flex; justify-content:center; align-items:center;">
+            <img src="<?= $product['image'] ?>" alt="<?= htmlspecialchars($product['name']) ?>" style="max-width:100%; max-height:450px; object-fit:contain;">
           </div>
-          <div class="pd-detail-grid__content">
+          <div class="pd-detail-grid__content" style="background:var(--color-surface); border:1px solid var(--color-border-light); border-radius:var(--radius-xl); padding:var(--space-8); box-shadow:var(--shadow-lg); min-width:0;">
             <h2 class="pd-detail-grid__title"><?= htmlspecialchars($product['name']) ?></h2>
             <div class="pd-detail-grid__desc">
               <p>CoRast-Q10 is an advanced liposomal Coenzyme Q10 (CoQ10) formulation designed to support cellular energy production and antioxidant defense. Its liposomal delivery system is designed to enhance the bioavailability of CoQ10.</p>
@@ -131,8 +131,8 @@ $product = $allProducts[$id];
     </section>
 
     <!-- FAQ Section -->
-    <section style="padding: 0 0 60px;">
-      <div class="container" style="max-width: 800px;">
+    <section style="padding: 25px 0 0px;">
+      <div class="container">
         <h2 style="font-size: 1.6rem; font-weight: 800; color: #1a237e; margin-bottom: 28px;">Frequently Asked Questions</h2>
 
         <div class="faq-item">
@@ -238,6 +238,7 @@ $product = $allProducts[$id];
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease;
+      background: #fff;
     }
     .faq-open .faq-answer {
       max-height: 300px;
@@ -248,6 +249,27 @@ $product = $allProducts[$id];
       color: #555;
       line-height: 1.7;
       margin: 0;
+    }
+
+    /* Dark Mode FAQ */
+    [data-theme="dark"] .faq-item {
+      border-color: #3a3a4a;
+    }
+    [data-theme="dark"] .faq-question {
+      background: #1e1e2e;
+      color: #90caf9;
+    }
+    [data-theme="dark"] .faq-question:hover {
+      background: #2a2a3a;
+    }
+    [data-theme="dark"] .faq-icon {
+      color: #90caf9;
+    }
+    [data-theme="dark"] .faq-answer {
+      background: #1e1e2e;
+    }
+    [data-theme="dark"] .faq-answer p {
+      color: #b0b0b0;
     }
   </style>
 </body>

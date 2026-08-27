@@ -175,7 +175,7 @@ $breadcrumbs = [
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
-    <section class="section">
+    <section class="section" style="padding: clamp(0.5rem, 1vw, 1rem) 0 clamp(1.5rem, 3vw, 2rem);">
       <div class="container article-wrapper">
         <?= renderBreadcrumbs($breadcrumbs) ?>
         

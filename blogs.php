@@ -154,7 +154,7 @@ $blogPosts = [
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" style="padding: clamp(0.5rem, 1vw, 1rem) 0;">
       <div class="container">
         <div class="blogs-grid">
           <?php foreach ($blogPosts as $b): ?>

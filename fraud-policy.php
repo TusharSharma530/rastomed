@@ -48,6 +48,23 @@
       color: #1565C0;
       text-decoration: underline;
     }
+
+    /* Dark Mode */
+    [data-theme="dark"] .fraud-banner {
+      background: #1a1a2e;
+    }
+    [data-theme="dark"] .fraud-banner h1 {
+      color: #90caf9;
+    }
+    [data-theme="dark"] .fraud-content {
+      background: var(--dark-surface, #1e1e2e);
+    }
+    [data-theme="dark"] .fraud-content p {
+      color: #b0b0b0;
+    }
+    [data-theme="dark"] .fraud-content a {
+      color: #64b5f6;
+    }
   </style>
 </head>
 <body>

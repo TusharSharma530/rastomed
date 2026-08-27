@@ -56,7 +56,7 @@ sort($therapies);
     </section>
 
     <!-- ========== PRODUCT CATALOG ========== -->
-    <section class="section">
+    <section class="section" style="padding: 1.5rem 0 0;">
       <div class="container">
         <div style="display:flex;">
           <div class="our-product-card" style="max-width:320px; width:100%;">
