@@ -44,7 +44,7 @@
               <div class="apply-form__group">
                 <label class="apply-form__label">Mobile Number<span>*</span></label>
                 <div class="apply-form__phone">
-                  <span class="apply-form__phone-code">🇮🇳 +91</span>
+                  <span class="apply-form__phone-code">IN +91</span>
                   <input type="tel" name="mobile" class="apply-form__input apply-form__input--phone" required>
                 </div>
               </div>
