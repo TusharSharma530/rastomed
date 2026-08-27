@@ -71,7 +71,7 @@ $values = [
     </section>
 
     <!-- ========== COMPANY OVERVIEW ========== -->
-    <section class="section">
+    <section class="section" style="padding-top: clamp(1rem, 2vw, 2rem);">
       <div class="container">
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem, 5vw, 5rem); align-items:center;">
           <div class="reveal reveal--left">
@@ -103,7 +103,7 @@ $values = [
     </section>
 
     <!-- ========== MISSION & VISION ========== -->
-    <section class="section section--alt">
+    <section class="section section--alt" style="padding-top: 0; padding-bottom: clamp(1rem, 2vw, 2rem);">
       <div class="container">
         <h2 class="mv-section__title">Mission &amp; Vision</h2>
 

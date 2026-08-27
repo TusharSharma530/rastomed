@@ -104,34 +104,7 @@ $homeBlogs = [
       <img src="assets/images/banner-2.png" alt="RastoMed Pharma" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:100%; height:100%; object-fit:contain;">
     </section>
 
-    <?php /*
-    <!-- 2. HERO SECTION - Banner Image with Content (OLD) -->
-    <section style="width:100%; margin-top:var(--space-3); position:relative; height:480px; overflow:hidden;">
-      <img src="assets/images/home banner.png" alt="RastoMed Pharma" style="width:100%; height:100%; display:block; object-fit:cover;">
-      <div style="position:absolute; top:0; left:0; width:50%; height:100%; display:flex; flex-direction:column; justify-content:center; padding:var(--space-12) clamp(2rem, 5vw, 6rem); background:linear-gradient(90deg, rgba(13, 71, 161, 0.85) 0%, rgba(13, 71, 161, 0.4) 70%, transparent 100%);">
-        <span style="display:block; font-size:var(--fs-xs); font-weight:700; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.8); margin-bottom:var(--space-4);">CARING FOR LIFE</span>
-        <h1 style="font-size:clamp(2rem, 4vw, 3.5rem); font-weight:800; color:#ffffff; line-height:1.15; margin-bottom:var(--space-6);">
-          Advancing Healthcare Through <span style="color:#64b5f6;">Innovation</span>
-        </h1>
-        <p style="font-size:clamp(0.9rem, 1.2vw, 1.1rem); color:rgba(255,255,255,0.85); line-height:1.7; margin-bottom:var(--space-8); max-width:520px;">
-          RastoMed Pharma Private Limited is committed to improving lives by delivering high-quality, effective and affordable pharmaceutical products trusted worldwide.
-        </p>
-        <div style="display:flex; gap:var(--space-4); flex-wrap:wrap;">
-          <a href="products.php" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:var(--color-primary); color:#fff; font-weight:600; font-size:0.95rem; border-radius:var(--radius-md); text-decoration:none; transition:all 0.3s;">
-            Explore Products
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-          <a href="contact.php" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:transparent; color:#fff; font-weight:600; font-size:0.95rem; border-radius:var(--radius-md); border:2px solid rgba(255,255,255,0.5); text-decoration:none; transition:all 0.3s;">
-            CONTACT
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </div>
-    </section>
-    */ ?>
-
-    <?php /*
-    <!-- 3. ABOUT US (OLD) -->
+    <!-- 3. ABOUT US -->
     <section class="about-section">
       <div class="container">
         <div class="about-section__grid">
@@ -153,7 +126,6 @@ $homeBlogs = [
         </div>
       </div>
     </section>
-    */ ?>
 
     <!-- 4. OUR PRODUCTS -->
     <section class="section our-products-section">
