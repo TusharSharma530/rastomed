@@ -5190,7 +5190,7 @@ p {
 
 /* --- Legal / Privacy Policy Page --- */
 .legal-page {
-  padding: clamp(1.5rem, 3vw, 3rem) 0 clamp(2rem, 4vw, 4rem);
+  padding: clamp(1.5rem, 3vw, 3rem) 0 clamp(0.5rem, 1vw, 1rem);
 }
 
 .legal-page__content {
