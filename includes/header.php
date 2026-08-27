@@ -16,17 +16,17 @@
 <div class="preloader" id="preloader">
   <div class="preloader__capsule">
     <svg class="preloader__svg" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
-      <!-- Left capsule half -->
+      <!-- Left capsule half (dark blue) -->
       <g class="preloader__capsule-left">
-        <path d="M55,15 h-15 a15,15 0 0 0 0,30 h15" fill="#0a3278" stroke="none"/>
+        <path d="M20,15 L50,15 Q55,15 55,20 L55,40 Q55,45 50,45 L20,45 Q5,45 5,30 Q5,15 20,15 Z" fill="#1565C0"/>
       </g>
-      <!-- Right capsule half -->
+      <!-- Right capsule half (white with blue border) -->
       <g class="preloader__capsule-right">
-        <path d="M65,15 h15 a15,15 0 0 1 0,30 h-15" fill="#fff" stroke="#0a3278" stroke-width="2"/>
+        <path d="M70,15 L100,15 Q115,15 115,30 Q115,45 100,45 L70,45 Q65,45 65,40 L65,20 Q65,15 70,15 Z" fill="#ffffff" stroke="#1565C0" stroke-width="2"/>
       </g>
       <!-- Crossing lines -->
-      <line class="preloader__line preloader__line--1" x1="35" y1="20" x2="85" y2="40" stroke="#0a3278" stroke-width="1.5"/>
-      <line class="preloader__line preloader__line--2" x1="35" y1="40" x2="85" y2="20" stroke="#0a3278" stroke-width="1.5"/>
+      <line class="preloader__line preloader__line--1" x1="20" y1="25" x2="100" y2="35" stroke="#ffffff" stroke-width="1.5"/>
+      <line class="preloader__line preloader__line--2" x1="20" y1="35" x2="100" y2="25" stroke="#ffffff" stroke-width="1.5"/>
     </svg>
   </div>
   <p class="preloader__text">RASTOMED</p>
