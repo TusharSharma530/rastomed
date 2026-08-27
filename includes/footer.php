@@ -12,7 +12,7 @@
       <!-- Brand Column -->
       <div class="footer__brand">
         <a href="index.php" class="footer__logo" aria-label="RastoMed Pharma Home">
-          <img src="assets/images/rastomed.png" alt="RastoMed Pharma" style="width:80%; object-fit:contain; background-color:white; padding:5px; border-radius:5px;">
+          <img src="assets/images/rastomed.png" alt="RastoMed Pharma" class="footer-logo-box">
         </a>
         <p class="footer__description">
           We are dedicated to providing high-quality medicines that improve lives and build a healthier tomorrow.
@@ -20,13 +20,13 @@
       
         <div class="footer__social">
           <a href="https://www.linkedin.com/company/rastomed-pharma/" target="_blank" class="footer__social-link" aria-label="LinkedIn">
-            <img src="assets/images/linkedin.png" alt="LinkedIn" style="width:22px; height:22px; object-fit:contain;">
+            <img src="assets/images/linkedin.png" alt="LinkedIn" class="footer-icon-img">
           </a>
           <a href="https://x.com/RastoMedPharma" target="_blank" class="footer__social-link" aria-label="X (Twitter)">
-            <img src="assets/images/x-twitter.svg" alt="X" style="width:22px; height:22px; object-fit:contain; filter: brightness(0) invert(1);">
+            <img src="assets/images/x-twitter.svg" alt="X" class="footer-twitter-img">
           </a>
           <a href="https://www.instagram.com/rastomedpharma?igsh=MTZqa3VmNWljNXBuYQ==" target="_blank" class="footer__social-link" aria-label="Instagram">
-            <img src="assets/images/instagram.png" alt="Instagram" style="width:22px; height:22px; object-fit:contain;">
+            <img src="assets/images/instagram.png" alt="Instagram" class="footer-icon-img">
           </a>
         </div>
       </div>
@@ -128,9 +128,9 @@
       </div>
       <div class="form-group">
         <label class="form-label" for="enqMessage">Message</label>
-        <textarea id="enqMessage" class="form-input" rows="3" placeholder="Your message..." style="resize:vertical;min-height:80px;"></textarea>
+        <textarea id="enqMessage" class="form-input textarea-enq-resize" rows="3" placeholder="Your message..."></textarea>
       </div>
-      <button type="submit" class="btn btn--primary btn--lg" style="width:100%;">Submit Enquiry</button>
+      <button type="submit" class="btn btn--primary btn--lg width-100">Submit Enquiry</button>
     </form>
     <div id="enquirySuccess" class="enquiry-modal__success">
       <div class="enquiry-modal__success-icon">&#10003;</div>

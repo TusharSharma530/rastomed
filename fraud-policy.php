@@ -16,56 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
-  <style>
-    .fraud-banner {
-      background: #e8eef6;
-      padding: 40px 0;
-      margin-top: var(--header-height);
-    }
-    .fraud-banner h1 {
-      font-size: clamp(1.5rem, 3vw, 2.25rem);
-      font-weight: 800;
-      color: #1a237e;
-      margin: 0;
-    }
-    .fraud-content {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px 60px;
-      text-align: left;
-    }
-    .fraud-content p {
-      font-size: 1rem;
-      color: #222;
-      line-height: 1.75;
-      margin-bottom: 16px;
-    }
-    .fraud-content .sub-item {
-      padding-left: 24px;
-      margin-bottom: 8px;
-    }
-    .fraud-content a {
-      color: #1565C0;
-      text-decoration: underline;
-    }
 
-    /* Dark Mode */
-    [data-theme="dark"] .fraud-banner {
-      background: #1a1a2e;
-    }
-    [data-theme="dark"] .fraud-banner h1 {
-      color: #90caf9;
-    }
-    [data-theme="dark"] .fraud-content {
-      background: var(--dark-surface, #1e1e2e);
-    }
-    [data-theme="dark"] .fraud-content p {
-      color: #b0b0b0;
-    }
-    [data-theme="dark"] .fraud-content a {
-      color: #64b5f6;
-    }
-  </style>
 </head>
 <body>
   <?php include __DIR__ . '/includes/header.php'; ?>
