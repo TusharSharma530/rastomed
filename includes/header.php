@@ -15,21 +15,43 @@
 <!-- Preloader -->
 <div class="preloader" id="preloader">
   <div class="preloader__capsule">
-    <svg class="preloader__svg" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
-      <!-- Left capsule half (dark blue) -->
+    <svg class="preloader__svg" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="leftGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#0D47A1"/>
+          <stop offset="100%" style="stop-color:#1565C0"/>
+        </linearGradient>
+        <linearGradient id="rightGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#E3F2FD"/>
+          <stop offset="100%" style="stop-color:#ffffff"/>
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+          <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <!-- Left capsule half -->
       <g class="preloader__capsule-left">
-        <path d="M20,15 L50,15 Q55,15 55,20 L55,40 Q55,45 50,45 L20,45 Q5,45 5,30 Q5,15 20,15 Z" fill="#1565C0"/>
+        <path d="M15,25 L80,25 Q85,25 85,30 L85,50 Q85,55 80,55 L15,55 Q5,55 5,40 Q5,25 15,25 Z" fill="url(#leftGrad)" filter="url(#glow)"/>
       </g>
-      <!-- Right capsule half (white with blue border) -->
+      <!-- Right capsule half -->
       <g class="preloader__capsule-right">
-        <path d="M70,15 L100,15 Q115,15 115,30 Q115,45 100,45 L70,45 Q65,45 65,40 L65,20 Q65,15 70,15 Z" fill="#ffffff" stroke="#1565C0" stroke-width="2"/>
+        <path d="M120,25 L185,25 Q195,25 195,40 Q195,55 185,55 L120,55 Q115,55 115,50 L115,30 Q115,25 120,25 Z" fill="url(#rightGrad)" stroke="#1565C0" stroke-width="1.5" filter="url(#glow)"/>
       </g>
-      <!-- Crossing lines -->
-      <line class="preloader__line preloader__line--1" x1="20" y1="25" x2="100" y2="35" stroke="#ffffff" stroke-width="1.5"/>
-      <line class="preloader__line preloader__line--2" x1="20" y1="35" x2="100" y2="25" stroke="#ffffff" stroke-width="1.5"/>
+      <!-- Crossing lines with glow -->
+      <line class="preloader__line preloader__line--1" x1="30" y1="32" x2="170" y2="48" stroke="#ffffff" stroke-width="1" opacity="0.6" filter="url(#glow)"/>
+      <line class="preloader__line preloader__line--2" x1="30" y1="48" x2="170" y2="32" stroke="#ffffff" stroke-width="1" opacity="0.6" filter="url(#glow)"/>
+      <!-- Center dot -->
+      <circle class="preloader__dot" cx="100" cy="40" r="3" fill="#ffffff" opacity="0.8"/>
     </svg>
   </div>
   <p class="preloader__text">RASTOMED</p>
+  <div class="preloader__bar">
+    <div class="preloader__bar-fill"></div>
+  </div>
 </div>
 
 <!-- Top Bar - Logo + Contact Info -->
