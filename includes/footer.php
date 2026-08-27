@@ -45,12 +45,7 @@
       <!-- Our Products -->
       <div class="footer__column">
         <h4 class="footer__column-title">Our Products</h4>
-        <a href="products.php" class="footer__link">Capsules</a>
-        <a href="products.php" class="footer__link">Tablets</a>
-        <a href="products.php" class="footer__link">Syrups</a>
-        <a href="products.php" class="footer__link">Injections</a>
-        <a href="products.php" class="footer__link">Dry Syrups</a>
-        <a href="products.php" class="footer__link">Medicine Range</a>
+        <a href="product-details.php?id=1" class="footer__link">CoRast-Q10</a>
       </div>
 
       <!-- Resources -->

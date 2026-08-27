@@ -216,7 +216,7 @@ require_once __DIR__ . '/includes/components.php';
               <div>
                 <strong class="contact-item__label">Got a Question?</strong>
                 <p class="contact-item__text" style="margin-bottom:6px;">Drop us an email and we'll be in touch asap.</p>
-                <a href="mailto:partners@riskevite.com" class="contact-item__link">partners@riskevite.com</a>
+                <a href="mailto:info@rastomedpharma.com" class="contact-item__link">info@rastomedpharma.com</a>
               </div>
             </div>
 
