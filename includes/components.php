@@ -57,7 +57,7 @@ function renderCard($title, $text, $linkText = 'Learn More', $linkUrl = '#', $im
     if ($imageUrl) {
         $imageHtml = '<div class="card__image"><img src="' . $imageUrl . '" alt="' . $imageAlt . '"></div>';
     } else {
-        $imageHtml = '<div class="card__image" style="background: linear-gradient(135deg, var(--color-surface-alt), var(--color-surface));"></div>';
+        $imageHtml = '<div class="card__image card-image-gradient"></div>';
     }
 
     return '
@@ -115,7 +115,7 @@ function renderNewsCard($title, $excerpt, $date, $category, $url = '#') {
 
     return '
     <div class="news-card">
-        <div class="news-card__image" style="background: linear-gradient(135deg, var(--color-surface-alt), var(--color-surface));">
+        <div class="news-card__image card-image-gradient">
             <div class="news-card__date">
                 <span class="news-card__date-day">' . $day . '</span>
                 <span class="news-card__date-month">' . $month . '</span>
@@ -183,7 +183,7 @@ function renderPageHero($title, $breadcrumbs = [], $subtitle = '') {
     if (!empty($breadcrumbs)) {
         $breadcrumbHtml = renderBreadcrumbs($breadcrumbs);
     }
-    $subtitleHtml = $subtitle ? '<p style="color:rgba(255,255,255,0.85); font-size:var(--fs-body); max-width:600px; margin:0 auto var(--space-6); line-height:var(--lh-relaxed);">' . $subtitle . '</p>' : '';
+    $subtitleHtml = $subtitle ? '<p class="footer-subtitle-style">' . $subtitle . '</p>' : '';
 
     return '
     <section class="page-hero page-hero--banner">
@@ -307,7 +307,7 @@ function renderFilterableProductCard($product) {
         ' . $imageHtml . '
         <div class="product-card__body">
             <h3 class="product-card__title">' . htmlspecialchars($name) . '</h3>
-            <p class="product-card__price" style="font-size:var(--fs-h4); font-weight:700; color:var(--color-primary); margin-bottom:var(--space-4);">&#8377; 655</p>
+            <p class="product-card__price product-price-h4">&#8377; 655</p>
             <div class="product-card__footer">
                 <a href="' . $url . '" class="card__link">
                     View Specifications

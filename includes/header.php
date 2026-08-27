@@ -18,12 +18,12 @@
     <svg class="preloader__svg" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="leftGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style="stop-color:#0D47A1"/>
-          <stop offset="100%" style="stop-color:#1565C0"/>
+          <stop offset="0%" stop-color="#0D47A1"/>
+          <stop offset="100%" stop-color="#1565C0"/>
         </linearGradient>
         <linearGradient id="rightGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style="stop-color:#E3F2FD"/>
-          <stop offset="100%" style="stop-color:#ffffff"/>
+          <stop offset="0%" stop-color="#E3F2FD"/>
+          <stop offset="100%" stop-color="#ffffff"/>
         </linearGradient>
         <filter id="glow">
           <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
@@ -90,7 +90,7 @@
   <div class="header__inner">
     <!-- Mobile Logo -->
     <a href="index.php" class="header__logo-mobile" aria-label="RastoMed Pharma Home">
-      <img src="assets/images/rastomed.png" alt="RastoMed Pharma" style="height:45px; width:auto;">
+      <img src="assets/images/rastomed.png" alt="RastoMed Pharma" class="header-logo-brand">
     </a>
 
     <!-- Desktop Navigation -->

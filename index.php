@@ -100,8 +100,8 @@ $homeBlogs = [
 
   <main>
     <!-- 2. HERO SECTION - Simple Banner -->
-    <section style="width:100%; margin-top: calc(-1 * var(--header-height)); height: calc(100vh - 0px); min-height: 500px; overflow: hidden; position: relative;">
-      <img src="assets/images/banner-2.png" alt="RastoMed Pharma" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:100%; height:100%; object-fit:contain;">
+    <section class="home-hero-banner">
+      <img src="assets/images/banner-2.png" alt="RastoMed Pharma" class="home-hero-img-abs">
     </section>
 
     <!-- 3. ABOUT US -->
@@ -151,10 +151,10 @@ $homeBlogs = [
                   </a>
                 </div>
                 <div class="our-product-card__body">
-                  <div style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-3);">
+                  <div class="flex-between-gap3">
                 <div>
-                  <h3 class="our-product-card__title" style="margin:0; text-align:left;">CoRast-Q10</h3>
-                  <span style="font-size:var(--fs-body); font-weight:700; color:var(--color-primary); white-space:nowrap;">&#8377; 655</span>
+                  <h3 class="our-product-card__title margin-0-left">CoRast-Q10</h3>
+                  <span class="price-tag-style">&#8377; 655</span>
                 </div>
                 <div>
                   <a href="product-details.php?id=1" class="our-product-card__btn">Read More</a>
@@ -176,11 +176,11 @@ $homeBlogs = [
             <h3 class="our-products-title">Recognized for Excellence</h3>
           </div>
         </div>
-        <div style="display:flex; gap:var(--space-8); justify-content:center; flex-wrap:nowrap; padding:var(--space-6) 0;">
+        <div class="award-flex-row">
           <?php foreach ($awards as $award): ?>
-            <div style="flex:0 0 calc(25% - var(--space-6)); max-width:280px;">
-              <div style="border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-md);">
-                <img src="<?= $award['image'] ?>" alt="<?= htmlspecialchars($award['title']) ?>" style="width:100%; height:auto; display:block;" loading="lazy">
+            <div class="award-item-col">
+              <div class="award-item-inner">
+                <img src="<?= $award['image'] ?>" alt="<?= htmlspecialchars($award['title']) ?>" class="award-img-display" loading="lazy">
               </div>
             </div>
           <?php endforeach; ?>
@@ -259,7 +259,7 @@ $homeBlogs = [
     </section>
 
     <!-- 8. MAP / CONTACT -->
-    <section class="section" style="padding-top:20px; padding-bottom:20px;">
+    <section class="section pad-20-section">
       <div class="container">
         <div class="map-contact-grid">
           <div class="map-wrapper reveal reveal--left">
@@ -267,7 +267,7 @@ $homeBlogs = [
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.123456789!2d76.9466!3d30.6942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390afc7a5ec2f45b%3A0x1234567890abcdef!2sPanchkula%2C%20Haryana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
               width="100%"
               height="450"
-              style="border:0; border-radius: var(--radius-2xl);"
+              class="map-iframe-no-border border-radius-2xl-box"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"

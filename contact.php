@@ -17,165 +17,17 @@ require_once __DIR__ . '/includes/components.php';
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
-  <style>
-    .contact-section {
-     
-      background: linear-gradient(135deg, var(--color-surface-alt) 0%, var(--color-surface) 100%);
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: clamp(2rem, 5vw, 4rem);
-      align-items: stretch;
-    }
-    .contact-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-2xl);
-      padding: var(--space-10);
-      box-shadow: var(--shadow-lg);
-    }
-    .contact-item {
-      display: flex;
-      gap: var(--space-5);
-      align-items: flex-start;
-      padding: var(--space-4) 0;
-    }
-    .contact-item + .contact-item {
-      border-top: 1px solid var(--color-border-light, rgba(0,0,0,0.06));
-    }
-    .contact-icon {
-      width: 56px;
-      height: 56px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(var(--color-primary-rgb), 0.08);
-      border-radius: var(--radius-xl);
-      color: var(--color-primary);
-    }
-    .contact-item__label {
-      display: block;
-      font-size: var(--fs-body);
-      font-weight: var(--fw-semibold);
-      color: var(--color-text);
-      margin-bottom: 6px;
-    }
-    .contact-item__text {
-      font-size: var(--fs-body);
-      color: var(--color-text-secondary);
-      line-height: 1.65;
-      margin: 0;
-    }
-    .contact-item__link {
-      font-size: var(--fs-body);
-      color: var(--color-primary);
-      text-decoration: none;
-      font-weight: var(--fw-medium);
-      transition: color 0.2s;
-    }
-    .contact-item__link:hover {
-      color: var(--color-primary-dark);
-    }
-    .form-heading-tag {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      margin-bottom: var(--space-3);
-    }
-    .form-heading-tag__line {
-      width: 36px;
-      height: 2px;
-      background: var(--color-primary);
-      border-radius: var(--radius-full);
-    }
-    .form-heading-tag__text {
-      font-size: var(--fs-small);
-      font-weight: var(--fw-semibold);
-      color: var(--color-primary);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-5);
-    }
-    .form-field label {
-      display: block;
-      font-size: var(--fs-body);
-      font-weight: var(--fw-medium);
-      color: var(--color-text);
-      margin-bottom: var(--space-2);
-    }
-    .form-field input,
-    .form-field select,
-    .form-field textarea {
-      width: 100%;
-      padding: var(--space-4) var(--space-5);
-      background: var(--color-surface-alt);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      font-size: var(--fs-body);
-      color: var(--color-text);
-      transition: all 0.2s ease;
-      font-family: inherit;
-    }
-    .form-field input::placeholder,
-    .form-field textarea::placeholder {
-      color: var(--color-text-muted, #999);
-    }
-    .form-field input:focus,
-    .form-field select:focus,
-    .form-field textarea:focus {
-      outline: none;
-      border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.12);
-      background: var(--color-surface);
-    }
-    .form-field textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-    .btn-send {
-      width: 100%;
-      padding: var(--space-5) var(--space-8);
-      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark, #0D47A1) 100%);
-      color: #fff;
-      border: none;
-      border-radius: var(--radius-xl);
-      font-size: var(--fs-body);
-      font-weight: var(--fw-semibold);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(var(--color-primary-rgb), 0.3);
-      font-family: inherit;
-      letter-spacing: 0.02em;
-    }
-    .btn-send:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(var(--color-primary-rgb), 0.4);
-    }
-    @media (max-width: 968px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+
 </head>
 <body>
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
     <!-- Contact Banner -->
-    <section style="position: relative; margin-top: calc(-1 * var(--header-height) + 16px); height: calc(320px + var(--header-height)); overflow: hidden; margin-bottom: 10px;">
-      <img src="assets/images/contact-hero.jpg" alt="Contact Us" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;">
-      <div style="position: absolute; inset: 0; background: transparent; display: flex; align-items: center; justify-content: center;">
-        <h1 style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; color: #fff; margin: 0;">Contact Us</h1>
+    <section class="contact-hero-banner">
+      <img src="assets/images/contact-hero.jpg" alt="Contact Us" class="contact-hero-bg-img">
+      <div class="contact-hero-center">
+        <h1 class="contact-hero-h1">Contact Us</h1>
       </div>
     </section>
 
@@ -215,7 +67,7 @@ require_once __DIR__ . '/includes/components.php';
               </div>
               <div>
                 <strong class="contact-item__label">Got a Question?</strong>
-                <p class="contact-item__text" style="margin-bottom:6px;">Drop us an email and we'll be in touch asap.</p>
+                <p class="contact-item__text contact-item-margin">Drop us an email and we'll be in touch asap.</p>
                 <a href="mailto:info@rastomedpharma.com" class="contact-item__link">info@rastomedpharma.com</a>
               </div>
             </div>
@@ -237,9 +89,9 @@ require_once __DIR__ . '/includes/components.php';
               <span class="form-heading-tag__line"></span>
               <span class="form-heading-tag__text">LET'S CONNECT</span>
             </div>
-            <h2 style="font-size: clamp(1.3rem, 2vw, 1.75rem); font-weight: var(--fw-bold); margin-bottom: var(--space-6); color: var(--color-text); line-height: 1.2;">Send us a message</h2>
+            <h2 class="contact-msg-heading">Send us a message</h2>
 
-            <form id="contactForm" style="display:flex; flex-direction:column; gap: var(--space-5);">
+            <form id="contactForm" class="contact-form-col">
               <!-- Row 1: Name + Email -->
               <div class="form-row">
                 <div class="form-field">
@@ -290,14 +142,14 @@ require_once __DIR__ . '/includes/components.php';
     </section>
 
     <!-- Map Section -->
-    <section style="padding:var(--space-10) 0 var(--space-12);">
+    <section class="map-section-wrap">
       <div class="container">
-        <div style="width:100%; height:450px; border-radius:var(--radius-2xl); overflow:hidden; border:1px solid var(--color-border); box-shadow:var(--shadow-md);">
+        <div class="map-container-box">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5!2d77.7107!3d28.9845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974b6a0b0b0b0b0%3A0x0b0b0b0b0b0b0b0b!2sShivaji+Road%2C+Meerut%2C+Uttar+Pradesh+250001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
             width="100%"
             height="100%"
-            style="border:0;"
+            class="map-iframe-no-border"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"

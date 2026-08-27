@@ -22,7 +22,7 @@ $posts = [
             'Market growth and opportunities.',
         ],
         'content' => '
-            <p class="lead" style="font-size:var(--fs-h4); color:var(--color-text); line-height:var(--lh-relaxed); font-weight:500; margin-bottom:var(--space-6);">Exploring the latest advancements and trends shaping the pharmaceutical industry in 2024 and beyond.</p>
+            <p class="lead lead-p-blog">Exploring the latest advancements and trends shaping the pharmaceutical industry in 2024 and beyond.</p>
 
             <h3>Industry Overview</h3>
             <p>The pharmaceutical industry continues to evolve with new technologies, regulatory changes, and shifting market dynamics. This article explores the key trends that are shaping the future of healthcare and pharmaceutical manufacturing.</p>
@@ -50,7 +50,7 @@ $posts = [
             'Supplements that support immune function.',
         ],
         'content' => '
-            <p class="lead" style="font-size:var(--fs-h4); color:var(--color-text); line-height:var(--lh-relaxed); font-weight:500; margin-bottom:var(--space-6);">Natural approaches to strengthen your immune system and stay healthy throughout the year.</p>
+            <p class="lead lead-p-blog">Natural approaches to strengthen your immune system and stay healthy throughout the year.</p>
 
             <h3>Simple Ways to Boost Immunity</h3>
             <p>A strong immune system is your body\'s first line of defense against infections and diseases. Here are five simple and effective ways to naturally boost your immunity.</p>
@@ -79,7 +79,7 @@ $posts = [
             'Ensuring safe and effective medicines.',
         ],
         'content' => '
-            <p class="lead" style="font-size:var(--fs-h4); color:var(--color-text); line-height:var(--lh-relaxed); font-weight:500; margin-bottom:var(--space-6);">The role of quality manufacturing in delivering safe and effective medicines to patients worldwide.</p>
+            <p class="lead lead-p-blog">The role of quality manufacturing in delivering safe and effective medicines to patients worldwide.</p>
 
             <h3>Quality Manufacturing Standards</h3>
             <p>Quality manufacturing is the cornerstone of pharmaceutical production. It ensures that every product meets the highest standards of safety, efficacy, and consistency.</p>
@@ -133,115 +133,81 @@ $breadcrumbs = [
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
-  <style>
-    .article-wrapper {
-      max-width: 860px;
-      margin: 0 auto;
-    }
-    .highlights-box {
-      background: var(--color-surface-alt);
-      border-left: 4px solid var(--color-primary);
-      border-radius: var(--radius-xl);
-      padding: var(--space-6) var(--space-8);
-      margin-bottom: var(--space-8);
-    }
-    .highlights-box h4 {
-      font-size: var(--fs-body);
-      font-weight: var(--fw-bold);
-      margin-bottom: var(--space-3);
-      color: var(--color-primary);
-    }
-    .highlights-box ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    .highlights-box li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: var(--space-2);
-      font-size: var(--fs-small);
-      color: var(--color-text);
-    }
-    .highlights-box li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--color-primary);
-      font-weight: bold;
-    }
-  </style>
+
 </head>
 <body>
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
-    <section class="section" style="padding: clamp(0.5rem, 1vw, 1rem) 0 clamp(1.5rem, 3vw, 2rem);">
-      <div class="container article-wrapper">
-        <?= renderBreadcrumbs($breadcrumbs) ?>
-        
-        <header style="margin-top:var(--space-6); margin-bottom:var(--space-8);">
-          <div style="display:flex; gap:var(--space-3); align-items:center; margin-bottom:var(--space-3);">
-            <span class="trust-pill"><?= htmlspecialchars($post['category']) ?></span>
-            <span style="font-size:var(--fs-xs); color:var(--color-text-muted);"><?= htmlspecialchars($post['date']) ?> &bull; <?= htmlspecialchars($post['readTime']) ?></span>
-          </div>
-          <h1 class="hero__title" style="font-size:var(--fs-h1); text-align:left; line-height:var(--lh-snug); margin-bottom:var(--space-4);">
-            <?= htmlspecialchars($post['title']) ?>
-          </h1>
-          <div style="display:flex; align-items:center; gap:var(--space-4);">
-            <div style="width:44px; height:44px; border-radius:var(--radius-full); background:var(--color-primary); color:#ffffff; font-weight:bold; display:flex; align-items:center; justify-content:center;">
-              <?= substr($post['author'], 4, 1) ?>
+    <section class="section article-section-padding">
+      <div class="container">
+        <div class="article-wrapper">
+          <?= renderBreadcrumbs($breadcrumbs) ?>
+          
+          <header class="article-header-margin">
+            <div class="article-meta-flex">
+              <span class="trust-pill"><?= htmlspecialchars($post['category']) ?></span>
+              <span class="article-date-muted"><?= htmlspecialchars($post['date']) ?> &bull; <?= htmlspecialchars($post['readTime']) ?></span>
             </div>
-            <div>
-              <strong style="display:block; font-size:var(--fs-small); color:var(--color-text);"><?= htmlspecialchars($post['author']) ?></strong>
-              <span style="font-size:var(--fs-xs); color:var(--color-text-muted);"><?= htmlspecialchars($post['authorRole']) ?></span>
-            </div>
-          </div>
-        </header>
-
-        <!-- Main Banner Image -->
-        <div style="width:100%; height:380px; border-radius:var(--radius-2xl); overflow:hidden; margin-bottom:var(--space-8); border:1px solid var(--color-border); box-shadow:var(--shadow-lg);">
-          <img src="<?= $post['image'] ?>" alt="<?= htmlspecialchars($post['title']) ?>" style="width:100%; height:100%; object-fit:cover;">
-        </div>
-
-        <!-- Key Takeaways Box -->
-        <?php if (!empty($post['highlights'])): ?>
-          <div class="highlights-box">
-            <h4>Key Article Highlights</h4>
-            <ul>
-              <?php foreach ($post['highlights'] as $highlight): ?>
-                <li><?= htmlspecialchars($highlight) ?></li>
-              <?php endforeach; ?>
-            </ul>
-          </div>
-        <?php endif; ?>
-
-        <!-- Content -->
-        <article class="article-content" style="font-size:var(--fs-body); line-height:var(--lh-relaxed); color:var(--color-text-secondary);">
-          <?= $post['content'] ?>
-        </article>
-
-        <!-- Navigation Bar -->
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:var(--space-10); padding-top:var(--space-6); border-top:1px solid var(--color-border);">
-          <a href="blogs.php" class="btn btn--outline">&larr; Back to Articles</a>
-          <a href="contact.php?subject=Inquiry+on+<?= urlencode($post['title']) ?>" class="btn btn--primary">Inquire With Author &rarr;</a>
-        </div>
-
-        <!-- Related Articles -->
-        <div style="margin-top:var(--space-12);">
-          <h3 style="font-size:var(--fs-h3); font-weight:bold; margin-bottom:var(--space-6);">Related Scientific Insights</h3>
-          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:var(--space-6);">
-            <?php foreach ($relatedPosts as $rel): ?>
-              <div class="rd-card">
-                <div style="width:100%; height:140px; border-radius:var(--radius-md); overflow:hidden; margin-bottom:var(--space-3);">
-                  <img src="<?= $rel['image'] ?>" alt="<?= htmlspecialchars($rel['title']) ?>" style="width:100%; height:100%; object-fit:cover;">
-                </div>
-                <span class="trust-pill" style="font-size:10px; margin-bottom:var(--space-2);"><?= htmlspecialchars($rel['category']) ?></span>
-                <h4 style="font-size:var(--fs-h4); font-weight:bold; margin-bottom:var(--space-2); line-height:var(--lh-snug);">
-                  <a href="blog-details.php?id=<?= $rel['id'] ?>" style="color:var(--color-text);"><?= htmlspecialchars($rel['title']) ?></a>
-                </h4>
-                <a href="blog-details.php?id=<?= $rel['id'] ?>" class="card__link" style="font-size:var(--fs-xs);">Read &rarr;</a>
+            <h1 class="hero__title article-main-title">
+              <?= htmlspecialchars($post['title']) ?>
+            </h1>
+            <div class="article-author-flex">
+              <div class="article-author-circle">
+                <?= substr($post['author'], 4, 1) ?>
               </div>
-            <?php endforeach; ?>
+              <div>
+                <strong class="article-author-strong"><?= htmlspecialchars($post['author']) ?></strong>
+                <span class="article-author-span"><?= htmlspecialchars($post['authorRole']) ?></span>
+              </div>
+            </div>
+          </header>
+
+          <!-- Main Banner Image -->
+          <div class="article-banner-wrap">
+            <img src="<?= $post['image'] ?>" alt="<?= htmlspecialchars($post['title']) ?>">
+          </div>
+
+          <!-- Key Takeaways Box -->
+          <?php if (!empty($post['highlights'])): ?>
+            <div class="highlights-box">
+              <h4>Key Article Highlights</h4>
+              <ul>
+                <?php foreach ($post['highlights'] as $highlight): ?>
+                  <li><?= htmlspecialchars($highlight) ?></li>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          <?php endif; ?>
+
+          <!-- Content -->
+          <article class="article-content article-body-content">
+            <?= $post['content'] ?>
+          </article>
+
+          <!-- Navigation Bar -->
+          <div class="article-nav-bar">
+            <a href="blogs.php" class="btn btn--outline">&larr; Back to Articles</a>
+            <a href="contact.php?subject=Inquiry+on+<?= urlencode($post['title']) ?>" class="btn btn--primary">Inquire With Author &rarr;</a>
+          </div>
+
+          <!-- Related Articles -->
+          <div class="related-insights-wrap">
+            <h3 class="related-insights-title">Related Scientific Insights</h3>
+            <div class="related-insights-grid">
+              <?php foreach ($relatedPosts as $rel): ?>
+                <div class="rd-card">
+                  <div class="related-item-img">
+                    <img src="<?= $rel['image'] ?>" alt="<?= htmlspecialchars($rel['title']) ?>">
+                  </div>
+                  <span class="trust-pill related-item-pill"><?= htmlspecialchars($rel['category']) ?></span>
+                  <h4 class="related-item-heading">
+                    <a href="blog-details.php?id=<?= $rel['id'] ?>"><?= htmlspecialchars($rel['title']) ?></a>
+                  </h4>
+                  <a href="blog-details.php?id=<?= $rel['id'] ?>" class="card__link related-item-link">Read &rarr;</a>
+                </div>
+              <?php endforeach; ?>
+            </div>
           </div>
         </div>
       </div>

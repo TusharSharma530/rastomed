@@ -71,30 +71,30 @@ $values = [
     </section>
 
     <!-- ========== COMPANY OVERVIEW ========== -->
-    <section class="section" style="padding-top: clamp(1rem, 2vw, 2rem);">
+    <section class="section pad-top-sm">
       <div class="container">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem, 5vw, 5rem); align-items:center;">
+        <div class="grid-2-col">
           <div class="reveal reveal--left">
             <span class="section-label">Our Story</span>
-            <h2 style="font-size:var(--fs-h2); margin-bottom:var(--space-4);">A Legacy of Healthcare Excellence</h2>
-            <p style="color:var(--color-text-secondary); line-height:var(--lh-relaxed); margin-bottom:var(--space-4);">
+            <h2 class="about-h2-title">A Legacy of Healthcare Excellence</h2>
+            <p class="about-p-desc">
               Founded with a vision to make quality healthcare accessible, PharmaCorp has grown from a small pharmaceutical venture into a globally recognized healthcare company serving patients across multiple continents.
             </p>
-            <p style="color:var(--color-text-secondary); line-height:var(--lh-relaxed); margin-bottom:var(--space-4);">
+            <p class="about-p-desc">
               Over the past 25 years, we have built our reputation on scientific rigor, manufacturing excellence, and an unwavering commitment to patient safety. Our journey is marked by continuous innovation and expansion into new therapeutic areas.
             </p>
-            <p style="color:var(--color-text-secondary); line-height:var(--lh-relaxed); margin-bottom:var(--space-6);">
+            <p class="about-p-desc-lg">
               Today, we serve patients in over 50 countries, with a portfolio spanning cardiovascular, respiratory, neurology, and many other therapeutic segments. Our team of dedicated professionals works tirelessly to ensure that quality medicines reach those who need them most.
             </p>
-            <div style="display:flex; gap:var(--space-4); flex-wrap:wrap;">
+            <div class="about-btn-wrap">
               <?= renderButton('Our Products', 'products.php', 'primary') ?>
               <?= renderButton('CONTACT', 'contact.php', 'outline') ?>
             </div>
           </div>
-          <div class="reveal reveal--right" style="position:relative;">
-            <div style="background:linear-gradient(135deg, var(--color-surface-alt), var(--color-surface)); border-radius:var(--radius-2xl); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; border:1px solid var(--color-border-light);">
-              <div style="text-align:center; padding:var(--space-8);">
-                <img src="assets/images/rastomed.png" alt="RastoMed Pharma" style="max-width:100%; max-height:220px; object-fit:contain; border-radius:var(--radius-lg);">
+          <div class="reveal reveal--right about-rel-pos">
+            <div class="about-grad-box">
+              <div class="about-inner-pad">
+                <img src="assets/images/rastomed.png" alt="RastoMed Pharma" class="about-logo-img">
               </div>
             </div>
           </div>
@@ -103,7 +103,7 @@ $values = [
     </section>
 
     <!-- ========== MISSION & VISION ========== -->
-    <section class="section section--alt" style="padding-top: 0; padding-bottom: clamp(1rem, 2vw, 2rem);">
+    <section class="section section--alt pad-top-0 pad-bottom-sm">
       <div class="container">
         <h2 class="mv-section__title">Mission &amp; Vision</h2>
 

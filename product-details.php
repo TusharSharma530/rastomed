@@ -31,57 +31,7 @@ $product = $allProducts[$id];
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
-  <style>
-    .product-spec-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--space-4);
-      margin-bottom: var(--space-6);
-    }
-    .product-spec-item {
-      background: var(--color-surface-alt);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-      border: 1px solid var(--color-border-light);
-    }
-    .product-spec-label {
-      font-size: var(--fs-xs);
-      color: var(--color-text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: bold;
-      margin-bottom: 0.25rem;
-    }
-    .product-spec-val {
-      font-size: var(--fs-small);
-      font-weight: bold;
-      color: var(--color-text);
-    }
-    .pd-detail-grid__desc p {
-      font-size: 1rem;
-      color: #555;
-      line-height: 1.8;
-      margin-bottom: 16px;
-    }
-    .pd-detail-grid__desc h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #1a237e;
-      margin-bottom: 12px;
-      margin-top: 8px;
-    }
-    .pd-detail-grid__desc ul {
-      list-style: disc;
-      padding-left: 24px;
-      margin-bottom: 20px;
-    }
-    .pd-detail-grid__desc ul li {
-      font-size: 1rem;
-      color: #555;
-      line-height: 1.8;
-      margin-bottom: 4px;
-    }
-  </style>
+
 </head>
 <body>
   <?php include __DIR__ . '/includes/header.php'; ?>
@@ -103,13 +53,13 @@ $product = $allProducts[$id];
     </section>
 
     <!-- Product Details -->
-    <section class="section" style="padding: 1rem;">
+    <section class="section product-detail-sec-pad">
       <div class="container">
-        <div class="pd-detail-grid" style="display:grid; grid-template-columns:1fr 1.5fr; gap:3rem; align-items:start;">
-          <div class="pd-detail-grid__image" style="display:flex; justify-content:center; align-items:center;">
-            <img src="<?= $product['image'] ?>" alt="<?= htmlspecialchars($product['name']) ?>" style="max-width:100%; max-height:450px; object-fit:contain;">
+        <div class="pd-detail-grid product-detail-grid-layout">
+          <div class="pd-detail-grid__image product-detail-img-flex">
+            <img src="<?= $product['image'] ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="product-detail-img-max">
           </div>
-          <div class="pd-detail-grid__content" style="background:var(--color-surface); border:1px solid var(--color-border-light); border-radius:var(--radius-xl); padding:var(--space-8); box-shadow:var(--shadow-lg); min-width:0;">
+          <div class="pd-detail-grid__content product-detail-content-box">
             <h2 class="pd-detail-grid__title"><?= htmlspecialchars($product['name']) ?></h2>
             <div class="pd-detail-grid__desc">
               <p>CoRast-Q10 is an advanced liposomal Coenzyme Q10 (CoQ10) formulation designed to support cellular energy production and antioxidant defense. Its liposomal delivery system is designed to enhance the bioavailability of CoQ10.</p>
@@ -131,9 +81,9 @@ $product = $allProducts[$id];
     </section>
 
     <!-- FAQ Section -->
-    <section style="padding: 25px 0 0px;">
+    <section class="faq-top-pad">
       <div class="container">
-        <h2 style="font-size: var(--fs-h3); font-weight: 700; color: #1a237e; margin-bottom: 20px;">Frequently Asked Questions</h2>
+        <h2 class="faq-heading-blue">Frequently Asked Questions</h2>
 
         <div class="faq-item">
           <button class="faq-question" onclick="this.parentElement.classList.toggle('faq-open')">
@@ -201,76 +151,6 @@ $product = $allProducts[$id];
 
   <?php include __DIR__ . '/includes/footer.php'; ?>
   <script src="assets/js/script.js"></script>
-  <style>
-    .faq-item {
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      margin-bottom: 12px;
-      overflow: hidden;
-    }
-    .faq-question {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 20px;
-      background: #fff;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #1a237e;
-      text-align: left;
-      font-family: inherit;
-    }
-    .faq-question:hover {
-      background: #f9fafb;
-    }
-    .faq-icon {
-      flex-shrink: 0;
-      color: #1a237e;
-      transition: transform 0.3s ease;
-    }
-    .faq-open .faq-icon {
-      transform: rotate(180deg);
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      background: #fff;
-    }
-    .faq-open .faq-answer {
-      max-height: 300px;
-    }
-    .faq-answer p {
-      padding: 0 20px 18px;
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.7;
-      margin: 0;
-    }
 
-    /* Dark Mode FAQ */
-    [data-theme="dark"] .faq-item {
-      border-color: #3a3a4a;
-    }
-    [data-theme="dark"] .faq-question {
-      background: #1e1e2e;
-      color: #90caf9;
-    }
-    [data-theme="dark"] .faq-question:hover {
-      background: #2a2a3a;
-    }
-    [data-theme="dark"] .faq-icon {
-      color: #90caf9;
-    }
-    [data-theme="dark"] .faq-answer {
-      background: #1e1e2e;
-    }
-    [data-theme="dark"] .faq-answer p {
-      color: #b0b0b0;
-    }
-  </style>
 </body>
 </html>
