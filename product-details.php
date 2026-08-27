@@ -133,7 +133,7 @@ $product = $allProducts[$id];
     <!-- FAQ Section -->
     <section style="padding: 25px 0 0px;">
       <div class="container">
-        <h2 style="font-size: 1.6rem; font-weight: 800; color: #1a237e; margin-bottom: 28px;">Frequently Asked Questions</h2>
+        <h2 style="font-size: var(--fs-h3); font-weight: 700; color: #1a237e; margin-bottom: 20px;">Frequently Asked Questions</h2>
 
         <div class="faq-item">
           <button class="faq-question" onclick="this.parentElement.classList.toggle('faq-open')">

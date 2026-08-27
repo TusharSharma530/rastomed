@@ -175,7 +175,7 @@ require_once __DIR__ . '/includes/components.php';
     <section style="position: relative; margin-top: calc(-1 * var(--header-height) + 16px); height: calc(320px + var(--header-height)); overflow: hidden; margin-bottom: 10px;">
       <img src="assets/images/contact-hero.jpg" alt="Contact Us" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;">
       <div style="position: absolute; inset: 0; background: transparent; display: flex; align-items: center; justify-content: center;">
-        <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; color: #fff; margin: 0;">Contact Us</h1>
+        <h1 style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; color: #fff; margin: 0;">Contact Us</h1>
       </div>
     </section>
 
@@ -237,7 +237,7 @@ require_once __DIR__ . '/includes/components.php';
               <span class="form-heading-tag__line"></span>
               <span class="form-heading-tag__text">LET'S CONNECT</span>
             </div>
-            <h2 style="font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: var(--fw-bold); margin-bottom: var(--space-8); color: var(--color-text); line-height: 1.2;">Send us a message</h2>
+            <h2 style="font-size: clamp(1.3rem, 2vw, 1.75rem); font-weight: var(--fw-bold); margin-bottom: var(--space-6); color: var(--color-text); line-height: 1.2;">Send us a message</h2>
 
             <form id="contactForm" style="display:flex; flex-direction:column; gap: var(--space-5);">
               <!-- Row 1: Name + Email -->

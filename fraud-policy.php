@@ -23,7 +23,7 @@
       margin-top: var(--header-height);
     }
     .fraud-banner h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
       font-weight: 800;
       color: #1a237e;
       margin: 0;
