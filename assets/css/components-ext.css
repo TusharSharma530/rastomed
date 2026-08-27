@@ -90,16 +90,17 @@
   padding: var(--space-2) var(--space-4);
   font-size: 1rem;
   font-weight: var(--fw-semibold);
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   border-radius: var(--radius-md);
   transition: all var(--transition-fast);
   white-space: nowrap;
 }
 
+.nav__link:hover,
 .nav__link--active {
-  color: var(--color-primary);
-  background-color: var(--color-surface-alt);
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
   font-weight: var(--fw-semibold);
 }
 
@@ -3892,7 +3893,7 @@
 .top-bar__contact-item {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: 12px;
   text-decoration: none;
   color: var(--color-text);
 }
@@ -3903,8 +3904,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(21, 101, 192, 0.1);
-  border-radius: var(--radius-lg);
-  color: var(--color-primary);
+  background: #eef5ff;
+  border-radius: 12px;
+  color: #1565C0;
   flex-shrink: 0;
 }

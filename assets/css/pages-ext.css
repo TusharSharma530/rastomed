@@ -1,12 +1,42 @@
+.top-bar__contact-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
 .top-bar__contact-text strong {
+  display: block;
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--color-text);
+  color: var(--color-text, #111111);
+  line-height: 1.25;
 }
 
 .top-bar__contact-text small {
-  font-size: var(--fs-xs);
-  color: var(--color-text-muted);
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #718096);
+  line-height: 1.25;
+  margin-top: 2px;
+}
+
+[data-theme="dark"] .top-bar {
+  background-color: var(--dark-bg, #0d1117);
+  border-bottom-color: var(--dark-border, #30363d);
+}
+
+[data-theme="dark"] .top-bar__contact-text strong {
+  color: var(--dark-text, #e6edf3);
+}
+
+[data-theme="dark"] .top-bar__contact-text small {
+  color: var(--dark-text-muted, #b1bac4);
+}
+
+[data-theme="dark"] .top-bar__contact-icon {
+  background: var(--dark-surface-alt, #21283b);
+  color: #64b5f6;
 }
 
 .header {
@@ -21,12 +51,13 @@
 }
 
 .header .nav__link {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
 }
 
+.header .nav__link:hover,
 .header .nav__link--active {
   color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .header .nav__dropdown-icon {
@@ -707,11 +738,12 @@
 }
 
 .legal-arrow-list li::before {
-  content: 'â†’';
+  content: '\2192';
   position: absolute;
   left: 0;
   color: #0d9488;
-  font-weight: var(--fw-semibold);
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 .legal-arrow-list li strong {
@@ -1238,9 +1270,21 @@
   font-family: inherit;
 }
 
+[data-theme="dark"] .career-no-jobs__card,
+[data-theme="dark"] .career-step-card,
 [data-theme="dark"] .career-know-more__card {
-  background: var(--dark-surface);
-  border-color: var(--dark-border);
+  background: var(--dark-surface, #1c2333);
+  border-color: var(--dark-border, #30363d);
+}
+
+[data-theme="dark"] .career-no-jobs__title,
+[data-theme="dark"] .career-step-card__title {
+  color: var(--dark-text, #e6edf3);
+}
+
+[data-theme="dark"] .career-no-jobs__text,
+[data-theme="dark"] .career-step-card__desc {
+  color: var(--dark-text-secondary, #b1bac4);
 }
 
 [data-theme="dark"] .career-cta__card {
@@ -1478,30 +1522,50 @@
 }
 
 [data-theme="dark"] .apply-form-card {
-  background: var(--dark-surface);
-  border-color: var(--dark-border);
+  background: var(--dark-surface, #1c2333);
+  border: 1px solid var(--dark-border, #30363d);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
+[data-theme="dark"] .apply-form__label {
+  color: var(--dark-text, #e6edf3);
+}
+
+[data-theme="dark"] .apply-form__input,
+[data-theme="dark"] .apply-form__select,
 [data-theme="dark"] .apply-form__file {
-  background: var(--dark-bg);
-  border-color: var(--dark-border);
-  color: var(--color-text);
+  background: var(--dark-bg, #0d1117);
+  border-color: var(--dark-border, #30363d);
+  color: var(--dark-text, #e6edf3);
+}
+
+[data-theme="dark"] .apply-form__input:focus,
+[data-theme="dark"] .apply-form__select:focus {
+  background: var(--dark-surface-alt, #21283b);
+  border-color: #64b5f6;
 }
 
 [data-theme="dark"] .apply-form__phone {
-  background: var(--dark-bg);
-  border-color: var(--dark-border);
+  background: var(--dark-bg, #0d1117);
+  border-color: var(--dark-border, #30363d);
 }
 
 [data-theme="dark"] .apply-form__phone-code {
-  background: var(--dark-surface);
-  color: var(--color-text);
-  border-color: var(--dark-border);
+  background: var(--dark-surface-alt, #21283b);
+  color: var(--dark-text, #e6edf3);
+  border-color: var(--dark-border, #30363d);
 }
 
-[data-theme="dark"] .apply-form__consent {
-  background: transparent;
-  border-color: transparent;
+[data-theme="dark"] .apply-form__consent-title {
+  color: var(--dark-text, #e6edf3);
+}
+
+[data-theme="dark"] .apply-form__consent-text {
+  color: var(--dark-text-secondary, #b1bac4);
+}
+
+[data-theme="dark"] .apply-form__checkbox {
+  color: var(--dark-text, #e6edf3);
 }
 
 .pd-detail-grid {
@@ -2480,7 +2544,7 @@
 }
 
 .highlights-box li::before {
-  content: 'âœ“';
+  content: '\2713';
   position: absolute;
   left: 0;
   color: var(--color-primary);
