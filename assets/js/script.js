@@ -3,6 +3,17 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Hide preloader
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    setTimeout(() => {
+      preloader.classList.add('preloader--hidden');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 500);
+    }, 1500);
+  }
+
   initThemeToggle();
   initHeader();
   initMobileMenu();

@@ -12,6 +12,26 @@
 })();
 </script>
 
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="preloader__capsule">
+    <svg class="preloader__svg" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+      <!-- Left capsule half -->
+      <g class="preloader__capsule-left">
+        <path d="M55,15 h-15 a15,15 0 0 0 0,30 h15" fill="#0a3278" stroke="none"/>
+      </g>
+      <!-- Right capsule half -->
+      <g class="preloader__capsule-right">
+        <path d="M65,15 h15 a15,15 0 0 1 0,30 h-15" fill="#fff" stroke="#0a3278" stroke-width="2"/>
+      </g>
+      <!-- Crossing lines -->
+      <line class="preloader__line preloader__line--1" x1="35" y1="20" x2="85" y2="40" stroke="#0a3278" stroke-width="1.5"/>
+      <line class="preloader__line preloader__line--2" x1="35" y1="40" x2="85" y2="20" stroke="#0a3278" stroke-width="1.5"/>
+    </svg>
+  </div>
+  <p class="preloader__text">RASTOMED</p>
+</div>
+
 <!-- Top Bar - Logo + Contact Info -->
 <div class="top-bar">
   <div class="container">

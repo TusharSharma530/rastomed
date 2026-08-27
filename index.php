@@ -99,7 +99,13 @@ $homeBlogs = [
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
-    <!-- 2. HERO SECTION - Banner Image with Content -->
+    <!-- 2. HERO SECTION - Simple Banner -->
+    <section style="width:100%; margin-top: calc(-1 * var(--header-height)); height: calc(100vh - 0px); min-height: 500px; overflow: hidden; position: relative;">
+      <img src="assets/images/banner-2.png" alt="RastoMed Pharma" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:100%; height:100%; object-fit:contain;">
+    </section>
+
+    <?php /*
+    <!-- 2. HERO SECTION - Banner Image with Content (OLD) -->
     <section style="width:100%; margin-top:var(--space-3); position:relative; height:480px; overflow:hidden;">
       <img src="assets/images/home banner.png" alt="RastoMed Pharma" style="width:100%; height:100%; display:block; object-fit:cover;">
       <div style="position:absolute; top:0; left:0; width:50%; height:100%; display:flex; flex-direction:column; justify-content:center; padding:var(--space-12) clamp(2rem, 5vw, 6rem); background:linear-gradient(90deg, rgba(13, 71, 161, 0.85) 0%, rgba(13, 71, 161, 0.4) 70%, transparent 100%);">
@@ -122,8 +128,10 @@ $homeBlogs = [
         </div>
       </div>
     </section>
+    */ ?>
 
-    <!-- 3. ABOUT US -->
+    <?php /*
+    <!-- 3. ABOUT US (OLD) -->
     <section class="about-section">
       <div class="container">
         <div class="about-section__grid">
@@ -145,6 +153,7 @@ $homeBlogs = [
         </div>
       </div>
     </section>
+    */ ?>
 
     <!-- 4. OUR PRODUCTS -->
     <section class="section our-products-section">
