@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
       preloader.classList.add('preloader--hidden');
       setTimeout(() => {
         preloader.style.display = 'none';
-      }, 500);
-    }, 1500);
+      }, 600);
+    }, 1200);
   }
 
   initThemeToggle();
