@@ -37,7 +37,6 @@
         <a href="index.php" class="footer__link">Home</a>
         <a href="about.php" class="footer__link">About Us</a>
         <a href="products.php" class="footer__link">Products</a>
-        <a href="about.php#awards" class="footer__link">Awards</a>
         <a href="careers.php" class="footer__link">Careers</a>
         <a href="blogs.php" class="footer__link">Blogs</a>
         <a href="contact.php" class="footer__link">CONTACT</a>
