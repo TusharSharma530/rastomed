@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initEnquiryModal();
   initHeroSlider();
   initOurProductsSlider();
+  initCareerStepsSlider();
 });
 
 /* ============================================
@@ -561,8 +562,9 @@ function initNewsModal() {
    ============================================ */
 function initEnquiryModal() {
   var btn = document.getElementById('enquiryBtn');
+  var headerBtn = document.getElementById('headerEnquiryBtn');
   var modal = document.getElementById('enquiryModal');
-  if (!btn || !modal) return;
+  if (!modal) return;
 
   var overlay = modal.querySelector('.enquiry-modal__overlay');
   var closeBtn = modal.querySelector('.enquiry-modal__close');
@@ -579,7 +581,9 @@ function initEnquiryModal() {
     document.body.style.overflow = '';
   }
 
-  btn.addEventListener('click', openModal);
+  if (btn) btn.addEventListener('click', openModal);
+  if (headerBtn) headerBtn.addEventListener('click', openModal);
+
   if (overlay) overlay.addEventListener('click', closeModal);
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
@@ -655,5 +659,35 @@ function initOurProductsSlider() {
 
   nextBtn.addEventListener('click', () => {
     track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+}
+
+/* ============================================
+   CAREER STEPS SLIDER
+   ============================================ */
+function initCareerStepsSlider() {
+  const stepsContainer = document.getElementById('careerSteps');
+  if (!stepsContainer) return;
+
+  const section = stepsContainer.closest('.career-process');
+  if (!section) return;
+
+  const prevBtn = section.querySelector('.career-process__nav-btn:first-child');
+  const nextBtn = section.querySelector('.career-process__nav-btn:last-child');
+  if (!prevBtn || !nextBtn) return;
+
+  const card = stepsContainer.querySelector('.career-step-card');
+  if (!card) return;
+
+  function getScrollAmount() {
+    return card.offsetWidth + 32;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    stepsContainer.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    stepsContainer.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
   });
 }

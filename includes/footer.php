@@ -60,6 +60,7 @@
         <a href="careers.php" class="footer__link">Careers</a>
         <a href="privacy-policy.php" class="footer__link">Privacy Policy</a>
         <a href="disclaimer.php" class="footer__link">Disclaimer</a>
+        <a href="fraud-policy.php" class="footer__link">Fraud Policy</a>
       </div>
 
       <!-- CONTACT -->
@@ -130,6 +131,10 @@
       <div class="form-group">
         <label class="form-label" for="enqEmail">Email</label>
         <input type="email" id="enqEmail" class="form-input" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="enqMessage">Message</label>
+        <textarea id="enqMessage" class="form-input" rows="3" placeholder="Your message..." style="resize:vertical;min-height:80px;"></textarea>
       </div>
       <button type="submit" class="btn btn--primary btn--lg" style="width:100%;">Submit Enquiry</button>
     </form>

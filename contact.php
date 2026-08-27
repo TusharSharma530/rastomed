@@ -172,16 +172,10 @@ require_once __DIR__ . '/includes/components.php';
 
   <main>
     <!-- Contact Banner -->
-    <section class="contact-banner">
-      <div class="container contact-banner__content">
-        <nav class="contact-banner__breadcrumb" aria-label="Breadcrumb">
-          <a href="index.php" class="contact-banner__breadcrumb-link">Home</a>
-          <span class="contact-banner__breadcrumb-sep">&#9656;</span>
-          <span class="contact-banner__breadcrumb-current">CONTACT</span>
-        </nav>
-        <span class="contact-banner__label">GET IN TOUCH</span>
-        <h1 class="contact-banner__title">Let's start a <span class="contact-banner__title-gradient">conversation.</span></h1>
-        <p class="contact-banner__desc">Drop us a line and we'll be in touch as soon as possible. Our team is ready to assist you on your journey to success.</p>
+    <section style="position: relative; margin-top: calc(-1 * var(--header-height) + 16px); height: calc(320px + var(--header-height)); overflow: hidden; margin-bottom: 40px;">
+      <img src="assets/images/contact-hero.jpg" alt="Contact Us" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;">
+      <div style="position: absolute; inset: 0; background: rgba(13, 71, 161, 0.55); display: flex; align-items: center; justify-content: center;">
+        <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; color: #fff; margin: 0;">Contact Us</h1>
       </div>
     </section>
 

@@ -58,9 +58,9 @@
     <div class="header__actions">
       <?php include __DIR__ . '/theme-toggle.php'; ?>
 
-      <a href="contact.php" class="header__cta">
+      <button type="button" class="header__cta" id="headerEnquiryBtn">
         Enquiry
-      </a>
+      </button>
 
       <!-- Mobile Menu Toggle -->
       <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
