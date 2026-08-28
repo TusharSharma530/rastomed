@@ -20,10 +20,10 @@
   --color-secondary-dark: #0f766e;
   --color-secondary-rgb: 13, 148, 136;
 
-  --color-accent: #1565C0;
-  --color-accent-light: #1E88E5;
-  --color-accent-dark: #0D47A1;
-  --color-accent-rgb: 21, 101, 192;
+  --color-accent: var(--color-primary);
+  --color-accent-light: var(--color-primary-light);
+  --color-accent-dark: var(--color-primary-dark);
+  --color-accent-rgb: var(--color-primary-rgb);
 
   --color-bg: #ffffff;
   --color-bg-alt: #f8f9fa;
