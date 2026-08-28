@@ -1,13 +1,4 @@
-/* ============================================
-   PHARMA DEMO - DESIGN SYSTEM & CORE STYLES
-   Premium Pharmaceutical Corporate Website
-   ============================================ */
 
-/* --- Google Fonts loaded via <link> in page <head> --- */
-
-/* ============================================
-   CSS CUSTOM PROPERTIES (DESIGN TOKENS)
-   ============================================ */
 :root {
   /* --- Light Theme Colors (RastoMed Blue) --- */
   --color-primary: #1565C0;
