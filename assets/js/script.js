@@ -680,6 +680,14 @@ function initHeroVideoControls() {
 
   playVideo();
 
+  // Seamless zero-flash looping before video end
+  video.addEventListener('timeupdate', () => {
+    if (video.duration && video.currentTime >= video.duration - 0.15) {
+      video.currentTime = 0;
+      playVideo();
+    }
+  });
+
   // Handle browser autoplay policy on initial user interaction
   document.addEventListener('click', playVideo, { once: true });
   document.addEventListener('touchstart', playVideo, { once: true });

@@ -101,9 +101,8 @@ $homeBlogs = [
   <main>
     <!-- 2. HERO SECTION - Video Hero Banner -->
     <section class="home-hero-banner">
-      <video id="heroVideo" class="home-hero-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="assets/images/hero-pharma.jpg">
-        <source src="assets/videos/hero-video.mp4" type="video/mp4">
-        <source src="assets/videos/hero-video-2.mp4" type="video/mp4">
+      <video id="heroVideo" class="home-hero-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto">
+        <source src="assets/videos/hero-video-new.webm" type="video/webm">
         Your browser does not support the video tag.
       </video>
       <div class="home-hero-overlay"></div>
