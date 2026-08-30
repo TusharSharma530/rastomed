@@ -678,35 +678,16 @@ function initHeroVideoControls() {
     }
   };
 
+  // Attempt autoplay immediately
   playVideo();
 
-  // Pause video when out of viewport to save CPU/GPU resources and prevent lag
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          playVideo();
-        } else if (!video.paused) {
-          video.pause();
-        }
-      });
-    }, { threshold: 0.1 });
-
-    const heroSection = video.closest('.home-hero-banner') || video;
-    observer.observe(heroSection);
-  }
-
-  // Handle browser autoplay policy on initial user interaction
+  // Ensure video plays on user interaction if blocked by autoplay policy
   document.addEventListener('click', playVideo, { once: true });
   document.addEventListener('touchstart', playVideo, { once: true });
 
-  // Auto recovery on stall
-  video.addEventListener('stalled', () => {
-    playVideo();
-  });
-  video.addEventListener('waiting', () => {
-    playVideo();
-  });
+  // Auto recovery if browser stalls
+  video.addEventListener('stalled', playVideo);
+  video.addEventListener('waiting', playVideo);
 }
 function initOurProductsSlider() {
   const slider = document.querySelector('.our-products-slider');
