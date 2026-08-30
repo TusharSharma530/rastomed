@@ -680,9 +680,33 @@ function initHeroVideoControls() {
 
   playVideo();
 
+  // Pause video when out of viewport to save CPU/GPU resources and prevent lag
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          playVideo();
+        } else if (!video.paused) {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const heroSection = video.closest('.home-hero-banner') || video;
+    observer.observe(heroSection);
+  }
+
   // Handle browser autoplay policy on initial user interaction
   document.addEventListener('click', playVideo, { once: true });
   document.addEventListener('touchstart', playVideo, { once: true });
+
+  // Auto recovery on stall
+  video.addEventListener('stalled', () => {
+    playVideo();
+  });
+  video.addEventListener('waiting', () => {
+    playVideo();
+  });
 }
 function initOurProductsSlider() {
   const slider = document.querySelector('.our-products-slider');
