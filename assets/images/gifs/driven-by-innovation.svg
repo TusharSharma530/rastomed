@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <style>
+    @keyframes microscopeFocus {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+    @keyframes lightPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.95; fill: #42a5f5; }
+    }
+    .micro-outer-ring { fill: none; stroke: #90caf9; stroke-width: 2; opacity: 0.85; }
+    .micro-inner-ring { fill: none; stroke: #0d47a1; stroke-width: 2.5; }
+    .micro-body { fill: #0d47a1; stroke: #0d47a1; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .micro-lens { transform-origin: 50px 45px; animation: microscopeFocus 2.5s infinite ease-in-out; }
+    .micro-beam { fill: #90caf9; animation: lightPulse 2s infinite ease-in-out; }
+  </style>
+  <circle cx="50" cy="50" r="47" class="micro-outer-ring" />
+  <circle cx="50" cy="50" r="42" class="micro-inner-ring" />
+  <!-- Base & Stage -->
+  <path class="micro-body" d="M35 68 H65 V72 H35 Z" />
+  <path class="micro-body" d="M42 68 V63 H58 V68 Z" />
+  <path class="micro-body" d="M38 56 H62 V59 H38 Z" />
+  <!-- Arm & Lens -->
+  <g class="micro-lens">
+    <path class="micro-body" d="M58 56 C58 42 62 38 56 30 C52 24 45 28 45 32 L49 34" />
+    <path class="micro-body" d="M44 32 L52 46 L46 49 L38 35 Z" />
+    <path class="micro-body" d="M44 48 L48 54 H42 L38 48 Z" />
+  </g>
+  <!-- Light beam -->
+  <polygon points="43,54 47,54 50,63 40,63" class="micro-beam" />
+</svg>

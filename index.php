@@ -99,9 +99,49 @@ $homeBlogs = [
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
-    <!-- 2. HERO SECTION - Simple Banner -->
+    <!-- 2. HERO SECTION - Video Hero Banner -->
     <section class="home-hero-banner">
-      <img src="assets/images/banner-2.png" alt="RastoMed Pharma" class="home-hero-img-abs">
+      <video id="heroVideo" class="home-hero-video-bg" autoplay loop muted playsinline poster="assets/images/hero-pharma.jpg">
+        <source src="assets/videos/hero-video.mp4" type="video/mp4">
+        <source src="assets/videos/hero-video-2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="home-hero-overlay"></div>
+      <div class="container home-hero-content-container">
+        <div class="home-hero-content">
+          <span class="home-hero-badge">RastoMed Pharma Private Limited</span>
+          <h1 class="home-hero-title">Advancing Healthcare<br>Through Innovation</h1>
+          <p class="home-hero-subtitle">RastoMed Pharma Private Limited is committed to improving lives by delivering high-quality, effective and affordable pharmaceutical products <strong>trusted worldwide.</strong></p>
+          
+          <!-- 4 Feature Animated Icons -->
+          <div class="home-hero-features">
+            <div class="hero-feature-item">
+              <div class="hero-feature-gif-box">
+                <img src="assets/images/gifs/trusted-quality.svg" alt="Trusted Quality" class="hero-feature-gif">
+              </div>
+              <span class="hero-feature-label">Trusted<br>Quality</span>
+            </div>
+            <div class="hero-feature-item">
+              <div class="hero-feature-gif-box">
+                <img src="assets/images/gifs/better-health.svg" alt="Better Health" class="hero-feature-gif">
+              </div>
+              <span class="hero-feature-label">Better<br>Health</span>
+            </div>
+            <div class="hero-feature-item">
+              <div class="hero-feature-gif-box">
+                <img src="assets/images/gifs/global-presence.svg" alt="Global Presence" class="hero-feature-gif">
+              </div>
+              <span class="hero-feature-label">Global<br>Presence</span>
+            </div>
+            <div class="hero-feature-item">
+              <div class="hero-feature-gif-box">
+                <img src="assets/images/gifs/driven-by-innovation.svg" alt="Driven by Innovation" class="hero-feature-gif">
+              </div>
+              <span class="hero-feature-label">Driven by<br>Innovation</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- 3. ABOUT US -->

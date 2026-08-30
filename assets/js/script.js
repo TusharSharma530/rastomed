@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNewsModal();
   initEnquiryModal();
   initHeroSlider();
+  initHeroVideoControls();
   initOurProductsSlider();
   initCareerStepsSlider();
 });
@@ -652,6 +653,63 @@ function initHeroSlider() {
   }
 
   setInterval(nextSlide, 4000);
+}
+
+/* ============================================
+   HERO VIDEO CONTROLS
+   ============================================ */
+function initHeroVideoControls() {
+  const video = document.getElementById('heroVideo');
+  if (!video) return;
+
+  const toggleBtn = document.getElementById('heroVideoToggle');
+  const muteBtn = document.getElementById('heroMuteToggle');
+
+  // Handle browser autoplay policy
+  const playPromise = video.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      video.muted = true;
+      video.play();
+    });
+  }
+
+  if (toggleBtn) {
+    const iconPause = toggleBtn.querySelector('.icon-pause');
+    const iconPlay = toggleBtn.querySelector('.icon-play');
+
+    toggleBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        if (iconPause) iconPause.style.display = 'block';
+        if (iconPlay) iconPlay.style.display = 'none';
+        toggleBtn.setAttribute('aria-label', 'Pause Video');
+      } else {
+        video.pause();
+        if (iconPause) iconPause.style.display = 'none';
+        if (iconPlay) iconPlay.style.display = 'block';
+        toggleBtn.setAttribute('aria-label', 'Play Video');
+      }
+    });
+  }
+
+  if (muteBtn) {
+    const iconMuted = muteBtn.querySelector('.icon-muted');
+    const iconUnmuted = muteBtn.querySelector('.icon-unmuted');
+
+    muteBtn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      if (video.muted) {
+        if (iconMuted) iconMuted.style.display = 'block';
+        if (iconUnmuted) iconUnmuted.style.display = 'none';
+        muteBtn.setAttribute('aria-label', 'Unmute Video');
+      } else {
+        if (iconMuted) iconMuted.style.display = 'none';
+        if (iconUnmuted) iconUnmuted.style.display = 'block';
+        muteBtn.setAttribute('aria-label', 'Mute Video');
+      }
+    });
+  }
 }
 function initOurProductsSlider() {
   const slider = document.querySelector('.our-products-slider');

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <style>
+    @keyframes waveGrid {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; stroke: #1565c0; }
+    }
+    .globe-outer-ring { fill: none; stroke: #90caf9; stroke-width: 2; opacity: 0.85; }
+    .globe-inner-ring { fill: none; stroke: #0d47a1; stroke-width: 2.5; }
+    .globe-circle { fill: none; stroke: #0d47a1; stroke-width: 3.5; }
+    .globe-grid { fill: none; stroke: #0d47a1; stroke-width: 2.2; stroke-linecap: round; }
+    .globe-lines { animation: waveGrid 3s infinite ease-in-out; }
+  </style>
+  <circle cx="50" cy="50" r="47" class="globe-outer-ring" />
+  <circle cx="50" cy="50" r="42" class="globe-inner-ring" />
+  <circle cx="50" cy="50" r="22" class="globe-circle" />
+  <g class="globe-lines">
+    <line x1="28" y1="50" x2="72" y2="50" class="globe-grid" />
+    <line x1="50" y1="28" x2="50" y2="72" class="globe-grid" />
+    <ellipse cx="50" cy="50" rx="14" ry="22" class="globe-grid" />
+    <ellipse cx="50" cy="50" rx="22" ry="12" class="globe-grid" />
+  </g>
+</svg>
