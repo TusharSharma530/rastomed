@@ -656,60 +656,33 @@ function initHeroSlider() {
 }
 
 /* ============================================
-   HERO VIDEO CONTROLS
+   HERO VIDEO CONTROLS & SMOOTH CONTINUOUS LOOP
    ============================================ */
 function initHeroVideoControls() {
   const video = document.getElementById('heroVideo');
   if (!video) return;
 
-  const toggleBtn = document.getElementById('heroVideoToggle');
-  const muteBtn = document.getElementById('heroMuteToggle');
+  video.muted = true;
+  video.defaultMuted = true;
+  video.loop = true;
 
-  // Handle browser autoplay policy
-  const playPromise = video.play();
-  if (playPromise !== undefined) {
-    playPromise.catch(() => {
-      video.muted = true;
-      video.play();
-    });
-  }
-
-  if (toggleBtn) {
-    const iconPause = toggleBtn.querySelector('.icon-pause');
-    const iconPlay = toggleBtn.querySelector('.icon-play');
-
-    toggleBtn.addEventListener('click', () => {
-      if (video.paused) {
-        video.play();
-        if (iconPause) iconPause.style.display = 'block';
-        if (iconPlay) iconPlay.style.display = 'none';
-        toggleBtn.setAttribute('aria-label', 'Pause Video');
-      } else {
-        video.pause();
-        if (iconPause) iconPause.style.display = 'none';
-        if (iconPlay) iconPlay.style.display = 'block';
-        toggleBtn.setAttribute('aria-label', 'Play Video');
+  const playVideo = () => {
+    if (video.paused) {
+      const p = video.play();
+      if (p !== undefined) {
+        p.catch(() => {
+          video.muted = true;
+          video.play().catch(() => {});
+        });
       }
-    });
-  }
+    }
+  };
 
-  if (muteBtn) {
-    const iconMuted = muteBtn.querySelector('.icon-muted');
-    const iconUnmuted = muteBtn.querySelector('.icon-unmuted');
+  playVideo();
 
-    muteBtn.addEventListener('click', () => {
-      video.muted = !video.muted;
-      if (video.muted) {
-        if (iconMuted) iconMuted.style.display = 'block';
-        if (iconUnmuted) iconUnmuted.style.display = 'none';
-        muteBtn.setAttribute('aria-label', 'Unmute Video');
-      } else {
-        if (iconMuted) iconMuted.style.display = 'none';
-        if (iconUnmuted) iconUnmuted.style.display = 'block';
-        muteBtn.setAttribute('aria-label', 'Mute Video');
-      }
-    });
-  }
+  // Handle browser autoplay policy on initial user interaction
+  document.addEventListener('click', playVideo, { once: true });
+  document.addEventListener('touchstart', playVideo, { once: true });
 }
 function initOurProductsSlider() {
   const slider = document.querySelector('.our-products-slider');

@@ -101,7 +101,7 @@ $homeBlogs = [
   <main>
     <!-- 2. HERO SECTION - Video Hero Banner -->
     <section class="home-hero-banner">
-      <video id="heroVideo" class="home-hero-video-bg" autoplay loop muted playsinline poster="assets/images/hero-pharma.jpg">
+      <video id="heroVideo" class="home-hero-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="assets/images/hero-pharma.jpg">
         <source src="assets/videos/hero-video.mp4" type="video/mp4">
         <source src="assets/videos/hero-video-2.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -113,29 +113,102 @@ $homeBlogs = [
           <h1 class="home-hero-title">Advancing Healthcare<br>Through Innovation</h1>
           <p class="home-hero-subtitle">RastoMed Pharma Private Limited is committed to improving lives by delivering high-quality, effective and affordable pharmaceutical products <strong>trusted worldwide.</strong></p>
           
-          <!-- 4 Feature Animated Icons -->
+          <!-- 4 Feature Animated SVG Icons -->
           <div class="home-hero-features">
             <div class="hero-feature-item">
               <div class="hero-feature-gif-box">
-                <img src="assets/images/gifs/trusted-quality.svg" alt="Trusted Quality" class="hero-feature-gif">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+                  <style>
+                    @keyframes shieldPulse {
+                      0%, 100% { transform: scale(1); }
+                      50% { transform: scale(1.05); }
+                    }
+                  </style>
+                  <circle cx="50" cy="50" r="47" fill="none" stroke="#90caf9" stroke-width="2" opacity="0.85" />
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="#0d47a1" stroke-width="2.5" />
+                  <g style="transform-origin: 50px 48px; animation: shieldPulse 3s infinite ease-in-out;">
+                    <path d="M50 24 L68 31 C68 49 59 62 50 68 C41 62 32 49 32 31 Z" fill="none" stroke="#0d47a1" stroke-width="3.8" stroke-linejoin="round" stroke-linecap="round" />
+                    <path d="M46 38 H54 V44 H60 V52 H54 V58 H46 V52 H40 V44 H46 Z" fill="#0d47a1" />
+                  </g>
+                </svg>
               </div>
               <span class="hero-feature-label">Trusted<br>Quality</span>
             </div>
             <div class="hero-feature-item">
               <div class="hero-feature-gif-box">
-                <img src="assets/images/gifs/better-health.svg" alt="Better Health" class="hero-feature-gif">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+                  <style>
+                    @keyframes heartBeat {
+                      0%, 100% { transform: scale(1); }
+                      14% { transform: scale(1.15); }
+                      28% { transform: scale(1); }
+                      42% { transform: scale(1.1); }
+                    }
+                  </style>
+                  <circle cx="50" cy="50" r="47" fill="none" stroke="#90caf9" stroke-width="2" opacity="0.85" />
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="#0d47a1" stroke-width="2.5" />
+                  <path d="M50 46 C50 46 33 35 33 27 C33 21 38 17 44 19 C47 20 50 23 50 23 C50 23 53 20 56 19 C62 17 67 21 67 27 C67 35 50 46 50 46 Z" fill="#0d47a1" style="transform-origin: 50px 32px; animation: heartBeat 2.2s infinite ease-in-out;" />
+                  <path d="M28 56 C34 52 42 54 48 58 L54 62 C58 64 64 62 68 56 C70 52 67 49 63 50 L54 53 C50 54 45 49 40 49 C34 49 28 56 28 56 Z" fill="none" stroke="#0d47a1" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M24 65 C29 61 38 59 48 64" fill="none" stroke="#0d47a1" stroke-width="3.5" stroke-linecap="round" />
+                </svg>
               </div>
               <span class="hero-feature-label">Better<br>Health</span>
             </div>
             <div class="hero-feature-item">
               <div class="hero-feature-gif-box">
-                <img src="assets/images/gifs/global-presence.svg" alt="Global Presence" class="hero-feature-gif">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+                  <style>
+                    @keyframes waveGrid {
+                      0%, 100% { opacity: 0.75; }
+                      50% { opacity: 1; }
+                    }
+                  </style>
+                  <circle cx="50" cy="50" r="47" fill="none" stroke="#90caf9" stroke-width="2" opacity="0.85" />
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="#0d47a1" stroke-width="2.5" />
+                  <circle cx="50" cy="50" r="22" fill="none" stroke="#0d47a1" stroke-width="3.5" />
+                  <g style="animation: waveGrid 3s infinite ease-in-out;">
+                    <line x1="28" y1="50" x2="72" y2="50" fill="none" stroke="#0d47a1" stroke-width="2.2" stroke-linecap="round" />
+                    <line x1="50" y1="28" x2="50" y2="72" fill="none" stroke="#0d47a1" stroke-width="2.2" stroke-linecap="round" />
+                    <ellipse cx="50" cy="50" rx="14" ry="22" fill="none" stroke="#0d47a1" stroke-width="2.2" />
+                    <ellipse cx="50" cy="50" rx="22" ry="12" fill="none" stroke="#0d47a1" stroke-width="2.2" />
+                  </g>
+                </svg>
               </div>
               <span class="hero-feature-label">Global<br>Presence</span>
             </div>
             <div class="hero-feature-item">
               <div class="hero-feature-gif-box">
-                <img src="assets/images/gifs/driven-by-innovation.svg" alt="Driven by Innovation" class="hero-feature-gif">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+                  <style>
+                    @keyframes pulseBeam {
+                      0%, 100% { opacity: 0.25; transform: scaleY(0.95); }
+                      50% { opacity: 0.9; transform: scaleY(1.05); }
+                    }
+                    @keyframes gearTurn {
+                      0% { transform: rotate(0deg); }
+                      100% { transform: rotate(360deg); }
+                    }
+                    @keyframes floatAtom {
+                      0%, 100% { transform: translateY(0); }
+                      50% { transform: translateY(-3px); }
+                    }
+                  </style>
+                  <circle cx="50" cy="50" r="47" fill="none" stroke="#90caf9" stroke-width="2" opacity="0.85" />
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="#0d47a1" stroke-width="2.5" />
+                  <g style="transform-origin: 50px 50px; animation: floatAtom 3s infinite ease-in-out;">
+                    <path d="M30 72 H70 V75 H30 Z" fill="#0d47a1" />
+                    <path d="M38 68 H62 V72 H38 Z" fill="#0d47a1" />
+                    <rect x="42" y="62" width="16" height="6" rx="2" fill="#0d47a1" />
+                    <rect x="34" y="55" width="32" height="4" rx="1" fill="#0d47a1" />
+                    <path d="M60 62 C60 44 65 34 52 25 C45 20 38 26 38 32 C38 36 42 38 46 38 C50 38 52 35 52 32 C52 28 48 27 46 27 C54 27 54 44 54 55" fill="none" stroke="#0d47a1" stroke-width="3.5" stroke-linecap="round" />
+                    <path d="M42 22 L49 33 C49 33 46 35 43 37 L36 26 Z" fill="#0d47a1" />
+                    <path d="M42 39 L47 47 H41 L37 40 Z" fill="#0d47a1" />
+                    <path d="M48 37 L52 45 H48 L45 38 Z" fill="#0d47a1" />
+                    <circle cx="54" cy="46" r="3.5" fill="#0d47a1" style="transform-origin: 54px 46px; animation: gearTurn 6s linear infinite;" stroke="#90caf9" stroke-width="1" />
+                    <circle cx="50" cy="62" r="3" fill="#1565c0" />
+                    <polygon points="44,55 56,55 51,47 45,47" fill="#90caf9" style="transform-origin: 50px 51px; animation: pulseBeam 2s infinite ease-in-out;" />
+                  </g>
+                </svg>
               </div>
               <span class="hero-feature-label">Driven by<br>Innovation</span>
             </div>
