@@ -48,7 +48,7 @@
       <circle class="preloader__dot" cx="100" cy="40" r="3" fill="#ffffff" opacity="0.8"/>
     </svg>
   </div>
-  <p class="preloader__text">RASTOMED</p>
+  <p class="preloader__text">RastoMed Pharma</p>
   <div class="preloader__bar">
     <div class="preloader__bar-fill"></div>
   </div>

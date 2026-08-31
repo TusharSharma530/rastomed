@@ -78,7 +78,7 @@ require_once __DIR__ . '/includes/components.php';
               </div>
               <div>
                 <strong class="contact-item__label">Open Hours</strong>
-                <p class="contact-item__text">Everyday, 9 AM &ndash; 5 PM</p>
+                <p class="contact-item__text">Monday - Saturday, 9 AM &ndash; 6 PM</p>
               </div>
             </div>
           </div>
@@ -107,8 +107,8 @@ require_once __DIR__ . '/includes/components.php';
               <!-- Row 2: Phone + Interest -->
               <div class="form-row">
                 <div class="form-field">
-                  <label for="contactPhone">Phone</label>
-                  <input type="tel" id="contactPhone" name="phone" placeholder="+91 ...">
+                  <label for="contactPhone">Phone *</label>
+                  <input type="tel" id="contactPhone" name="phone" placeholder="+91 ..." required>
                 </div>
                 <div class="form-field">
                   <label for="contactInterest">I'm interested in</label>
@@ -125,7 +125,7 @@ require_once __DIR__ . '/includes/components.php';
               <!-- Row 3: Message -->
               <div class="form-field">
                 <label for="contactMessage">Your Message *</label>
-                <textarea id="contactMessage" name="message" rows="5" placeholder="Tell us a little about your organization and what you need..."></textarea>
+                <textarea id="contactMessage" name="message" rows="5" placeholder="Please share your requirements, enquiry, or how we can assist you…"></textarea>
               </div>
 
               <!-- Submit Button -->

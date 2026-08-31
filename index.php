@@ -86,7 +86,7 @@ $homeBlogs = [
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="RastoMed Pharma Private Limited - Trusted by Doctors, Chosen by Millions. High-quality medicines for a healthier tomorrow.">
-  <title>RastoMed Pharma - Advancing Healthcare Through Innovation</title>
+  <title>RastoMed Pharma - Advancing Health with Purpose</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,7 +110,7 @@ $homeBlogs = [
       <div class="container home-hero-content-container">
         <div class="home-hero-content">
           <span class="home-hero-badge">RastoMed Pharma Private Limited</span>
-          <h1 class="home-hero-title">Advancing Healthcare<br>Through Innovation</h1>
+          <h1 class="home-hero-title">Advancing Health<br>with Purpose</h1>
           <p class="home-hero-subtitle">RastoMed Pharma Private Limited is committed to improving lives by delivering high-quality, effective and affordable pharmaceutical products <strong>trusted worldwide.</strong></p>
           
           <!-- 4 Feature Animated SVG Icons -->
@@ -281,7 +281,7 @@ $homeBlogs = [
     </section>
 
     <!-- 5. AWARDS & CERTIFICATIONS -->
-    <section class="section our-products-section">
+    <!-- <section class="section our-products-section">
       <div class="container">
         <div class="our-products-header">
           <div>
@@ -299,7 +299,7 @@ $homeBlogs = [
           <?php endforeach; ?>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- 6. TESTIMONIALS -->
     <section class="section our-products-section">

@@ -52,7 +52,7 @@
         <div class="career-process__header">
           <div>
             <h2 class="career-process__title">How We Bring Talent Onboard at RastoMed Pharma</h2>
-            <p class="career-process__subtitle">5 steps to become a <strong>Rastomedian</strong></p>
+            <p class="career-process__subtitle">5 Steps to Start Your Journet at <strong>Rastomed</strong></p>
           </div>
           <div class="career-process__nav">
             <button class="career-process__nav-btn" aria-label="Previous">

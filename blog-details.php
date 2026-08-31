@@ -95,24 +95,7 @@ $posts = [
 
 $post = isset($posts[$postId]) ? $posts[$postId] : $posts[1];
 
-$relatedPosts = [
-    [
-        'id' => 3,
-        'title' => 'The Role of AI & Molecular Modeling in Drug Discovery',
-        'category' => 'Innovation',
-        'date' => 'July 28, 2026',
-        'image' => 'assets/images/blog-3.jpg',
-    ],
-    [
-        'id' => 2,
-        'title' => 'Navigating Global WHO-GMP Compliance',
-        'category' => 'Regulatory',
-        'date' => 'August 10, 2026',
-        'image' => 'assets/images/blog-2.jpg',
-    ],
-];
-
-$post = isset($posts[$postId]) ? $posts[$postId] : $posts[1];
+$relatedPosts = array_values(array_filter($posts, fn($p) => $p['id'] != $postId));
 
 $breadcrumbs = [
     ['label' => 'Home', 'url' => 'index.php'],

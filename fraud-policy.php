@@ -29,31 +29,21 @@
     </section>
 
     <section class="fraud-content">
-      <p>1. We (RastoMed Pharma) realise that Employees are vital assets in supporting our progress and are purely merit-based employer. We are also committed to reduce the risk of recruitment fraud, so as to protect both us and the aspiring candidates from any fraudulent activities arising from fraudulent recruitment offers. We also expect the Job seekers to perform due diligence in researching job offers and are advised to practice caution and discretion when applying for or accepting employment offers for/from RastoMed Pharma.</p>
+      <p>At RastoMed Pharma, we are committed to maintaining a fair, transparent, and professional recruitment process. We have become aware that individuals may misuse company names, logos, or recruitment information to make fraudulent job offers or request money and personal information from job seekers.</p>
 
-      <p>2. We, do not appoint any agent /agency/company to advertise about our hiring or conduct any employment interviews or make offers of employment on our behalf.</p>
+      <h2>Please take note of the following:</h2>
+      <p>1. RastoMed Pharma does not charge any fee for job applications, interviews, recruitment, training, or employment.</p>
+      <p>2. We will never ask candidates to make payments to secure a job or receive an appointment letter.</p>
+      <p>3. Be cautious of unsolicited job offers, messages, or interview invitations received through unofficial channels.</p>
+      <p>4. Do not share sensitive information such as bank account details, passwords, OTPs, or other financial information with unknown individuals.</p>
+      <p>5. Candidates should verify recruitment-related communication through our official website or authorised RastoMed Pharma communication channels.</p>
+      <p>6. Any job offer or recruitment communication that appears suspicious should be independently verified before taking further action.</p>
 
-      <p>3. It is further notified to all that We do not charge / accept any amount or security deposit from job seekers during the selection process or while inviting candidates for an interview. If any candidate receives any unsolicited or fraudulent communication offering a job or an interview call from RastoMed Pharma against payment of money, please do not pay money to any individual/agency for an offer/interview. It is strongly recommended to not respond and/or divulge personal and confidential information like aadhar card number, bank account details, credit/debit card details etc.; to such fraudulent communications.</p>
+      <h2>Important Notice</h2>
+      <p>RastoMed Pharma will not be responsible for any loss, damage, or consequences resulting from fraudulent communications or transactions made by individuals falsely claiming to represent the company.</p>
 
-      <p>4. We do not send job offers from free internet email services like Gmail, Rediffmail, Yahoo, Hotmail, etc.; Candidates are requested to take due care to validate the authenticity of the source of the email. Please note that any offers / benefits / content / instructions presented in such misleading communication impersonating RastoMed Pharma, do not represent those of the company and are not binding on us.</p>
-
-      <p>5. Some of the Warning signs of recruitment fraud:</p>
-      <p class="sub-item">5.1 The email is not sent from an official RastoMed Pharma e-mail address but from a free e-mail service such as: Hotmail, Gmail, Outlook, Yahoo etc.</p>
-      <p class="sub-item">5.2 You are asked for private or confidential information like Aadhar Card, Pan Card, Bank Account details, Credit/ Debit Card details.</p>
-      <p class="sub-item">5.3 You are asked to interview over the phone or via an instant-messenger type program.</p>
-      <p class="sub-item">5.4 You are offered money or a check to process before or after being interviewed.</p>
-      <p class="sub-item">5.5 You are requested to pay a fee.</p>
-      <p class="sub-item">5.6 You are requested to complete bogus recruitment documentation, such as an application or employment visa forms, (the RastoMed Pharma name and logo could be counterfeit and featured on the documentation without authority).</p>
-      <p class="sub-item">5.7 Insistence on urgency.</p>
-
-      <p>6. As a preventive measure, We have protected all Offer Letters through a Quick Response (QR) code-based offer verification tool. The QR code allows job seekers / applicants to validate the authenticity of their Offer and Joining Letters. We request you to confirm the content of the email by following either of the 3 simple steps:</p>
-      <p class="sub-item">6.1 Validate your offer letter through verification link.</p>
-      <p class="sub-item">6.2 Validate your offer letter through Mobile QR Code Scanner.</p>
-      <p class="sub-item">6.3 Alternatively, for verification you can write to <a href="mailto:hr@rastomedpharma.com">hr@rastomedpharma.com</a>.</p>
-
-      <p>7. RastoMed Pharma will not accept any liability direct or indirect, for the actions of candidates on such fraudulent offers, spoofed mails / communication etc. You are strongly advised to report all such matters at <a href="mailto:hr@rastomedpharma.com">hr@rastomedpharma.com</a>.</p>
-
-      <p>8. We reserve our right to contact law enforcement agencies to investigate and prosecute these kinds of illicit activities.</p>
+      <p>If you receive a suspicious recruitment communication using the name or identity of RastoMed Pharma, please report it to us at:</p>
+      <p><strong>Email:</strong> <a href="mailto:info@rastomedpharma.com">info@rastomedpharma.com</a></p>
     </section>
   </main>
 

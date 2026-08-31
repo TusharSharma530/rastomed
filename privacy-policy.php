@@ -1,4 +1,3 @@
-<!-- DEMO CONTENT — Legal team review required before production -->
 <?php
 /**
  * Privacy Policy Page - RastoMed Pharma
@@ -31,7 +30,7 @@
         </nav>
         <span class="contact-banner__label">LEGAL</span>
         <h1 class="contact-banner__title">Privacy <span class="contact-banner__title-gradient">Policy</span></h1>
-        <p class="contact-banner__desc">Published in accordance with the Digital Personal Data Protection Act, 2023 ("DPDP Act") of India.</p>
+        <p class="contact-banner__desc">We are committed to protecting personal data in accordance with the Digital Personal Data Protection Act, 2023 (“DPDP Act”) and other applicable laws in India.</p>
       </div>
     </section>
 
@@ -39,137 +38,156 @@
       <div class="container">
         <div class="legal-page__content">
 
-          <p class="legal-page__intro">At RastoMed Pharma ("we", "our", "us"), we are committed to protecting the privacy of individuals ("Data Principals") and ensuring lawful processing of personal data. By accessing or using our website, you consent to the collection and use of your personal data in accordance with this policy.</p>
+          <p class="legal-page__intro">At RastoMed Pharma, we respect your privacy and are committed to handling your personal information responsibly. This Privacy Policy explains how we collect, use, protect, and manage personal information when you visit our website, contact us, or submit information through our online forms.</p>
+        <p class="legal-page__intro">By using our website or voluntarily providing your information, you acknowledge the practices described in this Privacy Policy.</p>
 
           <article class="legal-page__section">
-            <h2>1. Definitions</h2>
-            <ul class="legal-arrow-list">
-              <li><strong>Personal Data:</strong> any data about an individual who is identifiable.</li>
-              <li><strong>Data Principal:</strong> the individual to whom the personal data relates.</li>
-              <li><strong>Data Fiduciary:</strong> RastoMed Pharma, which determines the purpose and means of processing.</li>
-              <li><strong>Data Processor:</strong> any third party processing data on our behalf.</li>
-            </ul>
+            <h2>1. About This Policy</h2>
+            <p>For the purpose of this Privacy Policy, "RastoMed Pharma," "we," "our," or "us" refers to RastoMed Pharma.</p>
+            <p>This Privacy Policy applies to personal information collected through our website, contact forms, career forms, emails, and other direct interactions with us.</p>
+            <p>Where applicable, we handle personal data in accordance with the Digital Personal Data Protection Act, 2023 (DPDP Act) and other applicable laws and regulations.</p>
           </article>
 
           <article class="legal-page__section">
-            <h2>2. Personal Data We Collect</h2>
-            <h3>a) Information you provide</h3>
+            <h2>2. Information We May Collect</h2>
+            <p>Depending on how you interact with us, we may collect the following information:</p>
+            <h3>Information You Provide</h3>
             <ul class="legal-arrow-list">
               <li>Full name</li>
               <li>Email address</li>
-              <li>Phone number</li>
-              <li>Organisation name</li>
-              <li>Designation</li>
-              <li>Any information submitted through forms or emails</li>
+              <li>Phone or mobile number</li>
+              <li>Company or organisation name</li>
+              <li>Designation or job title</li>
+              <li>Business or product enquiry details</li>
+              <li>Information submitted through contact, enquiry, career, or other website forms</li>
+              <li>Any other information you voluntarily provide to us</li>
             </ul>
-            <h3>b) Automatically collected data</h3>
+            <h3>Information Collected Automatically</h3>
+            <p>When you visit our website, certain technical information may be collected automatically, including:</p>
             <ul class="legal-arrow-list">
               <li>IP address</li>
-              <li>Browser and device information</li>
-              <li>Website usage patterns</li>
-              <li>Cookies and analytics data</li>
+              <li>Browser type and version</li>
+              <li>Device information</li>
+              <li>Operating system</li>
+              <li>Pages visited and time spent on the website</li>
+              <li>Website usage and interaction information</li>
+              <li>Cookies and similar technologies</li>
             </ul>
+            <p>This information helps us maintain, improve, and secure our website.</p>
           </article>
 
           <article class="legal-page__section">
-            <h2>3. Purpose of Processing</h2>
-            <p>We process personal data only for the following lawful purposes:</p>
+            <h2>3. How We Use Your Information</h2>
+            <p>RastoMed Pharma may use personal information for legitimate business and operational purposes, including:</p>
             <ul class="legal-arrow-list">
-              <li>Responding to queries and business inquiries</li>
-              <li>Providing consultancy and professional services</li>
-              <li>Client onboarding and communication</li>
-              <li>Improving our website and service quality</li>
-              <li>Legal and regulatory compliance</li>
+              <li>Responding to enquiries and requests</li>
+              <li>Communicating with you about products, services, or business matters</li>
+              <li>Managing business and professional enquiries</li>
+              <li>Responding to career applications and employment-related communications</li>
+              <li>Improving our website, content, and user experience</li>
+              <li>Maintaining website functionality and security</li>
+              <li>Meeting applicable legal and regulatory requirements</li>
+              <li>Protecting our legal rights and legitimate business interests</li>
             </ul>
-            <p>We do not process personal data for any purpose not disclosed to the Data Principal.</p>
+            <p>We seek to use personal information only for purposes that are relevant to the reason for which it was collected or as otherwise permitted by applicable law.</p>
           </article>
 
           <article class="legal-page__section">
-            <h2>4. Consent</h2>
-            <p>By submitting your personal data, you provide free, specific, informed, unconditional, and unambiguous consent to its processing for the purposes stated. You may withdraw consent at any time by contacting us (see Section 10).</p>
+            <h2>4. Consent and Your Choices</h2>
+            <p>Where consent is required by applicable law, we will seek your consent before processing your personal data for the relevant purpose.</p>
+            <p>Where processing is based on consent, you may withdraw your consent by contacting us using the details provided in this Privacy Policy.</p>
+            <p>Withdrawal of consent will not affect the lawfulness of processing carried out before such withdrawal. Certain information may also need to be retained where required by law, regulation, security requirements, or legitimate business purposes.</p>
           </article>
 
           <article class="legal-page__section">
-            <h2>5. Sharing of Personal Data</h2>
-            <p>We may share personal data only with:</p>
+            <h2>5. Sharing of Personal Information</h2>
+            <p>RastoMed Pharma does not sell or commercially trade your personal information.</p>
+            <p>Where necessary, we may share personal information with trusted third parties that support our business operations, including:</p>
             <ul class="legal-arrow-list">
-              <li>Authorised service providers (IT, CRM, hosting)</li>
-              <li>Legal or regulatory authorities when required by law</li>
-              <li>Professional advisors under confidentiality obligations</li>
+              <li>Website hosting and technology service providers</li>
+              <li>IT and technical support providers</li>
+              <li>CRM and communication platforms</li>
+              <li>Professional consultants and advisors</li>
+              <li>Service providers working on our behalf</li>
+              <li>Government, regulatory, or law-enforcement authorities where required by applicable law</li>
             </ul>
-            <p><strong>We do not sell personal data.</strong></p>
+            <p>Where third parties process personal information on our behalf, we expect them to maintain appropriate confidentiality and security measures.</p>
           </article>
 
           <article class="legal-page__section">
             <h2>6. Data Retention</h2>
-            <p>We retain personal data only for the duration necessary to:</p>
+            <p>We retain personal information only for as long as reasonably necessary to fulfil the purpose for which it was collected or to meet applicable legal, regulatory, accounting, or other obligations.</p>
+            <p>When personal information is no longer required, we take reasonable steps to securely delete, dispose of, or anonymise it, as appropriate.</p>
+          </article>
+
+          <article class="legal-page__section">
+            <h2>7. Data Security</h2>
+            <p>We take reasonable and appropriate measures to protect personal information against unauthorised access, misuse, alteration, disclosure, loss, or destruction.</p>
+            <p>Our safeguards may include:</p>
             <ul class="legal-arrow-list">
-              <li>Fulfil the stated purposes</li>
-              <li>Comply with legal and regulatory obligations</li>
-              <li>Resolve disputes and enforce agreements</li>
+              <li>Access controls and authorisation measures</li>
+              <li>Appropriate technical and organisational security measures</li>
+              <li>Secure website and hosting infrastructure</li>
+              <li>Encryption or other protective technologies where appropriate</li>
+              <li>Periodic review of our security practices</li>
             </ul>
-            <p>Data is securely deleted or anonymised thereafter.</p>
+            <p>Although we take reasonable measures to protect your information, no method of electronic transmission or storage can be guaranteed to be completely secure.</p>
           </article>
 
           <article class="legal-page__section">
-            <h2>7. Data Security Safeguards</h2>
-            <p>We implement reasonable security safeguards including:</p>
+            <h2>8. Your Privacy Rights</h2>
+            <p>Subject to applicable law and any conditions or limitations prescribed by law, you may have certain rights regarding your personal information, including the right to:</p>
             <ul class="legal-arrow-list">
-              <li>Access controls</li>
-              <li>Encryption where applicable</li>
-              <li>Secure servers and hosting</li>
-              <li>Periodic internal reviews</li>
+              <li>Request information about the personal data we process</li>
+              <li>Request correction of inaccurate or incomplete information</li>
+              <li>Request deletion of personal information where applicable</li>
+              <li>Withdraw consent where processing is based on consent</li>
+              <li>Raise a grievance regarding the processing of your personal information</li>
+              <li>Nominate another individual to exercise applicable rights on your behalf</li>
             </ul>
-            <p>As required under Section 8 of the DPDP Act.</p>
+            <p>To exercise an applicable right or raise a privacy concern, please contact us using the details provided below.</p>
           </article>
 
           <article class="legal-page__section">
-            <h2>8. Rights of Data Principals</h2>
-            <p>Under the DPDP Act, you have the right to:</p>
+            <h2>9. Cookies and Similar Technologies</h2>
+            <p>Our website may use cookies and similar technologies to enhance your browsing experience, understand website traffic, remember preferences, improve website functionality, and analyse website usage.</p>
+            <p>You may manage or disable cookies through your browser settings. However, disabling certain cookies may affect the functionality of some parts of our website.</p>
+          </article>
+
+          <article class="legal-page__section">
+            <h2>10. Grievance Redressal</h2>
+            <p>If you have any question, concern, or grievance regarding the collection or handling of your personal information, you may drop us mail.</p>
             <ul class="legal-arrow-list">
-              <li>Access information about your personal data</li>
-              <li>Request correction or erasure</li>
-              <li>Withdraw consent</li>
-              <li>Nominate another person to exercise rights</li>
-              <li>Grievance redressal</li>
-            </ul>
-          </article>
-
-          <article class="legal-page__section">
-            <h2>9. Cookies Policy</h2>
-            <p>We use cookies to enhance user experience and analyse traffic. You may disable cookies through your browser settings.</p>
-          </article>
-
-          <article class="legal-page__section">
-            <h2>10. Grievance Redressal Officer</h2>
-            <p>In accordance with the DPDP Act, we have appointed a Grievance Officer:</p>
-            <ul class="legal-arrow-list">
-        
               <li><strong>Email:</strong> <a href="mailto:info@rastomedpharma.com">info@rastomedpharma.com</a></li>
-              <li><strong>Response time:</strong> within 7 working days</li>
             </ul>
+            <p>We will make reasonable efforts to review and address privacy-related concerns in accordance with applicable laws and requirements.</p>
           </article>
 
           <article class="legal-page__section">
-            <h2>11. Cross-Border Data Transfer</h2>
-            <p>Personal data may be processed or stored on servers located outside India, subject to compliance with applicable laws and adequate security safeguards.</p>
+            <h2>11. Cross-Border Processing</h2>
+            <p>Depending on the technology, hosting infrastructure, and service providers used by RastoMed Pharma, personal information may be processed or stored on systems located outside India.</p>
+            <p>Where applicable, such processing will be carried out in accordance with applicable data protection requirements and appropriate safeguards.</p>
           </article>
 
           <article class="legal-page__section">
-            <h2>12. Children's Data</h2>
-            <p>Our services are not directed at children under 18 years of age. We do not knowingly collect personal data of children.</p>
+            <h2>12. Children's Privacy</h2>
+            <p>Our website and services are primarily intended for adults and are not specifically directed toward children.</p>
+            <p>We do not knowingly seek to collect personal information from children except where permitted or required under applicable law.</p>
+            <p>If you believe that a child has provided personal information to us without appropriate consent, please contact us so that we can take appropriate steps.</p>
           </article>
 
           <article class="legal-page__section">
-            <h2>13. Changes to This Policy</h2>
-            <p>We reserve the right to update this policy at any time. The updated version will be published on this page.</p>
+            <h2>13. Changes to This Privacy Policy</h2>
+            <p>RastoMed Pharma may update this Privacy Policy from time to time to reflect changes in our business practices, website functionality, or applicable legal and regulatory requirements.</p>
+            <p>Any updated version will be published on this page. We encourage you to review this page periodically to remain informed about how we handle personal information.</p>
           </article>
 
           <div class="legal-page__divider"></div>
 
           <article class="legal-page__section">
-            <h2>Contact Information</h2>
-            <p><strong>RastoMed Pharma (Data Fiduciary)</strong><br>
+            <h2>Contact Us</h2>
+            <p>If you have any questions regarding this Privacy Policy or the way RastoMed Pharma handles personal information, please contact us:</p>
+            <p><strong>RastoMed Pharma</strong><br>
             Email: <a href="mailto:info@rastomedpharma.com">info@rastomedpharma.com</a><br>
             Website: <a href="https://www.rastomedpharma.com">www.rastomedpharma.com</a></p>
           </article>

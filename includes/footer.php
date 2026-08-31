@@ -23,7 +23,7 @@
             <img src="assets/images/linkedin.png" alt="LinkedIn" class="footer-icon-img">
           </a>
           <a href="https://x.com/RastoMedPharma" target="_blank" class="footer__social-link" aria-label="X (Twitter)">
-            <img src="assets/images/x-twitter.svg" alt="X" class="footer-twitter-img">
+            <img src="assets/images/x-twitter.svg" alt="X" class="footer-icon-img footer-icon-img--x">
           </a>
           <a href="https://www.instagram.com/rastomedpharma?igsh=MTZqa3VmNWljNXBuYQ==" target="_blank" class="footer__social-link" aria-label="Instagram">
             <img src="assets/images/instagram.png" alt="Instagram" class="footer-icon-img">
@@ -39,7 +39,7 @@
         <a href="products.php" class="footer__link">Products</a>
         <a href="careers.php" class="footer__link">Careers</a>
         <a href="blogs.php" class="footer__link">Blogs</a>
-        <a href="contact.php" class="footer__link">CONTACT</a>
+        <a href="contact.php" class="footer__link">Contact Us</a>
       </div>
 
       <!-- Our Products -->
@@ -54,12 +54,12 @@
         <a href="careers.php" class="footer__link">Careers</a>
         <a href="privacy-policy.php" class="footer__link">Privacy Policy</a>
         <a href="disclaimer.php" class="footer__link">Disclaimer</a>
-        <a href="fraud-policy.php" class="footer__link">Fraud Policy</a>
+        <a href="fraud-policy.php" class="footer__link">Recruitment Fraud Policy</a>
       </div>
 
       <!-- CONTACT -->
       <div class="footer__column">
-        <h4 class="footer__column-title">CONTACT</h4>
+        <h4 class="footer__column-title">Contact Information</h4>
         <div class="footer__contact-item">
           <svg class="footer__contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <span>353, Shivaji Road, Meerut,<br>Uttar Pradesh-250001</span>

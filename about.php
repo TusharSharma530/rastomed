@@ -76,15 +76,21 @@ $values = [
         <div class="grid-2-col">
           <div class="reveal reveal--left">
             <span class="section-label">Our Story</span>
-            <h2 class="about-h2-title">A Legacy of Healthcare Excellence</h2>
+    
             <p class="about-p-desc">
-              Founded with a vision to make quality healthcare accessible, PharmaCorp has grown from a small pharmaceutical venture into a globally recognized healthcare company serving patients across multiple continents.
+              RastoMed Pharma was founded with a simple yet meaningful purpose — to contribute to better healthcare by providing quality-driven and scientifically focused pharmaceutical solutions.
             </p>
             <p class="about-p-desc">
-              Over the past 25 years, we have built our reputation on scientific rigor, manufacturing excellence, and an unwavering commitment to patient safety. Our journey is marked by continuous innovation and expansion into new therapeutic areas.
+             From the beginning, our approach has been centered on understanding evolving healthcare needs and developing solutions with a strong emphasis on quality, safety, innovation, and patient well-being.
             </p>
-            <p class="about-p-desc-lg">
-              Today, we serve patients in over 50 countries, with a portfolio spanning cardiovascular, respiratory, neurology, and many other therapeutic segments. Our team of dedicated professionals works tirelessly to ensure that quality medicines reach those who need them most.
+            <p class="about-p-desc">
+              At RastoMed, we believe that healthcare is not only about products; it is about trust, responsibility, and making a meaningful difference in people's lives. We are committed to working closely with healthcare professionals, partners, and stakeholders to create solutions that add value to modern healthcare.
+            </p>
+            <p class="about-p-desc">
+              As we continue to grow, our focus remains clear: to build a trusted pharmaceutical organization driven by science, integrity, continuous improvement, and a commitment to better health outcomes.
+            </p>
+            <p class="about-p-desc">
+              This is the story of RastoMed Pharma — a journey of purpose, progress, and a commitment to advancing healthcare
             </p>
             <div class="about-btn-wrap">
               <?= renderButton('Our Products', 'products.php', 'primary') ?>
@@ -94,7 +100,7 @@ $values = [
           <div class="reveal reveal--right about-rel-pos">
             <div class="about-grad-box">
               <div class="about-inner-pad">
-                <img src="assets/images/rastomed.png" alt="RastoMed Pharma" class="about-logo-img">
+                <img src="assets/images/ourstory.jpeg" alt="Our Story" class="about-logo-img">
               </div>
             </div>
           </div>
@@ -114,7 +120,7 @@ $values = [
             </div>
             <div class="mv-card__content">
               <h3 class="mv-card__title">Our Mission</h3>
-              <p class="mv-card__text">Our mission is to provide excellent quality products to our customers, improve the lives of patients by providing latest and advanced treatments. Customer Satisfaction with quality and service is our main motto.</p>
+              <p class="mv-card__text">To improve lives by delivering high-quality, safe, and innovative healthcare solutions that address evolving medical needs. We are committed to excellence in quality, scientific advancement, and ethical practices while building lasting trust with healthcare professionals, partners, and the communities we serve</p>
             </div>
             <div class="mv-card__corner mv-card__corner--left"></div>
             <div class="mv-card__corner mv-card__corner--right"></div>
@@ -126,7 +132,7 @@ $values = [
             </div>
             <div class="mv-card__content">
               <h3 class="mv-card__title">Our Vision</h3>
-              <p class="mv-card__text">Our vision is to be the India's One Of The Best &amp; Leading Pharmaceutical Company, being the best in terms of products, values, service, employee talent and consistent and predictable growth.</p>
+              <p class="mv-card__text">To emerge as a trusted and progressive pharmaceutical company, recognized for quality, innovation, integrity, and our commitment to improving patient health and well-being.</p>
             </div>
             <div class="mv-card__corner mv-card__corner--left"></div>
             <div class="mv-card__corner mv-card__corner--right"></div>
