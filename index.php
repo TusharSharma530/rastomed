@@ -338,7 +338,7 @@ $homeBlogs = [
       </div>
     </section>
 
-    <!-- 7. BLOGS -->
+    <!-- 7. BLOGS
     <section class="section our-products-section">
       <div class="container">
         <div class="our-products-header">
@@ -370,6 +370,7 @@ $homeBlogs = [
         </div>
       </div>
     </section>
+    -->
 
     <!-- 8. MAP / CONTACT -->
     <section class="section pad-20-section">

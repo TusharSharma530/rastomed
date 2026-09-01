@@ -330,6 +330,30 @@
   transform: translateX(0);
 }
 
+.mobile-nav__close {
+  position: absolute;
+  top: calc(var(--header-height) + var(--space-4));
+  right: var(--container-padding);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 2;
+}
+
+.mobile-nav__close:hover {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
 .mobile-nav__link {
   display: flex;
   align-items: center;

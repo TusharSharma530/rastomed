@@ -1303,6 +1303,10 @@
   margin-top: 0;
 }
 
+.about-mv-section {
+  padding-top: 10px;
+}
+
 .mv-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

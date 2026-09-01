@@ -109,7 +109,7 @@ $values = [
     </section>
 
     <!-- ========== MISSION & VISION ========== -->
-    <section class="section section--alt pad-top-0 pad-bottom-sm">
+    <section class="section section--alt pad-bottom-sm about-mv-section">
       <div class="container">
         <h2 class="mv-section__title">Mission &amp; Vision</h2>
 

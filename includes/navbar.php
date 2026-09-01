@@ -70,36 +70,3 @@ $navItems = [
     <?php endif; ?>
   <?php endforeach; ?>
 </nav>
-
-<!-- Mobile Navigation -->
-<div class="mobile-nav" aria-hidden="true">
-  <?php foreach ($navItems as $item): ?>
-    <?php if (!empty($item['hasDropdown'])): ?>
-      <a href="<?= $item['url'] ?>" class="mobile-nav__link mobile-nav__link--has-sub <?= $currentPage === $item['key'] ? 'mobile-nav__link--active' : '' ?>">
-        <?= $item['label'] ?>
-        <svg class="mobile-nav__toggle-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </a>
-      <div class="mobile-nav__sub-links">
-        <?php foreach ($item['dropdown'] as $dropdownItem): ?>
-          <a href="<?= $dropdownItem['url'] ?>" class="mobile-nav__sub-link">
-            <?= $dropdownItem['label'] ?>
-          </a>
-        <?php endforeach; ?>
-      </div>
-    <?php else: ?>
-      <a href="<?= $item['url'] ?>" class="mobile-nav__link <?= $currentPage === $item['key'] ? 'mobile-nav__link--active' : '' ?>">
-        <?= $item['label'] ?>
-      </a>
-    <?php endif; ?>
-  <?php endforeach; ?>
-
-  <div class="mobile-nav__actions">
-    <?php include __DIR__ . '/theme-toggle.php'; ?>
-    <a href="contact.php" class="mobile-nav__cta">Enquire Now</a>
-  </div>
-</div>
-
-<!-- Overlay -->
-<div class="overlay" aria-hidden="true"></div>

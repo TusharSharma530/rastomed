@@ -145,6 +145,11 @@ function initMobileMenu() {
     overlay.addEventListener('click', closeMenu);
   }
 
+  const closeBtn = mobileNav.querySelector('.mobile-nav__close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeMenu);
+  }
+
   document.querySelectorAll('.mobile-nav__link--has-sub').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();

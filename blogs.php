@@ -9,6 +9,7 @@ $breadcrumbs = [
     ['label' => 'Blogs & Insights', 'url' => 'blogs.php'],
 ];
 
+/*
 $blogPosts = [
     [
         'id' => 1,
@@ -35,6 +36,7 @@ $blogPosts = [
         'excerpt' => 'The role of quality manufacturing in delivering safe and effective medicines.',
     ],
 ];
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,8 +72,9 @@ $blogPosts = [
 
     <section class="section blogs-sec-pad">
       <div class="container">
-        <div class="blogs-grid">
-          <?php foreach ($blogPosts as $b): ?>
+        <div class="blogs-grid" style="display:flex; justify-content:center;">
+          <!--
+          <?php // foreach ($blogPosts as $b): ?>
             <div class="blog-card reveal">
               <div class="blog-card__image">
                 <img src="<?= $b['image'] ?>" alt="<?= htmlspecialchars($b['title']) ?>" width="400" height="220" loading="lazy">
@@ -88,7 +91,14 @@ $blogPosts = [
                 </a>
               </div>
             </div>
-          <?php endforeach; ?>
+          <?php // endforeach; ?>
+          -->
+          <div class="blog-card reveal">
+            <div class="blog-card__body" style="text-align:center; padding:60px 20px;">
+              <h3 class="blog-card__title" style="font-size:1.8rem; color:#1a3c6e;">Coming Soon</h3>
+              <p style="color:#666; margin-top:10px;">We are working on something amazing. Stay tuned!</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
