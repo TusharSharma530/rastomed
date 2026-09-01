@@ -98,12 +98,20 @@
 
   .enquiry-float  {
   bottom: 16px;
-  right: 16px;
+  right: 12px;
+  gap: var(--space-2);
 }
 
   .enquiry-float__btn  {
-  padding: var(--space-2) var(--space-4);
+  padding: var(--space-2) var(--space-3);
   font-size: var(--fs-xs);
+  border-radius: var(--radius-full);
+  gap: var(--space-1);
+}
+
+  .enquiry-float__btn svg  {
+  width: 16px;
+  height: 16px;
 }
 
   [style*="grid-template-columns:1fr 1fr"],
@@ -135,11 +143,6 @@
   min-height: 220px;
 }
 
-  .contact-banner  {
-  padding: var(--space-6) 0 var(--space-4);
-  min-height: 260px;
-}
-
   .section  {
   padding: clamp(3rem, 6vw, 5rem) 0;
 }
@@ -160,10 +163,15 @@
 }
 
   .back-to-top  {
-  bottom: var(--space-6);
-  right: var(--space-6);
-  width: 44px;
-  height: 44px;
+  bottom: 88px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+}
+
+  .back-to-top svg  {
+  width: 18px;
+  height: 18px;
 }
 }
 
@@ -330,6 +338,360 @@
   opacity: 1;
   transform: none;
 }
+}
+
+/* ============================================
+   FLOATING BUTTONS RESPONSIVE
+   ============================================ */
+
+/* Back to top button - above floating buttons */
+@media (max-width: 576px) {
+  .back-to-top {
+    bottom: 76px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .back-to-top svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 375px) {
+  .back-to-top {
+    bottom: 68px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .back-to-top svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Footer bottom padding for floating buttons */
+@media (max-width: 768px) {
+  .footer {
+    padding-bottom: 10px;
+  }
+
+  .footer__bottom {
+    padding: var(--space-3) 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    padding-bottom: 8px;
+  }
+
+  .footer__bottom {
+    padding: var(--space-2) 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .footer {
+    padding-bottom: 6px;
+  }
+
+  .footer__bottom {
+    padding: var(--space-2) 0;
+  }
+}
+@media (max-width: 576px) {
+  .enquiry-float {
+    bottom: 12px;
+    right: 10px;
+    gap: 6px;
+  }
+
+  .enquiry-float__btn {
+    padding: 6px 12px;
+    font-size: 0.6875rem;
+    gap: 4px;
+  }
+
+  .enquiry-float__btn svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 375px) {
+  .enquiry-float {
+    bottom: 10px;
+    right: 8px;
+    gap: 5px;
+  }
+
+  .enquiry-float__btn {
+    padding: 5px 10px;
+    font-size: 0.625rem;
+    gap: 3px;
+  }
+
+  .enquiry-float__btn svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* ============================================
+   FOOTER LOGO RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .footer-logo-box {
+    width: 60%;
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-logo-box {
+    width: 50%;
+    max-width: 150px;
+    padding: 4px;
+  }
+}
+
+@media (max-width: 375px) {
+  .footer-logo-box {
+    width: 45%;
+    max-width: 130px;
+    padding: 3px;
+  }
+}
+
+/* ============================================
+   CONTACT PAGE RESPONSIVE STYLES
+   ============================================ */
+
+/* --- 992px (Tablet Landscape) --- */
+@media (max-width: 992px) {
+  .contact-hero-banner {
+    height: calc(280px + var(--header-height));
+  }
+
+  .contact-card {
+    padding: var(--space-8);
+  }
+
+  .contact-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .contact-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .contact-item {
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+  }
+
+  .map-container-box {
+    height: 380px;
+  }
+}
+
+/* --- 768px (Tablet Portrait) --- */
+@media (max-width: 768px) {
+  .contact-hero-banner {
+    height: calc(240px + var(--header-height));
+  }
+
+  .contact-hero-h1 {
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  }
+
+  .contact-card {
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+  }
+
+  .contact-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .contact-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .contact-item {
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+  }
+
+  .contact-item__label {
+    font-size: var(--fs-small);
+  }
+
+  .contact-item__text {
+    font-size: var(--fs-small);
+  }
+
+  .contact-item__link {
+    font-size: var(--fs-small);
+  }
+
+  .form-field input[type="text"],
+  .form-field input[type="email"],
+  .form-field input[type="tel"],
+  .form-field select {
+    padding: var(--space-3) var(--space-4);
+    height: 46px;
+    font-size: var(--fs-small);
+  }
+
+  .form-field textarea {
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--fs-small);
+    min-height: 120px;
+  }
+
+  .form-field label {
+    font-size: var(--fs-small);
+  }
+
+  .btn-send {
+    padding: var(--space-4) var(--space-6);
+    font-size: var(--fs-small);
+  }
+
+  .map-container-box {
+    height: 320px;
+  }
+
+  .map-section-wrap {
+    padding: var(--space-6) 0 var(--space-8);
+  }
+}
+
+/* --- 576px (Mobile Landscape) --- */
+@media (max-width: 576px) {
+  .contact-hero-banner {
+    height: calc(200px + var(--header-height));
+  }
+
+  .contact-hero-h1 {
+    font-size: 1.25rem;
+  }
+
+  .contact-card {
+    padding: var(--space-5);
+    border-radius: var(--radius-lg);
+  }
+
+  .contact-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .contact-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .contact-item {
+    gap: var(--space-3);
+    padding: var(--space-2) 0;
+  }
+
+  .contact-item__label {
+    font-size: var(--fs-xs);
+    margin-bottom: 4px;
+  }
+
+  .contact-item__text {
+    font-size: var(--fs-xs);
+    line-height: 1.5;
+  }
+
+  .contact-item__link {
+    font-size: var(--fs-xs);
+  }
+
+  .form-heading-tag__line {
+    width: 28px;
+  }
+
+  .form-heading-tag__text {
+    font-size: var(--fs-xs);
+  }
+
+  .contact-msg-heading {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .contact-form-col {
+    gap: var(--space-4);
+  }
+
+  .form-field input[type="text"],
+  .form-field input[type="email"],
+  .form-field input[type="tel"],
+  .form-field select {
+    padding: var(--space-3);
+    height: 42px;
+  }
+
+  .form-field textarea {
+    padding: var(--space-3);
+    min-height: 100px;
+  }
+
+  .btn-send {
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-lg);
+  }
+
+  .map-container-box {
+    height: 260px;
+    border-radius: var(--radius-xl);
+  }
+
+  .map-section-wrap {
+    padding: var(--space-4) 0 var(--space-6);
+  }
+}
+
+/* --- 375px (Mobile) --- */
+@media (max-width: 375px) {
+  .contact-hero-banner {
+    height: calc(180px + var(--header-height));
+  }
+
+  .contact-card {
+    padding: var(--space-4);
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-item {
+    gap: var(--space-2);
+  }
+
+  .map-container-box {
+    height: 220px;
+  }
 }
 
 /* ============================================
