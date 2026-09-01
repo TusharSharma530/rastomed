@@ -142,7 +142,6 @@
   <?php endforeach; ?>
 
   <div class="mobile-nav__actions">
-    <?php include __DIR__ . '/theme-toggle.php'; ?>
     <a href="contact.php" class="mobile-nav__cta">Enquire Now</a>
   </div>
 </div>
