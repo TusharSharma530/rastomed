@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroVideoControls();
   initOurProductsSlider();
   initCareerStepsSlider();
+  initTestimonialsCarousel();
 });
 
 /* ============================================
@@ -167,7 +168,16 @@ function initMobileMenu() {
 
   document.querySelectorAll('.mobile-nav a').forEach(link => {
     if (!link.classList.contains('mobile-nav__link--has-sub')) {
-      link.addEventListener('click', closeMenu);
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href !== '#') {
+          e.preventDefault();
+          mobileNav.classList.remove('mobile-nav--open');
+          overlay.classList.remove('overlay--visible');
+          document.body.style.overflow = '';
+          window.location.href = href;
+        }
+      });
     }
   });
 
@@ -741,5 +751,58 @@ function initCareerStepsSlider() {
 
   nextBtn.addEventListener('click', () => {
     stepsContainer.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+  });
+}
+
+function initTestimonialsCarousel() {
+  const carousel = document.querySelector('.testimonials-carousel');
+  if (!carousel) return;
+
+  const track = carousel.querySelector('.testimonials-track');
+  const cards = track.querySelectorAll('.testimonial-card-clean');
+  const header = carousel.closest('section') || carousel.parentElement;
+  const arrowsContainer = header.querySelector('.testimonials-arrows');
+  const dots = carousel.querySelectorAll('.testimonials-nav__dot');
+  const prevBtn = arrowsContainer ? arrowsContainer.querySelector('.testimonials-arrow--prev') : null;
+  const nextBtn = arrowsContainer ? arrowsContainer.querySelector('.testimonials-arrow--next') : null;
+  if (!prevBtn || !nextBtn || cards.length === 0) return;
+
+  let currentIndex = 0;
+
+  function goToSlide(index) {
+    if (index < 0) index = cards.length - 1;
+    if (index >= cards.length) index = 0;
+    currentIndex = index;
+
+    const card = cards[currentIndex];
+    const scrollLeft = card.offsetLeft - (track.offsetWidth - card.offsetWidth) / 2;
+    track.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+
+    dots.forEach((d, i) => {
+      d.classList.toggle('testimonials-nav__dot--active', i === currentIndex);
+    });
+  }
+
+  prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+  nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => goToSlide(i));
+  });
+
+  track.addEventListener('scroll', () => {
+    const scrollLeft = track.scrollLeft;
+    let closest = 0;
+    let minDist = Infinity;
+    cards.forEach((card, i) => {
+      const dist = Math.abs(card.offsetLeft - scrollLeft);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    if (closest !== currentIndex) {
+      currentIndex = closest;
+      dots.forEach((d, i) => {
+        d.classList.toggle('testimonials-nav__dot--active', i === currentIndex);
+      });
+    }
   });
 }

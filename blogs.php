@@ -95,8 +95,8 @@ $blogPosts = [
           -->
           <div class="blog-card reveal">
             <div class="blog-card__body" style="text-align:center; padding:60px 20px;">
-              <h3 class="blog-card__title" style="font-size:1.8rem; color:#1a3c6e;">Coming Soon</h3>
-              <p style="color:#666; margin-top:10px;">We are working on something amazing. Stay tuned!</p>
+              <h3 class="blog-card__title coming-soon-title">Coming Soon</h3>
+              <p class="coming-soon-text">We are working on something amazing. Stay tuned!</p>
             </div>
           </div>
         </div>

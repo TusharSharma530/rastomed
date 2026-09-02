@@ -116,9 +116,14 @@
 
 <!-- Mobile Navigation (outside header for proper fixed positioning) -->
 <div class="mobile-nav" aria-hidden="true">
-  <button class="mobile-nav__close" aria-label="Close menu">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-  </button>
+  <div class="mobile-nav__top">
+    <a href="index.php" class="mobile-nav__logo" aria-label="RastoMed Pharma Home">
+      <img src="assets/images/rastomed.png" alt="RastoMed Pharma">
+    </a>
+    <button class="mobile-nav__close" aria-label="Close menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
   <?php foreach ($navItems ?? [] as $item): ?>
     <?php if (!empty($item['hasDropdown'])): ?>
       <a href="<?= $item['url'] ?>" class="mobile-nav__link mobile-nav__link--has-sub <?= $currentPage === $item['key'] ? 'mobile-nav__link--active' : '' ?>">

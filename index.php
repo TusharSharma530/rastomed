@@ -309,6 +309,14 @@ $homeBlogs = [
             <span class="our-products-label">TESTIMONIALS</span>
             <h3 class="our-products-title">What Our Clients Say</h3>
           </div>
+          <div class="testimonials-arrows">
+            <button class="testimonials-arrow testimonials-arrow--prev" aria-label="Previous">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="testimonials-arrow testimonials-arrow--next" aria-label="Next">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
         </div>
         <div class="testimonials-carousel">
           <div class="testimonials-track">
