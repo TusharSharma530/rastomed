@@ -1,8 +1,8 @@
 <?php session_start();
 error_reporting(0);
-define('BASE_PATH',"//localhost/Doabvilas/doabvilas/");
+define('BASE_PATH',"//localhost/rastomed/");
 define('DB_HOST', 'localhost');
-define('DB_NAME','doabvillas');
+define('DB_NAME','rastomed');
 define('DB_USER','root');
 define('DB_PASSWORD','');
 // session_destroy();
