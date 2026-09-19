@@ -111,7 +111,7 @@ $homeBlogs = [
         <div class="home-hero-content">
           <span class="home-hero-badge">RastoMed Pharma Private Limited</span>
           <h1 class="home-hero-title">Advancing Health<br>with Purpose</h1>
-          <p class="home-hero-subtitle">RastoMed Pharma Private Limited is committed to improving lives by delivering high-quality, effective and affordable pharmaceutical products <strong>trusted worldwide.</strong></p>
+          <p class="home-hero-subtitle">RastoMed Pharma Private Limited is committed to improving lives by delivering high-quality, effective, and affordable pharmaceutical products that are <strong>trusted worldwide.</strong></p>
           
           <!-- 4 Feature Animated SVG Icons -->
           <div class="home-hero-features">
@@ -229,7 +229,10 @@ $homeBlogs = [
           <div class="about-section__content">
             <h2 class="about-section__title">RastoMed Pharma Private Limited</h2>
             <p class="about-section__text">
-              RastoMed Pharma Private Limited is a reliable leading organization, which is engaged in providing a highly effective ranges of Pharmaceutical Medicines. We have a wide range of healthcare products: Capsules, Syrups, Tablets, and other Pharmaceutical Products. All these products are processed under the strict guideline of international standards, following the rules of appropriate composition of compounds.
+              RastoMed Pharma Pvt. Ltd. is a growing pharmaceutical marketing company focused on providing quality and reliable healthcare solutions. Our portfolio includes Tablets, Capsules, Syrups, and other pharmaceutical formulations, marketed through trusted manufacturing and distribution partnerships.
+            </p>
+            <p class="about-section__text">
+              We are committed to maintaining high standards of quality, safety, efficacy, and regulatory compliance, while building trusted brands and long-lasting relationships with healthcare professionals, business partners, and customers.
             </p>
             <a href="about.php" class="about-section__btn">
               Read More
@@ -386,7 +389,7 @@ $homeBlogs = [
         <div class="map-contact-grid">
           <div class="map-wrapper reveal reveal--left">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.123456789!2d76.9466!3d30.6942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390afc7a5ec2f45b%3A0x1234567890abcdef!2sPanchkula%2C%20Haryana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5!2d77.7107!3d28.9845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974b6a0b0b0b0b0%3A0x0b0b0b0b0b0b0b0b!2sShivaji+Road%2C+Meerut%2C+Uttar+Pradesh+250001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
               width="100%"
               height="450"
               class="map-iframe-no-border border-radius-2xl-box"

@@ -90,7 +90,7 @@ $values = [
               As we continue to grow, our focus remains clear: to build a trusted pharmaceutical organization driven by science, integrity, continuous improvement, and a commitment to better health outcomes.
             </p>
             <p class="about-p-desc">
-              This is the story of RastoMed Pharma — a journey of purpose, progress, and a commitment to advancing healthcare
+              This is the story of RastoMed Pharma — a journey of purpose, progress, and a commitment to advancing healthcare.
             </p>
             <div class="about-btn-wrap">
               <?= renderButton('Our Products', 'products.php', 'primary') ?>
@@ -120,7 +120,7 @@ $values = [
             </div>
             <div class="mv-card__content">
               <h3 class="mv-card__title">Our Mission</h3>
-              <p class="mv-card__text">To improve lives by delivering high-quality, safe, and innovative healthcare solutions that address evolving medical needs. We are committed to excellence in quality, scientific advancement, and ethical practices while building lasting trust with healthcare professionals, partners, and the communities we serve</p>
+              <p class="mv-card__text">To improve lives by delivering high-quality, safe, and innovative healthcare solutions that address evolving medical needs. We are committed to excellence in quality, scientific advancement, and ethical practices while building lasting trust with healthcare professionals, partners, and the communities we serve.</p>
             </div>
             <div class="mv-card__corner mv-card__corner--left"></div>
             <div class="mv-card__corner mv-card__corner--right"></div>
