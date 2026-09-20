@@ -74,7 +74,7 @@ include 'include/sidebar.php';
 <div class="col-md-12">
 	<div class="page-content">
 	<div class="msgbox"></div>
-	<form method="POST" id="submitForm" class="row">
+	<form method="POST" id="submitForm" class="row" enctype="multipart/form-data">
 
 		<div class="mb-3 col-md-4">
 			<label for="cname" class="form-label">Category Name</label>
@@ -87,7 +87,12 @@ include 'include/sidebar.php';
 				<option value=''>-- Select Category Type --</option>
 				<option value="1" <?=$rwcat['c_type'] == 1 ? "selected" : "";?>>Top</option>
 				<option value="2" <?=$rwcat['c_type'] == 2 ? "selected" : "";?>>Bottom</option>
-				<option value="3" <?=$rwcat['c_type'] == 3 ? "selected" : "";?>>Other</option>
+				<?php
+				$sqlAllCat = mysqli_query($con, "SELECT id, c_name, c_type FROM category WHERE id != {$id} ORDER BY c_type ASC");
+				while($rwCat = mysqli_fetch_assoc($sqlAllCat)){
+					echo '<option value="'.$rwCat['id'].'">'.htmlspecialchars($rwCat['c_name']).'</option>';
+				}
+				?>
 			</select>
 			
 		</div>

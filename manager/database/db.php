@@ -15,7 +15,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception; 
 //Load Composer's autoloader
-require 'PHPMailer/vendor/autoload.php';
+@include __DIR__ . '/PHPMailer/vendor/autoload.php';
 
 
 function SendEmailer($senderemail,$subject,$bodydata, $filePath=null){

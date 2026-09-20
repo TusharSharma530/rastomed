@@ -6,38 +6,33 @@
 
 $currentPage = basename($_SERVER['PHP_SELF'], '.php');
 
-$navItems = [
-    [
-        'label' => 'Home',
-        'url' => 'index.php',
-        'key' => 'index',
-    ],
-    [
-        'label' => 'About Us',
-        'url' => 'about.php',
-        'key' => 'about',
-    ],
-    [
-        'label' => 'Products',
-        'url' => 'products.php',
-        'key' => 'products',
-    ],
-    [
-        'label' => 'Careers',
-        'url' => 'careers.php',
-        'key' => 'careers',
-    ],
-    [
-        'label' => 'Blogs',
-        'url' => 'blogs.php',
-        'key' => 'blogs',
-    ],
-    [
-        'label' => 'Contact Us',
-        'url' => 'contact.php',
-        'key' => 'contact',
-    ],
+$urlToPage = [
+    'home'       => 'index.php',
+    'about-us'   => 'about.php',
+    'products'   => 'products.php',
+    'carrers'    => 'careers.php',
+    'careers'    => 'careers.php',
+    'blogs'      => 'blogs.php',
+    'contact-us' => 'contact.php',
 ];
+
+$navItems = [];
+if (!isset($con)) {
+    $con = mysqli_connect('localhost', 'root', '', 'rastomed');
+}
+if ($con) {
+    $sqlNav = mysqli_query($con, "SELECT c_name, c_url FROM category WHERE c_type = '1' AND status = 1 ORDER BY `order` ASC");
+    while ($row = mysqli_fetch_assoc($sqlNav)) {
+        $slug = $row['c_url'];
+        $page = $urlToPage[$slug] ?? $slug . '.php';
+        $key  = basename($page, '.php');
+        $navItems[] = [
+            'label' => $row['c_name'],
+            'url'   => $page,
+            'key'   => $key,
+        ];
+    }
+}
 ?>
 
 <!-- Desktop Navigation -->

@@ -4,6 +4,21 @@
  * Enhanced with Company Overview, Mission, Vision, Values, Milestones, Leadership
  */
 require_once __DIR__ . '/includes/components.php';
+require_once __DIR__ . '/manager/database/db.php';
+$aboutRow = null;
+if ($con) {
+    $aboutResult = mysqli_query($con, "SELECT * FROM category WHERE id = 68 AND status = 1");
+    if ($aboutResult && mysqli_num_rows($aboutResult)) {
+        $aboutRow = mysqli_fetch_assoc($aboutResult);
+    }
+}
+$mvRow = null;
+if ($con) {
+    $mvResult = mysqli_query($con, "SELECT * FROM category WHERE id = 74 AND status = 1");
+    if ($mvResult && mysqli_num_rows($mvResult)) {
+        $mvRow = mysqli_fetch_assoc($mvResult);
+    }
+}
 
 $values = [
     [
@@ -71,27 +86,19 @@ $values = [
     </section>
 
     <!-- ========== COMPANY OVERVIEW ========== -->
+    <?php if ($aboutRow): ?>
     <section class="section pad-top-sm">
       <div class="container">
         <div class="grid-2-col">
           <div class="reveal reveal--left">
             <span class="section-label">Our Story</span>
-    
-            <p class="about-p-desc">
-              RastoMed Pharma was founded with a simple yet meaningful purpose — to contribute to better healthcare by providing quality-driven and scientifically focused pharmaceutical solutions.
-            </p>
-            <p class="about-p-desc">
-             From the beginning, our approach has been centered on understanding evolving healthcare needs and developing solutions with a strong emphasis on quality, safety, innovation, and patient well-being.
-            </p>
-            <p class="about-p-desc">
-              At RastoMed, we believe that healthcare is not only about products; it is about trust, responsibility, and making a meaningful difference in people's lives. We are committed to working closely with healthcare professionals, partners, and stakeholders to create solutions that add value to modern healthcare.
-            </p>
-            <p class="about-p-desc">
-              As we continue to grow, our focus remains clear: to build a trusted pharmaceutical organization driven by science, integrity, continuous improvement, and a commitment to better health outcomes.
-            </p>
-            <p class="about-p-desc">
-              This is the story of RastoMed Pharma — a journey of purpose, progress, and a commitment to advancing healthcare.
-            </p>
+            <?php
+              $desc = str_replace("\n", ' ', $aboutRow['c_desc']);
+              $paragraphs = array_filter(array_map('trim', explode("\n", str_replace("\\n", "\n", $aboutRow['c_desc']))));
+              foreach ($paragraphs as $para) {
+                  echo '<p class="about-p-desc">' . htmlspecialchars($para) . '</p>';
+              }
+            ?>
             <div class="about-btn-wrap">
               <?= renderButton('Our Products', 'products.php', 'primary') ?>
               <?= renderButton('CONTACT', 'contact.php', 'outline') ?>
@@ -100,27 +107,33 @@ $values = [
           <div class="reveal reveal--right about-rel-pos">
             <div class="about-grad-box">
               <div class="about-inner-pad">
-                <img src="assets/images/ourstory.jpeg" alt="Our Story" class="about-logo-img">
+                <img src="<?= !empty($aboutRow['featured_img']) ? $path . $aboutRow['featured_img'] : 'assets/images/ourstory.jpeg' ?>" alt="<?= htmlspecialchars($aboutRow['c_name']) ?>" class="about-logo-img">
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <?php endif; ?>
 
     <!-- ========== MISSION & VISION ========== -->
+    <?php if ($mvRow): ?>
     <section class="section section--alt pad-bottom-sm about-mv-section">
       <div class="container">
-        <h2 class="mv-section__title">Mission &amp; Vision</h2>
+        <h2 class="mv-section__title"><?= htmlspecialchars($mvRow['c_name']) ?></h2>
 
         <div class="mv-cards reveal">
+          <?php
+            $missionText = str_replace("\\n", "\n", $mvRow['sdesc']);
+            $visionText = str_replace("\\n", "\n", $mvRow['c_desc']);
+          ?>
           <div class="mv-card">
             <div class="mv-card__icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1565C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
             </div>
             <div class="mv-card__content">
               <h3 class="mv-card__title">Our Mission</h3>
-              <p class="mv-card__text">To improve lives by delivering high-quality, safe, and innovative healthcare solutions that address evolving medical needs. We are committed to excellence in quality, scientific advancement, and ethical practices while building lasting trust with healthcare professionals, partners, and the communities we serve.</p>
+              <p class="mv-card__text"><?= nl2br(htmlspecialchars($missionText)) ?></p>
             </div>
             <div class="mv-card__corner mv-card__corner--left"></div>
             <div class="mv-card__corner mv-card__corner--right"></div>
@@ -132,7 +145,7 @@ $values = [
             </div>
             <div class="mv-card__content">
               <h3 class="mv-card__title">Our Vision</h3>
-              <p class="mv-card__text">To emerge as a trusted and progressive pharmaceutical company, recognized for quality, innovation, integrity, and our commitment to improving patient health and well-being.</p>
+              <p class="mv-card__text"><?= nl2br(htmlspecialchars($visionText)) ?></p>
             </div>
             <div class="mv-card__corner mv-card__corner--left"></div>
             <div class="mv-card__corner mv-card__corner--right"></div>
@@ -140,6 +153,7 @@ $values = [
         </div>
       </div>
     </section>
+    <?php endif; ?>
 
   </main>
 

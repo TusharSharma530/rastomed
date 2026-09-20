@@ -82,7 +82,12 @@ if(isset($_POST['addRecord'])){
 				<option value=''>-- Select Category Type --</option>
 				<option value="1" selected>Top</option>
 				<option value="2">Bottom</option>
-				<option value="3">Other</option>									
+				<?php
+				$sqlAllCat = mysqli_query($con, "SELECT id, c_name, c_type FROM category ORDER BY c_type ASC");
+				while($rwCat = mysqli_fetch_assoc($sqlAllCat)){
+					echo '<option value="'.$rwCat['id'].'">'.htmlspecialchars($rwCat['c_name']).'</option>';
+				}
+				?>
 			</select>							
 		</div>
 
