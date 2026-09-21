@@ -16,6 +16,7 @@ $id = $_GET['id'] ?? "";
 
 	 if(isset($_POST['editRecord'])){
 		$order = trim(mysqli_real_escape_string($con,$_POST['order']));
+		$category_id = trim(mysqli_real_escape_string($con,$_POST['category_id']));
 
 		if(empty($_FILES['img']['name'])){
 			$image = $row['wb_img'];
@@ -25,7 +26,7 @@ $id = $_GET['id'] ?? "";
 
 		}	
 
-		$sqlins = mysqli_query($con,"UPDATE web_banner SET wb_order = '$order', wb_img = '$imagepath' WHERE id = $id");
+		$sqlins = mysqli_query($con,"UPDATE web_banner SET wb_order = '$order', wb_img = '$imagepath', category_id = '$category_id' WHERE id = $id");
 			
 		if($sqlins){
 			echo "<script>swal('Update Successfully', 'Click `OK` to Close', 'success');  </script>";
@@ -68,6 +69,19 @@ $id = $_GET['id'] ?? "";
 	<div class="page-content">
 	<div class="msgbox"></div>
 	<form method="POST" id="submitForm" class="row">
+		<div class="mb-3 col-md-3">
+			<label for="category_id" class="form-label">Category</label>
+			<select name="category_id" class="form-control" id="category_id" required>
+				<option value="">- Select Category -</option>
+<?php $sqlcat = mysqli_query($con, "SELECT * FROM category WHERE c_type = 1 AND id NOT IN ('25', '32') ORDER BY `order` ASC");
+if(mysqli_num_rows($sqlcat)){
+while($rwcat = mysqli_fetch_array($sqlcat)){
+$selected = $rwcat['id']==$row['category_id'] ? "selected" : "";
+echo "<option {$selected} value='{$rwcat['id']}'>{$rwcat['c_name']}</option>";	}
+}
+?>
+			</select>
+		</div>
 		<div class="mb-2 col-md-3">
 		  	<label for="formFile" class="form-label">Image</label>
 		  	<div class="imgquestion other">
@@ -81,7 +95,7 @@ $id = $_GET['id'] ?? "";
   				<?php } ?>
   			</div>
 		</div>
-		<div class="mb-3 col-md-9">
+		<div class="mb-3 col-md-3">
 			<label for="order" class="form-label">Order</label>
 			<input type="text" class="form-control" id="order" name="order" value="<?php echo $row['wb_order']; ?>" required>
 		</div>

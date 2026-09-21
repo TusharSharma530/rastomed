@@ -6,8 +6,6 @@ if(!isset($_SESSION['username'])){
 
 if(isset($_POST['addProduct'])){
 	$category = trim(mysqli_real_escape_string($con, $_POST['category']));
-	$subcategory = trim(mysqli_real_escape_string($con, $_POST['subcategory']));
-	$childcategory = trim(mysqli_real_escape_string($con, $_POST['childcategory']));
 	$name = trim(mysqli_real_escape_string($con, $_POST['name']));
 	$price = trim(mysqli_real_escape_string($con, $_POST['price']));
 	$url = seo_friendly_url($name);
@@ -24,7 +22,7 @@ if(isset($_POST['addProduct'])){
 		$uploadpath = createImgWebp("img", "products");
 	}
 
-	$sqlins = mysqli_query($con,"INSERT INTO `products`(`id`, `cat_id`, `subcat_id`, `childcat_id`, `name`, `price`, `sdesc`, `cdesc`, `faq`, `featured_img`, `meta_title`, `meta_keywords`, `meta_desc`, `url`, `order`, `status`) VALUES (NULL, '$category', '$subcategory', '$childcategory', '$name', '$price', '$sdesc', '$cdesc', '$faq', '$uploadpath', '$metatitle', '$metakeywords', '$metadesc', '$url', '$order', 1)");
+	$sqlins = mysqli_query($con,"INSERT INTO `products`(`id`, `cat_id`, `subcat_id`, `childcat_id`, `name`, `price`, `sdesc`, `cdesc`, `faq`, `featured_img`, `meta_title`, `meta_keywords`, `meta_desc`, `url`, `order`, `status`) VALUES (NULL, '$category', 0, 0, '$name', '$price', '$sdesc', '$cdesc', '$faq', '$uploadpath', '$metatitle', '$metakeywords', '$metadesc', '$url', '$order', 1)");
 
 	if($sqlins){
 		echo "<script>swal('Added Successfully', 'Click `OK` to Close', 'success'); 
@@ -36,35 +34,6 @@ if(isset($_POST['addProduct'])){
 	}
 	exit();
 }
-
-// SET SUB CATEGORIES
-if(isset($_POST['setcat'])){
-	$id = $_POST['catid'];
-	$sql = mysqli_query($con, "SELECT * FROM sub_cat WHERE cat_id = $id ORDER BY `order` ASC");
-	$output = "<option value=''>-- Select Sub Category--</option>";
-	if(mysqli_num_rows($sql)){
-		while($rw = mysqli_fetch_array($sql)){
-			$output .= "<option value='{$rw['id']}'>{$rw['sc_name']}</option>"; 
-		}
-	}
-	echo $output;
-	exit();
-}
-
-// SET CHILD CATEGORIES
-if(isset($_POST['setsubcat'])){
-	$id = $_POST['subcatid'];
-	$sql = mysqli_query($con, "SELECT * FROM childcategory WHERE subcat_id = $id ORDER BY `order` ASC");
-	$output = "<option value=''>-- Select Child Category --</option>";
-	if(mysqli_num_rows($sql)){
-		while($rw = mysqli_fetch_array($sql)){
-			$output .= "<option value='{$rw['id']}'>{$rw['childcat']}</option>"; 
-		}
-	}
-	echo $output;
-	exit();
-}
-
 
 include 'include/header.php';
 include 'include/sidebar.php';
@@ -99,23 +68,10 @@ include 'include/sidebar.php';
 <?php $sqlcat = mysqli_query($con, "SELECT * FROM category WHERE c_type = 1 AND id NOT IN ('25', '32') ORDER BY `order` ASC");
 if(mysqli_num_rows($sqlcat)){
 while($rwcat = mysqli_fetch_array($sqlcat)){
-echo "<option value='{$rwcat['id']}'>{$rwcat['c_name']}</option>";	}
+$selected = $rwcat['id']==70 ? "selected" : "";
+echo "<option {$selected} value='{$rwcat['id']}'>{$rwcat['c_name']}</option>";	}
 }
 ?>
-			</select>								
-		</div>
-
-		<div class="mb-3 col-md-4">
-			<label for="subcategory" class="form-label">Sub Category</label>
-			<select name="subcategory" class="form-control" id="subcategory" required>
-				<option value="">- Select Sub Category -</option>
-			</select>								
-		</div>
-
-		<div class="mb-3 col-md-4">
-			<label for="childcategory" class="form-label">Child Category</label>
-			<select name="childcategory" class="form-control" id="childcategory" required>
-				<option value="">- Select Child Category -</option>
 			</select>								
 		</div>
 
@@ -188,30 +144,3 @@ echo "<option value='{$rwcat['id']}'>{$rwcat['c_name']}</option>";	}
 <?php 
 	include "include/footer.php"; 
 ?>
-
-<script>
-	$(document).on("change", "#category", function(){ 
-		var $id = $(this).val();
-		$.ajax({
-			url : url,
-			type : "POST",
-			data : {setcat : 1, catid : $id},
-			success : function(data){
-				$('#subcategory').html(data);
-				$('#childcategory').html("<option value=''>- Select Child Category -</option>");
-			}
-		})
-	})
-
-	$(document).on("change", "#subcategory", function(){ 
-		var $id = $(this).val();
-		$.ajax({
-			url : url,
-			type : "POST",
-			data : {setsubcat : 1, subcatid : $id},
-			success : function(data){
-				$('#childcategory').html(data);
-			}
-		})
-	})
-</script>

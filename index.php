@@ -1,8 +1,5 @@
 <?php
-/**
- * Homepage - RastoMed Pharma Private Limited
- * Exact layout: Header, Hero, About Us, Products, Awards, Testimonials, Blogs, Map/Contact, Footer
- */
+
 require_once __DIR__ . '/includes/components.php';
 
 $ourProducts = [

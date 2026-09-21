@@ -17,8 +17,6 @@ if(mysqli_num_rows($sqlprod)){
 
 if(isset($_POST['editRecord'])){
 	$category = trim(mysqli_real_escape_string($con, $_POST['category']));
-	$subcategory = trim(mysqli_real_escape_string($con, $_POST['subcategory']));
-	$childcategory = trim(mysqli_real_escape_string($con, $_POST['childcategory']));
 	$name = trim(mysqli_real_escape_string($con, $_POST['name']));
 	$price = trim(mysqli_real_escape_string($con, $_POST['price']));
 	$url = seo_friendly_url($name);
@@ -42,7 +40,7 @@ if(isset($_POST['editRecord'])){
 		}
 	}
 
-	$sqlcheck = mysqli_query($con,"UPDATE products SET `cat_id` = '$category', `subcat_id` = '$subcategory', `childcat_id` = '$childcategory', `name` = '$name', `price` = '$price', `sdesc` = '$sdesc', `cdesc` = '$cdesc', `faq` = '$faq', `featured_img` = '$uploadpath', `meta_title` = '$metatitle', `meta_keywords` = '$metakeywords', `meta_desc` = '$metadesc', `url` = '$url', `order` = '$order' WHERE id = $id");
+	$sqlcheck = mysqli_query($con,"UPDATE products SET `cat_id` = '$category', `subcat_id` = 0, `childcat_id` = 0, `name` = '$name', `price` = '$price', `sdesc` = '$sdesc', `cdesc` = '$cdesc', `faq` = '$faq', `featured_img` = '$uploadpath', `meta_title` = '$metatitle', `meta_keywords` = '$metakeywords', `meta_desc` = '$metadesc', `url` = '$url', `order` = '$order' WHERE id = $id");
 		
 	if($sqlcheck){
 		echo "<script>swal('Update Successfully', 'Click `OK` to Close', 'success'); </script>";
@@ -54,36 +52,6 @@ if(isset($_POST['editRecord'])){
 	
 	exit();
 } 
-
-
-// SET SUB CATEGORIES 
-if(isset($_POST['setcat'])){
-	$id = $_POST['catid'];
-	$sql = mysqli_query($con, "SELECT * FROM sub_cat WHERE cat_id = $id ORDER BY `order` ASC");
-	$output = "<option value=''>-- Select Sub Category--</option>";
-	if(mysqli_num_rows($sql)){
-		while($rw = mysqli_fetch_array($sql)){
-			$output .= "<option value='{$rw['id']}'>{$rw['sc_name']}</option>"; 
-		}
-	}
-	echo $output;
-	exit();
-}
-
-// SET CHILD CATEGORIES 
-if(isset($_POST['setsubcat'])){
-	$id = $_POST['subcatid'];
-	$sql = mysqli_query($con, "SELECT * FROM childcategory WHERE subcat_id = $id ORDER BY `order` ASC");
-	$output = "<option value=''>-- Select Child Category --</option>";
-	if(mysqli_num_rows($sql)){
-		while($rw = mysqli_fetch_array($sql)){
-			$output .= "<option value='{$rw['id']}'>{$rw['childcat']}</option>"; 
-		}
-	}
-	echo $output;
-	exit();
-}
-
 
 include 'include/header.php';
 include 'include/sidebar.php';
@@ -122,34 +90,6 @@ $selected = $rwcat['id']==$rwprod['cat_id'] ? "selected" : "";
 echo "<option {$selected} value='{$rwcat['id']}'>{$rwcat['c_name']}</option>";	}
 }
 ?>									
-		</select>								
-	</div>
-
-	<div class="mb-3 col-md-4">
-		<label for="subcategory" class="form-label">Sub Category</label>
-		<select name="subcategory" class="form-control" id="subcategory">
-			<option value="">- Select Sub Category -</option>
-<?php $sqlsubcat = mysqli_query($con, "SELECT * FROM sub_cat WHERE cat_id = {$rwprod['cat_id']}");
-if(mysqli_num_rows($sqlsubcat)){
-while($rwsubcat = mysqli_fetch_array($sqlsubcat)){
-$selected = $rwsubcat['id']==$rwprod['subcat_id'] ? "selected" : "";
-echo "<option {$selected} value='{$rwsubcat['id']}'>{$rwsubcat['sc_name']}</option>";	}
-}
-?>										
-		</select>								
-	</div>
-
-	<div class="mb-3 col-md-4">
-		<label for="childcategory" class="form-label">Child Category</label>
-		<select name="childcategory" class="form-control" id="childcategory">
-			<option value="">- Select Child Category -</option>
-<?php $sqlchildcat = mysqli_query($con, "SELECT * FROM childcategory WHERE subcat_id = {$rwprod['subcat_id']}");
-if(mysqli_num_rows($sqlchildcat)){
-while($rwchildcat = mysqli_fetch_array($sqlchildcat)){
-$selected = $rwchildcat['id']==$rwprod['childcat_id'] ? "selected" : "";
-echo "<option {$selected} value='{$rwchildcat['id']}'>{$rwchildcat['childcat']}</option>";	}
-}
-?>										
 		</select>								
 	</div>
 
@@ -228,30 +168,3 @@ echo "<option {$selected} value='{$rwchildcat['id']}'>{$rwchildcat['childcat']}<
 <?php 
 	include "include/footer.php"; 
 ?>
-
-<script>
-	$(document).on("change", "#category", function(){ 
-		var $id = $(this).val();
-		$.ajax({
-			url : url,
-			type : "POST",
-			data : {setcat : 1, catid : $id},
-			success : function(data){
-				$('#subcategory').html(data);
-				$('#childcategory').html("<option value=''>- Select Child Category -</option>");
-			}
-		})
-	})
-
-	$(document).on("change", "#subcategory", function(){ 
-		var $id = $(this).val();
-		$.ajax({
-			url : url,
-			type : "POST",
-			data : {setsubcat : 1, subcatid : $id},
-			success : function(data){
-				$('#childcategory').html(data);
-			}
-		})
-	})
-</script>

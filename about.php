@@ -7,10 +7,15 @@
   <?php include __DIR__ . '/includes/header.php'; ?>
 <?php
 $aboutRow = null;
+$aboutBanner = null;
 if ($con) {
     $aboutResult = mysqli_query($con, "SELECT * FROM category WHERE id = 69 AND status = 1");
     if ($aboutResult && mysqli_num_rows($aboutResult)) {
         $aboutRow = mysqli_fetch_assoc($aboutResult);
+    }
+    $bannerResult = mysqli_query($con, "SELECT * FROM web_banner WHERE category_id = 69 AND status = 1 ORDER BY wb_order ASC LIMIT 1");
+    if ($bannerResult && mysqli_num_rows($bannerResult)) {
+        $aboutBanner = mysqli_fetch_assoc($bannerResult);
     }
 }
 $mvRow = null;
@@ -24,7 +29,7 @@ if ($con) {
 
   <main>
     <!-- About Us Banner -->
-    <section class="about-banner">
+    <section class="about-banner" <?php if(!empty($aboutBanner['wb_img'])): ?>style="background-image: url('<?= $path . $aboutBanner['wb_img'] ?>');"<?php endif; ?>>
       <div class="about-banner__overlay"></div>
       <div class="container about-banner__content">
         <h1 class="about-banner__title"><?= htmlspecialchars($aboutRow['c_name'] ?? 'About Us') ?></h1>

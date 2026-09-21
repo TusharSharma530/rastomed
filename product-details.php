@@ -2,23 +2,39 @@
 /**
  * Product Details Page - RastoMed Pharma
  */
-require_once __DIR__ . '/includes/components.php';
-
-$allProducts = [
-    1 => [
-        'name' => 'CoRast-Q10',
-        'image' => 'assets/images/qorest-10.png',
-    ],
-];
-
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 1;
-if (!isset($allProducts[$id])) {
-    $id = 1;
-}
-$product = $allProducts[$id];
-
 ?>
   <?php include __DIR__ . '/includes/header.php'; ?>
+<?php
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$product = null;
+if ($id && isset($con)) {
+    $proResult = mysqli_query($con, "SELECT * FROM products WHERE id = $id AND status = 1");
+    if ($proResult && mysqli_num_rows($proResult)) {
+        $product = mysqli_fetch_assoc($proResult);
+    }
+}
+
+if (!$product) {
+    echo '<main><section class="section"><div class="container"><p>Product not found.</p></div></section></main>';
+    include __DIR__ . '/includes/footer.php';
+    exit();
+}
+
+$faqItems = [];
+if (!empty($product['faq'])) {
+    preg_match_all('/<p>(.*?)<\/p>/si', $product['faq'], $matches);
+    if (!empty($matches[1])) {
+        $total = count($matches[1]);
+        for ($i = 0; $i < $total; $i += 2) {
+            $question = trim(strip_tags($matches[1][$i]));
+            $answer = isset($matches[1][$i + 1]) ? trim($matches[1][$i + 1]) : '';
+            if (!empty($question)) {
+                $faqItems[] = ['q' => $question, 'a' => $answer];
+            }
+        }
+    }
+}
+?>
 
   <main>
     <!-- Product Details Banner -->
@@ -41,96 +57,49 @@ $product = $allProducts[$id];
       <div class="container">
         <div class="pd-detail-grid product-detail-grid-layout">
           <div class="pd-detail-grid__image product-detail-img-flex">
-            <img src="<?= $product['image'] ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="product-detail-img-max">
+            <?php if(!empty($product['featured_img'])): ?>
+            <img src="<?= $path . $product['featured_img'] ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="product-detail-img-max">
+            <?php else: ?>
+            <img src="assets/images/qorest-10.png" alt="<?= htmlspecialchars($product['name']) ?>" class="product-detail-img-max">
+            <?php endif; ?>
           </div>
           <div class="pd-detail-grid__content product-detail-content-box">
             <h2 class="pd-detail-grid__title"><?= htmlspecialchars($product['name']) ?></h2>
+            <?php if(!empty($product['price'])): ?>
+            <span class="price-tag-style">&#8377; <?= htmlspecialchars($product['price']) ?></span>
+            <?php endif; ?>
             <div class="pd-detail-grid__desc">
-              <p>CoRast-Q10 is an advanced liposomal Coenzyme Q10 (CoQ10) formulation designed to support cellular energy production and antioxidant defense. Its liposomal delivery system is designed to enhance the bioavailability of CoQ10.</p>
-              <p>CoRast-Q10 is formulated with complementary nutrients to support cardiovascular health, energy metabolism, muscle function and overall cellular wellness.</p>
-              <h3>Key Benefits:</h3>
-              <ul>
-                <li>Supports cellular energy production</li>
-                <li>Provides antioxidant support</li>
-                <li>Supports cardiovascular health</li>
-                <li>Helps maintain healthy muscle function</li>
-                <li>Supports energy and vitality</li>
-              </ul>
-              <p><strong>Composition:</strong> Liposomal Coenzyme Q10 with complementary nutritional ingredients.</p>
-              <p><strong>Recommended Use:</strong> As directed by a healthcare professional.</p>
+              <?php if(!empty($product['sdesc'])): ?>
+              <?= $product['sdesc'] ?>
+              <?php endif; ?>
+              <?php if(!empty($product['cdesc'])): ?>
+              <?= $product['cdesc'] ?>
+              <?php endif; ?>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <?php if(!empty($faqItems)): ?>
     <!-- FAQ Section -->
     <section class="faq-top-pad">
       <div class="container">
         <h2 class="faq-heading-blue">Frequently Asked Questions</h2>
-
+        <?php $faqNum = 1; foreach ($faqItems as $faq): ?>
         <div class="faq-item">
           <button class="faq-question" onclick="this.parentElement.classList.toggle('faq-open')">
-            <span>1. What is CoQ10?</span>
+            <span><?= $faqNum . '. ' . htmlspecialchars($faq['q']) ?></span>
             <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Coenzyme Q10 (CoQ10) is a naturally occurring compound found in the body and is involved in mitochondrial energy production and antioxidant defense.</p>
+            <p><?= $faq['a'] ?></p>
           </div>
         </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('faq-open')">
-            <span>2. What is the advantage of liposomal CoQ10?</span>
-            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>Liposomal delivery uses lipid-based structures to facilitate the delivery of CoQ10 and is designed to support its oral bioavailability.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('faq-open')">
-            <span>3. Who can use CoRast-Q10?</span>
-            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>CoRast-Q10 may be used by adults who require nutritional support with CoQ10, as recommended by a healthcare professional.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('faq-open')">
-            <span>4. Can CoRast-Q10 be used by people taking statins?</span>
-            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>Individuals receiving statin therapy should discuss CoQ10 supplementation with their healthcare professional, particularly if they experience muscle-related symptoms. CoRast-Q10 should not be used as a substitute for prescribed statin therapy or other medical treatment.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('faq-open')">
-            <span>5. How should CoRast-Q10 be taken?</span>
-            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>Use CoRast-Q10 according to the dosage instructions on the product label or as recommended by your healthcare professional.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('faq-open')">
-            <span>6. How should CoRast-Q10 be stored?</span>
-            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>Store according to the conditions specified on the product packaging, generally in a cool, dry place away from direct sunlight and moisture.</p>
-          </div>
-        </div>
-
+        <?php $faqNum++; endforeach; ?>
       </div>
     </section>
+    <?php endif; ?>
   </main>
 
   <?php include __DIR__ . '/includes/footer.php'; ?>

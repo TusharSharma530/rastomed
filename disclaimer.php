@@ -1,8 +1,6 @@
 <!-- DEMO CONTENT — Legal team review required before production -->
 <?php
-/**
- * Disclaimer Page - RastoMed Pharma
- */
+
 ?>
   <?php include __DIR__ . '/includes/header.php'; ?>
 

@@ -55,6 +55,7 @@
 			<tr>
 				<th width="5%" class="text-center">#</th>
 				<th>Banner Img</th>
+				<th>Category</th>
 				<th>Status</th>
 				<th class="text-end">Action</th>
 			</tr>
@@ -64,10 +65,12 @@
 				if(mysqli_num_rows($sqlbanner)){
 					$serial = 1;
 					while($rwbanner = mysqli_fetch_assoc($sqlbanner)){
+						$rwc = mysqli_fetch_array(mysqli_query($con, "SELECT c_name FROM category WHERE id = '{$rwbanner['category_id']}'"));
 			 ?>
 			<tr id="remove<?php echo $rwbanner['id']; ?>">
 				<td style="vertical-align: middle;" class="text-center"><?php echo $serial; ?></td>
 				<td><img src="../<?php echo $rwbanner['wb_img']; ?>" alt="" width="80px;"></td>
+				<td style="vertical-align: middle;"><?= $rwc['c_name'] ?? '-'; ?></td>
 				<td>
 					<div class="form-check form-switch">
 						<?php $checked = $rwbanner['status']==1 ? "checked" : ""; ?>

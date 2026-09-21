@@ -6,6 +6,7 @@ if(!isset($_SESSION['username'])){
 	
 	if(isset($_POST['addRecord'])){
 		$order = trim(mysqli_real_escape_string($con,$_POST['order']));
+		$category_id = trim(mysqli_real_escape_string($con,$_POST['category_id']));
 
 		if(isset($_FILES['img']['name'])){
 			$imagepath = createImgWebp("img", "banner");
@@ -15,7 +16,7 @@ if(!isset($_SESSION['username'])){
 		if(mysqli_num_rows($sqlcheck)){
 			echo "<script>swal('Order no Already in Record', 'Click `OK` to try Again', 'warning'); $('#submitForm').show();  </script>";
 		}else{
-			$sqlins = mysqli_query($con,"INSERT INTO web_banner (id, wb_order, wb_img, status) VALUES (NULL, '$order', '$imagepath', 1)");
+			$sqlins = mysqli_query($con,"INSERT INTO web_banner (id, wb_order, wb_img, category_id, status) VALUES (NULL, '$order', '$imagepath', '$category_id', 1)");
 			
 			if($sqlins){
 				echo "<script>swal('Added Successfully', 'Click `OK` to Close', 'success'); $('#submitForm').remove();  </script>";
@@ -62,6 +63,19 @@ if(!isset($_SESSION['username'])){
 			</div> -->
 		</div>
 		<form method="POST" id="submitForm" class="row">
+			<div class="mb-3 col-md-3">
+				<label for="category_id" class="form-label">Category</label>
+				<select name="category_id" class="form-control" id="category_id" required>
+					<option value="">- Select Category -</option>
+<?php $sqlcat = mysqli_query($con, "SELECT * FROM category WHERE c_type = 1 AND id NOT IN ('25', '32') ORDER BY `order` ASC");
+if(mysqli_num_rows($sqlcat)){
+while($rwcat = mysqli_fetch_array($sqlcat)){
+echo "<option value='{$rwcat['id']}'>{$rwcat['c_name']}</option>";	}
+}
+?>
+				</select>
+			</div>
+
 			<div class="mb-2 col-md-3">
 			  	<label for="formFile" class="form-label">Main Image</label>
 			  	<div class="imgquestion other">
@@ -71,7 +85,7 @@ if(!isset($_SESSION['username'])){
   			</div>
 			</div>
 
-			<div class="mb-3 col-md-9">
+			<div class="mb-3 col-md-3">
 				<label for="order" class="form-label">Order</label>
 				<input type="text" class="form-control" id="order" name="order" required>
 			</div>

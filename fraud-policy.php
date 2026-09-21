@@ -1,7 +1,5 @@
 <?php
-/**
- * Fraud Policy Page - RastoMed Pharma
- */
+
 ?>
   <?php include __DIR__ . '/includes/header.php'; ?>
 

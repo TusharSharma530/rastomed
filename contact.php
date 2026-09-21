@@ -1,7 +1,5 @@
 <?php
-/**
- * Contact Page - RastoMed Pharma
- */
+
 require_once __DIR__ . '/includes/components.php';
 
 $currentPage = 'contact';
