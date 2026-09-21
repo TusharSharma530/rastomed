@@ -7,10 +7,15 @@ $currentPage = 'contact';
   <?php include __DIR__ . '/includes/header.php'; ?>
 <?php
 $contactRow = null;
+$contactBanner = null;
 if (isset($con)) {
     $contactResult = mysqli_query($con, "SELECT * FROM category WHERE id = 72 AND status = 1");
     if ($contactResult && mysqli_num_rows($contactResult)) {
         $contactRow = mysqli_fetch_assoc($contactResult);
+    }
+    $bannerResult = mysqli_query($con, "SELECT * FROM web_banner WHERE category_id = 72 AND status = 1 ORDER BY wb_order ASC LIMIT 1");
+    if ($bannerResult && mysqli_num_rows($bannerResult)) {
+        $contactBanner = mysqli_fetch_assoc($bannerResult);
     }
 }
 
@@ -37,7 +42,9 @@ if (isset($con)) {
   <main>
     <!-- Contact Banner -->
     <section class="contact-hero-banner">
-      <?php if(!empty($contactRow['featured_img'])): ?>
+      <?php if(!empty($contactBanner['wb_img'])): ?>
+      <img src="<?= $path . $contactBanner['wb_img'] ?>" alt="<?= htmlspecialchars($contactRow['c_name'] ?? 'Contact Us') ?>" class="contact-hero-bg-img">
+      <?php elseif(!empty($contactRow['featured_img'])): ?>
       <img src="<?= $path . $contactRow['featured_img'] ?>" alt="<?= htmlspecialchars($contactRow['c_name']) ?>" class="contact-hero-bg-img">
       <?php else: ?>
       <img src="assets/images/contact-hero.jpg" alt="Contact Us" class="contact-hero-bg-img">
