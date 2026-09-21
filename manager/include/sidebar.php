@@ -36,6 +36,11 @@
 <!-- sub menu end here -->
 </li>
 <li class="menu-item ">
+	<a href="products.php" class="menu-link">							
+	<span class="link-text"><i class="ri-shopping-bag-line"></i> Products</span>
+	</a>
+</li>
+<li class="menu-item ">
 	<a href="advisoryboard.php" class="menu-link">							
 	<span class="link-text"><i class="ri-group-line"></i> Advisory Board</span>
 	</a>

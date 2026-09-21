@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Redirect .php to clean URL (301)
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
+RewriteRule ^(.+)\.php$ /rastomed/$1 [R=301,L]
+
+# Internally load .php from clean URL
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+?)/?$ $1.php [L]

@@ -38,22 +38,7 @@ $blogPosts = [
 ];
 */
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="PharmaCorp Scientific Insights - Expert technical articles, whitepapers, and scientific publications on pharmaceutical R&amp;D and regulatory standards.">
-  <title>Blogs &amp; Scientific Insights - PharmaCorp Enterprise</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/responsive.css">
-
-</head>
-<body>
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
@@ -105,6 +90,3 @@ $blogPosts = [
   </main>
 
   <?php include __DIR__ . '/includes/footer.php'; ?>
-  <script src="assets/js/script.js"></script>
-</body>
-</html>

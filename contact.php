@@ -3,31 +3,49 @@
  * Contact Page - RastoMed Pharma
  */
 require_once __DIR__ . '/includes/components.php';
+
+$currentPage = 'contact';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact RastoMed Pharma - Get in touch with our pharmaceutical team.">
-  <title>Contact Us - RastoMed Pharma</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/responsive.css">
-
-</head>
-<body>
   <?php include __DIR__ . '/includes/header.php'; ?>
+<?php
+$contactRow = null;
+if (isset($con)) {
+    $contactResult = mysqli_query($con, "SELECT * FROM category WHERE id = 72 AND status = 1");
+    if ($contactResult && mysqli_num_rows($contactResult)) {
+        $contactRow = mysqli_fetch_assoc($contactResult);
+    }
+}
+
+// Default values
+$websitename =$websitename ;
+$address =$address ;
+$contactno =$contactno ;
+$alternateno =$alternateno ;
+$emailid =$emailid ;
+
+// Fetch settings from database if connection exists
+if (isset($con)) {
+    $res = mysqli_query($con, "SELECT * FROM `settings` WHERE id = 1 LIMIT 1");
+    if ($res && mysqli_num_rows($res) > 0) {
+        $rw = mysqli_fetch_assoc($res);
+        if (!empty($rw['address'])) { $address =$rw['address']; }
+        if (!empty($rw['contact_no'])) { $contactno =$rw['contact_no']; }
+        if (!empty($rw['alternate_no'])) { $alternateno =$rw['alternate_no']; }
+        if (!empty($rw['email_id'])) { $emailid =$rw['email_id']; }
+    }
+}
+?>
 
   <main>
     <!-- Contact Banner -->
     <section class="contact-hero-banner">
+      <?php if(!empty($contactRow['featured_img'])): ?>
+      <img src="<?= $path . $contactRow['featured_img'] ?>" alt="<?= htmlspecialchars($contactRow['c_name']) ?>" class="contact-hero-bg-img">
+      <?php else: ?>
       <img src="assets/images/contact-hero.jpg" alt="Contact Us" class="contact-hero-bg-img">
+      <?php endif; ?>
       <div class="contact-hero-center">
-        <h1 class="contact-hero-h1">Contact Us</h1>
+        <h1 class="contact-hero-h1"><?= htmlspecialchars($contactRow['c_name'] ?? 'Contact Us') ?></h1>
       </div>
     </section>
 
@@ -44,7 +62,7 @@ require_once __DIR__ . '/includes/components.php';
               </div>
               <div>
                 <strong class="contact-item__label">Address</strong>
-                <p class="contact-item__text">353, Shivaji Road, Meerut, Uttar Pradesh-250001</p>
+                <p class="contact-item__text"><?= nl2br(htmlspecialchars($address)) ?></p>
               </div>
             </div>
 
@@ -55,8 +73,12 @@ require_once __DIR__ . '/includes/components.php';
               <div>
                 <strong class="contact-item__label">Our Phone</strong>
                 <p class="contact-item__text">
-                  +91 9410666599<br>
-                  +91 7906752047
+                  <?php if(!empty($contactno)): ?>
+                    <a href="tel:+91<?= htmlspecialchars($contactno) ?>">+91 <?= htmlspecialchars($contactno) ?></a>
+                  <?php endif; ?>
+                  <?php if(!empty($alternateno)): ?>
+                    <br><a href="tel:+91<?= htmlspecialchars($alternateno) ?>">+91 <?= htmlspecialchars($alternateno) ?></a>
+                  <?php endif; ?>
                 </p>
               </div>
             </div>
@@ -68,7 +90,7 @@ require_once __DIR__ . '/includes/components.php';
               <div>
                 <strong class="contact-item__label">Got a Question?</strong>
                 <p class="contact-item__text contact-item-margin">Drop us an email and we'll be in touch asap.</p>
-                <a href="mailto:info@rastomedpharma.com" class="contact-item__link">info@rastomedpharma.com</a>
+                <a href="mailto:<?= htmlspecialchars($emailid) ?>" class="contact-item__link"><?= htmlspecialchars($emailid) ?></a>
               </div>
             </div>
 
@@ -108,7 +130,7 @@ require_once __DIR__ . '/includes/components.php';
               <div class="form-row">
                 <div class="form-field">
                   <label for="contactPhone">Phone *</label>
-                  <input type="tel" id="contactPhone" name="phone" placeholder="+91 ..." required>
+                  <input type="tel" id="contactPhone" name="phone" placeholder="+91 <?= htmlspecialchars($contactno) ?>" required>
                 </div>
                 <div class="form-field">
                   <label for="contactInterest">I'm interested in</label>
@@ -153,7 +175,7 @@ require_once __DIR__ . '/includes/components.php';
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="RastoMed Pharma Location">
+            title="<?= htmlspecialchars($websitename) ?> Location">
           </iframe>
         </div>
       </div>
@@ -161,6 +183,3 @@ require_once __DIR__ . '/includes/components.php';
   </main>
 
   <?php include __DIR__ . '/includes/footer.php'; ?>
-  <script src="assets/js/script.js"></script>
-</body>
-</html>
