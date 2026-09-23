@@ -2,6 +2,17 @@
 
 require_once __DIR__ . '/includes/components.php';
 
+$homeBannerVideo = '';
+$homeBannerImg = '';
+if (isset($con)) {
+    $homeBannerResult = mysqli_query($con, "SELECT * FROM web_banner WHERE category_id = 68 AND status = 1 ORDER BY wb_order ASC LIMIT 1");
+    if ($homeBannerResult && mysqli_num_rows($homeBannerResult)) {
+        $homeBannerRow = mysqli_fetch_assoc($homeBannerResult);
+        $homeBannerVideo = $homeBannerRow['wb_video'] ?? '';
+        $homeBannerImg = $homeBannerRow['wb_img'] ?? '';
+    }
+}
+
 $ourProducts = [
     [
         'name' => 'CoRast-Q10',
@@ -10,24 +21,24 @@ $ourProducts = [
     ],
 ];
 
-$awards = [
-    [
-        'image' => 'assets/images/award1.jpeg',
-        'title' => 'India Pharma Award 2023',
-    ],
-    [
-        'image' => 'assets/images/award2.png',
-        'title' => 'GMP Certified',
-    ],
-    [
-        'image' => 'assets/images/award3.jpeg',
-        'title' => 'ISO 9001:2015',
-    ],
-    [
-        'image' => 'assets/images/award4.jpeg',
-        'title' => 'WHO-GMP Certified',
-    ],
-];
+// $awards = [
+//     [
+//         'image' => 'assets/images/award1.jpeg',
+//         'title' => 'India Pharma Award 2023',
+//     ],
+//     [
+//         'image' => 'assets/images/award2.png',
+//         'title' => 'GMP Certified',
+//     ],
+//     [
+//         'image' => 'assets/images/award3.jpeg',
+//         'title' => 'ISO 9001:2015',
+//     ],
+//     [
+//         'image' => 'assets/images/award4.jpeg',
+//         'title' => 'WHO-GMP Certified',
+//     ],
+// ];
 
 $testimonials = [
     [
@@ -50,32 +61,32 @@ $testimonials = [
     ],
 ];
 
-$homeBlogs = [
-    [
-        'id' => 1,
-        'title' => 'Latest Trends in Pharmaceutical Industry in 2024',
-        'category' => 'Pharma News',
-        'date' => 'May 10, 2024',
-        'image' => 'assets/images/blog-research.jpg',
-        'excerpt' => 'Exploring the latest advancements and trends shaping the pharmaceutical industry.',
-    ],
-    [
-        'id' => 2,
-        'title' => '5 Simple Ways to Boost Your Immunity Naturally',
-        'category' => 'Health Tips',
-        'date' => 'May 05, 2024',
-        'image' => 'assets/images/blog-health.jpg',
-        'excerpt' => 'Natural approaches to strengthen your immune system and stay healthy.',
-    ],
-    [
-        'id' => 3,
-        'title' => 'How Quality Manufacturing Ensures Better Healthcare',
-        'category' => 'Pharma Updates',
-        'date' => 'April 28, 2024',
-        'image' => 'assets/images/blog-manufacturing.jpg',
-        'excerpt' => 'The role of quality manufacturing in delivering safe and effective medicines.',
-    ],
-];
+// $homeBlogs = [
+//     [
+//         'id' => 1,
+//         'title' => 'Latest Trends in Pharmaceutical Industry in 2024',
+//         'category' => 'Pharma News',
+//         'date' => 'May 10, 2024',
+//         'image' => 'assets/images/blog-research.jpg',
+//         'excerpt' => 'Exploring the latest advancements and trends shaping the pharmaceutical industry.',
+//     ],
+//     [
+//         'id' => 2,
+//         'title' => '5 Simple Ways to Boost Your Immunity Naturally',
+//         'category' => 'Health Tips',
+//         'date' => 'May 05, 2024',
+//         'image' => 'assets/images/blog-health.jpg',
+//         'excerpt' => 'Natural approaches to strengthen your immune system and stay healthy.',
+//     ],
+//     [
+//         'id' => 3,
+//         'title' => 'How Quality Manufacturing Ensures Better Healthcare',
+//         'category' => 'Pharma Updates',
+//         'date' => 'April 28, 2024',
+//         'image' => 'assets/images/blog-manufacturing.jpg',
+//         'excerpt' => 'The role of quality manufacturing in delivering safe and effective medicines.',
+//     ],
+// ];
 ?>
   <!-- 1. HEADER -->
   <?php include __DIR__ . '/includes/header.php'; ?>
@@ -83,11 +94,18 @@ $homeBlogs = [
   <main>
     <!-- 2. HERO SECTION - Video Hero Banner -->
     <section class="home-hero-banner">
+      <?php if(!empty($homeBannerVideo)): ?>
+      <video id="heroVideo" class="home-hero-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto" <?php if(!empty($homeBannerImg)): ?>poster="<?= $path . $homeBannerImg ?>"<?php else: ?>poster="assets/images/hero-pharma.jpg"<?php endif; ?>>
+        <source src="<?= $path . $homeBannerVideo ?>" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <?php else: ?>
       <video id="heroVideo" class="home-hero-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="assets/images/hero-pharma.jpg">
         <source src="assets/videos/hero-video.mp4" type="video/mp4">
         <source src="assets/videos/hero-video-2.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
+      <?php endif; ?>
       <div class="home-hero-overlay"></div>
       <div class="container home-hero-content-container">
         <div class="home-hero-content">

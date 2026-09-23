@@ -169,6 +169,11 @@ $(document).on("change", ".imgInput", function(){
     var inputFiles = this.files;
     if(inputFiles == undefined || inputFiles.length == 0) return;
     var inputFile = inputFiles[0];
+    if(inputFile.type.indexOf('image/') !== 0 && inputFile.type !== 'application/pdf'){
+        swal('Invalid File', 'Please select an image file.', 'warning');
+        this.value = '';
+        return;
+    }
     var reader = new FileReader();
     reader.onload = function(event) {
         $input.next().attr("src", event.target.result);
@@ -180,6 +185,33 @@ $(document).on("change", ".imgInput", function(){
 
    	$(this).prev().addClass('active');
 
+})
+
+// ============= banner video preview + validation ===================
+var bannerVideoExts = ['mp4','webm','mov','avi','m4v','3gp','mkv','wmv'];
+$(document).on("change", ".videoInput", function(){
+    var file = this.files[0];
+    var $preview = $(this).next('.videoPreview');
+    if(!file){
+        $preview.hide().removeAttr('src');
+        return;
+    }
+    var ext = (file.name.split('.').pop() || '').toLowerCase();
+    if(bannerVideoExts.indexOf(ext) === -1){
+        swal('Invalid Video', 'Allowed: MP4, WebM, MOV, AVI, M4V, 3GP, MKV, WMV', 'warning');
+        this.value = '';
+        $preview.hide().removeAttr('src');
+        return;
+    }
+    if(file.size > 40 * 1024 * 1024){
+        swal('File Too Large', 'Max video size is 40MB.', 'warning');
+        this.value = '';
+        $preview.hide().removeAttr('src');
+        return;
+    }
+    var url = URL.createObjectURL(file);
+    $preview.attr('src', url).show();
+    $(this).addClass('active');
 })
 
  // add multiple images

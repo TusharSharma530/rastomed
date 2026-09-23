@@ -19,14 +19,30 @@ $id = $_GET['id'] ?? "";
 		$category_id = trim(mysqli_real_escape_string($con,$_POST['category_id']));
 
 		if(empty($_FILES['img']['name'])){
-			$image = $row['wb_img'];
-			$imagepath = $image;
+			$imagepath = $row['wb_img'];
 		}else{
 			$imagepath = createImgWebp("img", "banner");
+		}
 
-		}	
+		if(empty($_FILES['video']['name'])){
+			$videopath = $row['wb_video'];
+		}else{
+			if(!isValidVideoUpload($_FILES['video'])){
+				echo "<script>swal('Invalid Video', 'Only MP4, WebM, MOV, AVI allowed. Max size 40MB.', 'warning'); $('#submitForm').show();</script>";
+				exit();
+			}
+			$oldvideo = $row['wb_video'];
+			$videopath = createVideoUpload("video", "banner");
+			if($videopath === ''){
+				echo "<script>swal('Video Upload Failed', 'Click `OK` to try Again', 'error'); $('#submitForm').show();</script>";
+				exit();
+			}
+			if(!empty($oldvideo) && file_exists("../".$oldvideo)){
+				unlink("../".$oldvideo);
+			}
+		}
 
-		$sqlins = mysqli_query($con,"UPDATE web_banner SET wb_order = '$order', wb_img = '$imagepath', category_id = '$category_id' WHERE id = $id");
+		$sqlins = mysqli_query($con,"UPDATE web_banner SET wb_order = '$order', wb_img = '$imagepath', wb_video = '$videopath', category_id = '$category_id' WHERE id = $id");
 			
 		if($sqlins){
 			echo "<script>swal('Update Successfully', 'Click `OK` to Close', 'success');  </script>";
@@ -68,7 +84,7 @@ $id = $_GET['id'] ?? "";
 <div class="col-md-12">
 	<div class="page-content">
 	<div class="msgbox"></div>
-	<form method="POST" id="submitForm" class="row">
+	<form method="POST" enctype="multipart/form-data" id="submitForm" class="row">
 		<div class="mb-3 col-md-3">
 			<label for="category_id" class="form-label">Category</label>
 			<select name="category_id" class="form-control" id="category_id" required>
@@ -87,13 +103,23 @@ echo "<option {$selected} value='{$rwcat['id']}'>{$rwcat['c_name']}</option>";	}
 		  	<div class="imgquestion other">
 				<?php $active = empty($row['wb_img']) ? "" : "active"; ?>
 				<a href="javascript:" class="imgclose ri-close-circle-line <?=$active;?>"></a>
-				<input hidden class="form-control imgInput" name="img" type="file">
+				<input hidden class="form-control imgInput" name="img" type="file" accept="image/*">
   				<?php if(empty($row['wb_img'])){ ?>
   				<img src="images/preview.jpg" alt="preview" class='preview'>
   				<?php }else{ ?>
   				<img src="<?=$path.$row['wb_img'];?>" alt="<?=$row['wb_img'];?>" class='preview'>
   				<?php } ?>
   			</div>
+		</div>
+		<div class="mb-3 col-md-3">
+			<label for="video" class="form-label">Banner Video</label>
+			<input type="file" class="form-control videoInput" id="video" name="video" accept="video/mp4,video/webm,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/*">
+			<?php if(!empty($row['wb_video'])){ ?>
+			<video class="videoPreview" src="<?=$path.$row['wb_video'];?>" controls style="display:block; max-width:100%; max-height:150px; margin-top:8px; border-radius:6px;"></video>
+			<?php }else{ ?>
+			<video class="videoPreview" controls style="display:none; max-width:100%; max-height:150px; margin-top:8px; border-radius:6px;"></video>
+			<?php } ?>
+			<small class="text-muted">MP4 / WebM / MOV / AVI - max 40MB. Naya video select karne par purana replace ho jayega.</small>
 		</div>
 		<div class="mb-3 col-md-3">
 			<label for="order" class="form-label">Order</label>

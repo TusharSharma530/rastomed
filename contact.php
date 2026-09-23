@@ -42,7 +42,11 @@ if (isset($con)) {
   <main>
     <!-- Contact Banner -->
     <section class="contact-hero-banner">
-      <?php if(!empty($contactBanner['wb_img'])): ?>
+      <?php if(!empty($contactBanner['wb_video'])): ?>
+      <video class="contact-hero-bg-img" autoplay muted loop playsinline>
+        <source src="<?= $path . $contactBanner['wb_video'] ?>">
+      </video>
+      <?php elseif(!empty($contactBanner['wb_img'])): ?>
       <img src="<?= $path . $contactBanner['wb_img'] ?>" alt="<?= htmlspecialchars($contactRow['c_name'] ?? 'Contact Us') ?>" class="contact-hero-bg-img">
       <?php elseif(!empty($contactRow['featured_img'])): ?>
       <img src="<?= $path . $contactRow['featured_img'] ?>" alt="<?= htmlspecialchars($contactRow['c_name']) ?>" class="contact-hero-bg-img">

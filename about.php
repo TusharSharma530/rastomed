@@ -29,7 +29,12 @@ if ($con) {
 
   <main>
     <!-- About Us Banner -->
-    <section class="about-banner" <?php if(!empty($aboutBanner['wb_img'])): ?>style="background-image: url('<?= $path . $aboutBanner['wb_img'] ?>');"<?php endif; ?>>
+    <section class="about-banner"<?php if(!empty($aboutBanner['wb_img'])): ?> style="background-image: url('<?= $path . $aboutBanner['wb_img'] ?>');"<?php endif; ?>>
+      <?php if(!empty($aboutBanner['wb_video'])): ?>
+      <video class="banner-bg-video" autoplay muted loop playsinline>
+        <source src="<?= $path . $aboutBanner['wb_video'] ?>">
+      </video>
+      <?php endif; ?>
       <div class="about-banner__overlay"></div>
       <div class="container about-banner__content">
         <h1 class="about-banner__title"><?= htmlspecialchars($aboutRow['c_name'] ?? 'About Us') ?></h1>

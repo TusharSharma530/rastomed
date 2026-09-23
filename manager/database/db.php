@@ -125,6 +125,37 @@ function createImgWebp($fileinputname, $imagepath){
     }
     return "branch/assets/".$imagepath."/".$filenewname;
 }
+
+function isValidVideoUpload($file){
+    if(empty($file['name']) || $file['error'] !== UPLOAD_ERR_OK){
+        return false;
+    }
+    $allowed = ['mp4','webm','mov','avi','m4v','3gp','mkv','wmv'];
+    $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+    if(!in_array($ext, $allowed)){
+        return false;
+    }
+    if($file['size'] > 40 * 1024 * 1024){
+        return false;
+    }
+    return true;
+}
+
+function createVideoUpload($fileinputname, $uploadpath){
+    if(empty($_FILES[$fileinputname]['name'])){
+        return '';
+    }
+    $ext = strtolower(pathinfo($_FILES[$fileinputname]['name'], PATHINFO_EXTENSION));
+    $dir = "../branch/assets/".$uploadpath."/";
+    if(!file_exists("../branch/assets/".$uploadpath)){
+        mkdir("../branch/assets/".$uploadpath, 0777, true);
+    }
+    $filenewname = $fileinputname . time() . rand(100,999) . '.' . $ext;
+    if(move_uploaded_file($_FILES[$fileinputname]['tmp_name'], $dir.$filenewname)){
+        return "branch/assets/".$uploadpath."/".$filenewname;
+    }
+    return '';
+}
 // $file_type = exif_imagetype($file);
 //exif_imagetype($file);
 // 1    IMAGETYPE_GIF

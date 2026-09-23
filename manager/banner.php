@@ -12,8 +12,12 @@
 				$rowimg = mysqli_fetch_assoc($sqldelImg);
 					$imgid = $rowimg['wb_img'];
 					$featimg = $rowimg['featuredimg'];
+					$videoid = $rowimg['wb_video'] ?? '';
 					unlink("../".$imgid);
 					unlink("../".$featimg);
+					if(!empty($videoid) && file_exists("../".$videoid)){
+						unlink("../".$videoid);
+					}
 
 				$sqldelete = mysqli_query($con,"DELETE FROM web_banner WHERE id = {$id}");
 				if($sqldelete){
@@ -51,15 +55,15 @@
 <div class="col-md-12">
 <div class="page-content">
 	<table class="table table-hover" id="myTable">
-		<thead>
-			<tr>
-				<th width="5%" class="text-center">#</th>
-				<th>Banner Img</th>
-				<th>Category</th>
-				<th>Status</th>
-				<th class="text-end">Action</th>
-			</tr>
-		</thead>
+			<thead>
+				<tr>
+					<th width="5%" class="text-center">#</th>
+					<th>Banner Img / Video</th>
+					<th>Category</th>
+					<th>Status</th>
+					<th class="text-end">Action</th>
+				</tr>
+			</thead>
 		<tbody>
 			<?php $sqlbanner = mysqli_query($con, "SELECT * FROM web_banner");
 				if(mysqli_num_rows($sqlbanner)){
@@ -69,7 +73,13 @@
 			 ?>
 			<tr id="remove<?php echo $rwbanner['id']; ?>">
 				<td style="vertical-align: middle;" class="text-center"><?php echo $serial; ?></td>
-				<td><img src="../<?php echo $rwbanner['wb_img']; ?>" alt="" width="80px;"></td>
+				<td>
+					<?php if(!empty($rwbanner['wb_video'])){ ?>
+					<video src="../<?php echo $rwbanner['wb_video']; ?>" width="120" controls style="border-radius:6px;"></video>
+					<?php } else if(!empty($rwbanner['wb_img'])){ ?>
+					<img src="../<?php echo $rwbanner['wb_img']; ?>" alt="" width="80px;">
+					<?php } else { echo '-'; } ?>
+				</td>
 				<td style="vertical-align: middle;"><?= $rwc['c_name'] ?? '-'; ?></td>
 				<td>
 					<div class="form-check form-switch">
