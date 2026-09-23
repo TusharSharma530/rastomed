@@ -54,6 +54,7 @@
 			<thead>
 				<tr>
 					<th>#</th>									
+					<th>Title</th>									
 					<th>Name</th>									
 					<th>Desciption</th>
 					<th>Order</th>
@@ -72,6 +73,7 @@
 			 ?>
 				<tr id='remove<?php echo $tcid; ?>'>
 					<td><?php echo $serial; ?></td>									
+					<td><?=$rwtc['heading'];?></td>
 					<td><?=$rwtc['title'];?></td>
 					<td><?=substr($rwtc['desc'], 0, 80)."...";?></td>
 					<td><?=$rwtc['order'];?></td>

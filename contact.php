@@ -35,8 +35,10 @@ if (isset($con)) {
         if (!empty($rw['contact_no'])) { $contactno =$rw['contact_no']; }
         if (!empty($rw['alternate_no'])) { $alternateno =$rw['alternate_no']; }
         if (!empty($rw['email_id'])) { $emailid =$rw['email_id']; }
+        $contactMapIframe = trim($rw['map_iframe'] ?? '');
     }
 }
+$contactMapIframe = $contactMapIframe ?? '';
 ?>
 
   <main>
@@ -176,8 +178,9 @@ if (isset($con)) {
     <section class="map-section-wrap">
       <div class="container">
         <div class="map-container-box">
+          <?php if (!empty($contactMapIframe)): ?>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5!2d77.7107!3d28.9845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974b6a0b0b0b0b0%3A0x0b0b0b0b0b0b0b0b!2sShivaji+Road%2C+Meerut%2C+Uttar+Pradesh+250001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            src="<?= htmlspecialchars($contactMapIframe) ?>"
             width="100%"
             height="100%"
             class="map-iframe-no-border"
@@ -186,6 +189,7 @@ if (isset($con)) {
             referrerpolicy="no-referrer-when-downgrade"
             title="<?= htmlspecialchars($websitename) ?> Location">
           </iframe>
+          <?php endif; ?>
         </div>
       </div>
     </section>

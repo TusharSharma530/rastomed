@@ -13,6 +13,7 @@ if(mysqli_num_rows($sqltc)){
 
 if(isset($_POST['editRecord'])){
 
+	$heading = trim(mysqli_real_escape_string($con,$_POST['heading']));
 	$title = trim(mysqli_real_escape_string($con,$_POST['title']));
 	$url = seo_friendly_url($title);
 	$desc = trim(mysqli_real_escape_string($con,$_POST['idesc']));
@@ -25,7 +26,7 @@ if(isset($_POST['editRecord'])){
 		$uploadpath = createImgWebp("img", "testimonials");
 	}
 	
-	$sqlcheck = mysqli_query($con,"UPDATE testimonials SET `title` = '$title',  `url` = '$url', `desc` = '$desc', `file` = '$uploadpath', `order` = '$order' WHERE id = $tcupid");
+	$sqlcheck = mysqli_query($con,"UPDATE testimonials SET `heading` = '$heading', `title` = '$title',  `url` = '$url', `desc` = '$desc', `file` = '$uploadpath', `order` = '$order' WHERE id = $tcupid");
 		
 	if($sqlcheck){
 		echo "<script>swal('Update Successfully', 'Click `OK` to Close', 'success'); </script>";
@@ -63,6 +64,11 @@ include 'include/sidebar.php';
 	<div class="page-content">
 		<div class="msgbox"></div>
 		<form method="POST" id="submitForm" class="row">		
+			<div class="mb-3 col-md-9">
+				<label for="heading" class="form-label">Title</label>
+				<input type="text" class="form-control" name="heading" value="<?php echo htmlspecialchars($rwtc['heading']); ?>">
+			</div>
+
 			<div class="mb-3 col-md-9">
 				<label for="sname" class="form-label">Name</label>
 				<input type="text" class="form-control" name="title" value="<?php echo $rwtc['title']; ?>">

@@ -1,25 +1,50 @@
 <?php
 
-require_once __DIR__ . '/includes/components.php';
+
+require_once __DIR__ . '/includes/header.php';
 
 $homeBannerVideo = '';
 $homeBannerImg = '';
-if (isset($con)) {
-    $homeBannerResult = mysqli_query($con, "SELECT * FROM web_banner WHERE category_id = 68 AND status = 1 ORDER BY wb_order ASC LIMIT 1");
-    if ($homeBannerResult && mysqli_num_rows($homeBannerResult)) {
-        $homeBannerRow = mysqli_fetch_assoc($homeBannerResult);
-        $homeBannerVideo = $homeBannerRow['wb_video'] ?? '';
-        $homeBannerImg = $homeBannerRow['wb_img'] ?? '';
+$homeBannerResult = mysqli_query($con, "SELECT * FROM web_banner WHERE id = 8 AND status = 1 LIMIT 1");
+if ($homeBannerResult && mysqli_num_rows($homeBannerResult)) {
+    $homeBannerRow = mysqli_fetch_assoc($homeBannerResult);
+    $homeBannerVideo = $homeBannerRow['wb_video'] ?? '';
+    $homeBannerImg = $homeBannerRow['wb_img'] ?? '';
+}
+
+$heroTitle = '';
+$heroSubtitle = '';
+$heroCatResult = mysqli_query($con, "SELECT * FROM category WHERE id = 76 AND status = 1 LIMIT 1");
+if ($heroCatResult && mysqli_num_rows($heroCatResult)) {
+    $heroCatRow = mysqli_fetch_assoc($heroCatResult);
+    $heroTitle = $heroCatRow['c_name'] ?? '';
+    $heroSubtitle = $heroCatRow['sdesc'] ?? '';
+}
+
+$aboutTitle = '';
+$aboutDesc = '';
+$aboutImg = '';
+$aboutCatResult = mysqli_query($con, "SELECT * FROM category WHERE id = 77 AND status = 1 LIMIT 1");
+if ($aboutCatResult && mysqli_num_rows($aboutCatResult)) {
+    $aboutCatRow = mysqli_fetch_assoc($aboutCatResult);
+    $aboutTitle = $aboutCatRow['c_name'] ?? '';
+    $aboutDesc = $aboutCatRow['c_desc'] ?? '';
+    $aboutImg = $aboutCatRow['featured_img'] ?? '';
+}
+
+$ourProducts = [];
+$homeProductsResult = mysqli_query($con, "SELECT * FROM products WHERE status = 1 ORDER BY `order` ASC, id DESC");
+if ($homeProductsResult && mysqli_num_rows($homeProductsResult)) {
+    while ($rwProd = mysqli_fetch_assoc($homeProductsResult)) {
+        $ourProducts[] = $rwProd;
     }
 }
 
-$ourProducts = [
-    [
-        'name' => 'CoRast-Q10',
-        'image' => 'assets/images/qorest-10.png',
-        'url' => 'product-details.php?id=1',
-    ],
-];
+$siteSettings = [];
+$homeSettingsResult = mysqli_query($con, "SELECT * FROM settings WHERE id = 1 LIMIT 1");
+if ($homeSettingsResult && mysqli_num_rows($homeSettingsResult)) {
+    $siteSettings = mysqli_fetch_assoc($homeSettingsResult);
+}
 
 // $awards = [
 //     [
@@ -40,26 +65,27 @@ $ourProducts = [
 //     ],
 // ];
 
-$testimonials = [
-    [
-        'quote' => 'RastoMed Pharma has been our trusted partner for years. Their quality and commitment are truly exceptional.',
-        'name' => 'Dr. Rakesh Sharma',
-        'role' => 'Senior Consultant',
-        'avatar' => 'RS',
-    ],
-    [
-        'quote' => 'The quality of their products and timely delivery helps us serve our patients better every day.',
-        'name' => 'Dr. Anjali Verma',
-        'role' => 'MD, Physician',
-        'avatar' => 'AV',
-    ],
-    [
-        'quote' => 'Excellent services, wide product range and strong support team. Highly recommended.',
-        'name' => 'Mr. Sandeep Patel',
-        'role' => 'Distributor',
-        'avatar' => 'SP',
-    ],
-];
+$testimonials = [];
+$homeTestimonialsResult = mysqli_query($con, "SELECT * FROM testimonials WHERE status = 1 ORDER BY `order` ASC, id ASC");
+if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
+    while ($rwTc = mysqli_fetch_assoc($homeTestimonialsResult)) {
+        $tcName = trim(strip_tags($rwTc['title']));
+        $tcInitials = '';
+        if ($tcName !== '') {
+            $tcParts = preg_split('/\s+/', $tcName);
+            $tcInitials = strtoupper(substr($tcParts[0], 0, 1));
+            if (count($tcParts) > 1) {
+                $tcInitials .= strtoupper(substr(end($tcParts), 0, 1));
+            }
+        }
+        $testimonials[] = [
+            'quote' => trim(strip_tags($rwTc['desc'])),
+            'name' => $tcName,
+            'role' => trim(strip_tags($rwTc['heading'])),
+            'avatar' => $tcInitials ?: 'T',
+        ];
+    }
+}
 
 // $homeBlogs = [
 //     [
@@ -89,20 +115,13 @@ $testimonials = [
 // ];
 ?>
   <!-- 1. HEADER -->
-  <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
     <!-- 2. HERO SECTION - Video Hero Banner -->
     <section class="home-hero-banner">
       <?php if(!empty($homeBannerVideo)): ?>
-      <video id="heroVideo" class="home-hero-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto" <?php if(!empty($homeBannerImg)): ?>poster="<?= $path . $homeBannerImg ?>"<?php else: ?>poster="assets/images/hero-pharma.jpg"<?php endif; ?>>
+      <video id="heroVideo" class="home-hero-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto" <?php if(!empty($homeBannerImg)): ?>poster="<?= $path . $homeBannerImg ?>"<?php else: ?>poster=""<?php endif; ?>>
         <source src="<?= $path . $homeBannerVideo ?>" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <?php else: ?>
-      <video id="heroVideo" class="home-hero-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="assets/images/hero-pharma.jpg">
-        <source src="assets/videos/hero-video.mp4" type="video/mp4">
-        <source src="assets/videos/hero-video-2.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <?php endif; ?>
@@ -110,8 +129,8 @@ $testimonials = [
       <div class="container home-hero-content-container">
         <div class="home-hero-content">
           <span class="home-hero-badge">RastoMed Pharma Private Limited</span>
-          <h1 class="home-hero-title">Advancing Health<br>with Purpose</h1>
-          <p class="home-hero-subtitle">RastoMed Pharma Private Limited is committed to improving lives by delivering high-quality, effective, and affordable pharmaceutical products that are <strong>trusted worldwide.</strong></p>
+          <h1 class="home-hero-title"><?= htmlspecialchars($heroTitle) ?></h1>
+          <p class="home-hero-subtitle"><?= htmlspecialchars($heroSubtitle) ?></p>
           
           <!-- 4 Feature Animated SVG Icons -->
           <div class="home-hero-features">
@@ -223,17 +242,17 @@ $testimonials = [
         <div class="about-section__grid">
           <div class="about-section__images">
             <div class="about-section__img about-section__img--1">
-              <img src="assets/images/about.png" alt="Pharmaceutical Medicines" width="400" height="350">
+              <img src="<?= !empty($aboutImg) ? $path . $aboutImg : 'assets/images/about.png' ?>" alt="<?= htmlspecialchars($aboutTitle) ?>" width="400" height="350">
             </div>
           </div>
           <div class="about-section__content">
-            <h2 class="about-section__title">RastoMed Pharma Private Limited</h2>
-            <p class="about-section__text">
-              RastoMed Pharma Pvt. Ltd. is a growing pharmaceutical marketing company focused on providing quality and reliable healthcare solutions. Our portfolio includes Tablets, Capsules, Syrups, and other pharmaceutical formulations, marketed through trusted manufacturing and distribution partnerships.
-            </p>
-            <p class="about-section__text">
-              We are committed to maintaining high standards of quality, safety, efficacy, and regulatory compliance, while building trusted brands and long-lasting relationships with healthcare professionals, business partners, and customers.
-            </p>
+            <h2 class="about-section__title"><?= htmlspecialchars($aboutTitle) ?></h2>
+            <?php
+            $aboutParagraphs = array_filter(array_map('trim', explode("\n", str_replace("\\n", "\n", $aboutDesc))));
+            foreach ($aboutParagraphs as $aboutPara):
+            ?>
+            <p class="about-section__text"><?= htmlspecialchars($aboutPara) ?></p>
+            <?php endforeach; ?>
             <a href="about.php" class="about-section__btn">
               Read More
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -261,19 +280,25 @@ $testimonials = [
             <?php foreach ($ourProducts as $product): ?>
               <div class="our-product-card">
                 <div class="our-product-card__image">
-                  <img src="<?= $product['image'] ?>" alt="<?= htmlspecialchars($product['name']) ?>" loading="lazy">
-                  <a href="<?= $product['url'] ?>" class="our-product-card__plus">
+                  <?php if(!empty($product['featured_img'])): ?>
+                  <img src="<?= $path . $product['featured_img'] ?>" alt="<?= htmlspecialchars($product['name']) ?>" loading="lazy">
+                  <?php else: ?>
+                  <img src="" alt="<?= htmlspecialchars($product['name']) ?>" loading="lazy">
+                  <?php endif; ?>
+                  <a href="product-details.php?id=<?= (int)$product['id'] ?>" class="our-product-card__plus">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                   </a>
                 </div>
                 <div class="our-product-card__body">
                   <div class="flex-between-gap3">
                 <div>
-                  <h3 class="our-product-card__title margin-0-left">CoRast-Q10</h3>
-                  <span class="price-tag-style">&#8377; 655</span>
+                  <h3 class="our-product-card__title margin-0-left"><?= htmlspecialchars($product['name']) ?></h3>
+                  <?php if(!empty($product['price'])): ?>
+                  <span class="price-tag-style">&#8377; <?= htmlspecialchars($product['price']) ?></span>
+                  <?php endif; ?>
                 </div>
                 <div>
-                  <a href="product-details.php?id=1" class="our-product-card__btn">Read More</a>
+                  <a href="product-details.php?id=<?= (int)$product['id'] ?>" class="our-product-card__btn">Read More</a>
                 </div>
                 </div>
               </div>
@@ -341,9 +366,9 @@ $testimonials = [
             <?php endforeach; ?>
           </div>
           <div class="testimonials-nav">
-            <button class="testimonials-nav__dot testimonials-nav__dot--active" aria-label="Slide 1"></button>
-            <button class="testimonials-nav__dot" aria-label="Slide 2"></button>
-            <button class="testimonials-nav__dot" aria-label="Slide 3"></button>
+            <?php foreach ($testimonials as $tIndex => $t): ?>
+            <button class="testimonials-nav__dot<?= $tIndex === 0 ? ' testimonials-nav__dot--active' : '' ?>" aria-label="Slide <?= $tIndex + 1 ?>"></button>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>
@@ -388,46 +413,67 @@ $testimonials = [
       <div class="container">
         <div class="map-contact-grid">
           <div class="map-wrapper reveal reveal--left">
+            <?php $homeMapSrc = trim($siteSettings['map_iframe'] ?? ''); ?>
+            <?php if (!empty($homeMapSrc)): ?>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5!2d77.7107!3d28.9845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974b6a0b0b0b0b0%3A0x0b0b0b0b0b0b0b0b!2sShivaji+Road%2C+Meerut%2C+Uttar+Pradesh+250001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              src="<?= htmlspecialchars($homeMapSrc) ?>"
               width="100%"
               height="450"
               class="map-iframe-no-border border-radius-2xl-box"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              title="RastoMed Pharma Location Map">
+              title="<?= htmlspecialchars($siteSettings['web_name'] ?? 'Location') ?> Location Map">
             </iframe>
+            <?php endif; ?>
           </div>
           <div class="map-contact-info reveal reveal--right">
             <span class="our-products-label">GET IN TOUCH</span>
             <h3 class="our-products-title">We Are Here to Help You</h3>
+            <?php
+            $homeAddress = trim($siteSettings['address'] ?? '');
+            $homePhone1 = trim($siteSettings['contact_no'] ?? '');
+            $homePhone2 = trim($siteSettings['alternate_no'] ?? '');
+            $homeEmail = trim($siteSettings['email_id'] ?? '');
+            $homePhone1Full = ($homePhone1 !== '' && strpos($homePhone1, '+') === false && strpos($homePhone1, '91') !== 0) ? '+91 ' . $homePhone1 : $homePhone1;
+            $homePhone2Full = ($homePhone2 !== '' && strpos($homePhone2, '+') === false && strpos($homePhone2, '91') !== 0) ? '+91 ' . $homePhone2 : $homePhone2;
+            ?>
+            <?php if (!empty($homeAddress)): ?>
             <div class="map-contact-item">
               <div class="map-contact-item__icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
               <div class="map-contact-item__text">
-                <strong>RastoMed Pharma Private Limited</strong>
-                <p>353, Shivaji Road, Meerut,<br>Uttar Pradesh-250001</p>
+                <strong><?= htmlspecialchars(trim($siteSettings['web_name'] ?? '')) ?></strong>
+                <p><?= nl2br(htmlspecialchars($homeAddress)) ?></p>
               </div>
             </div>
+            <?php endif; ?>
+            <?php if (!empty($homePhone1) || !empty($homePhone2)): ?>
             <div class="map-contact-item">
               <div class="map-contact-item__icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </div>
               <div class="map-contact-item__text">
-                <strong>+91 9410666599</strong>
-                <strong>+91 7906752047</strong>
+                <?php if (!empty($homePhone1)): ?>
+                <strong><?= htmlspecialchars($homePhone1Full) ?></strong>
+                <?php endif; ?>
+                <?php if (!empty($homePhone2)): ?>
+                <strong><?= htmlspecialchars($homePhone2Full) ?></strong>
+                <?php endif; ?>
               </div>
             </div>
+            <?php endif; ?>
+            <?php if (!empty($homeEmail)): ?>
             <div class="map-contact-item">
               <div class="map-contact-item__icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               </div>
               <div class="map-contact-item__text">
-                <strong>info@rastomedpharma.com</strong>
+                <strong><?= htmlspecialchars($homeEmail) ?></strong>
               </div>
             </div>
+            <?php endif; ?>
             <div class="map-contact-item">
               <div class="map-contact-item__icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>

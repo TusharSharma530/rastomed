@@ -5,6 +5,7 @@ if(!isset($_SESSION['username'])){
 }
 
 if(isset($_POST['addRecord'])){
+	$heading = trim(mysqli_real_escape_string($con,$_POST['heading']));
 	$title = trim(mysqli_real_escape_string($con,$_POST['title']));
 	$url = seo_friendly_url($title);
 	$desc = trim(mysqli_real_escape_string($con,$_POST['idesc']));
@@ -15,7 +16,7 @@ if(isset($_POST['addRecord'])){
 		$uploadpath = createImgWebp("img", "testimonials");
 	}
 
-	$sqlins = mysqli_query($con,"INSERT INTO testimonials (id, title, url, `desc`, file, `order`) VALUES (NULL, '$title', '$url', '$desc', '$uploadpath', '$order')");
+	$sqlins = mysqli_query($con,"INSERT INTO testimonials (id, heading, title, url, `desc`, file, `order`) VALUES (NULL, '$heading', '$title', '$url', '$desc', '$uploadpath', '$order')");
 		
 	if($sqlins){
 		echo "<script>swal('Added Successfully', 'Click `OK` to Close', 'success'); 
@@ -56,6 +57,11 @@ include 'include/sidebar.php';
 	<div class="msgbox"></div>
 	<form method="POST" id="submitForm">
 		<div class="row">
+
+		<div class="mb-3 col-md-9">
+			<label for="heading" class="form-label">Title</label>
+			<input type="text" class="form-control" name="heading" required>
+		</div>
 
 		<div class="mb-3 col-md-9">
 			<label for="title" class="form-label">Name</label>
