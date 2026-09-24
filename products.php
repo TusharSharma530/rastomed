@@ -1,6 +1,4 @@
 <?php
-
-
 ?>
   <?php include __DIR__ . '/includes/header.php'; ?>
 <?php
@@ -24,7 +22,6 @@ if (isset($con)) {
     }
 }
 ?>
-
   <main>
     <section class="about-banner"<?php if(!empty($productsBanner['wb_img'])): ?> style="background-image: url('<?= $path . $productsBanner['wb_img'] ?>');"<?php endif; ?>>
       <?php if(!empty($productsBanner['wb_video'])): ?>

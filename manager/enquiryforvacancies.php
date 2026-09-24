@@ -44,6 +44,7 @@ if(!isset($_SESSION['username'])){
 				<th>Name</th>
 				<th>Phone</th>
 				<th>Emailid</th>
+				<th>Country</th>
 				<th>Apply for</th>
 				<th class="text-center">Action</th>
 			</tr>
@@ -56,13 +57,21 @@ if(!isset($_SESSION['username'])){
 				$serial = 1;
 				while($rwcontact = mysqli_fetch_assoc($sqlcontact )){
 					$cid = $rwcontact['id'];
+					$applyLabel = '';
+					if (!empty($rwcontact['applyfor'])) {
+						$applyLabel = __getJobTitle($con, $rwcontact['applyfor']);
+					}
+					if ($applyLabel === '' || $applyLabel === null) {
+						$applyLabel = $rwcontact['job_function'] ?? '';
+					}
 		 ?>
 			<tr id='remove<?php echo $cid; ?>'>
 				<td><?php echo $serial; ?></td>									
-				<td><?php echo $rwcontact['name']; ?></td>
-				<td><?php echo $rwcontact['contactno']; ?></td>
-				<td><?=$rwcontact['email'];?></td>		
-				<td><?=__getJobTitle($con, $rwcontact['applyfor']);?></td>		
+				<td><?php echo htmlspecialchars($rwcontact['name']); ?></td>
+				<td><?php echo htmlspecialchars($rwcontact['contactno']); ?></td>
+				<td><?= htmlspecialchars($rwcontact['email']); ?></td>
+				<td><?= htmlspecialchars($rwcontact['country'] ?? ''); ?></td>
+				<td><?= htmlspecialchars($applyLabel); ?></td>
 				<td class="text-center"> 
 					<a href="javascript:" class='editbtn ri-eye-line' ></a>
 					<a href="javascript:"  ide="<?=$cid;?>" class='delbtn ri-delete-bin-line' ></a>
