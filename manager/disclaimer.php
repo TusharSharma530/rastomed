@@ -12,7 +12,7 @@ if(mysqli_num_rows($sqlpage)){
 if(isset($_POST['editRecord'])){
 	$ptitle = trim(mysqli_real_escape_string($con,$_POST['title']));
 	$psubtitle = trim(mysqli_real_escape_string($con,$_POST['subtitle']));
-	$pdesc = trim(mysqli_real_escape_string($con, pages_plain_input($_POST['description'])));
+	$pdesc = trim(mysqli_real_escape_string($con, $_POST['description']));
 
 	$sqlcheck = mysqli_query($con,"UPDATE `pages` SET `title` = '$ptitle', `subtitle` = '$psubtitle', `description` = '$pdesc' WHERE slug = 'disclaimer'");
 
@@ -57,8 +57,7 @@ include 'include/sidebar.php';
 
 			<div class="mb-3 col-md-12">
 				<label for="description" class="form-label">Description</label>
-				<textarea class="form-control" name="description" id="description" rows="14" placeholder="Blank line = new paragraph&#10;## Heading&#10;- List item"><?php echo htmlspecialchars(pages_plain_input($rwpage['description'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></textarea>
-				<small class="text-muted">Plain text only — blank line = paragraph, ## Heading, - list item</small>
+				<textarea class="form-control tinyMCE" name="description" id="description" rows="14"><?php echo htmlspecialchars($rwpage['description'] ?? '', ENT_QUOTES, 'UTF-8'); ?></textarea>
 			</div>
 
 			<div class="col-md-12">

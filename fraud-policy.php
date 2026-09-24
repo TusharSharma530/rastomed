@@ -12,7 +12,10 @@ if ($sqlpp && mysqli_num_rows($sqlpp)) {
 
 $ppTitle = trim($pp['title']) !== '' ? $pp['title'] : 'Recruitment Fraud Policy';
 $ppSubtitle = $pp['subtitle'];
-$ppDescriptionHtml = render_pages_description($pp['description']);
+$ppDescriptionHtml = trim((string)($pp['description'] ?? ''));
+if ($ppDescriptionHtml !== '' && strpos($ppDescriptionHtml, '<') === false) {
+	$ppDescriptionHtml = render_pages_description($ppDescriptionHtml);
+}
 ?>
 
   <main>

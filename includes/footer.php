@@ -6,10 +6,12 @@
 if (!isset($con)) {
     require_once __DIR__ . '/../manager/database/db.php';
 }
-$websitename =$websitename ;
+
+$websitename =$websitename ?? 'RastoMed Pharma';
 $path =$path ?? '';
 $logo =$logo ?? '';
 $navItems =$navItems ?? [];
+
 if (!isset($footerdesc)) {
     $stmt = mysqli_prepare($con, "SELECT * FROM `settings` WHERE id = 1");
     if ($stmt) {
@@ -41,6 +43,17 @@ if (!isset($footerdesc)) {
     $twitter =$twitter ?? '';
     $instagram =$instagram ?? '';
 }
+
+// Fetch dynamic footer products (Category ID 70, active items, limit 5) matching your catalog page
+$footerProducts = [];
+if (isset($con)) {
+    $fProResult = mysqli_query($con, "SELECT id, name FROM products WHERE cat_id = 70 AND status = 1 ORDER BY `order` ASC, id DESC LIMIT 5");
+    if ($fProResult && mysqli_num_rows($fProResult)) {
+        while ($fPrw = mysqli_fetch_assoc($fProResult)) {
+            $footerProducts[] =$fPrw;
+        }
+    }
+}
 ?>
 <footer class="footer" role="contentinfo">
   <div class="container">
@@ -53,7 +66,7 @@ if (!isset($footerdesc)) {
           <?php if(!empty($logo)): ?>
           <img src="<?= htmlspecialchars($path . $logo) ?>" alt="<?= htmlspecialchars($websitename) ?>" class="footer-logo-box">
           <?php else: ?>
-          <img src="assets/images/rastomed.png" alt="RastoMed Pharma" class="footer-logo-box">
+          <img src="" alt="RastoMed Pharma" class="footer-logo-box">
           <?php endif; ?>
         </a>
         <p class="footer__description">
@@ -96,10 +109,14 @@ if (!isset($footerdesc)) {
         <?php endif; ?>
       </div>
 
-      <!-- Our Products -->
       <div class="footer__column">
         <h4 class="footer__column-title">Our Products</h4>
-        <a href="product-details.php?id=1" class="footer__link">CoRast-Q10</a>
+        <?php if (!empty($footerProducts)): ?>
+          <?php foreach ($footerProducts as$fProd): ?>
+            <a href="product-details.php?id=<?= $fProd['id'] ?>" class="footer__link"><?= htmlspecialchars($fProd['name']) ?></a>
+          <?php endforeach; ?>
+        <?php else: ?>
+        <?php endif; ?>
       </div>
 
       <!-- Resources -->
