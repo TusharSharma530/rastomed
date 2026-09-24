@@ -302,6 +302,7 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
                 </div>
                 </div>
               </div>
+            </div>
             <?php endforeach; ?>
           </div>
         </div>

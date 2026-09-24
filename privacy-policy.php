@@ -42,16 +42,7 @@ $ppFirstWords = implode(' ', $ppParts);
 <?php if ($ppDescriptionHtml !== ''): ?>
           <?php echo $ppDescriptionHtml; ?>
 <?php else: ?>
-          <p class="legal-page__intro">At RastoMed Pharma, we respect your privacy and are committed to handling your personal information responsibly. This Privacy Policy explains how we collect, use, protect, and manage personal information when you visit our website, contact us, or submit information through our online forms.</p>
-          <p class="legal-page__intro">By using our website or voluntarily providing your information, you acknowledge the practices described in this Privacy Policy.</p>
-
-          <article class="legal-page__section">
-            <h2>Contact Us</h2>
-            <p>If you have any questions regarding this Privacy Policy or the way RastoMed Pharma handles personal information, please contact us:</p>
-            <p><strong>RastoMed Pharma</strong><br>
-            Email: <a href="mailto:info@rastomedpharma.com">info@rastomedpharma.com</a><br>
-            Website: <a href="https://www.rastomedpharma.com">www.rastomedpharma.com</a></p>
-          </article>
+          
 <?php endif; ?>
         </div>
       </div>
