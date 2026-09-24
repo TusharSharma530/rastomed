@@ -15,22 +15,27 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception; 
 //Load Composer's autoloader
-@include __DIR__ . '/PHPMailer/vendor/autoload.php';
+@include __DIR__ . '/../PHPMailer/vendor/autoload.php';
 
 
 function SendEmailer($senderemail,$subject,$bodydata, $filePath=null){
+
+if (!class_exists('PHPMailer\PHPMailer\PHPMailer')) {
+    return false;
+}
 
 $mail = new PHPMailer(true);
 try {
     //Server settings
     $mail->SMTPDebug = false;                      //Enable verbose debug output
-    // $mail->isSMTP();                               //Send using SMTP
+    $mail->isSMTP();                               //Send using SMTP
     $mail->Host       = 'mail.kgimeerut.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
     $mail->Username   = 'noreply@kgimeerut.com';                     //SMTP username
     $mail->Password   = '!Pb!CX&!+K?J';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS
+    $mail->Timeout    = 20;
 
     //Recipients
     $mail->setFrom('noreply@kgimeerut.com', 'Krishna Institute of Management');
@@ -41,23 +46,21 @@ try {
     // $mail->addBCC('bcc@example.com');
 
     //Attachments
-    if($filePath!= null){
+    if($filePath!= null && is_string($filePath) && is_file($filePath)){
     $mail->addAttachment($filePath);         //Add attachments
-        
     }
     // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = "$subject";
-   
     $mail->Body    = "$bodydata";
     $mail->AltBody = '';
 
     $mail->send();
-    // echo 'Message has been sent';
-} catch (Exception $e) {
-    // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    return true;
+} catch (\Throwable $e) {
+    return false;
 }
 
 }
