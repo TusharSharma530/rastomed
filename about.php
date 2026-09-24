@@ -1,8 +1,4 @@
 <?php
-/**
- * About Page - PharmaCorp
- * Enhanced with Company Overview, Mission, Vision, Values, Milestones, Leadership
- */
 ?>
   <?php include __DIR__ . '/includes/header.php'; ?>
 <?php
@@ -33,7 +29,6 @@ if ($con) {
 ?>
 
   <main>
-    <!-- About Us Banner -->
     <section class="about-banner"<?php if(!empty($aboutBanner['wb_img'])): ?> style="background-image: url('<?= $path . $aboutBanner['wb_img'] ?>');"<?php endif; ?>>
       <?php if(!empty($aboutBanner['wb_video'])): ?>
       <video class="banner-bg-video" autoplay muted loop playsinline>
@@ -51,7 +46,6 @@ if ($con) {
       </div>
     </section>
 
-    <!-- ========== COMPANY OVERVIEW ========== -->
     <?php if ($aboutRow): ?>
     <section class="section pad-top-sm">
       <div class="container">
@@ -83,7 +77,6 @@ if ($con) {
     </section>
     <?php endif; ?>
 
-    <!-- ========== MISSION & VISION ========== -->
     <?php if ($missionRow || $visionRow): ?>
     <section class="section section--alt pad-bottom-sm about-mv-section">
       <div class="container">

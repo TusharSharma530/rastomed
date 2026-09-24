@@ -1,15 +1,25 @@
 <?php
-/**
- * Header Component
- * Top info bar + Logo, navigation, theme toggle, mobile menu
- */
 if (!isset($con)) {
     require_once __DIR__ . '/../manager/database/db.php';
 }
 if (!isset($renderButton)) {
     require_once __DIR__ . '/components.php';
 }
+$siteBase = '/rastomed/';
+if (!empty($_SERVER['SCRIPT_NAME'])) {
+    $dir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
+    $dir = rtrim($dir, '/');
+    if ($dir !== '' && $dir !== '/') {
+        $siteBase = $dir . '/';
+    } else {
+        $siteBase = '/';
+    }
+}
+$scriptVersion = file_exists(__DIR__ . '/../assets/js/script.js') ? filemtime(__DIR__ . '/../assets/js/script.js') : time();
 ?>
+<script>
+window.SITE_BASE = <?php echo json_encode($siteBase); ?>;
+</script>
 <script>
 (function(){
   var t = localStorage.getItem('pharma-theme');
@@ -209,4 +219,4 @@ if (!isset($renderButton)) {
 <!-- Overlay (outside header for proper fixed positioning) -->
 <div class="overlay" aria-hidden="true"></div>
 
-<script src="assets/js/script.js"></script>
+<script src="assets/js/script.js?v=<?php echo (int)$scriptVersion; ?>"></script>

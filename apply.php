@@ -1,7 +1,5 @@
 <?php
-/**
- * Apply / Job Alert Page - RastoMed Pharma
- */
+
 ?>
 
   <?php include __DIR__ . '/includes/header.php'; ?>

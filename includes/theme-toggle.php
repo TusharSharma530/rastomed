@@ -1,8 +1,5 @@
 <?php
-/**
- * Theme Toggle Component
- * Light/Dark mode switcher with sun/moon icons
- */
+
 ?>
 <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
   <span class="theme-toggle__thumb">

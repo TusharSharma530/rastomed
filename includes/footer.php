@@ -1,8 +1,5 @@
 <?php
-/**
- * Footer Component
- * RastoMed Pharma corporate footer
- */
+
 if (!isset($con)) {
     require_once __DIR__ . '/../manager/database/db.php';
 }
@@ -44,7 +41,6 @@ if (!isset($footerdesc)) {
     $instagram =$instagram ?? '';
 }
 
-// Fetch dynamic footer products (Category ID 70, active items, limit 5) matching your catalog page
 $footerProducts = [];
 if (isset($con)) {
     $fProResult = mysqli_query($con, "SELECT id, name FROM products WHERE cat_id = 70 AND status = 1 ORDER BY `order` ASC, id DESC LIMIT 5");
@@ -195,20 +191,21 @@ if (isset($con)) {
     <form id="enquiryForm" class="enquiry-modal__form">
       <div class="form-group">
         <label class="form-label" for="enqName">Name *</label>
-        <input type="text" id="enqName" class="form-input" placeholder="Your full name" required>
+        <input type="text" id="enqName" name="name" class="form-input" placeholder="Your full name" required>
       </div>
       <div class="form-group">
         <label class="form-label" for="enqMobile">Mobile *</label>
-        <input type="tel" id="enqMobile" class="form-input" placeholder="+91 <?= htmlspecialchars($contactno) ?>" required>
+        <input type="tel" id="enqMobile" name="phone" class="form-input" placeholder="+91 <?= htmlspecialchars($contactno) ?>" required>
       </div>
       <div class="form-group">
         <label class="form-label" for="enqEmail">Email</label>
-        <input type="email" id="enqEmail" class="form-input" placeholder="your@email.com">
+        <input type="email" id="enqEmail" name="email" class="form-input" placeholder="your@email.com">
       </div>
       <div class="form-group">
         <label class="form-label" for="enqMessage">Message</label>
-        <textarea id="enqMessage" class="form-input textarea-enq-resize" rows="3" placeholder="Your message..."></textarea>
+        <textarea id="enqMessage" name="message" class="form-input textarea-enq-resize" rows="3" placeholder="Your message..."></textarea>
       </div>
+      <input type="hidden" name="enquiry_type" value="Website Enquiry">
       <button type="submit" class="btn btn--primary btn--lg width-100">Submit Enquiry</button>
     </form>
     <div id="enquirySuccess" class="enquiry-modal__success">

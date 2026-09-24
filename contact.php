@@ -53,19 +53,13 @@ $contactMapIframe = $contactMapIframe ?? '';
       <?php elseif(!empty($contactRow['featured_img'])): ?>
       <img src="<?= $path . $contactRow['featured_img'] ?>" alt="<?= htmlspecialchars($contactRow['c_name']) ?>" class="contact-hero-bg-img">
       <?php else: ?>
-      <img src="assets/images/contact-hero.jpg" alt="Contact Us" class="contact-hero-bg-img">
       <?php endif; ?>
-      <div class="contact-hero-center">
-        <h1 class="contact-hero-h1"><?= htmlspecialchars($contactRow['c_name'] ?? 'Contact Us') ?></h1>
-      </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact-section">
       <div class="container">
         <div class="contact-grid">
 
-          <!-- Address Side Card -->
           <div class="contact-card">
             <div class="contact-item">
               <div class="contact-icon">
@@ -116,7 +110,6 @@ $contactMapIframe = $contactMapIframe ?? '';
             </div>
           </div>
 
-          <!-- Contact Form Side -->
           <div class="contact-card">
             <div class="form-heading-tag">
               <span class="form-heading-tag__line"></span>
@@ -125,7 +118,8 @@ $contactMapIframe = $contactMapIframe ?? '';
             <h2 class="contact-msg-heading">Send us a message</h2>
 
             <form id="contactForm" class="contact-form-col">
-              <!-- Row 1: Name + Email -->
+              <input type="hidden" name="enquiry_type" value="Contact Form">
+
               <div class="form-row">
                 <div class="form-field">
                   <label for="contactName">Full Name *</label>
@@ -137,7 +131,6 @@ $contactMapIframe = $contactMapIframe ?? '';
                 </div>
               </div>
 
-              <!-- Row 2: Phone + Interest -->
               <div class="form-row">
                 <div class="form-field">
                   <label for="contactPhone">Phone *</label>
@@ -155,26 +148,28 @@ $contactMapIframe = $contactMapIframe ?? '';
                 </div>
               </div>
 
-              <!-- Row 3: Message -->
               <div class="form-field">
                 <label for="contactMessage">Your Message *</label>
-                <textarea id="contactMessage" name="message" rows="5" placeholder="Please share your requirements, enquiry, or how we can assist you…"></textarea>
+                <textarea id="contactMessage" name="message" rows="5" placeholder="Please share your requirements, enquiry, or how we can assist you…" required></textarea>
               </div>
 
-              <!-- Submit Button -->
               <div>
                 <button type="submit" class="btn-send">
                   Send Message
                 </button>
               </div>
             </form>
+            <div id="formSuccess" class="enquiry-modal__success" style="display:none;">
+              <div class="enquiry-modal__success-icon">&#10003;</div>
+              <h3>Thank You!</h3>
+              <p>Your message has been submitted. Our team will contact you shortly.</p>
+            </div>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- Map Section -->
     <section class="map-section-wrap">
       <div class="container">
         <div class="map-container-box">

@@ -1,7 +1,4 @@
 <?php
-/**
- * Disclaimer Page - RastoMed Pharma (dynamic)
- */
 require_once __DIR__ . '/includes/header.php';
 
 $pp = ['title' => 'Disclaimer', 'subtitle' => '', 'description' => ''];
@@ -44,13 +41,6 @@ $ppFirstWords = implode(' ', $ppParts);
 <?php if ($ppDescriptionHtml !== ''): ?>
           <?php echo $ppDescriptionHtml; ?>
 <?php else: ?>
-          <article class="legal-page__section">
-            <h2>Contact Us</h2>
-            <p>If you have any questions regarding this Disclaimer, please contact us:</p>
-            <p><strong>RastoMed Pharma</strong><br>
-            Email: <a href="mailto:info@rastomedpharma.com">info@rastomedpharma.com</a><br>
-            Website: <a href="https://www.rastomedpharma.com">www.rastomedpharma.com</a></p>
-          </article>
 <?php endif; ?>
         </div>
       </div>

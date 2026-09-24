@@ -1,8 +1,4 @@
 <?php
-/**
- * Navigation Bar Component
- * Desktop nav with dropdowns + Mobile nav
- */
 
 $currentPage = basename($_SERVER['PHP_SELF'], '.php');
 

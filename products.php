@@ -26,7 +26,6 @@ if (isset($con)) {
 ?>
 
   <main>
-    <!-- Products Banner -->
     <section class="about-banner"<?php if(!empty($productsBanner['wb_img'])): ?> style="background-image: url('<?= $path . $productsBanner['wb_img'] ?>');"<?php endif; ?>>
       <?php if(!empty($productsBanner['wb_video'])): ?>
       <video class="banner-bg-video" autoplay muted loop playsinline>
@@ -44,7 +43,6 @@ if (isset($con)) {
       </div>
     </section>
 
-    <!-- ========== PRODUCT CATALOG ========== -->
     <section class="section pad-0-top">
       <div class="container">
         <div class="flex-display">

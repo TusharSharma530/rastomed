@@ -1,7 +1,4 @@
 <?php
-/**
- * Recruitment Fraud Policy Page - RastoMed Pharma (dynamic)
- */
 require_once __DIR__ . '/includes/header.php';
 
 $pp = ['title' => 'Recruitment Fraud Policy', 'subtitle' => '', 'description' => ''];
@@ -32,8 +29,6 @@ if ($ppDescriptionHtml !== '' && strpos($ppDescriptionHtml, '<') === false) {
 <?php if ($ppDescriptionHtml !== ''): ?>
       <?php echo $ppDescriptionHtml; ?>
 <?php else: ?>
-      <p>If you receive a suspicious recruitment communication using the name or identity of RastoMed Pharma, please report it to us at:</p>
-      <p><strong>Email:</strong> <a href="mailto:info@rastomedpharma.com">info@rastomedpharma.com</a></p>
 <?php endif; ?>
     </section>
   </main>

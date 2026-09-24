@@ -482,6 +482,8 @@ function initContactForm() {
   if (!form) return;
 
   const successMessage = document.getElementById('formSuccess');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const defaultBtnText = submitBtn ? submitBtn.innerHTML : '';
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -519,18 +521,52 @@ function initContactForm() {
       }
     }
 
-    if (isValid) {
-      form.style.display = 'none';
-      if (successMessage) {
-        successMessage.style.display = 'block';
-      }
+    if (!isValid) return;
 
-      setTimeout(() => {
-        form.reset();
-        form.style.display = '';
-        if (successMessage) successMessage.style.display = 'none';
-      }, 5000);
+    const fd = new FormData(form);
+    if (!fd.get('enquiry_type')) {
+      fd.set('enquiry_type', 'Contact Form');
     }
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending...';
+    }
+
+    var enquiryUrl = (window.SITE_BASE || '/rastomed/') + 'includes/save-enquiry';
+    fetch(enquiryUrl, {
+      method: 'POST',
+      body: fd,
+      credentials: 'same-origin',
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = defaultBtnText;
+        }
+        if (data && data.success) {
+          form.style.display = 'none';
+          if (successMessage) {
+            successMessage.style.display = 'block';
+          }
+          form.reset();
+          setTimeout(() => {
+            form.style.display = '';
+            if (successMessage) successMessage.style.display = 'none';
+          }, 5000);
+        } else {
+          alert((data && data.message) || 'Something went wrong. Please try again.');
+        }
+      })
+      .catch(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = defaultBtnText;
+        }
+        alert('Something went wrong. Please try again.');
+      });
   });
 }
 
@@ -633,16 +669,53 @@ function initEnquiryModal() {
           field.style.borderColor = '';
         }
       });
-      if (isValid) {
-        form.style.display = 'none';
-        if (success) success.style.display = 'block';
-        setTimeout(function() {
-          form.reset();
-          form.style.display = '';
-          if (success) success.style.display = 'none';
-          closeModal();
-        }, 4000);
+      if (!isValid) return;
+
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var defaultBtnText = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending...';
       }
+
+      var fd = new FormData(form);
+      if (!fd.get('enquiry_type')) {
+        fd.set('enquiry_type', 'Website Enquiry');
+      }
+
+      var enquiryUrl = (window.SITE_BASE || '/rastomed/') + 'includes/save-enquiry';
+      fetch(enquiryUrl, {
+        method: 'POST',
+        body: fd,
+        credentials: 'same-origin',
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = defaultBtnText;
+          }
+          if (data && data.success) {
+            form.style.display = 'none';
+            if (success) success.style.display = 'block';
+            setTimeout(function() {
+              form.reset();
+              form.style.display = '';
+              if (success) success.style.display = 'none';
+              closeModal();
+            }, 4000);
+          } else {
+            alert((data && data.message) || 'Something went wrong. Please try again.');
+          }
+        })
+        .catch(function() {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = defaultBtnText;
+          }
+          alert('Something went wrong. Please try again.');
+        });
     });
   }
 }

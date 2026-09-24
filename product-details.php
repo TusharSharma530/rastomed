@@ -1,7 +1,4 @@
 <?php
-/**
- * Product Details Page - RastoMed Pharma
- */
 ?>
   <?php include __DIR__ . '/includes/header.php'; ?>
 <?php
@@ -37,7 +34,6 @@ if (!empty($product['faq'])) {
 ?>
 
   <main>
-    <!-- Product Details Banner -->
     <section class="about-banner">
       <div class="about-banner__overlay"></div>
       <div class="container about-banner__content">
@@ -52,7 +48,6 @@ if (!empty($product['faq'])) {
       </div>
     </section>
 
-    <!-- Product Details -->
     <section class="section product-detail-sec-pad">
       <div class="container">
         <div class="pd-detail-grid product-detail-grid-layout">
@@ -60,7 +55,7 @@ if (!empty($product['faq'])) {
             <?php if(!empty($product['featured_img'])): ?>
             <img src="<?= $path . $product['featured_img'] ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="product-detail-img-max">
             <?php else: ?>
-            <img src="assets/images/qorest-10.png" alt="<?= htmlspecialchars($product['name']) ?>" class="product-detail-img-max">
+            <img src="" alt="<?= htmlspecialchars($product['name']) ?>" class="product-detail-img-max">
             <?php endif; ?>
           </div>
           <div class="pd-detail-grid__content product-detail-content-box">

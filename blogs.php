@@ -1,7 +1,5 @@
 <?php
-/**
- * Blogs Page - RastoMed Pharma
- */
+
 ?>
   <?php include __DIR__ . '/includes/header.php'; ?>
 <?php
@@ -27,7 +25,7 @@ if (isset($con)) {
 ?>
 
   <main>
-    <!-- Blogs Banner -->
+    
     <section class="about-banner"<?php if(!empty($blogsBanner['wb_img'])): ?> style="background-image: url('<?= $path . $blogsBanner['wb_img'] ?>');"<?php endif; ?>>
       <?php if(!empty($blogsBanner['wb_video'])): ?>
       <video class="banner-bg-video" autoplay muted loop playsinline>
@@ -54,7 +52,6 @@ if (isset($con)) {
               <?php if(!empty($blog['file'])): ?>
               <img src="<?= $path . $blog['file'] ?>" alt="<?= htmlspecialchars($blog['title']) ?>" width="400" height="220" loading="lazy">
               <?php else: ?>
-              <img src="assets/images/blog-research.jpg" alt="<?= htmlspecialchars($blog['title']) ?>" width="400" height="220" loading="lazy">
               <?php endif; ?>
             </div>
             <div class="blog-card__body">

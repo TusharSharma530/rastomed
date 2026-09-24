@@ -1,7 +1,4 @@
 <?php
-/**
- * Blog Details Page - RastoMed Pharma
- */
 ?>
   <?php include __DIR__ . '/includes/header.php'; ?>
 <?php
@@ -39,7 +36,7 @@ $blogDescHtml = render_pages_description($blog['desc'] ?? '', [
 
 
   <main>
-    <!-- Blog Details Banner -->
+   
     <section class="about-banner"<?php if(!empty($blogsBanner['wb_img'])): ?> style="background-image: url('<?= $path . $blogsBanner['wb_img'] ?>');"<?php endif; ?>>
       <?php if(!empty($blogsBanner['wb_video'])): ?>
       <video class="banner-bg-video" autoplay muted loop playsinline>

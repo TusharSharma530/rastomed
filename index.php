@@ -1,6 +1,4 @@
 <?php
-
-
 require_once __DIR__ . '/includes/header.php';
 
 $homeBannerVideo = '';
@@ -46,25 +44,6 @@ if ($homeSettingsResult && mysqli_num_rows($homeSettingsResult)) {
     $siteSettings = mysqli_fetch_assoc($homeSettingsResult);
 }
 
-// $awards = [
-//     [
-//         'image' => 'assets/images/award1.jpeg',
-//         'title' => 'India Pharma Award 2023',
-//     ],
-//     [
-//         'image' => 'assets/images/award2.png',
-//         'title' => 'GMP Certified',
-//     ],
-//     [
-//         'image' => 'assets/images/award3.jpeg',
-//         'title' => 'ISO 9001:2015',
-//     ],
-//     [
-//         'image' => 'assets/images/award4.jpeg',
-//         'title' => 'WHO-GMP Certified',
-//     ],
-// ];
-
 $testimonials = [];
 $homeTestimonialsResult = mysqli_query($con, "SELECT * FROM testimonials WHERE status = 1 ORDER BY `order` ASC, id ASC");
 if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
@@ -87,37 +66,10 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
     }
 }
 
-// $homeBlogs = [
-//     [
-//         'id' => 1,
-//         'title' => 'Latest Trends in Pharmaceutical Industry in 2024',
-//         'category' => 'Pharma News',
-//         'date' => 'May 10, 2024',
-//         'image' => 'assets/images/blog-research.jpg',
-//         'excerpt' => 'Exploring the latest advancements and trends shaping the pharmaceutical industry.',
-//     ],
-//     [
-//         'id' => 2,
-//         'title' => '5 Simple Ways to Boost Your Immunity Naturally',
-//         'category' => 'Health Tips',
-//         'date' => 'May 05, 2024',
-//         'image' => 'assets/images/blog-health.jpg',
-//         'excerpt' => 'Natural approaches to strengthen your immune system and stay healthy.',
-//     ],
-//     [
-//         'id' => 3,
-//         'title' => 'How Quality Manufacturing Ensures Better Healthcare',
-//         'category' => 'Pharma Updates',
-//         'date' => 'April 28, 2024',
-//         'image' => 'assets/images/blog-manufacturing.jpg',
-//         'excerpt' => 'The role of quality manufacturing in delivering safe and effective medicines.',
-//     ],
-// ];
 ?>
-  <!-- 1. HEADER -->
 
   <main>
-    <!-- 2. HERO SECTION - Video Hero Banner -->
+  
     <section class="home-hero-banner">
       <?php if(!empty($homeBannerVideo)): ?>
       <video id="heroVideo" class="home-hero-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto" <?php if(!empty($homeBannerImg)): ?>poster="<?= $path . $homeBannerImg ?>"<?php else: ?>poster=""<?php endif; ?>>
@@ -132,7 +84,7 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
           <h1 class="home-hero-title"><?= htmlspecialchars($heroTitle) ?></h1>
           <p class="home-hero-subtitle"><?= htmlspecialchars($heroSubtitle) ?></p>
           
-          <!-- 4 Feature Animated SVG Icons -->
+      
           <div class="home-hero-features">
             <div class="hero-feature-item">
               <div class="hero-feature-gif-box">
@@ -236,13 +188,13 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
       </div>
     </section>
 
-    <!-- 3. ABOUT US -->
+   
     <section class="about-section">
       <div class="container">
         <div class="about-section__grid">
           <div class="about-section__images">
             <div class="about-section__img about-section__img--1">
-              <img src="<?= !empty($aboutImg) ? $path . $aboutImg : 'assets/images/about.png' ?>" alt="<?= htmlspecialchars($aboutTitle) ?>" width="400" height="350">
+              <img src="<?= !empty($aboutImg) ? $path . $aboutImg : '' ?>" alt="<?= htmlspecialchars($aboutTitle) ?>" width="400" height="350">
             </div>
           </div>
           <div class="about-section__content">
@@ -262,12 +214,11 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
       </div>
     </section>
 
-    <!-- 4. OUR PRODUCTS -->
+  
     <section class="section our-products-section">
       <div class="container">
         <div class="our-products-header">
           <div>
-            <span class="our-products-label">Quality &amp; Reliable</span>
             <h3 class="our-products-title">Our Products</h3>
           </div>
           <a href="products.php" class="our-products-viewall">
@@ -309,28 +260,6 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
       </div>
     </section>
 
-    <!-- 5. AWARDS & CERTIFICATIONS -->
-    <!-- <section class="section our-products-section">
-      <div class="container">
-        <div class="our-products-header">
-          <div>
-            <span class="our-products-label">AWARDS &amp; CERTIFICATIONS</span>
-            <h3 class="our-products-title">Recognized for Excellence</h3>
-          </div>
-        </div>
-        <div class="award-flex-row">
-          <?php foreach ($awards as $award): ?>
-            <div class="award-item-col">
-              <div class="award-item-inner">
-                <img src="<?= $award['image'] ?>" alt="<?= htmlspecialchars($award['title']) ?>" class="award-img-display" loading="lazy">
-              </div>
-            </div>
-          <?php endforeach; ?>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- 6. TESTIMONIALS -->
     <section class="section our-products-section">
       <div class="container">
         <div class="our-products-header">
@@ -375,41 +304,6 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
       </div>
     </section>
 
-    <!-- 7. BLOGS
-    <section class="section our-products-section">
-      <div class="container">
-        <div class="our-products-header">
-          <div>
-            <span class="our-products-label">OUR BLOGS</span>
-            <h3 class="our-products-title">Latest Insights &amp; Updates</h3>
-          </div>
-          <?= renderButton('View All Blogs', 'blogs.php', 'outline', 'sm', '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>') ?>
-        </div>
-        <div class="blogs-grid">
-          <?php foreach ($homeBlogs as $b): ?>
-            <div class="blog-card reveal">
-              <div class="blog-card__image">
-                <img src="<?= $b['image'] ?>" alt="<?= htmlspecialchars($b['title']) ?>" width="400" height="220" loading="lazy">
-              </div>
-              <div class="blog-card__body">
-                <div class="blog-card__meta">
-                  <span class="blog-card__category"><?= htmlspecialchars($b['category']) ?></span>
-                  <span class="blog-card__date"><?= htmlspecialchars($b['date']) ?></span>
-                </div>
-                <h3 class="blog-card__title"><?= htmlspecialchars($b['title']) ?></h3>
-                <a href="blog-details.php?id=<?= $b['id'] ?>" class="blog-card__link">
-                  Read More
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </a>
-              </div>
-            </div>
-          <?php endforeach; ?>
-        </div>
-      </div>
-    </section>
-    -->
-
-    <!-- 8. MAP / CONTACT -->
     <section class="section pad-20-section">
       <div class="container">
         <div class="map-contact-grid">

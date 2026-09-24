@@ -1,12 +1,8 @@
 <?php
-/**
- * Careers Page - RastoMed Pharma
- */
 ?>
   <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
-    <!-- Hero Banner -->
     <section class="career-hero">
       <img src="assets/images/career-hero.jpg" alt="Career at RastoMed Pharma" class="career-hero__bg">
       <div class="career-hero__overlay"></div>
