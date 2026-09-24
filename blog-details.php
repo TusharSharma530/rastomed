@@ -15,6 +15,7 @@ if ($id && isset($con)) {
 }
 
 if (!$blog) {
+    ;
     echo '<main><section class="section"><div class="container"><p>Blog not found.</p></div></section></main>';
     include __DIR__ . '/includes/footer.php';
     exit();
@@ -27,7 +28,15 @@ if (isset($con)) {
         $blogsBanner = mysqli_fetch_assoc($bannerResult);
     }
 }
+
+$blogSdesc = trim((string)($blog['sdesc'] ?? ''));
+$blogDescHtml = render_pages_description($blog['desc'] ?? '', [
+    'intro' => false,
+    'article' => false,
+    'list_class' => '',
+]);
 ?>
+
 
   <main>
     <!-- Blog Details Banner -->
@@ -58,12 +67,12 @@ if (isset($con)) {
         <p style="font-size: 1.05rem; color: #555; margin-bottom: 20px;">By <?= htmlspecialchars($blog['author']) ?></p>
         <?php endif; ?>
         <hr style="border: 1px solid #ccc; margin-bottom: 30px;">
-        <div class="pd-detail-grid__desc" style="font-size: 1rem; line-height: 1.8; color: #333;">
-          <?php if(!empty($blog['sdesc'])): ?>
-          <?= $blog['sdesc'] ?>
+        <div class="pd-detail-grid__desc">
+          <?php if ($blogSdesc !== ''): ?>
+          <p><?= nl2br(htmlspecialchars(pages_plain_input($blogSdesc), ENT_QUOTES, 'UTF-8')) ?></p>
           <?php endif; ?>
-          <?php if(!empty($blog['desc'])): ?>
-          <?= $blog['desc'] ?>
+          <?php if ($blogDescHtml !== ''): ?>
+          <?= $blogDescHtml ?>
           <?php endif; ?>
         </div>
       </div>

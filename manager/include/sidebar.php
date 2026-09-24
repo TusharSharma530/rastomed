@@ -36,9 +36,30 @@
 <!-- sub menu end here -->
 </li>
 <li class="menu-item ">
-	<a href="products.php" class="menu-link">							
+	<a href="products.php" class="menu-link">
 	<span class="link-text"><i class="ri-shopping-bag-line"></i> Products</span>
 	</a>
+</li>
+<li class="menu-item has-submenu">
+	<a href="javascript:" class="menu-link" id="parent-menu">
+	<span class="link-text"><i class="ri-file-text-line"></i> Pages</span>
+	<i class='bx bx-chevron-down'></i>
+	</a>
+<!-- sub menu start here -->
+<div class="submenu" id="child-menu">
+<ul class="submenu-list">
+<li class="submenu-item">
+<a href="privacy-policy.php" class="submenu-link">Privacy Policy</a>
+</li>
+<li class="submenu-item">
+<a href="disclaimer.php" class="submenu-link">Disclaimer</a>
+</li>
+<li class="submenu-item">
+<a href="fraud-policy.php" class="submenu-link">Recruitment Fraud Policy</a>
+</li>
+</ul>
+</div>
+<!-- sub menu end here -->
 </li>
 <li class="menu-item ">
 	<a href="advisoryboard.php" class="menu-link">							

@@ -18,11 +18,16 @@ if ($con) {
         $aboutBanner = mysqli_fetch_assoc($bannerResult);
     }
 }
-$mvRow = null;
+$missionRow = null;
+$visionRow = null;
 if ($con) {
-    $mvResult = mysqli_query($con, "SELECT * FROM category WHERE id = 73 AND status = 1");
-    if ($mvResult && mysqli_num_rows($mvResult)) {
-        $mvRow = mysqli_fetch_assoc($mvResult);
+    $missionResult = mysqli_query($con, "SELECT * FROM category WHERE id = 73 AND status = 1");
+    if ($missionResult && mysqli_num_rows($missionResult)) {
+        $missionRow = mysqli_fetch_assoc($missionResult);
+    }
+    $visionResult = mysqli_query($con, "SELECT * FROM category WHERE id = 78 AND status = 1");
+    if ($visionResult && mysqli_num_rows($visionResult)) {
+        $visionRow = mysqli_fetch_assoc($visionResult);
     }
 }
 ?>
@@ -79,39 +84,57 @@ if ($con) {
     <?php endif; ?>
 
     <!-- ========== MISSION & VISION ========== -->
-    <?php if ($mvRow): ?>
+    <?php if ($missionRow || $visionRow): ?>
     <section class="section section--alt pad-bottom-sm about-mv-section">
       <div class="container">
-        <h2 class="mv-section__title"><?= htmlspecialchars($mvRow['c_name']) ?></h2>
+        <?php if ($missionRow && trim($missionRow['c_name']) !== ''): ?>
+        <h2 class="mv-section__title"><?= htmlspecialchars(trim($missionRow['sdesc']) !== '' ? $missionRow['sdesc'] : $missionRow['c_name']) ?></h2>
+        <?php elseif ($visionRow && trim($visionRow['c_name']) !== ''): ?>
+        <h2 class="mv-section__title"><?= htmlspecialchars($visionRow['c_name']) ?></h2>
+        <?php endif; ?>
 
         <div class="mv-cards reveal">
           <?php
-            $missionText = str_replace("\\n", "\n", $mvRow['sdesc']);
-            $visionText = str_replace("\\n", "\n", $mvRow['c_desc']);
+            $missionText = '';
+            if ($missionRow) {
+                $missionText = trim($missionRow['sdesc']) !== '' ? $missionRow['sdesc'] : $missionRow['c_desc'];
+                $missionText = str_replace("\\n", "\n", $missionText);
+            }
+            $visionText = '';
+            if ($visionRow) {
+                $visionText = trim($visionRow['sdesc']) !== '' ? $visionRow['sdesc'] : $visionRow['c_desc'];
+                $visionText = str_replace("\\n", "\n", $visionText);
+            }
+            $missionTitle = $missionRow ? $missionRow['c_name'] : 'Our Mission';
+            $visionTitle = $visionRow ? $visionRow['c_name'] : 'Our Vision';
           ?>
+          <?php if ($missionRow): ?>
           <div class="mv-card">
             <div class="mv-card__icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1565C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
             </div>
             <div class="mv-card__content">
-              <h3 class="mv-card__title">Our Mission</h3>
+              <h3 class="mv-card__title"><?= htmlspecialchars($missionTitle) ?></h3>
               <p class="mv-card__text"><?= nl2br(htmlspecialchars($missionText)) ?></p>
             </div>
             <div class="mv-card__corner mv-card__corner--left"></div>
             <div class="mv-card__corner mv-card__corner--right"></div>
           </div>
+          <?php endif; ?>
 
+          <?php if ($visionRow): ?>
           <div class="mv-card">
             <div class="mv-card__icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1565C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
             </div>
             <div class="mv-card__content">
-              <h3 class="mv-card__title">Our Vision</h3>
+              <h3 class="mv-card__title"><?= htmlspecialchars($visionTitle) ?></h3>
               <p class="mv-card__text"><?= nl2br(htmlspecialchars($visionText)) ?></p>
             </div>
             <div class="mv-card__corner mv-card__corner--left"></div>
             <div class="mv-card__corner mv-card__corner--right"></div>
           </div>
+          <?php endif; ?>
         </div>
       </div>
     </section>

@@ -19,8 +19,8 @@ if(mysqli_num_rows($sqlnews)){
 if(isset($_POST['editRecord'])){
 	$title = trim(mysqli_real_escape_string($con,$_POST['title']));
 	$url = seo_friendly_url($title);
-	$desc = trim(mysqli_real_escape_string($con,$_POST['idesc']));
-	$sdesc = trim(mysqli_real_escape_string($con,$_POST['sdesc']));
+	$desc = trim(mysqli_real_escape_string($con, pages_plain_input($_POST['idesc'])));
+	$sdesc = trim(mysqli_real_escape_string($con, pages_plain_input($_POST['sdesc'])));
 	$order = trim(mysqli_real_escape_string($con,$_POST['order']));
 	$author = trim(mysqli_real_escape_string($con,$_POST['author']));
 	$date = trim(mysqli_real_escape_string($con,$_POST['date']));
@@ -102,12 +102,14 @@ include 'include/sidebar.php';
 
 			<div class="mb-3 col-md-12">
 				<label for="sdesc" class="form-label">Short Description</label>
-				<textarea type="text" class="tinyMCE"  name="sdesc"><?php echo $rwnews['sdesc']; ?></textarea>
+				<textarea class="form-control" name="sdesc" id="sdesc" rows="3" placeholder="Simple text (no HTML)"><?php echo htmlspecialchars(pages_plain_input($rwnews['sdesc'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></textarea>
+				<small class="text-muted">Plain text only</small>
 			</div>
 
 			<div class="mb-3 col-md-12">
-				<label for="sclass" class="form-label">Description</label>
-				<textarea type="text" class="tinyMCE"  name="idesc"><?php echo $rwnews['desc']; ?></textarea>
+				<label for="idesc" class="form-label">Description</label>
+				<textarea class="form-control" name="idesc" id="idesc" rows="14" placeholder="Blank line = new paragraph&#10;## Heading&#10;- List item"><?php echo htmlspecialchars(pages_plain_input($rwnews['desc'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></textarea>
+				<small class="text-muted">Plain text only — blank line = paragraph, ## Heading, - list item</small>
 			</div>
 			<div class="mb-3 col-md-6">
     			<label for="metatitle" class="form-label">Meta Title</label>

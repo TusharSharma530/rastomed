@@ -1,31 +1,37 @@
 <?php
+/**
+ * Recruitment Fraud Policy Page - RastoMed Pharma (dynamic)
+ */
+require_once __DIR__ . '/includes/header.php';
 
+$pp = ['title' => 'Recruitment Fraud Policy', 'subtitle' => '', 'description' => ''];
+$sqlpp = mysqli_query($con, "SELECT * FROM `pages` WHERE slug = 'fraud-policy'");
+if ($sqlpp && mysqli_num_rows($sqlpp)) {
+	$pp = mysqli_fetch_assoc($sqlpp);
+}
+
+$ppTitle = trim($pp['title']) !== '' ? $pp['title'] : 'Recruitment Fraud Policy';
+$ppSubtitle = $pp['subtitle'];
+$ppDescriptionHtml = render_pages_description($pp['description']);
 ?>
-  <?php include __DIR__ . '/includes/header.php'; ?>
 
   <main>
     <section class="fraud-banner">
       <div class="container">
-        <h1>Recruitment Fraud Notice</h1>
+        <h1><?php echo htmlspecialchars($ppTitle); ?></h1>
       </div>
     </section>
 
     <section class="fraud-content">
-      <p>At RastoMed Pharma, we are committed to maintaining a fair, transparent, and professional recruitment process. We have become aware that individuals may misuse company names, logos, or recruitment information to make fraudulent job offers or request money and personal information from job seekers.</p>
-
-      <h2>Please take note of the following:</h2>
-      <p>1. RastoMed Pharma does not charge any fee for job applications, interviews, recruitment, training, or employment.</p>
-      <p>2. We will never ask candidates to make payments to secure a job or receive an appointment letter.</p>
-      <p>3. Be cautious of unsolicited job offers, messages, or interview invitations received through unofficial channels.</p>
-      <p>4. Do not share sensitive information such as bank account details, passwords, OTPs, or other financial information with unknown individuals.</p>
-      <p>5. Candidates should verify recruitment-related communication through our official website or authorised RastoMed Pharma communication channels.</p>
-      <p>6. Any job offer or recruitment communication that appears suspicious should be independently verified before taking further action.</p>
-
-      <h2>Important Notice</h2>
-      <p>RastoMed Pharma will not be responsible for any loss, damage, or consequences resulting from fraudulent communications or transactions made by individuals falsely claiming to represent the company.</p>
-
+<?php if ($ppSubtitle !== ''): ?>
+      <p><?php echo htmlspecialchars($ppSubtitle); ?></p>
+<?php endif; ?>
+<?php if ($ppDescriptionHtml !== ''): ?>
+      <?php echo $ppDescriptionHtml; ?>
+<?php else: ?>
       <p>If you receive a suspicious recruitment communication using the name or identity of RastoMed Pharma, please report it to us at:</p>
       <p><strong>Email:</strong> <a href="mailto:info@rastomedpharma.com">info@rastomedpharma.com</a></p>
+<?php endif; ?>
     </section>
   </main>
 

@@ -9,8 +9,8 @@ if(!isset($_SESSION['username'])){
 if(isset($_POST['addRecord'])){
 	$title = trim(mysqli_real_escape_string($con,$_POST['title']));
 	$url = seo_friendly_url($title);
-	$desc = trim(mysqli_real_escape_string($con,$_POST['idesc']));
-	$sdesc = trim(mysqli_real_escape_string($con,$_POST['sdesc']));
+	$desc = trim(mysqli_real_escape_string($con, pages_plain_input($_POST['idesc'])));
+	$sdesc = trim(mysqli_real_escape_string($con, pages_plain_input($_POST['sdesc'])));
 	$order = trim(mysqli_real_escape_string($con,$_POST['order']));
 	$author = trim(mysqli_real_escape_string($con,$_POST['author']));
 	$date = trim(mysqli_real_escape_string($con,$_POST['date']));
@@ -82,13 +82,15 @@ include 'include/sidebar.php'; ?>
 		</div>
 
 		<div class="mb-3 col-md-12">
-			<label for="desc" class="form-label">Short Description</label>
-			<textarea type="text" class="tinyMCE"  name="sdesc"></textarea>
+			<label for="sdesc" class="form-label">Short Description</label>
+			<textarea class="form-control" name="sdesc" id="sdesc" rows="3" placeholder="Simple text (no HTML)"></textarea>
+			<small class="text-muted">Plain text only — no HTML</small>
 		</div>
 
 		<div class="mb-3 col-md-12">
-			<label for="desc" class="form-label">Description</label>
-			<textarea type="text" class="tinyMCE"  name="idesc"></textarea>
+			<label for="idesc" class="form-label">Description</label>
+			<textarea class="form-control" name="idesc" id="idesc" rows="14" placeholder="Blank line = new paragraph&#10;## Heading&#10;- List item"></textarea>
+			<small class="text-muted">Plain text only — blank line = paragraph, ## Heading, - list item</small>
 		</div>
 		
 		<div class="mb-3 col-md-6">

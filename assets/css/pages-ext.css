@@ -2231,6 +2231,14 @@
   margin-bottom: 16px;
 }
 
+.pd-detail-grid__desc h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+  margin-top: 16px;
+}
+
 .pd-detail-grid__desc h3 {
   font-size: 1.1rem;
   font-weight: 700;
@@ -2350,6 +2358,7 @@
   color: var(--dark-text-secondary);
 }
 
+[data-theme="dark"] .pd-detail-grid__desc h2,
 [data-theme="dark"] .pd-detail-grid__desc h3 {
   color: #90caf9;
 }

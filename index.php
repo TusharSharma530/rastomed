@@ -79,7 +79,7 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
             }
         }
         $testimonials[] = [
-            'quote' => trim(strip_tags($rwTc['desc'])),
+            'quote' => trim(preg_replace('/\s+/', ' ', strip_tags($rwTc['desc']))),
             'name' => $tcName,
             'role' => trim(strip_tags($rwTc['heading'])),
             'avatar' => $tcInitials ?: 'T',

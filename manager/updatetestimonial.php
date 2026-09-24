@@ -16,7 +16,7 @@ if(isset($_POST['editRecord'])){
 	$heading = trim(mysqli_real_escape_string($con,$_POST['heading']));
 	$title = trim(mysqli_real_escape_string($con,$_POST['title']));
 	$url = seo_friendly_url($title);
-	$desc = trim(mysqli_real_escape_string($con,$_POST['idesc']));
+	$desc = trim(mysqli_real_escape_string($con, pages_plain_input($_POST['idesc'])));
 	$order = trim(mysqli_real_escape_string($con,$_POST['order']));
 	
 	 if(empty($_FILES['img']['name'])){
@@ -80,8 +80,9 @@ include 'include/sidebar.php';
 			</div>
 
 			<div class="mb-3 col-md-12">
-				<label for="sclass" class="form-label">Description</label>
-				<textarea type="text" class="tinyMCE"  name="idesc" required><?php echo $rwtc['desc']; ?></textarea>
+				<label for="idesc" class="form-label">Description</label>
+				<textarea class="form-control" name="idesc" id="idesc" rows="4" placeholder="Simple description (no HTML)" required><?php echo htmlspecialchars(pages_plain_input($rwtc['desc'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></textarea>
+				<small class="text-muted">Plain text only — styling comes from the site file/CSS</small>
 			</div>
 
 			<div class="mb-3 col-md-12">
