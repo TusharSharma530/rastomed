@@ -82,7 +82,6 @@ include 'include/sidebar.php';
 			<div class="mb-3 col-md-12">
 				<label for="idesc" class="form-label">Description</label>
 				<textarea class="form-control" name="idesc" id="idesc" rows="4" placeholder="Simple description (no HTML)" required><?php echo htmlspecialchars(pages_plain_input($rwtc['desc'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></textarea>
-				<small class="text-muted">Plain text only — styling comes from the site file/CSS</small>
 			</div>
 
 			<div class="mb-3 col-md-12">
