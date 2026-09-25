@@ -1,6 +1,9 @@
 <?php
 
 $currentPage = basename($_SERVER['PHP_SELF'], '.php');
+if ($currentPage === 'page' && isset($_GET['slug'])) {
+    $currentPage = trim($_GET['slug'], '/');
+}
 
 $urlToPage = [
     'home'       => 'index.php',
@@ -20,7 +23,13 @@ if ($con) {
     $sqlNav = mysqli_query($con, "SELECT c_name, c_url FROM category WHERE c_type = '1' AND status = 1 ORDER BY `order` ASC");
     while ($row = mysqli_fetch_assoc($sqlNav)) {
         $slug = $row['c_url'];
-        $page = $urlToPage[$slug] ?? $slug . '.php';
+        if (isset($urlToPage[$slug])) {
+            $page = $urlToPage[$slug];
+        } elseif (file_exists(__DIR__ . '/../' . $slug . '.php')) {
+            $page = $slug . '.php';
+        } else {
+            $page = $slug;
+        }
         $key  = basename($page, '.php');
         $navItems[] = [
             'label' => $row['c_name'],
