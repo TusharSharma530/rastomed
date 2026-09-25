@@ -112,7 +112,7 @@ window.RASTOMED_withRecaptcha = function (fn) {
         <?php if(!empty($logo)): ?>
         <img src="<?= htmlspecialchars($path . $logo) ?>" alt="<?= htmlspecialchars($websitename) ?>" class="top-bar__logo-img">
         <?php else: ?>
-        <img src="assets/images/rastomed.png" alt="<?= htmlspecialchars($websitename) ?>" class="top-bar__logo-img">
+        <img src="" alt="<?= htmlspecialchars($websitename) ?>" class="top-bar__logo-img">
         <?php endif; ?>
       </a>
       <div class="top-bar__contact">
@@ -151,7 +151,7 @@ window.RASTOMED_withRecaptcha = function (fn) {
       <?php if(!empty($logo)): ?>
       <img src="<?= htmlspecialchars($path . $logo) ?>" alt="<?= htmlspecialchars($websitename) ?>" class="header-logo-brand">
       <?php else: ?>
-      <img src="assets/images/rastomed.png" alt="<?= htmlspecialchars($websitename) ?>" class="header-logo-brand">
+      <img src="" alt="<?= htmlspecialchars($websitename) ?>" class="header-logo-brand">
       <?php endif; ?>
     </a>
 
@@ -193,7 +193,7 @@ window.RASTOMED_withRecaptcha = function (fn) {
       <?php if(!empty($logo)): ?>
       <img src="<?= htmlspecialchars($path . $logo) ?>" alt="<?= htmlspecialchars($websitename) ?>">
       <?php else: ?>
-      <img src="assets/images/rastomed.png" alt="<?= htmlspecialchars($websitename) ?>">
+      <img src="" alt="<?= htmlspecialchars($websitename) ?>">
       <?php endif; ?>
     </a>
     <button class="mobile-nav__close" aria-label="Close menu">

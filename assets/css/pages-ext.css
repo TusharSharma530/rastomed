@@ -2416,6 +2416,28 @@
   color: #90caf9;
 }
 
+.pd-detail-grid__desc [style] {
+  background-color: transparent !important;
+}
+
+[data-theme="dark"] .pd-detail-grid__desc [style] {
+  color: var(--dark-text-secondary) !important;
+}
+
+[data-theme="dark"] .pd-detail-grid__desc h2[style],
+[data-theme="dark"] .pd-detail-grid__desc h3[style],
+[data-theme="dark"] .pd-detail-grid__desc strong[style] {
+  color: #90caf9 !important;
+}
+
+[data-theme="dark"] .pd-detail-grid__desc a[style] {
+  color: #58a6ff !important;
+}
+
+[data-theme="dark"] .pd-detail-grid__desc a[style]:hover {
+  color: #79c0ff !important;
+}
+
 [data-theme="dark"] .mv-card__corner {
   background: var(--color-primary);
 }
