@@ -1,7 +1,5 @@
 <?php
 
-require_once __DIR__ . '/includes/components.php';
-
 $currentPage = 'contact';
 ?>
   <?php include __DIR__ . '/includes/header.php'; ?>
@@ -35,10 +33,12 @@ if (isset($con)) {
         if (!empty($rw['contact_no'])) { $contactno =$rw['contact_no']; }
         if (!empty($rw['alternate_no'])) { $alternateno =$rw['alternate_no']; }
         if (!empty($rw['email_id'])) { $emailid =$rw['email_id']; }
+        $openingHour = $rw['opening_hour'] ?? '';
         $contactMapIframe = trim($rw['map_iframe'] ?? '');
     }
 }
 $contactMapIframe = $contactMapIframe ?? '';
+$openingHour = trim($openingHour ?? '');
 ?>
 
   <main>
@@ -108,7 +108,7 @@ $contactMapIframe = $contactMapIframe ?? '';
               </div>
               <div>
                 <strong class="contact-item__label">Open Hours</strong>
-                <p class="contact-item__text">Monday - Saturday, 9 AM &ndash; 6 PM</p>
+                <p class="contact-item__text"><?= htmlspecialchars($openingHour !== '' ? $openingHour : '') ?></p>
               </div>
             </div>
           </div>

@@ -18,6 +18,7 @@ if(isset($_POST['editRecord'])){
 	$alternate_no = mysqli_real_escape_string($con, $_POST['alternate_no']);
 	$whatsapp_no = mysqli_real_escape_string($con, $_POST['whatsapp_no']);
 	$address = mysqli_real_escape_string($con, $_POST['address']);
+	$opening_hour = mysqli_real_escape_string($con, $_POST['opening_hour']);
 	$youtubelink = mysqli_real_escape_string($con, $_POST['youtubelink']);
 	$facebook = mysqli_real_escape_string($con, $_POST['facebook']);
 	$youtube = mysqli_real_escape_string($con, $_POST['youtube']);
@@ -48,6 +49,7 @@ if(isset($_POST['editRecord'])){
 		alternate_no = '$alternate_no',
 		whatsapp_no = '$whatsapp_no',
 		address = '$address ',
+		opening_hour = '$opening_hour',
 		youtubelink = '$youtubelink ',
 		facebook = '$facebook',
 		youtube = '$youtube' ,			
@@ -165,6 +167,11 @@ if(isset($_POST['editRecord'])){
 		<div class="col-md-12 mb-3">
 			<label for="address" >Address</label>
 			<input type="text" id="address" name="address" class="form-control" value="<?php echo $rwpinfo['address']; ?>">
+		</div>
+
+		<div class="col-md-12 mb-3">
+			<label for="opening_hour" >Opening Hours</label>
+			<input type="text" id="opening_hour" name="opening_hour" class="form-control" value="<?php echo htmlspecialchars($rwpinfo['opening_hour'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="e.g. Monday - Saturday, 9 AM – 6 PM">
 		</div>
 
 		<div class="col-md-12 mb-3">

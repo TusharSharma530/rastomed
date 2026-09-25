@@ -332,6 +332,11 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
             $homeEmail = trim($siteSettings['email_id'] ?? '');
             $homePhone1Full = ($homePhone1 !== '' && strpos($homePhone1, '+') === false && strpos($homePhone1, '91') !== 0) ? '+91 ' . $homePhone1 : $homePhone1;
             $homePhone2Full = ($homePhone2 !== '' && strpos($homePhone2, '+') === false && strpos($homePhone2, '91') !== 0) ? '+91 ' . $homePhone2 : $homePhone2;
+            $homeHours = trim($siteSettings['opening_hour'] ?? '');
+            if ($homeHours === '') { $homeHours = ''; }
+            $homeHoursAt = strpos($homeHours, ',');
+            $homeHoursDay = $homeHoursAt !== false ? trim(substr($homeHours, 0, $homeHoursAt)) : $homeHours;
+            $homeHoursTime = $homeHoursAt !== false ? trim(substr($homeHours, $homeHoursAt + 1)) : '';
             ?>
             <?php if (!empty($homeAddress)): ?>
             <div class="map-contact-item">
@@ -374,8 +379,10 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </div>
               <div class="map-contact-item__text">
-                <strong>Monday - Saturday</strong>
-                <p>9:00 AM - 6:00 PM</p>
+                <strong><?= htmlspecialchars($homeHoursDay) ?></strong>
+                <?php if ($homeHoursTime !== ''): ?>
+                <p><?= htmlspecialchars($homeHoursTime) ?></p>
+                <?php endif; ?>
               </div>
             </div>
           </div>

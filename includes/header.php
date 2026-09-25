@@ -186,7 +186,7 @@ window.RASTOMED_withRecaptcha = function (fn) {
   </div>
 </header>
 
-<!-- Mobile Navigation (outside header for proper fixed positioning) -->
+
 <div class="mobile-nav" aria-hidden="true">
   <div class="mobile-nav__top">
     <a href="index.php" class="mobile-nav__logo" aria-label="<?= htmlspecialchars($websitename) ?> Home">
@@ -235,7 +235,7 @@ window.RASTOMED_withRecaptcha = function (fn) {
   </div>
 </div>
 
-<!-- Overlay (outside header for proper fixed positioning) -->
+
 <div class="overlay" aria-hidden="true"></div>
 
 <script src="assets/js/script.js?v=<?php echo (int)$scriptVersion; ?>"></script>

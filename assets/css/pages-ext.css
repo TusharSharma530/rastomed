@@ -542,6 +542,34 @@
   background: var(--dark-border);
 }
 
+.legal-page__content [style],
+.fraud-content [style] {
+  background-color: transparent !important;
+}
+
+[data-theme="dark"] .legal-page__content [style],
+[data-theme="dark"] .fraud-content [style] {
+  color: var(--dark-text-secondary) !important;
+}
+
+[data-theme="dark"] .legal-page__content h2[style],
+[data-theme="dark"] .legal-page__content h3[style],
+[data-theme="dark"] .legal-page__content strong[style],
+[data-theme="dark"] .fraud-content h2[style],
+[data-theme="dark"] .fraud-content strong[style] {
+  color: var(--dark-text) !important;
+}
+
+[data-theme="dark"] .legal-page__content a[style],
+[data-theme="dark"] .fraud-content a[style] {
+  color: #58a6ff !important;
+}
+
+[data-theme="dark"] .legal-page__content a[style]:hover,
+[data-theme="dark"] .fraud-content a[style]:hover {
+  color: #79c0ff !important;
+}
+
 [data-theme="dark"] .legal-arrow-list li {
   color: var(--dark-text-secondary);
 }
