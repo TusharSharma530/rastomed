@@ -2,9 +2,25 @@
 ?>
   <?php include __DIR__ . '/includes/header.php'; ?>
 
+  <?php
+  $careerBannerSrc = '';
+  if (isset($con)) {
+      $careerBannerResult = mysqli_query($con, "SELECT wb_img FROM web_banner WHERE category_id = 71 AND status = 1 ORDER BY wb_order ASC LIMIT 1");
+      if ($careerBannerResult && mysqli_num_rows($careerBannerResult)) {
+          $careerBannerRow = mysqli_fetch_assoc($careerBannerResult);
+          if (!empty($careerBannerRow['wb_img'])) {
+              $careerBannerSrc = $path . $careerBannerRow['wb_img'];
+          }
+      }
+  }
+  if ($careerBannerSrc === '') {
+      $careerBannerSrc = $path . 'assets/images/career-hero.jpg';
+  }
+  ?>
+
   <main>
     <section class="career-hero">
-      <img src="assets/images/career-hero.jpg" alt="Career at RastoMed Pharma" class="career-hero__bg">
+      <img src="<?= htmlspecialchars($careerBannerSrc) ?>" alt="Career at RastoMed Pharma" class="career-hero__bg">
       <div class="career-hero__overlay"></div>
       <div class="career-hero__content">
         <span class="career-hero__badge">Job openings</span>

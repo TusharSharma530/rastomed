@@ -1,32 +1,28 @@
 <?php
 
 $currentPage = basename($_SERVER['PHP_SELF'], '.php');
-
-$urlToPage = [
-    'home'       => 'index.php',
-    'about-us'   => 'about.php',
-    'products'   => 'products.php',
-    'carrers'    => 'careers.php',
-    'careers'    => 'careers.php',
-    'blogs'      => 'blogs.php',
-    'contact-us' => 'contact.php',
-];
+if ($currentPage === 'page' && isset($_GET['slug'])) {
+    $currentPage = trim($_GET['slug'], '/');
+}
 
 $navItems = [];
 if (!isset($con)) {
     $con = mysqli_connect('localhost', 'root', '', 'rastomed');
 }
 if ($con) {
-    $sqlNav = mysqli_query($con, "SELECT c_name, c_url FROM category WHERE c_type = '1' AND status = 1 ORDER BY `order` ASC");
-    while ($row = mysqli_fetch_assoc($sqlNav)) {
-        $slug = $row['c_url'];
-        $page = $urlToPage[$slug] ?? $slug . '.php';
-        $key  = basename($page, '.php');
-        $navItems[] = [
-            'label' => $row['c_name'],
-            'url'   => $page,
-            'key'   => $key,
-        ];
+    $sqlNav = mysqli_query($con, "SELECT c_name, c_url, c_page FROM category WHERE c_type = '1' AND status = 1 ORDER BY `order` ASC");
+    if ($sqlNav) {
+        while ($row = mysqli_fetch_assoc($sqlNav)) {
+            $slug = trim((string)($row['c_url'] ?? ''));
+            if ($slug === '') {
+                continue;
+            }
+            $navItems[] = [
+                'label' => $row['c_name'],
+                'url'   => $slug,
+                'key'   => $slug,
+            ];
+        }
     }
 }
 ?>

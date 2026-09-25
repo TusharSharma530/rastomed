@@ -26,7 +26,7 @@ $contactno =$contactno ;
 $alternateno =$alternateno ;
 $emailid =$emailid ;
 
-// Fetch settings from database if connection exists
+
 if (isset($con)) {
     $res = mysqli_query($con, "SELECT * FROM `settings` WHERE id = 1 LIMIT 1");
     if ($res && mysqli_num_rows($res) > 0) {
@@ -42,7 +42,7 @@ $contactMapIframe = $contactMapIframe ?? '';
 ?>
 
   <main>
-    <!-- Contact Banner -->
+   
     <section class="contact-hero-banner">
       <?php if(!empty($contactBanner['wb_video'])): ?>
       <video class="contact-hero-bg-img" autoplay muted loop playsinline>
@@ -54,6 +54,9 @@ $contactMapIframe = $contactMapIframe ?? '';
       <img src="<?= $path . $contactRow['featured_img'] ?>" alt="<?= htmlspecialchars($contactRow['c_name']) ?>" class="contact-hero-bg-img">
       <?php else: ?>
       <?php endif; ?>
+      <div class="contact-hero-center">
+        <h1 class="contact-hero-h1"><?= htmlspecialchars($contactRow['c_name'] ?? 'Contact Us') ?></h1>
+      </div>
     </section>
 
     <section class="contact-section">
