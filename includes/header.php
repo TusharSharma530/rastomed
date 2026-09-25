@@ -5,6 +5,7 @@ if (!isset($con)) {
 if (!isset($renderButton)) {
     require_once __DIR__ . '/components.php';
 }
+require_once __DIR__ . '/recaptcha.php';
 $siteBase = '/rastomed/';
 if (!empty($_SERVER['SCRIPT_NAME'])) {
     $dir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
@@ -19,6 +20,23 @@ $scriptVersion = file_exists(__DIR__ . '/../assets/js/script.js') ? filemtime(__
 ?>
 <script>
 window.SITE_BASE = <?php echo json_encode($siteBase); ?>;
+</script>
+<script>
+window.RASTOMED_RECAPTCHA_SITEKEY = <?php echo json_encode(rastomed_recaptcha_site_key()); ?>;
+window.RASTOMED_RECAPTCHA_QUEUE = [];
+window.RASTOMED_RECAPTCHA_READY = false;
+window.RASTOMED_onRecaptchaLoad = function () {
+  window.RASTOMED_RECAPTCHA_READY = true;
+  var queue = window.RASTOMED_RECAPTCHA_QUEUE || [];
+  window.RASTOMED_RECAPTCHA_QUEUE = [];
+  queue.forEach(function (fn) {
+    try { fn(); } catch (e) {}
+  });
+};
+window.RASTOMED_withRecaptcha = function (fn) {
+  if (window.RASTOMED_RECAPTCHA_READY && window.grecaptcha) { fn(); return; }
+  window.RASTOMED_RECAPTCHA_QUEUE.push(fn);
+};
 </script>
 <script>
 (function(){
@@ -42,6 +60,7 @@ window.SITE_BASE = <?php echo json_encode($siteBase); ?>;
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
+  <script src="https://www.google.com/recaptcha/api.js?render=explicit&amp;onload=RASTOMED_onRecaptchaLoad" async defer></script>
 </head>
 <body>
 <div class="preloader" id="preloader">

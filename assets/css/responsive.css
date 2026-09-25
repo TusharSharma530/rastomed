@@ -1542,25 +1542,3 @@
     max-width: 100%;
   }
 }
-
-/* ============================================
-   CAPTCHA
-   ============================================ */
-@media (max-width: 576px) {
-  .captcha-box__row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .captcha-box__image,
-  .captcha-box__input {
-    width: 100%;
-    min-width: 0;
-    flex: none;
-  }
-
-  .captcha-box__image {
-    justify-content: center;
-    padding: var(--space-3);
-  }
-}

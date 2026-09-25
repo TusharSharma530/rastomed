@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../manager/database/db.php';
-require_once __DIR__ . '/captcha.php';
+require_once __DIR__ . '/recaptcha.php';
 
 header('Content-Type: application/json');
 
@@ -10,13 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 	exit();
 }
 
-$captcha = rastomed_captcha_verify();
-if (!$captcha['ok']) {
-	echo json_encode([
-		'success' => false,
-		'message' => $captcha['message'],
-		'captcha' => rastomed_captcha_payload(),
-	]);
+$recaptcha = rastomed_recaptcha_verify();
+if (!$recaptcha['ok']) {
+	echo json_encode(['success' => false, 'message' => $recaptcha['message']]);
 	exit();
 }
 
@@ -33,7 +29,7 @@ $phoneRaw = trim($_POST['phone'] ?? '');
 $emailRaw = trim($_POST['email'] ?? '');
 $messageRaw = trim($_POST['message'] ?? '');
 if ($name === '' || $phone === '') {
-	echo json_encode(['success' => false, 'message' => 'Name and phone are required', 'captcha' => rastomed_captcha_payload()]);
+	echo json_encode(['success' => false, 'message' => 'Name and phone are required']);
 	exit();
 }
 
@@ -64,9 +60,9 @@ if ($sql) {
 			. '</div>';
 		SendEmailer($adminTo, $subject, $body, null);
 	}
-	echo json_encode(['success' => true, 'message' => 'Enquiry submitted successfully', 'captcha' => rastomed_captcha_payload()]);
+	echo json_encode(['success' => true, 'message' => 'Enquiry submitted successfully']);
 } else {
-	echo json_encode(['success' => false, 'message' => 'Failed to save enquiry', 'captcha' => rastomed_captcha_payload()]);
+	echo json_encode(['success' => false, 'message' => 'Failed to save enquiry']);
 }
 exit();
 

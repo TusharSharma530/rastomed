@@ -4,6 +4,8 @@ if (!isset($con)) {
     require_once __DIR__ . '/../manager/database/db.php';
 }
 
+require_once __DIR__ . '/recaptcha.php';
+
 $websitename =$websitename ?? 'RastoMed Pharma';
 $path =$path ?? '';
 $logo =$logo ?? '';
@@ -206,7 +208,7 @@ if (isset($con)) {
         <textarea id="enqMessage" name="message" class="form-input textarea-enq-resize" rows="3" placeholder="Your message..."></textarea>
       </div>
       <input type="hidden" name="enquiry_type" value="Website Enquiry">
-      <?php require_once __DIR__ . '/captcha.php'; rastomed_captcha_render(); ?>
+      <?php echo rastomed_recaptcha_widget('enquiryRecaptcha'); ?>
       <button type="submit" class="btn btn--primary btn--lg width-100">Submit Enquiry</button>
     </form>
     <div id="enquirySuccess" class="enquiry-modal__success">

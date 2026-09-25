@@ -474,19 +474,55 @@ function initAccordion() {
   });
 }
 
-function applyCaptcha(form, payload) {
-  if (!form || !payload || !payload.html) return;
-  var current = form.querySelector('[data-captcha-box]');
-  if (!current || !current.parentNode) return;
-  var holder = document.createElement('div');
-  holder.innerHTML = payload.html;
-  var next = holder.firstElementChild;
-  if (next) current.parentNode.replaceChild(next, current);
+function getRecaptchaBox(form) {
+  if (!form || !form.querySelector) return null;
+  return form.querySelector('[data-recaptcha-box]');
 }
 
-/* ============================================
-   CONTACT FORM (DEMO ONLY - NO EMAIL)
-   ============================================ */
+function renderRecaptcha(form) {
+  var box = getRecaptchaBox(form);
+  if (!box || typeof window.RASTOMED_withRecaptcha !== 'function') return;
+
+  window.RASTOMED_withRecaptcha(function () {
+    if (!window.grecaptcha || box.getAttribute('data-widget-id')) return;
+    var theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    var target = box.querySelector('[data-recaptcha-holder]') || box;
+    var widgetId = grecaptcha.render(target, {
+      sitekey: window.RASTOMED_RECAPTCHA_SITEKEY,
+      theme: theme,
+      size: 'normal'
+    });
+    box.setAttribute('data-widget-id', String(widgetId));
+  });
+}
+
+function getRecaptchaWidgetId(form) {
+  var box = getRecaptchaBox(form);
+  if (!box) return null;
+  var id = box.getAttribute('data-widget-id');
+  if (id === null || id === '') return null;
+  var parsed = parseInt(id, 10);
+  return isNaN(parsed) ? null : parsed;
+}
+
+function hasRecaptchaResponse(form) {
+  var id = getRecaptchaWidgetId(form);
+  if (id === null || !window.grecaptcha) return false;
+  try {
+    return grecaptcha.getResponse(id) !== '';
+  } catch (e) {
+    return false;
+  }
+}
+
+function resetRecaptcha(form) {
+  var id = getRecaptchaWidgetId(form);
+  if (id === null || !window.grecaptcha) return;
+  try {
+    grecaptcha.reset(id);
+  } catch (e) {}
+}
+
 function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
@@ -494,6 +530,8 @@ function initContactForm() {
   const successMessage = document.getElementById('formSuccess');
   const submitBtn = form.querySelector('button[type="submit"]');
   const defaultBtnText = submitBtn ? submitBtn.innerHTML : '';
+
+  renderRecaptcha(form);
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -533,6 +571,12 @@ function initContactForm() {
 
     if (!isValid) return;
 
+    if (!hasRecaptchaResponse(form)) {
+      alert('Please complete the reCAPTCHA verification.');
+      resetRecaptcha(form);
+      return;
+    }
+
     const fd = new FormData(form);
     if (!fd.get('enquiry_type')) {
       fd.set('enquiry_type', 'Contact Form');
@@ -557,18 +601,18 @@ function initContactForm() {
           submitBtn.innerHTML = defaultBtnText;
         }
         if (data && data.success) {
+          resetRecaptcha(form);
           form.style.display = 'none';
           if (successMessage) {
             successMessage.style.display = 'block';
           }
           form.reset();
-          applyCaptcha(form, data.captcha);
           setTimeout(() => {
             form.style.display = '';
             if (successMessage) successMessage.style.display = 'none';
           }, 5000);
         } else {
-          applyCaptcha(form, data && data.captcha);
+          resetRecaptcha(form);
           alert((data && data.message) || 'Something went wrong. Please try again.');
         }
       })
@@ -577,6 +621,7 @@ function initContactForm() {
           submitBtn.disabled = false;
           submitBtn.innerHTML = defaultBtnText;
         }
+        resetRecaptcha(form);
         alert('Something went wrong. Please try again.');
       });
   });
@@ -649,6 +694,7 @@ function initEnquiryModal() {
   function openModal() {
     modal.classList.add('enquiry-modal--open');
     document.body.style.overflow = 'hidden';
+    renderRecaptcha(form);
   }
 
   function closeModal() {
@@ -683,6 +729,12 @@ function initEnquiryModal() {
       });
       if (!isValid) return;
 
+      if (!hasRecaptchaResponse(form)) {
+        alert('Please complete the reCAPTCHA verification.');
+        resetRecaptcha(form);
+        return;
+      }
+
       var submitBtn = form.querySelector('button[type="submit"]');
       var defaultBtnText = submitBtn ? submitBtn.innerHTML : '';
       if (submitBtn) {
@@ -709,17 +761,17 @@ function initEnquiryModal() {
             submitBtn.innerHTML = defaultBtnText;
           }
           if (data && data.success) {
+            resetRecaptcha(form);
             form.style.display = 'none';
             if (success) success.style.display = 'block';
             setTimeout(function() {
               form.reset();
-              applyCaptcha(form, data.captcha);
               form.style.display = '';
               if (success) success.style.display = 'none';
               closeModal();
             }, 4000);
           } else {
-            applyCaptcha(form, data && data.captcha);
+            resetRecaptcha(form);
             alert((data && data.message) || 'Something went wrong. Please try again.');
           }
         })
@@ -728,6 +780,7 @@ function initEnquiryModal() {
             submitBtn.disabled = false;
             submitBtn.innerHTML = defaultBtnText;
           }
+          resetRecaptcha(form);
           alert('Something went wrong. Please try again.');
         });
     });
@@ -757,9 +810,6 @@ function initHeroSlider() {
   setInterval(nextSlide, 4000);
 }
 
-/* ============================================
-   HERO VIDEO CONTROLS & SMOOTH CONTINUOUS LOOP
-   ============================================ */
 function initHeroVideoControls() {
   const video = document.getElementById('heroVideo');
   if (!video) return;
@@ -780,14 +830,12 @@ function initHeroVideoControls() {
     }
   };
 
-  // Attempt autoplay immediately
+ 
   playVideo();
 
-  // Ensure video plays on user interaction if blocked by autoplay policy
   document.addEventListener('click', playVideo, { once: true });
   document.addEventListener('touchstart', playVideo, { once: true });
 
-  // Auto recovery if browser stalls
   video.addEventListener('stalled', playVideo);
   video.addEventListener('waiting', playVideo);
 }
@@ -811,9 +859,6 @@ function initOurProductsSlider() {
   });
 }
 
-/* ============================================
-   CAREER STEPS SLIDER
-   ============================================ */
 function initCareerStepsSlider() {
   const stepsContainer = document.getElementById('careerSteps');
   if (!stepsContainer) return;

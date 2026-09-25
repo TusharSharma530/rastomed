@@ -153,7 +153,7 @@ $contactMapIframe = $contactMapIframe ?? '';
                 <textarea id="contactMessage" name="message" rows="5" placeholder="Please share your requirements, enquiry, or how we can assist you…" required></textarea>
               </div>
 
-              <?php require_once __DIR__ . '/includes/captcha.php'; rastomed_captcha_render(); ?>
+              <?php require_once __DIR__ . '/includes/recaptcha.php'; echo rastomed_recaptcha_widget('contactRecaptcha'); ?>
 
               <div>
                 <button type="submit" class="btn-send">
