@@ -931,14 +931,24 @@ function initTestimonialsCarousel() {
 
   const track = carousel.querySelector('.testimonials-track');
   const cards = track.querySelectorAll('.testimonial-card-clean');
+  if (cards.length === 0) return;
+
   const header = carousel.closest('section') || carousel.parentElement;
   const arrowsContainer = header.querySelector('.testimonials-arrows');
   const dots = carousel.querySelectorAll('.testimonials-nav__dot');
   const prevBtn = arrowsContainer ? arrowsContainer.querySelector('.testimonials-arrow--prev') : null;
   const nextBtn = arrowsContainer ? arrowsContainer.querySelector('.testimonials-arrow--next') : null;
-  if (!prevBtn || !nextBtn || cards.length === 0) return;
 
+  const AUTO_DELAY = 3500;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let currentIndex = 0;
+  let autoTimer = null;
+
+  function syncDots() {
+    dots.forEach((d, i) => {
+      d.classList.toggle('testimonials-nav__dot--active', i === currentIndex);
+    });
+  }
 
   function goToSlide(index) {
     if (index < 0) index = cards.length - 1;
@@ -946,19 +956,29 @@ function initTestimonialsCarousel() {
     currentIndex = index;
 
     const card = cards[currentIndex];
-    const scrollLeft = card.offsetLeft - (track.offsetWidth - card.offsetWidth) / 2;
-    track.scrollTo({ left: scrollLeft, behavior: 'smooth' });
-
-    dots.forEach((d, i) => {
-      d.classList.toggle('testimonials-nav__dot--active', i === currentIndex);
-    });
+    track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+    syncDots();
   }
 
-  prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-  nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+  function stopAuto() {
+    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+  }
+
+  function startAuto() {
+    stopAuto();
+    if (reduceMotion || cards.length < 2) return;
+    autoTimer = setInterval(() => goToSlide(currentIndex + 1), AUTO_DELAY);
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => { goToSlide(currentIndex - 1); startAuto(); });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => { goToSlide(currentIndex + 1); startAuto(); });
+  }
 
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => goToSlide(i));
+    dot.addEventListener('click', () => { goToSlide(i); startAuto(); });
   });
 
   track.addEventListener('scroll', () => {
@@ -966,14 +986,21 @@ function initTestimonialsCarousel() {
     let closest = 0;
     let minDist = Infinity;
     cards.forEach((card, i) => {
-      const dist = Math.abs(card.offsetLeft - scrollLeft);
+      const dist = Math.abs(card.offsetLeft - track.offsetLeft - scrollLeft);
       if (dist < minDist) { minDist = dist; closest = i; }
     });
     if (closest !== currentIndex) {
       currentIndex = closest;
-      dots.forEach((d, i) => {
-        d.classList.toggle('testimonials-nav__dot--active', i === currentIndex);
-      });
+      syncDots();
     }
   });
+
+  carousel.addEventListener('mouseenter', stopAuto);
+  carousel.addEventListener('mouseleave', startAuto);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopAuto(); else startAuto();
+  });
+
+  syncDots();
+  startAuto();
 }
