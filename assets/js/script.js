@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimatedCounters();
   initAccordion();
   initContactForm();
+  initFormPopup();
   initNewsModal();
   initEnquiryModal();
   initHeroSlider();
@@ -474,6 +475,44 @@ function initAccordion() {
   });
 }
 
+function hideFormPopup() {
+  var popup = document.getElementById('formPopup');
+  if (!popup) return;
+  popup.classList.remove('form-popup--visible');
+  popup.setAttribute('aria-hidden', 'true');
+}
+
+function showFormPopup(message) {
+  var popup = document.getElementById('formPopup');
+  if (!popup) {
+    if (message) alert(message);
+    return;
+  }
+
+  var text = popup.querySelector('[data-form-popup-text]');
+  if (text) text.textContent = message || '';
+
+  popup.classList.add('form-popup--visible');
+  popup.setAttribute('aria-hidden', 'false');
+
+  if (popup._hideTimer) clearTimeout(popup._hideTimer);
+  popup._hideTimer = setTimeout(hideFormPopup, 6000);
+}
+
+function initFormPopup() {
+  var popup = document.getElementById('formPopup');
+  if (!popup || popup._bound) return;
+  popup._bound = true;
+
+  var closeBtn = popup.querySelector('[data-form-popup-close]');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function () {
+      if (popup._hideTimer) clearTimeout(popup._hideTimer);
+      hideFormPopup();
+    });
+  }
+}
+
 function getRecaptchaBox(form) {
   if (!form || !form.querySelector) return null;
   return form.querySelector('[data-recaptcha-box]');
@@ -572,7 +611,7 @@ function initContactForm() {
     if (!isValid) return;
 
     if (!hasRecaptchaResponse(form)) {
-      alert('Please complete the reCAPTCHA verification.');
+      showFormPopup('Please complete the reCAPTCHA verification before submitting.');
       resetRecaptcha(form);
       return;
     }
@@ -613,7 +652,7 @@ function initContactForm() {
           }, 5000);
         } else {
           resetRecaptcha(form);
-          alert((data && data.message) || 'Something went wrong. Please try again.');
+          showFormPopup((data && data.message) || 'Something went wrong. Please try again.');
         }
       })
       .catch(function () {
@@ -622,7 +661,7 @@ function initContactForm() {
           submitBtn.innerHTML = defaultBtnText;
         }
         resetRecaptcha(form);
-        alert('Something went wrong. Please try again.');
+        showFormPopup('Something went wrong. Please try again.');
       });
   });
 }
@@ -730,7 +769,7 @@ function initEnquiryModal() {
       if (!isValid) return;
 
       if (!hasRecaptchaResponse(form)) {
-        alert('Please complete the reCAPTCHA verification.');
+        showFormPopup('Please complete the reCAPTCHA verification before submitting.');
         resetRecaptcha(form);
         return;
       }
@@ -772,7 +811,7 @@ function initEnquiryModal() {
             }, 4000);
           } else {
             resetRecaptcha(form);
-            alert((data && data.message) || 'Something went wrong. Please try again.');
+            showFormPopup((data && data.message) || 'Something went wrong. Please try again.');
           }
         })
         .catch(function() {
@@ -781,7 +820,7 @@ function initEnquiryModal() {
             submitBtn.innerHTML = defaultBtnText;
           }
           resetRecaptcha(form);
-          alert('Something went wrong. Please try again.');
+          showFormPopup('Something went wrong. Please try again.');
         });
     });
   }
