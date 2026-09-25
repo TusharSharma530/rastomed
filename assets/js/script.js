@@ -474,6 +474,16 @@ function initAccordion() {
   });
 }
 
+function applyCaptcha(form, payload) {
+  if (!form || !payload || !payload.html) return;
+  var current = form.querySelector('[data-captcha-box]');
+  if (!current || !current.parentNode) return;
+  var holder = document.createElement('div');
+  holder.innerHTML = payload.html;
+  var next = holder.firstElementChild;
+  if (next) current.parentNode.replaceChild(next, current);
+}
+
 /* ============================================
    CONTACT FORM (DEMO ONLY - NO EMAIL)
    ============================================ */
@@ -552,11 +562,13 @@ function initContactForm() {
             successMessage.style.display = 'block';
           }
           form.reset();
+          applyCaptcha(form, data.captcha);
           setTimeout(() => {
             form.style.display = '';
             if (successMessage) successMessage.style.display = 'none';
           }, 5000);
         } else {
+          applyCaptcha(form, data && data.captcha);
           alert((data && data.message) || 'Something went wrong. Please try again.');
         }
       })
@@ -701,11 +713,13 @@ function initEnquiryModal() {
             if (success) success.style.display = 'block';
             setTimeout(function() {
               form.reset();
+              applyCaptcha(form, data.captcha);
               form.style.display = '';
               if (success) success.style.display = 'none';
               closeModal();
             }, 4000);
           } else {
+            applyCaptcha(form, data && data.captcha);
             alert((data && data.message) || 'Something went wrong. Please try again.');
           }
         })

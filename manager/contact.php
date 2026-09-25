@@ -118,7 +118,6 @@ if(!isset($_SESSION['username'])){
       <div class="cvm-row"><span class="cvm-label">Name</span><span class="cvm-value" id="cvmName">-</span></div>
       <div class="cvm-row"><span class="cvm-label">Email</span><span class="cvm-value" id="cvmEmail">-</span></div>
       <div class="cvm-row"><span class="cvm-label">Phone</span><span class="cvm-value" id="cvmPhone">-</span></div>
-      <div class="cvm-row"><span class="cvm-label">State</span><span class="cvm-value" id="cvmState">-</span></div>
       <div class="cvm-row"><span class="cvm-label">Status</span><span class="cvm-value" id="cvmStatus">-</span></div>
       <div class="cvm-row cvm-row--block"><span class="cvm-label">Message</span><div class="cvm-value cvm-message" id="cvmMessage">-</div></div>
     </div>

@@ -29,16 +29,16 @@ try {
     //Server settings
     $mail->SMTPDebug = false;                      //Enable verbose debug output
     $mail->isSMTP();                               //Send using SMTP
-    $mail->Host       = 'mail.kgimeerut.com';                     //Set the SMTP server to send through
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'noreply@kgimeerut.com';                     //SMTP username
-    $mail->Password   = '!Pb!CX&!+K?J';                               //SMTP password
+    $mail->Username   = 'tusharsharma6868@gmail.com';                     //SMTP username
+    $mail->Password   = 'kouf rxzp oxxi rnte';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS
     $mail->Timeout    = 20;
 
     //Recipients
-    $mail->setFrom('noreply@kgimeerut.com', 'Krishna Institute of Management');
+    $mail->setFrom('tusharsharma6868@gmail.com', '');
     $mail->addAddress("$senderemail", '');     //Add a recipient
     // $mail->addAddress('ellen@example.com');               //Name is optional
    // $mail->addReplyTo('info@example.com', 'Information');
