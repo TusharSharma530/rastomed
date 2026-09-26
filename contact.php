@@ -1,61 +1,50 @@
 <?php
+require_once __DIR__ . '/manager/database/db.php';
 
 $currentPage = 'contact';
-?>
-  <?php include __DIR__ . '/includes/header.php'; ?>
-<?php
-$contactRow = null;
-$contactBanner = null;
-if (isset($con)) {
-    $contactResult = mysqli_query($con, "SELECT * FROM category WHERE id = 72 AND status = 1");
-    if ($contactResult && mysqli_num_rows($contactResult)) {
-        $contactRow = mysqli_fetch_assoc($contactResult);
-    }
-    $bannerResult = mysqli_query($con, "SELECT * FROM web_banner WHERE category_id = 72 AND status = 1 ORDER BY wb_order ASC LIMIT 1");
-    if ($bannerResult && mysqli_num_rows($bannerResult)) {
-        $contactBanner = mysqli_fetch_assoc($bannerResult);
-    }
+
+// ===== contact category (id = 72) + banner =====
+$contactRow = fetch_one_row($con, "SELECT * FROM category WHERE id = 72 AND status = 1");
+$contactBanner = fetch_one_row($con, "SELECT * FROM web_banner WHERE category_id = 72 AND status = 1 ORDER BY wb_order ASC LIMIT 1");
+
+// ===== settings: map + hours (db.php already loaded address/phone/email/name) =====
+$settingsRow = fetch_one_row($con, "SELECT * FROM settings WHERE id = 1");
+$openingHour = trim((string) ($settingsRow['opening_hour'] ?? ''));
+$contactMapIframe = trim((string) ($settingsRow['map_iframe'] ?? ''));
+
+// ===== hero media: video > banner img > category img =====
+$heroVideo = (string) ($contactBanner['wb_video'] ?? '');
+$heroImg = (string) ($contactBanner['wb_img'] ?? '');
+if ($heroVideo === '' && $heroImg === '') {
+	$heroImg = (string) ($contactRow['featured_img'] ?? '');
 }
 
-// Default values
-$websitename =$websitename ;
-$address =$address ;
-$contactno =$contactno ;
-$alternateno =$alternateno ;
-$emailid =$emailid ;
+// ===== escaped vars =====
+$eContactName  = htmlspecialchars((string) ($contactRow['c_name'] ?? 'Contact Us'), ENT_QUOTES, 'UTF-8');
+$eHeroVideo    = htmlspecialchars($heroVideo, ENT_QUOTES, 'UTF-8');
+$eHeroImg      = htmlspecialchars($heroImg, ENT_QUOTES, 'UTF-8');
+$eAddress      = nl2br(htmlspecialchars((string) ($address ?? ''), ENT_QUOTES, 'UTF-8'));
+$eContactNo    = htmlspecialchars((string) ($contactno ?? ''), ENT_QUOTES, 'UTF-8');
+$eAltNo        = htmlspecialchars((string) ($alternateno ?? ''), ENT_QUOTES, 'UTF-8');
+$eEmail        = htmlspecialchars((string) ($emailid ?? ''), ENT_QUOTES, 'UTF-8');
+$eOpeningHour  = htmlspecialchars($openingHour, ENT_QUOTES, 'UTF-8');
+$eMapIframe    = htmlspecialchars($contactMapIframe, ENT_QUOTES, 'UTF-8');
+$eWebName      = htmlspecialchars((string) ($websitename ?? ''), ENT_QUOTES, 'UTF-8');
 
-
-if (isset($con)) {
-    $res = mysqli_query($con, "SELECT * FROM `settings` WHERE id = 1 LIMIT 1");
-    if ($res && mysqli_num_rows($res) > 0) {
-        $rw = mysqli_fetch_assoc($res);
-        if (!empty($rw['address'])) { $address =$rw['address']; }
-        if (!empty($rw['contact_no'])) { $contactno =$rw['contact_no']; }
-        if (!empty($rw['alternate_no'])) { $alternateno =$rw['alternate_no']; }
-        if (!empty($rw['email_id'])) { $emailid =$rw['email_id']; }
-        $openingHour = $rw['opening_hour'] ?? '';
-        $contactMapIframe = trim($rw['map_iframe'] ?? '');
-    }
-}
-$contactMapIframe = $contactMapIframe ?? '';
-$openingHour = trim($openingHour ?? '');
+require_once __DIR__ . '/includes/header.php';
 ?>
 
   <main>
-   
     <section class="contact-hero-banner">
-      <?php if(!empty($contactBanner['wb_video'])): ?>
+      <?php if ($eHeroVideo !== ''): ?>
       <video class="contact-hero-bg-img" autoplay muted loop playsinline>
-        <source src="<?= $path . $contactBanner['wb_video'] ?>">
+        <source src="<?= $path . $eHeroVideo ?>">
       </video>
-      <?php elseif(!empty($contactBanner['wb_img'])): ?>
-      <img src="<?= $path . $contactBanner['wb_img'] ?>" alt="<?= htmlspecialchars($contactRow['c_name'] ?? 'Contact Us') ?>" class="contact-hero-bg-img">
-      <?php elseif(!empty($contactRow['featured_img'])): ?>
-      <img src="<?= $path . $contactRow['featured_img'] ?>" alt="<?= htmlspecialchars($contactRow['c_name']) ?>" class="contact-hero-bg-img">
-      <?php else: ?>
+      <?php elseif ($eHeroImg !== ''): ?>
+      <img src="<?= $path . $eHeroImg ?>" alt="<?= $eContactName ?>" class="contact-hero-bg-img">
       <?php endif; ?>
       <div class="contact-hero-center">
-        <h1 class="contact-hero-h1"><?= htmlspecialchars($contactRow['c_name'] ?? 'Contact Us') ?></h1>
+        <h1 class="contact-hero-h1"><?= $eContactName ?></h1>
       </div>
     </section>
 
@@ -70,7 +59,7 @@ $openingHour = trim($openingHour ?? '');
               </div>
               <div>
                 <strong class="contact-item__label">Address</strong>
-                <p class="contact-item__text"><?= nl2br(htmlspecialchars($address)) ?></p>
+                <p class="contact-item__text"><?= $eAddress ?></p>
               </div>
             </div>
 
@@ -81,11 +70,11 @@ $openingHour = trim($openingHour ?? '');
               <div>
                 <strong class="contact-item__label">Our Phone</strong>
                 <p class="contact-item__text">
-                  <?php if(!empty($contactno)): ?>
-                    <a href="tel:+91<?= htmlspecialchars($contactno) ?>">+91 <?= htmlspecialchars($contactno) ?></a>
+                  <?php if (!empty($contactno)): ?>
+                    <a href="tel:+91<?= $eContactNo ?>">+91 <?= $eContactNo ?></a>
                   <?php endif; ?>
-                  <?php if(!empty($alternateno)): ?>
-                    <br><a href="tel:+91<?= htmlspecialchars($alternateno) ?>">+91 <?= htmlspecialchars($alternateno) ?></a>
+                  <?php if (!empty($alternateno)): ?>
+                    <br><a href="tel:+91<?= $eAltNo ?>">+91 <?= $eAltNo ?></a>
                   <?php endif; ?>
                 </p>
               </div>
@@ -98,7 +87,7 @@ $openingHour = trim($openingHour ?? '');
               <div>
                 <strong class="contact-item__label">Got a Question?</strong>
                 <p class="contact-item__text contact-item-margin">Drop us an email and we'll be in touch asap.</p>
-                <a href="mailto:<?= htmlspecialchars($emailid) ?>" class="contact-item__link"><?= htmlspecialchars($emailid) ?></a>
+                <a href="mailto:<?= $eEmail ?>" class="contact-item__link"><?= $eEmail ?></a>
               </div>
             </div>
 
@@ -108,7 +97,7 @@ $openingHour = trim($openingHour ?? '');
               </div>
               <div>
                 <strong class="contact-item__label">Open Hours</strong>
-                <p class="contact-item__text"><?= htmlspecialchars($openingHour !== '' ? $openingHour : '') ?></p>
+                <p class="contact-item__text"><?= $eOpeningHour ?></p>
               </div>
             </div>
           </div>
@@ -137,7 +126,7 @@ $openingHour = trim($openingHour ?? '');
               <div class="form-row">
                 <div class="form-field">
                   <label for="contactPhone">Phone *</label>
-                  <input type="tel" id="contactPhone" name="phone" placeholder="+91 <?= htmlspecialchars($contactno) ?>" required>
+                  <input type="tel" id="contactPhone" name="phone" placeholder="+91 <?= $eContactNo ?>" required>
                 </div>
                 <div class="form-field">
                   <label for="contactInterest">I'm interested in</label>
@@ -156,7 +145,7 @@ $openingHour = trim($openingHour ?? '');
                 <textarea id="contactMessage" name="message" rows="5" placeholder="Please share your requirements, enquiry, or how we can assist you…" required></textarea>
               </div>
 
-              <?php require_once __DIR__ . '/includes/recaptcha.php'; echo rastomed_recaptcha_widget('contactRecaptcha'); ?>
+              <?= rastomed_recaptcha_widget('contactRecaptcha') ?>
 
               <div>
                 <button type="submit" class="btn-send">
@@ -178,16 +167,16 @@ $openingHour = trim($openingHour ?? '');
     <section class="map-section-wrap">
       <div class="container">
         <div class="map-container-box">
-          <?php if (!empty($contactMapIframe)): ?>
+          <?php if ($contactMapIframe !== ''): ?>
           <iframe
-            src="<?= htmlspecialchars($contactMapIframe) ?>"
+            src="<?= $eMapIframe ?>"
             width="100%"
             height="100%"
             class="map-iframe-no-border"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="<?= htmlspecialchars($websitename) ?> Location">
+            title="<?= $eWebName ?> Location">
           </iframe>
           <?php endif; ?>
         </div>

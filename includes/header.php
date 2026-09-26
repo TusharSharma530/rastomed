@@ -1,4 +1,5 @@
 <?php
+// ===== dependencies: db, components, recaptcha =====
 if (!isset($con)) {
     require_once __DIR__ . '/../manager/database/db.php';
 }
@@ -6,23 +7,27 @@ if (!isset($renderButton)) {
     require_once __DIR__ . '/components.php';
 }
 require_once __DIR__ . '/recaptcha.php';
+
+// ===== site base path (used by JS) =====
 $siteBase = '/rastomed/';
 if (!empty($_SERVER['SCRIPT_NAME'])) {
     $dir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
     $dir = rtrim($dir, '/');
-    if ($dir !== '' && $dir !== '/') {
-        $siteBase = $dir . '/';
-    } else {
-        $siteBase = '/';
-    }
+    $siteBase = ($dir !== '' && $dir !== '/') ? $dir . '/' : '/';
 }
+
+// ===== cache-bust version for script.js =====
 $scriptVersion = file_exists(__DIR__ . '/../assets/js/script.js') ? filemtime(__DIR__ . '/../assets/js/script.js') : time();
+
+// ===== escaped vars (used many times below) =====
+$eSiteName  = htmlspecialchars((string) ($websitename ?? ''), ENT_QUOTES, 'UTF-8');
+$eContactNo = htmlspecialchars((string) ($contactno ?? ''), ENT_QUOTES, 'UTF-8');
+$eEmail     = htmlspecialchars((string) ($emailid ?? ''), ENT_QUOTES, 'UTF-8');
+$eLogoSrc   = !empty($logo) ? htmlspecialchars($path . $logo, ENT_QUOTES, 'UTF-8') : '';
 ?>
 <script>
-window.SITE_BASE = <?php echo json_encode($siteBase); ?>;
-</script>
-<script>
-window.RASTOMED_RECAPTCHA_SITEKEY = <?php echo json_encode(rastomed_recaptcha_site_key()); ?>;
+window.SITE_BASE = <?= json_encode($siteBase) ?>;
+window.RASTOMED_RECAPTCHA_SITEKEY = <?= json_encode(rastomed_recaptcha_site_key()) ?>;
 window.RASTOMED_RECAPTCHA_QUEUE = [];
 window.RASTOMED_RECAPTCHA_READY = false;
 window.RASTOMED_onRecaptchaLoad = function () {
@@ -63,6 +68,7 @@ window.RASTOMED_withRecaptcha = function (fn) {
   <script src="https://www.google.com/recaptcha/api.js?render=explicit&amp;onload=RASTOMED_onRecaptchaLoad" async defer></script>
 </head>
 <body>
+<!-- Preloader -->
 <div class="preloader" id="preloader">
   <div class="preloader__capsule">
     <svg class="preloader__svg" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
@@ -108,32 +114,30 @@ window.RASTOMED_withRecaptcha = function (fn) {
 <div class="top-bar">
   <div class="container">
     <div class="top-bar__inner">
-      <a href="index.php" class="top-bar__logo" aria-label="<?= htmlspecialchars($websitename) ?> Home">
-        <?php if(!empty($logo)): ?>
-        <img src="<?= htmlspecialchars($path . $logo) ?>" alt="<?= htmlspecialchars($websitename) ?>" class="top-bar__logo-img">
-        <?php else: ?>
-        <img src="" alt="<?= htmlspecialchars($websitename) ?>" class="top-bar__logo-img">
+      <a href="index.php" class="top-bar__logo" aria-label="<?= $eSiteName ?> Home">
+        <?php if ($eLogoSrc !== ''): ?>
+        <img src="<?= $eLogoSrc ?>" alt="<?= $eSiteName ?>" class="top-bar__logo-img">
         <?php endif; ?>
       </a>
       <div class="top-bar__contact">
-        <?php if(!empty($contactno)): ?>
-        <a href="tel:+91<?= htmlspecialchars($contactno) ?>" class="top-bar__contact-item">
+        <?php if (!empty($contactno)): ?>
+        <a href="tel:+91<?= $eContactNo ?>" class="top-bar__contact-item">
           <span class="top-bar__contact-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </span>
           <span class="top-bar__contact-text">
-            <strong>+91 <?= htmlspecialchars($contactno) ?></strong>
+            <strong>+91 <?= $eContactNo ?></strong>
             <small>Call Us</small>
           </span>
         </a>
         <?php endif; ?>
-        <?php if(!empty($emailid)): ?>
-        <a href="mailto:<?= htmlspecialchars($emailid) ?>" class="top-bar__contact-item">
+        <?php if (!empty($emailid)): ?>
+        <a href="mailto:<?= $eEmail ?>" class="top-bar__contact-item">
           <span class="top-bar__contact-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </span>
           <span class="top-bar__contact-text">
-            <strong><?= htmlspecialchars($emailid) ?></strong>
+            <strong><?= $eEmail ?></strong>
             <small>Mail Us</small>
           </span>
         </a>
@@ -147,30 +151,18 @@ window.RASTOMED_withRecaptcha = function (fn) {
 <header class="header" role="banner">
   <div class="header__inner">
     <!-- Mobile Logo -->
-    <a href="index.php" class="header__logo-mobile" aria-label="<?= htmlspecialchars($websitename) ?> Home">
-      <?php if(!empty($logo)): ?>
-      <img src="<?= htmlspecialchars($path . $logo) ?>" alt="<?= htmlspecialchars($websitename) ?>" class="header-logo-brand">
-      <?php else: ?>
-      <img src="" alt="<?= htmlspecialchars($websitename) ?>" class="header-logo-brand">
+    <a href="index.php" class="header__logo-mobile" aria-label="<?= $eSiteName ?> Home">
+      <?php if ($eLogoSrc !== ''): ?>
+      <img src="<?= $eLogoSrc ?>" alt="<?= $eSiteName ?>" class="header-logo-brand">
       <?php endif; ?>
     </a>
 
     <!-- Desktop Navigation -->
-    <?php 
-    $navbar_path = __DIR__ . '/navbar.php';
-    if (file_exists($navbar_path)) {
-        include $navbar_path;
-    }
-    ?>
+    <?php include __DIR__ . '/navbar.php'; ?>
 
     <!-- Header Actions -->
     <div class="header__actions">
-      <?php 
-      $theme_toggle_path = __DIR__ . '/theme-toggle.php';
-      if (file_exists($theme_toggle_path)) {
-          include $theme_toggle_path;
-      }
-      ?>
+      <?php include __DIR__ . '/theme-toggle.php'; ?>
 
       <button type="button" class="header__cta" id="headerEnquiryBtn">
         Enquiry
@@ -186,30 +178,26 @@ window.RASTOMED_withRecaptcha = function (fn) {
   </div>
 </header>
 
-
+<!-- Mobile Navigation -->
 <div class="mobile-nav" aria-hidden="true">
   <div class="mobile-nav__top">
-    <a href="index.php" class="mobile-nav__logo" aria-label="<?= htmlspecialchars($websitename) ?> Home">
-      <?php if(!empty($logo)): ?>
-      <img src="<?= htmlspecialchars($path . $logo) ?>" alt="<?= htmlspecialchars($websitename) ?>">
-      <?php else: ?>
-      <img src="" alt="<?= htmlspecialchars($websitename) ?>">
+    <a href="index.php" class="mobile-nav__logo" aria-label="<?= $eSiteName ?> Home">
+      <?php if ($eLogoSrc !== ''): ?>
+      <img src="<?= $eLogoSrc ?>" alt="<?= $eSiteName ?>">
       <?php endif; ?>
     </a>
     <button class="mobile-nav__close" aria-label="Close menu">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
   </div>
-  
-  <?php foreach ($navItems as $item): ?>
-    <?php 
-      $itemUrl = $item['url'] ?? '#';
-      $itemLabel = $item['label'] ?? '';
-      $itemKey = $item['key'] ?? '';
-      $hasDropdown = !empty($item['hasDropdown']);
-      $isActive = ($currentPage === $itemKey);
-    ?>
-    <?php if ($hasDropdown): ?>
+
+  <?php foreach ($navItems as $item):
+    $itemUrl = $item['url'] ?? '#';
+    $itemLabel = $item['label'] ?? '';
+    $itemKey = $item['key'] ?? '';
+    $isActive = ($currentPage === $itemKey);
+  ?>
+    <?php if (!empty($item['hasDropdown'])): ?>
       <a href="<?= htmlspecialchars($itemUrl, ENT_QUOTES, 'UTF-8') ?>" class="mobile-nav__link mobile-nav__link--has-sub <?= $isActive ? 'mobile-nav__link--active' : '' ?>">
         <?= htmlspecialchars($itemLabel, ENT_QUOTES, 'UTF-8') ?>
         <svg class="mobile-nav__toggle-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -235,7 +223,6 @@ window.RASTOMED_withRecaptcha = function (fn) {
   </div>
 </div>
 
-
 <div class="overlay" aria-hidden="true"></div>
 
-<script src="assets/js/script.js?v=<?php echo (int)$scriptVersion; ?>"></script>
+<script src="assets/js/script.js?v=<?= (int) $scriptVersion ?>"></script>

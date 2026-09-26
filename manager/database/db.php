@@ -202,6 +202,12 @@ function __getStateName($con, $id){
     return $rw['state'];
 }
 
+// ===== get single row from query =====
+function fetch_one_row($con, $sql){
+    $rs = mysqli_query($con, $sql);
+    return ($rs && mysqli_num_rows($rs)) ? mysqli_fetch_assoc($rs) : null;
+}
+
 // ===== encrypt data ========
 function encryptIt($q) {
     $secret_key = 'kgimeerut@)*(@)Ena234!212IOU';

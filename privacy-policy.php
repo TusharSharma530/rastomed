@@ -1,24 +1,34 @@
 <?php
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/manager/database/db.php';
 
+// ===== page content from `pages` table =====
 $pp = ['title' => 'Privacy Policy', 'subtitle' => '', 'description' => ''];
-$sqlpp = mysqli_query($con, "SELECT * FROM `pages` WHERE slug = 'privacy-policy'");
-if ($sqlpp && mysqli_num_rows($sqlpp)) {
-	$pp = mysqli_fetch_assoc($sqlpp);
+$rsPp = mysqli_query($con, "SELECT * FROM `pages` WHERE slug = 'privacy-policy'");
+if ($rsPp && mysqli_num_rows($rsPp)) {
+	$pp = mysqli_fetch_assoc($rsPp);
 }
 
-$ppTitle = trim($pp['title']) !== '' ? $pp['title'] : 'Privacy Policy';
-$ppSubtitle = $pp['subtitle'];
-$ppDescriptionHtml = trim((string)($pp['description'] ?? ''));
-if ($ppDescriptionHtml !== '' && strpos($ppDescriptionHtml, '<') === false) {
-	$ppDescriptionHtml = render_pages_description($ppDescriptionHtml);
+// ===== title / subtitle / description =====
+$ppTitle    = trim((string) $pp['title']) !== '' ? $pp['title'] : 'Privacy Policy';
+$ppSubtitle = (string) ($pp['subtitle'] ?? '');
+$ppDescHtml = trim((string) ($pp['description'] ?? ''));
+if ($ppDescHtml !== '' && strpos($ppDescHtml, '<') === false) {
+	$ppDescHtml = render_pages_description($ppDescHtml);
 }
 
+// ===== split title: first words plain, last word gradient =====
 $ppParts = explode(' ', $ppTitle);
 $ppLastWord = array_pop($ppParts);
 $ppFirstWords = implode(' ', $ppParts);
+
+// ===== escaped vars =====
+$eTitle      = htmlspecialchars($ppTitle, ENT_QUOTES, 'UTF-8');
+$eSubtitle   = htmlspecialchars($ppSubtitle, ENT_QUOTES, 'UTF-8');
+$eFirstWords = htmlspecialchars($ppFirstWords, ENT_QUOTES, 'UTF-8');
+$eLastWord   = htmlspecialchars($ppLastWord, ENT_QUOTES, 'UTF-8');
+
+require_once __DIR__ . '/includes/header.php';
 ?>
- 
 
   <main>
     <section class="contact-banner">
@@ -26,12 +36,12 @@ $ppFirstWords = implode(' ', $ppParts);
         <nav class="contact-banner__breadcrumb" aria-label="Breadcrumb">
           <a href="index.php" class="contact-banner__breadcrumb-link">Home</a>
           <span class="contact-banner__breadcrumb-sep">&#9656;</span>
-          <span class="contact-banner__breadcrumb-current"><?php echo htmlspecialchars($ppTitle); ?></span>
+          <span class="contact-banner__breadcrumb-current"><?= $eTitle ?></span>
         </nav>
         <span class="contact-banner__label">LEGAL</span>
-        <h1 class="contact-banner__title"><?php echo $ppParts ? htmlspecialchars($ppFirstWords) . ' ' : ''; ?><span class="contact-banner__title-gradient"><?php echo htmlspecialchars($ppLastWord); ?></span></h1>
+        <h1 class="contact-banner__title"><?= $ppParts ? $eFirstWords . ' ' : '' ?><span class="contact-banner__title-gradient"><?= $eLastWord ?></span></h1>
         <?php if ($ppSubtitle !== ''): ?>
-        <p class="contact-banner__desc"><?php echo htmlspecialchars($ppSubtitle); ?></p>
+        <p class="contact-banner__desc"><?= $eSubtitle ?></p>
         <?php endif; ?>
       </div>
     </section>
@@ -39,11 +49,7 @@ $ppFirstWords = implode(' ', $ppParts);
     <section class="legal-page">
       <div class="container">
         <div class="legal-page__content">
-<?php if ($ppDescriptionHtml !== ''): ?>
-          <?php echo $ppDescriptionHtml; ?>
-<?php else: ?>
-          
-<?php endif; ?>
+          <?= $ppDescHtml ?>
         </div>
       </div>
     </section>

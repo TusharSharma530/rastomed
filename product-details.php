@@ -1,49 +1,60 @@
 <?php
-?>
-  <?php include __DIR__ . '/includes/header.php'; ?>
-<?php
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+require_once __DIR__ . '/manager/database/db.php';
+
+// ===== product by id =====
+$id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 $product = null;
-if ($id && isset($con)) {
-    $proResult = mysqli_query($con, "SELECT * FROM products WHERE id = $id AND status = 1");
-    if ($proResult && mysqli_num_rows($proResult)) {
-        $product = mysqli_fetch_assoc($proResult);
-    }
+if ($id) {
+	$rsProduct = mysqli_query($con, "SELECT * FROM products WHERE id = $id AND status = 1");
+	if ($rsProduct && mysqli_num_rows($rsProduct)) {
+		$product = mysqli_fetch_assoc($rsProduct);
+	}
 }
 
+// ===== product not found =====
 if (!$product) {
-    echo '<main><section class="section"><div class="container"><p>Product not found.</p></div></section></main>';
-    include __DIR__ . '/includes/footer.php';
-    exit();
+	require_once __DIR__ . '/includes/header.php';
+	echo '<main><section class="section"><div class="container"><p>Product not found.</p></div></section></main>';
+	include __DIR__ . '/includes/footer.php';
+	exit();
 }
 
+// ===== FAQ pairs (odd <p> = question, even <p> = answer) =====
 $faqItems = [];
 if (!empty($product['faq'])) {
-    preg_match_all('/<p>(.*?)<\/p>/si', $product['faq'], $matches);
-    if (!empty($matches[1])) {
-        $total = count($matches[1]);
-        for ($i = 0; $i < $total; $i += 2) {
-            $question = trim(strip_tags($matches[1][$i]));
-            $answer = isset($matches[1][$i + 1]) ? trim($matches[1][$i + 1]) : '';
-            if (!empty($question)) {
-                $faqItems[] = ['q' => $question, 'a' => $answer];
-            }
-        }
-    }
+	preg_match_all('/<p>(.*?)<\/p>/si', $product['faq'], $matches);
+	if (!empty($matches[1])) {
+		for ($i = 0, $total = count($matches[1]); $i < $total; $i += 2) {
+			$question = trim(strip_tags($matches[1][$i]));
+			if ($question !== '') {
+				$faqItems[] = [
+					'q' => $question,
+					'a' => isset($matches[1][$i + 1]) ? trim($matches[1][$i + 1]) : '',
+				];
+			}
+		}
+	}
 }
+
+// ===== escaped vars =====
+$eName  = htmlspecialchars($product['name'], ENT_QUOTES, 'UTF-8');
+$ePrice = htmlspecialchars((string) $product['price'], ENT_QUOTES, 'UTF-8');
+$eImg   = htmlspecialchars((string) $product['featured_img'], ENT_QUOTES, 'UTF-8');
+
+require_once __DIR__ . '/includes/header.php';
 ?>
 
   <main>
     <section class="about-banner">
       <div class="about-banner__overlay"></div>
       <div class="container about-banner__content">
-        <h1 class="about-banner__title"><?= htmlspecialchars($product['name']) ?></h1>
+        <h1 class="about-banner__title"><?= $eName ?></h1>
         <nav class="about-banner__breadcrumb" aria-label="Breadcrumb">
           <a href="index.php" class="about-banner__breadcrumb-link">Home</a>
           <span class="about-banner__breadcrumb-sep">&#9656;</span>
           <a href="products.php" class="about-banner__breadcrumb-link">Products</a>
           <span class="about-banner__breadcrumb-sep">&#9656;</span>
-          <span class="about-banner__breadcrumb-current"><?= htmlspecialchars($product['name']) ?></span>
+          <span class="about-banner__breadcrumb-current"><?= $eName ?></span>
         </nav>
       </div>
     </section>
@@ -52,22 +63,18 @@ if (!empty($product['faq'])) {
       <div class="container">
         <div class="pd-detail-grid product-detail-grid-layout">
           <div class="pd-detail-grid__image product-detail-img-flex">
-            <?php if(!empty($product['featured_img'])): ?>
-            <img src="<?= $path . $product['featured_img'] ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="product-detail-img-max">
-            <?php else: ?>
-            <img src="" alt="<?= htmlspecialchars($product['name']) ?>" class="product-detail-img-max">
-            <?php endif; ?>
+            <img src="<?= $eImg !== '' ? $path . $eImg : '' ?>" alt="<?= $eName ?>" class="product-detail-img-max">
           </div>
           <div class="pd-detail-grid__content product-detail-content-box">
-            <h2 class="pd-detail-grid__title"><?= htmlspecialchars($product['name']) ?></h2>
-            <?php if(!empty($product['price'])): ?>
-            <span class="price-tag-style">&#8377; <?= htmlspecialchars($product['price']) ?></span>
+            <h2 class="pd-detail-grid__title"><?= $eName ?></h2>
+            <?php if (!empty($product['price'])): ?>
+            <span class="price-tag-style">&#8377; <?= $ePrice ?></span>
             <?php endif; ?>
             <div class="pd-detail-grid__desc">
-              <?php if(!empty($product['sdesc'])): ?>
+              <?php if (!empty($product['sdesc'])): ?>
               <?= $product['sdesc'] ?>
               <?php endif; ?>
-              <?php if(!empty($product['cdesc'])): ?>
+              <?php if (!empty($product['cdesc'])): ?>
               <?= $product['cdesc'] ?>
               <?php endif; ?>
             </div>
@@ -76,7 +83,7 @@ if (!empty($product['faq'])) {
       </div>
     </section>
 
-    <?php if(!empty($faqItems)): ?>
+    <?php if (!empty($faqItems)): ?>
     <!-- FAQ Section -->
     <section class="faq-top-pad">
       <div class="container">

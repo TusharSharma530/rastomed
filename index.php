@@ -1,79 +1,91 @@
 <?php
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/manager/database/db.php';
 
-$homeBannerVideo = '';
-$homeBannerImg = '';
-$homeBannerResult = mysqli_query($con, "SELECT * FROM web_banner WHERE id = 8 AND status = 1 LIMIT 1");
-if ($homeBannerResult && mysqli_num_rows($homeBannerResult)) {
-    $homeBannerRow = mysqli_fetch_assoc($homeBannerResult);
-    $homeBannerVideo = $homeBannerRow['wb_video'] ?? '';
-    $homeBannerImg = $homeBannerRow['wb_img'] ?? '';
-}
+// ===== hero banner (web_banner id = 8) =====
+$homeBannerRow  = fetch_one_row($con, "SELECT * FROM web_banner WHERE id = 8 AND status = 1 LIMIT 1");
+$eBannerVideo   = htmlspecialchars((string) ($homeBannerRow['wb_video'] ?? ''), ENT_QUOTES, 'UTF-8');
+$eBannerImg     = htmlspecialchars((string) ($homeBannerRow['wb_img'] ?? ''), ENT_QUOTES, 'UTF-8');
 
-$heroTitle = '';
-$heroSubtitle = '';
-$heroCatResult = mysqli_query($con, "SELECT * FROM category WHERE id = 76 AND status = 1 LIMIT 1");
-if ($heroCatResult && mysqli_num_rows($heroCatResult)) {
-    $heroCatRow = mysqli_fetch_assoc($heroCatResult);
-    $heroTitle = $heroCatRow['c_name'] ?? '';
-    $heroSubtitle = $heroCatRow['sdesc'] ?? '';
-}
+// ===== hero text (category id = 76) =====
+$heroRow        = fetch_one_row($con, "SELECT * FROM category WHERE id = 76 AND status = 1 LIMIT 1");
+$eHeroTitle     = htmlspecialchars((string) ($heroRow['c_name'] ?? ''), ENT_QUOTES, 'UTF-8');
+$eHeroSubtitle  = htmlspecialchars((string) ($heroRow['sdesc'] ?? ''), ENT_QUOTES, 'UTF-8');
 
-$aboutTitle = '';
-$aboutDesc = '';
-$aboutImg = '';
-$aboutCatResult = mysqli_query($con, "SELECT * FROM category WHERE id = 77 AND status = 1 LIMIT 1");
-if ($aboutCatResult && mysqli_num_rows($aboutCatResult)) {
-    $aboutCatRow = mysqli_fetch_assoc($aboutCatResult);
-    $aboutTitle = $aboutCatRow['c_name'] ?? '';
-    $aboutDesc = $aboutCatRow['c_desc'] ?? '';
-    $aboutImg = $aboutCatRow['featured_img'] ?? '';
-}
+// ===== about section (category id = 77) =====
+$aboutRow       = fetch_one_row($con, "SELECT * FROM category WHERE id = 77 AND status = 1 LIMIT 1");
+$aboutTitle     = (string) ($aboutRow['c_name'] ?? '');
+$aboutDesc      = (string) ($aboutRow['c_desc'] ?? '');
+$aboutImg       = (string) ($aboutRow['featured_img'] ?? '');
+$eAboutTitle    = htmlspecialchars($aboutTitle, ENT_QUOTES, 'UTF-8');
+$eAboutImg      = htmlspecialchars($aboutImg, ENT_QUOTES, 'UTF-8');
+$aboutParagraphs = array_filter(array_map('trim', explode("\n", str_replace("\\n", "\n", $aboutDesc))));
 
+// ===== product list =====
 $ourProducts = [];
-$homeProductsResult = mysqli_query($con, "SELECT * FROM products WHERE status = 1 ORDER BY `order` ASC, id DESC");
-if ($homeProductsResult && mysqli_num_rows($homeProductsResult)) {
-    while ($rwProd = mysqli_fetch_assoc($homeProductsResult)) {
-        $ourProducts[] = $rwProd;
-    }
+$rsProducts = mysqli_query($con, "SELECT * FROM products WHERE status = 1 ORDER BY `order` ASC, id DESC");
+if ($rsProducts) {
+	while ($rwProd = mysqli_fetch_assoc($rsProducts)) {
+		$ourProducts[] = $rwProd;
+	}
 }
 
-$siteSettings = [];
-$homeSettingsResult = mysqli_query($con, "SELECT * FROM settings WHERE id = 1 LIMIT 1");
-if ($homeSettingsResult && mysqli_num_rows($homeSettingsResult)) {
-    $siteSettings = mysqli_fetch_assoc($homeSettingsResult);
-}
+// ===== site settings =====
+$siteSettings = fetch_one_row($con, "SELECT * FROM settings WHERE id = 1 LIMIT 1") ?: [];
+$eWebName     = htmlspecialchars((string) ($siteSettings['web_name'] ?? ''), ENT_QUOTES, 'UTF-8');
 
+// ===== testimonials (with avatar initials) =====
 $testimonials = [];
-$homeTestimonialsResult = mysqli_query($con, "SELECT * FROM testimonials WHERE status = 1 ORDER BY `order` ASC, id ASC");
-if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
-    while ($rwTc = mysqli_fetch_assoc($homeTestimonialsResult)) {
-        $tcName = trim(strip_tags($rwTc['title']));
-        $tcInitials = '';
-        if ($tcName !== '') {
-            $tcParts = preg_split('/\s+/', $tcName);
-            $tcInitials = strtoupper(substr($tcParts[0], 0, 1));
-            if (count($tcParts) > 1) {
-                $tcInitials .= strtoupper(substr(end($tcParts), 0, 1));
-            }
-        }
-        $testimonials[] = [
-            'quote' => trim(preg_replace('/\s+/', ' ', strip_tags($rwTc['desc']))),
-            'name' => $tcName,
-            'role' => trim(strip_tags($rwTc['heading'])),
-            'avatar' => $tcInitials ?: 'T',
-        ];
-    }
+$rsTc = mysqli_query($con, "SELECT * FROM testimonials WHERE status = 1 ORDER BY `order` ASC, id ASC");
+if ($rsTc) {
+	while ($rwTc = mysqli_fetch_assoc($rsTc)) {
+		$tcName = trim(strip_tags($rwTc['title']));
+		$tcInitials = '';
+		if ($tcName !== '') {
+			$tcParts = preg_split('/\s+/', $tcName);
+			$tcInitials = strtoupper(substr($tcParts[0], 0, 1));
+			if (count($tcParts) > 1) {
+				$tcInitials .= strtoupper(substr(end($tcParts), 0, 1));
+			}
+		}
+		$testimonials[] = [
+			'quote'  => htmlspecialchars(trim(preg_replace('/\s+/', ' ', strip_tags($rwTc['desc']))), ENT_QUOTES, 'UTF-8'),
+			'name'   => htmlspecialchars($tcName, ENT_QUOTES, 'UTF-8'),
+			'role'   => htmlspecialchars(trim(strip_tags($rwTc['heading'])), ENT_QUOTES, 'UTF-8'),
+			'avatar' => $tcInitials ?: 'T',
+		];
+	}
 }
 
+// ===== map + contact info =====
+$homeMapSrc   = trim($siteSettings['map_iframe'] ?? '');
+$homeAddress  = trim($siteSettings['address'] ?? '');
+$homePhone1   = trim($siteSettings['contact_no'] ?? '');
+$homePhone2   = trim($siteSettings['alternate_no'] ?? '');
+$homeEmail    = trim($siteSettings['email_id'] ?? '');
+$homePhone1Full = ($homePhone1 !== '' && strpos($homePhone1, '+') === false && strpos($homePhone1, '91') !== 0) ? '+91 ' . $homePhone1 : $homePhone1;
+$homePhone2Full = ($homePhone2 !== '' && strpos($homePhone2, '+') === false && strpos($homePhone2, '91') !== 0) ? '+91 ' . $homePhone2 : $homePhone2;
+$homeHours = trim($siteSettings['opening_hour'] ?? '');
+$homeHoursAt = strpos($homeHours, ',');
+$homeHoursDay = $homeHoursAt !== false ? trim(substr($homeHours, 0, $homeHoursAt)) : $homeHours;
+$homeHoursTime = $homeHoursAt !== false ? trim(substr($homeHours, $homeHoursAt + 1)) : '';
+
+$eMapSrc     = htmlspecialchars($homeMapSrc, ENT_QUOTES, 'UTF-8');
+$eAddress    = nl2br(htmlspecialchars($homeAddress, ENT_QUOTES, 'UTF-8'));
+$ePhone1Full = htmlspecialchars($homePhone1Full, ENT_QUOTES, 'UTF-8');
+$ePhone2Full = htmlspecialchars($homePhone2Full, ENT_QUOTES, 'UTF-8');
+$eEmail      = htmlspecialchars($homeEmail, ENT_QUOTES, 'UTF-8');
+$eHoursDay   = htmlspecialchars($homeHoursDay, ENT_QUOTES, 'UTF-8');
+$eHoursTime  = htmlspecialchars($homeHoursTime, ENT_QUOTES, 'UTF-8');
+
+require_once __DIR__ . '/includes/header.php';
 ?>
 
   <main>
-  
+
     <section class="home-hero-banner">
-      <?php if(!empty($homeBannerVideo)): ?>
-      <video id="heroVideo" class="home-hero-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto" <?php if(!empty($homeBannerImg)): ?>poster="<?= $path . $homeBannerImg ?>"<?php else: ?>poster=""<?php endif; ?>>
-        <source src="<?= $path . $homeBannerVideo ?>" type="video/mp4">
+      <?php if (!empty($eBannerVideo)): ?>
+      <video id="heroVideo" class="home-hero-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="<?= $eBannerImg !== '' ? $path . $eBannerImg : '' ?>">
+        <source src="<?= $path . $eBannerVideo ?>" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <?php endif; ?>
@@ -81,10 +93,9 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
       <div class="container home-hero-content-container">
         <div class="home-hero-content">
           <span class="home-hero-badge">RastoMed Pharma Private Limited</span>
-          <h1 class="home-hero-title"><?= htmlspecialchars($heroTitle) ?></h1>
-          <p class="home-hero-subtitle"><?= htmlspecialchars($heroSubtitle) ?></p>
-          
-      
+          <h1 class="home-hero-title"><?= $eHeroTitle ?></h1>
+          <p class="home-hero-subtitle"><?= $eHeroSubtitle ?></p>
+
           <div class="home-hero-features">
             <div class="hero-feature-item">
               <div class="hero-feature-gif-box">
@@ -188,22 +199,18 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
       </div>
     </section>
 
-   
     <section class="about-section">
       <div class="container">
         <div class="about-section__grid">
           <div class="about-section__images">
             <div class="about-section__img about-section__img--1">
-              <img src="<?= !empty($aboutImg) ? $path . $aboutImg : '' ?>" alt="<?= htmlspecialchars($aboutTitle) ?>" width="400" height="350">
+              <img src="<?= $eAboutImg !== '' ? $path . $eAboutImg : '' ?>" alt="<?= $eAboutTitle ?>" width="400" height="350">
             </div>
           </div>
           <div class="about-section__content">
-            <h2 class="about-section__title"><?= htmlspecialchars($aboutTitle) ?></h2>
-            <?php
-            $aboutParagraphs = array_filter(array_map('trim', explode("\n", str_replace("\\n", "\n", $aboutDesc))));
-            foreach ($aboutParagraphs as $aboutPara):
-            ?>
-            <p class="about-section__text"><?= htmlspecialchars($aboutPara) ?></p>
+            <h2 class="about-section__title"><?= $eAboutTitle ?></h2>
+            <?php foreach ($aboutParagraphs as $aboutPara): ?>
+            <p class="about-section__text"><?= htmlspecialchars($aboutPara, ENT_QUOTES, 'UTF-8') ?></p>
             <?php endforeach; ?>
             <a href="about.php" class="about-section__btn">
               Read More
@@ -214,7 +221,6 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
       </div>
     </section>
 
-  
     <section class="section our-products-section">
       <div class="container">
         <div class="our-products-header">
@@ -228,32 +234,33 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
         </div>
         <div class="our-products-slider">
           <div class="our-products-track">
-            <?php foreach ($ourProducts as $product): ?>
+            <?php foreach ($ourProducts as $product):
+	$eProdName = htmlspecialchars($product['name'], ENT_QUOTES, 'UTF-8');
+	$eProdImg  = htmlspecialchars((string) $product['featured_img'], ENT_QUOTES, 'UTF-8');
+	$eProdPrice = htmlspecialchars((string) $product['price'], ENT_QUOTES, 'UTF-8');
+	$prodUrl   = 'product-details.php?id=' . (int) $product['id'];
+?>
               <div class="our-product-card">
                 <div class="our-product-card__image">
-                  <?php if(!empty($product['featured_img'])): ?>
-                  <img src="<?= $path . $product['featured_img'] ?>" alt="<?= htmlspecialchars($product['name']) ?>" loading="lazy">
-                  <?php else: ?>
-                  <img src="" alt="<?= htmlspecialchars($product['name']) ?>" loading="lazy">
-                  <?php endif; ?>
-                  <a href="product-details.php?id=<?= (int)$product['id'] ?>" class="our-product-card__plus">
+                  <img src="<?= $eProdImg !== '' ? $path . $eProdImg : '' ?>" alt="<?= $eProdName ?>" loading="lazy">
+                  <a href="<?= $prodUrl ?>" class="our-product-card__plus">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                   </a>
                 </div>
                 <div class="our-product-card__body">
                   <div class="flex-between-gap3">
-                <div>
-                  <h3 class="our-product-card__title margin-0-left"><?= htmlspecialchars($product['name']) ?></h3>
-                  <?php if(!empty($product['price'])): ?>
-                  <span class="price-tag-style">&#8377; <?= htmlspecialchars($product['price']) ?></span>
-                  <?php endif; ?>
-                </div>
-                <div>
-                  <a href="product-details.php?id=<?= (int)$product['id'] ?>" class="our-product-card__btn">Read More</a>
-                </div>
+                    <div>
+                      <h3 class="our-product-card__title margin-0-left"><?= $eProdName ?></h3>
+                      <?php if ($eProdPrice !== ''): ?>
+                      <span class="price-tag-style">&#8377; <?= $eProdPrice ?></span>
+                      <?php endif; ?>
+                    </div>
+                    <div>
+                      <a href="<?= $prodUrl ?>" class="our-product-card__btn">Read More</a>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
             <?php endforeach; ?>
           </div>
         </div>
@@ -284,12 +291,12 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
                 </div>
                 <div class="testimonial-card-clean__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="testimonial-card-clean__quote"><?= htmlspecialchars($t['quote']) ?></p>
+                <p class="testimonial-card-clean__quote"><?= $t['quote'] ?></p>
                 <div class="testimonial-card-clean__author">
                   <div class="testimonial-card-clean__avatar"><?= $t['avatar'] ?></div>
                   <div>
-                    <div class="testimonial-card-clean__name"><?= htmlspecialchars($t['name']) ?></div>
-                    <div class="testimonial-card-clean__role"><?= htmlspecialchars($t['role']) ?></div>
+                    <div class="testimonial-card-clean__name"><?= $t['name'] ?></div>
+                    <div class="testimonial-card-clean__role"><?= $t['role'] ?></div>
                   </div>
                 </div>
               </div>
@@ -308,69 +315,55 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
       <div class="container">
         <div class="map-contact-grid">
           <div class="map-wrapper reveal reveal--left">
-            <?php $homeMapSrc = trim($siteSettings['map_iframe'] ?? ''); ?>
-            <?php if (!empty($homeMapSrc)): ?>
+            <?php if ($eMapSrc !== ''): ?>
             <iframe
-              src="<?= htmlspecialchars($homeMapSrc) ?>"
+              src="<?= $eMapSrc ?>"
               width="100%"
               height="450"
               class="map-iframe-no-border border-radius-2xl-box"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              title="<?= htmlspecialchars($siteSettings['web_name'] ?? 'Location') ?> Location Map">
+              title="<?= $eWebName ?> Location Map">
             </iframe>
             <?php endif; ?>
           </div>
           <div class="map-contact-info reveal reveal--right">
             <span class="our-products-label">GET IN TOUCH</span>
             <h3 class="our-products-title">We Are Here to Help You</h3>
-            <?php
-            $homeAddress = trim($siteSettings['address'] ?? '');
-            $homePhone1 = trim($siteSettings['contact_no'] ?? '');
-            $homePhone2 = trim($siteSettings['alternate_no'] ?? '');
-            $homeEmail = trim($siteSettings['email_id'] ?? '');
-            $homePhone1Full = ($homePhone1 !== '' && strpos($homePhone1, '+') === false && strpos($homePhone1, '91') !== 0) ? '+91 ' . $homePhone1 : $homePhone1;
-            $homePhone2Full = ($homePhone2 !== '' && strpos($homePhone2, '+') === false && strpos($homePhone2, '91') !== 0) ? '+91 ' . $homePhone2 : $homePhone2;
-            $homeHours = trim($siteSettings['opening_hour'] ?? '');
-            if ($homeHours === '') { $homeHours = ''; }
-            $homeHoursAt = strpos($homeHours, ',');
-            $homeHoursDay = $homeHoursAt !== false ? trim(substr($homeHours, 0, $homeHoursAt)) : $homeHours;
-            $homeHoursTime = $homeHoursAt !== false ? trim(substr($homeHours, $homeHoursAt + 1)) : '';
-            ?>
-            <?php if (!empty($homeAddress)): ?>
+            <?php if ($homeAddress !== ''): ?>
             <div class="map-contact-item">
               <div class="map-contact-item__icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
               <div class="map-contact-item__text">
-                <strong><?= htmlspecialchars(trim($siteSettings['web_name'] ?? '')) ?></strong>
-                <p><?= nl2br(htmlspecialchars($homeAddress)) ?></p>
+                <strong><?= $eWebName ?></strong>
+                <p><?= $eAddress ?></p>
               </div>
             </div>
             <?php endif; ?>
-            <?php if (!empty($homePhone1) || !empty($homePhone2)): ?>
+            <?php if ($homePhone1 !== '' || $homePhone2 !== ''): ?>
             <div class="map-contact-item">
               <div class="map-contact-item__icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </div>
               <div class="map-contact-item__text">
-                <?php if (!empty($homePhone1)): ?>
-                <strong><?= htmlspecialchars($homePhone1Full) ?></strong>
+                <?php if ($homePhone1 !== ''): ?>
+                <strong><?= $ePhone1Full ?></strong>
                 <?php endif; ?>
-                <?php if (!empty($homePhone2)): ?>
-                <strong><?= htmlspecialchars($homePhone2Full) ?></strong>
+                <?php if ($homePhone2 !== ''): ?>
+                <strong><?= $ePhone2Full ?></strong>
                 <?php endif; ?>
               </div>
             </div>
             <?php endif; ?>
-            <?php if (!empty($homeEmail)): ?>
+            <?php if ($homeEmail !== ''): ?>
             <div class="map-contact-item">
               <div class="map-contact-item__icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               </div>
               <div class="map-contact-item__text">
-                <strong><?= htmlspecialchars($homeEmail) ?></strong>
+                <strong><?= $eEmail ?></strong>
               </div>
             </div>
             <?php endif; ?>
@@ -379,9 +372,9 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </div>
               <div class="map-contact-item__text">
-                <strong><?= htmlspecialchars($homeHoursDay) ?></strong>
-                <?php if ($homeHoursTime !== ''): ?>
-                <p><?= htmlspecialchars($homeHoursTime) ?></p>
+                <strong><?= $eHoursDay ?></strong>
+                <?php if ($eHoursTime !== ''): ?>
+                <p><?= $eHoursTime ?></p>
                 <?php endif; ?>
               </div>
             </div>
@@ -391,5 +384,4 @@ if ($homeTestimonialsResult && mysqli_num_rows($homeTestimonialsResult)) {
     </section>
   </main>
 
-  <!-- 9. FOOTER -->
   <?php include __DIR__ . '/includes/footer.php'; ?>
