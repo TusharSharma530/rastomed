@@ -23,8 +23,8 @@ if ($visionRow) {
 	$visionText = trim($visionRow['sdesc']) !== '' ? $visionRow['sdesc'] : $visionRow['c_desc'];
 	$visionText = str_replace("\\n", "\n", $visionText);
 }
-$missionTitle = $missionRow['c_name'] ?? 'Our Mission';
-$visionTitle  = $visionRow['c_name'] ?? 'Our Vision';
+$missionTitle = $missionRow['c_name'] ?? '';
+$visionTitle  = $visionRow['c_name'] ?? '';
 
 // section heading: mission 
 $mvHeading = '';
