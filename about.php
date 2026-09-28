@@ -72,7 +72,7 @@ if ($missionRow && trim($missionRow['c_name']) !== '') {
           <div class="reveal reveal--right about-rel-pos">
             <div class="about-grad-box">
               <div class="about-inner-pad">
-                <img src="<?= htmlspecialchars(!empty($aboutRow['featured_img']) ? $aboutRow['featured_img'] : 'assets/images/ourstory.jpeg', ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars((string) ($aboutRow['c_name'] ?? 'About Us'), ENT_QUOTES, 'UTF-8') ?>" class="about-logo-img">
+                <img src="<?= htmlspecialchars(!empty($aboutRow['featured_img']) ? $aboutRow['featured_img'] : '', ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars((string) ($aboutRow['c_name'] ?? 'About Us'), ENT_QUOTES, 'UTF-8') ?>" class="about-logo-img">
               </div>
             </div>
           </div>
