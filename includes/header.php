@@ -59,6 +59,9 @@ window.RASTOMED_withRecaptcha = function (fn) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Learn about RastoMed Pharma Private Limited - our history, leadership, vision, and mission to advance healthcare.">
   <title>About Us - RastoMed Pharma Private Limited</title>
+<?php if (!empty($useBaseTag)): ?>
+  <base href="<?= htmlspecialchars($siteBase, ENT_QUOTES, 'UTF-8') ?>">
+<?php endif; ?>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

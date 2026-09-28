@@ -29,9 +29,8 @@ if ($rsProducts) {
 	}
 }
 
-// ===== site settings =====
-$siteSettings = fetch_one_row($con, "SELECT * FROM settings WHERE id = 1 LIMIT 1") ?: [];
-$eWebName     = htmlspecialchars((string) ($siteSettings['web_name'] ?? ''), ENT_QUOTES, 'UTF-8');
+// ===== site settings (loaded in db.php) =====
+$eWebName     = htmlspecialchars((string) $websitename, ENT_QUOTES, 'UTF-8');
 
 // ===== testimonials 
 $testimonials = [];
@@ -56,26 +55,6 @@ if ($rsTc) {
 	}
 }
 
-// ===== map + contact info =====
-$homeMapSrc   = trim($siteSettings['map_iframe'] ?? '');
-$homeAddress  = trim($siteSettings['address'] ?? '');
-$homePhone1   = trim($siteSettings['contact_no'] ?? '');
-$homePhone2   = trim($siteSettings['alternate_no'] ?? '');
-$homeEmail    = trim($siteSettings['email_id'] ?? '');
-$homePhone1Full = ($homePhone1 !== '' && strpos($homePhone1, '+') === false && strpos($homePhone1, '91') !== 0) ? '+91 ' . $homePhone1 : $homePhone1;
-$homePhone2Full = ($homePhone2 !== '' && strpos($homePhone2, '+') === false && strpos($homePhone2, '91') !== 0) ? '+91 ' . $homePhone2 : $homePhone2;
-$homeHours = trim($siteSettings['opening_hour'] ?? '');
-$homeHoursAt = strpos($homeHours, ',');
-$homeHoursDay = $homeHoursAt !== false ? trim(substr($homeHours, 0, $homeHoursAt)) : $homeHours;
-$homeHoursTime = $homeHoursAt !== false ? trim(substr($homeHours, $homeHoursAt + 1)) : '';
-
-$eMapSrc     = htmlspecialchars($homeMapSrc, ENT_QUOTES, 'UTF-8');
-$eAddress    = nl2br(htmlspecialchars($homeAddress, ENT_QUOTES, 'UTF-8'));
-$ePhone1Full = htmlspecialchars($homePhone1Full, ENT_QUOTES, 'UTF-8');
-$ePhone2Full = htmlspecialchars($homePhone2Full, ENT_QUOTES, 'UTF-8');
-$eEmail      = htmlspecialchars($homeEmail, ENT_QUOTES, 'UTF-8');
-$eHoursDay   = htmlspecialchars($homeHoursDay, ENT_QUOTES, 'UTF-8');
-$eHoursTime  = htmlspecialchars($homeHoursTime, ENT_QUOTES, 'UTF-8');
 
 require_once __DIR__ . '/includes/header.php';
 ?>
@@ -238,7 +217,7 @@ require_once __DIR__ . '/includes/header.php';
 	$eProdName = htmlspecialchars($product['name'], ENT_QUOTES, 'UTF-8');
 	$eProdImg  = htmlspecialchars((string) $product['featured_img'], ENT_QUOTES, 'UTF-8');
 	$eProdPrice = htmlspecialchars((string) $product['price'], ENT_QUOTES, 'UTF-8');
-	$prodUrl   = 'product-details.php?id=' . (int) $product['id'];
+	$prodUrl   = product_details_url($product);
 ?>
               <div class="our-product-card">
                 <div class="our-product-card__image">

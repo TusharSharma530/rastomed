@@ -1,12 +1,12 @@
 <?php
 require_once __DIR__ . '/manager/database/db.php';
 
-// ===== blogs category 
+//blogs category 
 $blogCatId = 75;
 $blogsRow = fetch_one_row($con, "SELECT * FROM category WHERE id = $blogCatId AND status = 1");
 $blogsBanner = fetch_one_row($con, "SELECT * FROM web_banner WHERE category_id = $blogCatId AND status = 1 ORDER BY wb_order ASC LIMIT 1");
 
-// ===== blog list =====
+// blog list
 $allBlogs = [];
 $rsBlogs = mysqli_query($con, "SELECT * FROM blogs WHERE status = 1 ORDER BY id DESC");
 if ($rsBlogs) {
@@ -15,28 +15,23 @@ if ($rsBlogs) {
 	}
 }
 
-// ===== escaped vars =====
-$eBlogsName = htmlspecialchars((string) ($blogsRow['c_name'] ?? 'Blogs'), ENT_QUOTES, 'UTF-8');
-$eBannerBg  = htmlspecialchars((string) ($blogsBanner['wb_img'] ?? ''), ENT_QUOTES, 'UTF-8');
-$eBannerVid = htmlspecialchars((string) ($blogsBanner['wb_video'] ?? ''), ENT_QUOTES, 'UTF-8');
-
 require_once __DIR__ . '/includes/header.php';
 ?>
 
   <main>
-    <section class="about-banner"<?php if ($eBannerBg !== ''): ?> style="background-image: url('<?= $eBannerBg ?>');"<?php endif; ?>>
-      <?php if ($eBannerVid !== ''): ?>
+    <section class="about-banner"<?php if ((string) ($blogsBanner['wb_img'] ?? '') !== ''): ?> style="background-image: url('<?= htmlspecialchars((string) $blogsBanner['wb_img'], ENT_QUOTES, 'UTF-8') ?>');"<?php endif; ?>>
+      <?php if ((string) ($blogsBanner['wb_video'] ?? '') !== ''): ?>
       <video class="banner-bg-video" autoplay muted loop playsinline>
-        <source src="<?= $eBannerVid ?>">
+        <source src="<?= htmlspecialchars((string) $blogsBanner['wb_video'], ENT_QUOTES, 'UTF-8') ?>">
       </video>
       <?php endif; ?>
       <div class="about-banner__overlay"></div>
       <div class="container about-banner__content">
-        <h1 class="about-banner__title"><?= $eBlogsName ?></h1>
+        <h1 class="about-banner__title"><?= htmlspecialchars((string) ($blogsRow['c_name'] ?? 'Blogs'), ENT_QUOTES, 'UTF-8') ?></h1>
         <nav class="about-banner__breadcrumb" aria-label="Breadcrumb">
           <a href="index.php" class="about-banner__breadcrumb-link">Home</a>
           <span class="about-banner__breadcrumb-sep">&#9656;</span>
-          <span class="about-banner__breadcrumb-current"><?= $eBlogsName ?></span>
+          <span class="about-banner__breadcrumb-current"><?= htmlspecialchars((string) ($blogsRow['c_name'] ?? 'Blogs'), ENT_QUOTES, 'UTF-8') ?></span>
         </nav>
       </div>
     </section>
@@ -52,10 +47,10 @@ require_once __DIR__ . '/includes/header.php';
             </div>
           </div>
 <?php } else { foreach ($allBlogs as $blog) {
-	$eBlogTitle = htmlspecialchars($blog['title'], ENT_QUOTES, 'UTF-8');
-	$eBlogFile  = htmlspecialchars((string) $blog['file'], ENT_QUOTES, 'UTF-8');
-	$eBlogDate  = htmlspecialchars((string) $blog['date'], ENT_QUOTES, 'UTF-8');
-	$blogUrl    = 'blog-details.php?id=' . (int) $blog['id'];
+            $eBlogTitle = htmlspecialchars($blog['title'], ENT_QUOTES, 'UTF-8');
+            $eBlogFile  = htmlspecialchars((string) $blog['file'], ENT_QUOTES, 'UTF-8');
+            $eBlogDate  = htmlspecialchars((string) $blog['date'], ENT_QUOTES, 'UTF-8');
+            $blogUrl    = 'blog-details.php?id=' . (int) $blog['id'];
 ?>
           <div class="blog-card reveal">
             <div class="blog-card__image">

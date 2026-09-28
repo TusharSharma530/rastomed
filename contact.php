@@ -19,32 +19,20 @@ if ($heroVideo === '' && $heroImg === '') {
 	$heroImg = (string) ($contactRow['featured_img'] ?? '');
 }
 
-// ===== escaped vars =====
-$eContactName  = htmlspecialchars((string) ($contactRow['c_name'] ?? 'Contact Us'), ENT_QUOTES, 'UTF-8');
-$eHeroVideo    = htmlspecialchars($heroVideo, ENT_QUOTES, 'UTF-8');
-$eHeroImg      = htmlspecialchars($heroImg, ENT_QUOTES, 'UTF-8');
-$eAddress      = nl2br(htmlspecialchars((string) ($address ?? ''), ENT_QUOTES, 'UTF-8'));
-$eContactNo    = htmlspecialchars((string) ($contactno ?? ''), ENT_QUOTES, 'UTF-8');
-$eAltNo        = htmlspecialchars((string) ($alternateno ?? ''), ENT_QUOTES, 'UTF-8');
-$eEmail        = htmlspecialchars((string) ($emailid ?? ''), ENT_QUOTES, 'UTF-8');
-$eOpeningHour  = htmlspecialchars($openingHour, ENT_QUOTES, 'UTF-8');
-$eMapIframe    = htmlspecialchars($contactMapIframe, ENT_QUOTES, 'UTF-8');
-$eWebName      = htmlspecialchars((string) ($websitename ?? ''), ENT_QUOTES, 'UTF-8');
-
 require_once __DIR__ . '/includes/header.php';
 ?>
 
   <main>
     <section class="contact-hero-banner">
-      <?php if ($eHeroVideo !== ''): ?>
+      <?php if ($heroVideo !== ''): ?>
       <video class="contact-hero-bg-img" autoplay muted loop playsinline>
-        <source src="<?= $path . $eHeroVideo ?>">
+        <source src="<?= $path . htmlspecialchars($heroVideo, ENT_QUOTES, 'UTF-8') ?>">
       </video>
-      <?php elseif ($eHeroImg !== ''): ?>
-      <img src="<?= $path . $eHeroImg ?>" alt="<?= $eContactName ?>" class="contact-hero-bg-img">
+      <?php elseif ($heroImg !== ''): ?>
+      <img src="<?= $path . htmlspecialchars($heroImg, ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars((string) ($contactRow['c_name'] ?? 'Contact Us'), ENT_QUOTES, 'UTF-8') ?>" class="contact-hero-bg-img">
       <?php endif; ?>
       <div class="contact-hero-center">
-        <h1 class="contact-hero-h1"><?= $eContactName ?></h1>
+        <h1 class="contact-hero-h1"><?= htmlspecialchars((string) ($contactRow['c_name'] ?? 'Contact Us'), ENT_QUOTES, 'UTF-8') ?></h1>
       </div>
     </section>
 
@@ -59,7 +47,7 @@ require_once __DIR__ . '/includes/header.php';
               </div>
               <div>
                 <strong class="contact-item__label">Address</strong>
-                <p class="contact-item__text"><?= $eAddress ?></p>
+                <p class="contact-item__text"><?= nl2br(htmlspecialchars((string) ($address ?? ''), ENT_QUOTES, 'UTF-8')) ?></p>
               </div>
             </div>
 
@@ -71,10 +59,10 @@ require_once __DIR__ . '/includes/header.php';
                 <strong class="contact-item__label">Our Phone</strong>
                 <p class="contact-item__text">
                   <?php if (!empty($contactno)): ?>
-                    <a href="tel:+91<?= $eContactNo ?>">+91 <?= $eContactNo ?></a>
+                    <a href="tel:+91<?= htmlspecialchars((string) ($contactno ?? ''), ENT_QUOTES, 'UTF-8') ?>">+91 <?= htmlspecialchars((string) ($contactno ?? ''), ENT_QUOTES, 'UTF-8') ?></a>
                   <?php endif; ?>
                   <?php if (!empty($alternateno)): ?>
-                    <br><a href="tel:+91<?= $eAltNo ?>">+91 <?= $eAltNo ?></a>
+                    <br><a href="tel:+91<?= htmlspecialchars((string) ($alternateno ?? ''), ENT_QUOTES, 'UTF-8') ?>">+91 <?= htmlspecialchars((string) ($alternateno ?? ''), ENT_QUOTES, 'UTF-8') ?></a>
                   <?php endif; ?>
                 </p>
               </div>
@@ -87,7 +75,7 @@ require_once __DIR__ . '/includes/header.php';
               <div>
                 <strong class="contact-item__label">Got a Question?</strong>
                 <p class="contact-item__text contact-item-margin">Drop us an email and we'll be in touch asap.</p>
-                <a href="mailto:<?= $eEmail ?>" class="contact-item__link"><?= $eEmail ?></a>
+                <a href="mailto:<?= htmlspecialchars((string) ($emailid ?? ''), ENT_QUOTES, 'UTF-8') ?>" class="contact-item__link"><?= htmlspecialchars((string) ($emailid ?? ''), ENT_QUOTES, 'UTF-8') ?></a>
               </div>
             </div>
 
@@ -97,7 +85,7 @@ require_once __DIR__ . '/includes/header.php';
               </div>
               <div>
                 <strong class="contact-item__label">Open Hours</strong>
-                <p class="contact-item__text"><?= $eOpeningHour ?></p>
+                <p class="contact-item__text"><?= htmlspecialchars($openingHour, ENT_QUOTES, 'UTF-8') ?></p>
               </div>
             </div>
           </div>
@@ -126,7 +114,7 @@ require_once __DIR__ . '/includes/header.php';
               <div class="form-row">
                 <div class="form-field">
                   <label for="contactPhone">Phone *</label>
-                  <input type="tel" id="contactPhone" name="phone" placeholder="+91 <?= $eContactNo ?>" required>
+                  <input type="tel" id="contactPhone" name="phone" placeholder="+91 <?= htmlspecialchars((string) ($contactno ?? ''), ENT_QUOTES, 'UTF-8') ?>" required>
                 </div>
                 <div class="form-field">
                   <label for="contactInterest">I'm interested in</label>
@@ -169,14 +157,14 @@ require_once __DIR__ . '/includes/header.php';
         <div class="map-container-box">
           <?php if ($contactMapIframe !== ''): ?>
           <iframe
-            src="<?= $eMapIframe ?>"
+            src="<?= htmlspecialchars($contactMapIframe, ENT_QUOTES, 'UTF-8') ?>"
             width="100%"
             height="100%"
             class="map-iframe-no-border"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="<?= $eWebName ?> Location">
+            title="<?= htmlspecialchars((string) ($websitename ?? ''), ENT_QUOTES, 'UTF-8') ?> Location">
           </iframe>
           <?php endif; ?>
         </div>

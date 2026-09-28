@@ -9,6 +9,9 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !\.php$ [NC]
 RewriteCond %{REQUEST_URI} ^/rastomed/manager/ [NC]
 RewriteRule ^manager/(.+?)/?$ manager/$1.php [L]
+# 1c. product details by product name/slug -> product-details.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^product-details/(.+?)/?$ product-details.php?product=$1 [L]
 # 2. clean URL -> page.php router 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

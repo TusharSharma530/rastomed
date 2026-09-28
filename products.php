@@ -56,7 +56,7 @@ require_once __DIR__ . '/includes/header.php';
           <p>No products found.</p>
 <?php } else { foreach ($allProducts as $prod) {
 	$eProdName = htmlspecialchars($prod['name'], ENT_QUOTES, 'UTF-8');
-	$prodUrl   = 'product-details.php?id=' . (int) $prod['id'];
+	$prodUrl   = product_details_url($prod);
 ?>
           <div class="our-product-card product-card-max">
             <div class="our-product-card__image">

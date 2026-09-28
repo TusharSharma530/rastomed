@@ -91,6 +91,18 @@ function seo_friendly_url($string){
      return strtolower(trim($string, '-'));
 }
 
+// PRODUCT DETAILS URL (uses product name/slug instead of id)
+function product_details_url($product){
+	$slug = trim((string) ($product['url'] ?? ''));
+	if ($slug === '' && !empty($product['name'])) {
+		$slug = seo_friendly_url($product['name']);
+	}
+	if ($slug !== '') {
+		return 'product-details/' . $slug;
+	}
+	return 'product-details.php?id=' . (int) ($product['id'] ?? 0);
+}
+
 // FUNCTION FOR MOBILE 
 function isMobile() {
     return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
@@ -192,6 +204,26 @@ $metatitle = $rwlinks['meta_title'];
 $metakeywords = $rwlinks['meta_keywords'];
 $metadesc = $rwlinks['meta_desc'];
 $logo = $rwlinks['logo'];
+$openinghour = trim($rwlinks['opening_hour']);
+$homeMapSrc   = trim($mapiframe);
+$homeAddress  = trim($address);
+$homePhone1   = trim($contactno);
+$homePhone2   = trim($alternateno);
+$homeEmail    = trim($emailid);
+$homePhone1Full = ($homePhone1 !== '' && strpos($homePhone1, '+') === false && strpos($homePhone1, '91') !== 0) ? '+91 ' . $homePhone1 : $homePhone1;
+$homePhone2Full = ($homePhone2 !== '' && strpos($homePhone2, '+') === false && strpos($homePhone2, '91') !== 0) ? '+91 ' . $homePhone2 : $homePhone2;
+$homeHours = $openinghour;
+$homeHoursAt = strpos($homeHours, ',');
+$homeHoursDay = $homeHoursAt !== false ? trim(substr($homeHours, 0, $homeHoursAt)) : $homeHours;
+$homeHoursTime = $homeHoursAt !== false ? trim(substr($homeHours, $homeHoursAt + 1)) : '';
+
+$eMapSrc     = htmlspecialchars($homeMapSrc, ENT_QUOTES, 'UTF-8');
+$eAddress    = nl2br(htmlspecialchars($homeAddress, ENT_QUOTES, 'UTF-8'));
+$ePhone1Full = htmlspecialchars($homePhone1Full, ENT_QUOTES, 'UTF-8');
+$ePhone2Full = htmlspecialchars($homePhone2Full, ENT_QUOTES, 'UTF-8');
+$eEmail      = htmlspecialchars($homeEmail, ENT_QUOTES, 'UTF-8');
+$eHoursDay   = htmlspecialchars($homeHoursDay, ENT_QUOTES, 'UTF-8');
+$eHoursTime  = htmlspecialchars($homeHoursTime, ENT_QUOTES, 'UTF-8');
 
 
 

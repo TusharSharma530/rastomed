@@ -104,13 +104,6 @@ $functions = ['Sales', 'Marketing', 'Research & Development', 'Quality Assurance
 $selCountry = $_POST['country'] ?? 'India';
 $selFn = $_POST['job_function'] ?? '';
 
-// ===== old input values (repopulate after error) =====
-$fEmail  = htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES, 'UTF-8');
-$fMobile = htmlspecialchars($_POST['mobile'] ?? '', ENT_QUOTES, 'UTF-8');
-$fFirst  = htmlspecialchars($_POST['first_name'] ?? '', ENT_QUOTES, 'UTF-8');
-$fLast   = htmlspecialchars($_POST['last_name'] ?? '', ENT_QUOTES, 'UTF-8');
-$formAction = htmlspecialchars($_SERVER['REQUEST_URI'] ?? '', ENT_QUOTES, 'UTF-8');
-
 require_once __DIR__ . '/includes/header.php';
 ?>
 
@@ -141,17 +134,17 @@ require_once __DIR__ . '/includes/header.php';
               <?= htmlspecialchars($applyError) ?>
             </div>
           <?php endif; ?>
-          <form class="apply-form" action="<?= $formAction ?>" method="POST" enctype="multipart/form-data">
+          <form class="apply-form" action="<?= htmlspecialchars($_SERVER['REQUEST_URI'] ?? '', ENT_QUOTES, 'UTF-8') ?>" method="POST" enctype="multipart/form-data">
             <div class="apply-form__row">
               <div class="apply-form__group">
                 <label class="apply-form__label">Primary Email<span>*</span></label>
-                <input type="email" name="email" class="apply-form__input" value="<?= $fEmail ?>" required>
+                <input type="email" name="email" class="apply-form__input" value="<?= htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES, 'UTF-8') ?>" required>
               </div>
               <div class="apply-form__group">
                 <label class="apply-form__label">Mobile Number<span>*</span></label>
                 <div class="apply-form__phone">
                   <span class="apply-form__phone-code">IN +91</span>
-                  <input type="tel" name="mobile" class="apply-form__input apply-form__input--phone" value="<?= $fMobile ?>" required>
+                  <input type="tel" name="mobile" class="apply-form__input apply-form__input--phone" value="<?= htmlspecialchars($_POST['mobile'] ?? '', ENT_QUOTES, 'UTF-8') ?>" required>
                 </div>
               </div>
             </div>
@@ -159,11 +152,11 @@ require_once __DIR__ . '/includes/header.php';
             <div class="apply-form__row">
               <div class="apply-form__group">
                 <label class="apply-form__label">First Name<span>*</span></label>
-                <input type="text" name="first_name" class="apply-form__input" value="<?= $fFirst ?>" required>
+                <input type="text" name="first_name" class="apply-form__input" value="<?= htmlspecialchars($_POST['first_name'] ?? '', ENT_QUOTES, 'UTF-8') ?>" required>
               </div>
               <div class="apply-form__group">
                 <label class="apply-form__label">Last Name<span>*</span></label>
-                <input type="text" name="last_name" class="apply-form__input" value="<?= $fLast ?>" required>
+                <input type="text" name="last_name" class="apply-form__input" value="<?= htmlspecialchars($_POST['last_name'] ?? '', ENT_QUOTES, 'UTF-8') ?>" required>
               </div>
             </div>
 

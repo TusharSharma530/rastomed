@@ -34,34 +34,23 @@ if ($missionRow && trim($missionRow['c_name']) !== '') {
 	$mvHeading = $visionRow['c_name'];
 }
 
-// ===== escaped vars =====
-$eAboutName  = htmlspecialchars((string) ($aboutRow['c_name'] ?? 'About Us'), ENT_QUOTES, 'UTF-8');
-$eAboutImg   = htmlspecialchars(!empty($aboutRow['featured_img']) ? $aboutRow['featured_img'] : 'assets/images/ourstory.jpeg', ENT_QUOTES, 'UTF-8');
-$eBannerBg   = htmlspecialchars((string) ($aboutBanner['wb_img'] ?? ''), ENT_QUOTES, 'UTF-8');
-$eBannerVid  = htmlspecialchars((string) ($aboutBanner['wb_video'] ?? ''), ENT_QUOTES, 'UTF-8');
-$eMvHeading  = htmlspecialchars($mvHeading, ENT_QUOTES, 'UTF-8');
-$eMissionTitle = htmlspecialchars($missionTitle, ENT_QUOTES, 'UTF-8');
-$eVisionTitle  = htmlspecialchars($visionTitle, ENT_QUOTES, 'UTF-8');
-$eMissionText  = nl2br(htmlspecialchars($missionText, ENT_QUOTES, 'UTF-8'));
-$eVisionText   = nl2br(htmlspecialchars($visionText, ENT_QUOTES, 'UTF-8'));
-
 require_once __DIR__ . '/includes/header.php';
 ?>
 
   <main>
-    <section class="about-banner"<?php if ($eBannerBg !== ''): ?> style="background-image: url('<?= $eBannerBg ?>');"<?php endif; ?>>
-      <?php if ($eBannerVid !== ''): ?>
+    <section class="about-banner"<?php if ((string) ($aboutBanner['wb_img'] ?? '') !== ''): ?> style="background-image: url('<?= htmlspecialchars((string) $aboutBanner['wb_img'], ENT_QUOTES, 'UTF-8') ?>');"<?php endif; ?>>
+      <?php if ((string) ($aboutBanner['wb_video'] ?? '') !== ''): ?>
       <video class="banner-bg-video" autoplay muted loop playsinline>
-        <source src="<?= $eBannerVid ?>">
+        <source src="<?= htmlspecialchars((string) $aboutBanner['wb_video'], ENT_QUOTES, 'UTF-8') ?>">
       </video>
       <?php endif; ?>
       <div class="about-banner__overlay"></div>
       <div class="container about-banner__content">
-        <h1 class="about-banner__title"><?= $eAboutName ?></h1>
+        <h1 class="about-banner__title"><?= htmlspecialchars((string) ($aboutRow['c_name'] ?? 'About Us'), ENT_QUOTES, 'UTF-8') ?></h1>
         <nav class="about-banner__breadcrumb" aria-label="Breadcrumb">
           <a href="index.php" class="about-banner__breadcrumb-link">Home</a>
           <span class="about-banner__breadcrumb-sep">&#9656;</span>
-          <span class="about-banner__breadcrumb-current"><?= $eAboutName ?></span>
+          <span class="about-banner__breadcrumb-current"><?= htmlspecialchars((string) ($aboutRow['c_name'] ?? 'About Us'), ENT_QUOTES, 'UTF-8') ?></span>
         </nav>
       </div>
     </section>
@@ -84,7 +73,7 @@ require_once __DIR__ . '/includes/header.php';
           <div class="reveal reveal--right about-rel-pos">
             <div class="about-grad-box">
               <div class="about-inner-pad">
-                <img src="<?= $eAboutImg ?>" alt="<?= $eAboutName ?>" class="about-logo-img">
+                <img src="<?= htmlspecialchars(!empty($aboutRow['featured_img']) ? $aboutRow['featured_img'] : 'assets/images/ourstory.jpeg', ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars((string) ($aboutRow['c_name'] ?? 'About Us'), ENT_QUOTES, 'UTF-8') ?>" class="about-logo-img">
               </div>
             </div>
           </div>
@@ -96,8 +85,8 @@ require_once __DIR__ . '/includes/header.php';
     <?php if ($missionRow || $visionRow): ?>
     <section class="section section--alt pad-bottom-sm about-mv-section">
       <div class="container">
-        <?php if ($eMvHeading !== ''): ?>
-        <h2 class="mv-section__title"><?= $eMvHeading ?></h2>
+        <?php if ($mvHeading !== ''): ?>
+        <h2 class="mv-section__title"><?= htmlspecialchars($mvHeading, ENT_QUOTES, 'UTF-8') ?></h2>
         <?php endif; ?>
 
         <div class="mv-cards reveal">
@@ -107,8 +96,8 @@ require_once __DIR__ . '/includes/header.php';
               <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1565C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
             </div>
             <div class="mv-card__content">
-              <h3 class="mv-card__title"><?= $eMissionTitle ?></h3>
-              <p class="mv-card__text"><?= $eMissionText ?></p>
+              <h3 class="mv-card__title"><?= htmlspecialchars($missionTitle, ENT_QUOTES, 'UTF-8') ?></h3>
+              <p class="mv-card__text"><?= nl2br(htmlspecialchars($missionText, ENT_QUOTES, 'UTF-8')) ?></p>
             </div>
             <div class="mv-card__corner mv-card__corner--left"></div>
             <div class="mv-card__corner mv-card__corner--right"></div>
@@ -121,8 +110,8 @@ require_once __DIR__ . '/includes/header.php';
               <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1565C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
             </div>
             <div class="mv-card__content">
-              <h3 class="mv-card__title"><?= $eVisionTitle ?></h3>
-              <p class="mv-card__text"><?= $eVisionText ?></p>
+              <h3 class="mv-card__title"><?= htmlspecialchars($visionTitle, ENT_QUOTES, 'UTF-8') ?></h3>
+              <p class="mv-card__text"><?= nl2br(htmlspecialchars($visionText, ENT_QUOTES, 'UTF-8')) ?></p>
             </div>
             <div class="mv-card__corner mv-card__corner--left"></div>
             <div class="mv-card__corner mv-card__corner--right"></div>

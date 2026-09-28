@@ -1,8 +1,22 @@
 <?php
 require_once __DIR__ . '/manager/database/db.php';
 
-// ===== product by id =====
-$id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+// nested URL (product-details/product-name) -> resolve relative links from site root
+$useBaseTag = true;
+
+// ===== product by name
+$id = 0;
+$productSlug = trim((string) ($_GET['product'] ?? ''));
+if ($productSlug !== '') {
+	$escSlug = mysqli_real_escape_string($con, $productSlug);
+	$rsSlug = mysqli_query($con, "SELECT `id` FROM products WHERE (`url` = '$escSlug' OR `name` = '$escSlug') AND status = 1 LIMIT 1");
+	if ($rsSlug && mysqli_num_rows($rsSlug)) {
+		$id = (int) mysqli_fetch_assoc($rsSlug)['id'];
+	}
+} elseif (isset($_GET['id'])) {
+	$id = (int) $_GET['id'];
+}
+
 $product = null;
 if ($id) {
 	$rsProduct = mysqli_query($con, "SELECT * FROM products WHERE id = $id AND status = 1");

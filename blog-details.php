@@ -19,7 +19,7 @@ if (!$blog) {
 	exit();
 }
 
-// ===== blogs banner (category id = 75) =====
+// ===== blogs banner 
 $blogsBanner = null;
 $rsBanner = mysqli_query($con, "SELECT * FROM web_banner WHERE category_id = 75 AND status = 1 ORDER BY wb_order ASC LIMIT 1");
 if ($rsBanner && mysqli_num_rows($rsBanner)) {
@@ -41,31 +41,25 @@ if (strpos($blogDescRaw, '<') !== false && strpos($blogDescRaw, '>') !== false) 
 	]);
 }
 
-// ===== escaped vars =====
-$eTitle     = htmlspecialchars($blog['title'], ENT_QUOTES, 'UTF-8');
-$eAuthor    = htmlspecialchars($blog['author'] ?? '', ENT_QUOTES, 'UTF-8');
-$eBannerBg  = htmlspecialchars((string) ($blogsBanner['wb_img'] ?? ''), ENT_QUOTES, 'UTF-8');
-$eBannerVid = htmlspecialchars((string) ($blogsBanner['wb_video'] ?? ''), ENT_QUOTES, 'UTF-8');
-
 require_once __DIR__ . '/includes/header.php';
 ?>
 
   <main>
-    <section class="about-banner"<?php if ($eBannerBg !== ''): ?> style="background-image: url('<?= $eBannerBg ?>');"<?php endif; ?>>
-      <?php if ($eBannerVid !== ''): ?>
+    <section class="about-banner"<?php if ((string) ($blogsBanner['wb_img'] ?? '') !== ''): ?> style="background-image: url('<?= htmlspecialchars((string) $blogsBanner['wb_img'], ENT_QUOTES, 'UTF-8') ?>');"<?php endif; ?>>
+      <?php if ((string) ($blogsBanner['wb_video'] ?? '') !== ''): ?>
       <video class="banner-bg-video" autoplay muted loop playsinline>
-        <source src="<?= $eBannerVid ?>">
+        <source src="<?= htmlspecialchars((string) $blogsBanner['wb_video'], ENT_QUOTES, 'UTF-8') ?>">
       </video>
       <?php endif; ?>
       <div class="about-banner__overlay"></div>
       <div class="container about-banner__content">
-        <h1 class="about-banner__title"><?= $eTitle ?></h1>
+        <h1 class="about-banner__title"><?= htmlspecialchars($blog['title'], ENT_QUOTES, 'UTF-8') ?></h1>
         <nav class="about-banner__breadcrumb" aria-label="Breadcrumb">
           <a href="index.php" class="about-banner__breadcrumb-link">Home</a>
           <span class="about-banner__breadcrumb-sep">&#9656;</span>
           <a href="blogs.php" class="about-banner__breadcrumb-link">Blogs</a>
           <span class="about-banner__breadcrumb-sep">&#9656;</span>
-          <span class="about-banner__breadcrumb-current"><?= $eTitle ?></span>
+          <span class="about-banner__breadcrumb-current"><?= htmlspecialchars($blog['title'], ENT_QUOTES, 'UTF-8') ?></span>
         </nav>
       </div>
     </section>
@@ -73,9 +67,9 @@ require_once __DIR__ . '/includes/header.php';
     <!-- Blog Details -->
     <section class="section product-detail-sec-pad">
       <div class="container" style="max-width: 900px;">
-        <h1 class="pd-detail-grid__title" style="font-size: 2.2rem; font-weight: 800; color: #0D47A1; margin-bottom: 12px;"><?= $eTitle ?></h1>
-        <?php if ($eAuthor !== ''): ?>
-        <p style="font-size: 1.05rem; color: #555; margin-bottom: 20px;">By <?= $eAuthor ?></p>
+        <h1 class="pd-detail-grid__title" style="font-size: 2.2rem; font-weight: 800; color: #0D47A1; margin-bottom: 12px;"><?= htmlspecialchars($blog['title'], ENT_QUOTES, 'UTF-8') ?></h1>
+        <?php if ((string) ($blog['author'] ?? '') !== ''): ?>
+        <p style="font-size: 1.05rem; color: #555; margin-bottom: 20px;">By <?= htmlspecialchars($blog['author'] ?? '', ENT_QUOTES, 'UTF-8') ?></p>
         <?php endif; ?>
         <hr style="border: 1px solid #ccc; margin-bottom: 30px;">
         <div class="pd-detail-grid__desc">

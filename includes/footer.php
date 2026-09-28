@@ -111,7 +111,7 @@ if (isset($con)) {
         <h4 class="footer__column-title">Our Products</h4>
         <?php if (!empty($footerProducts)): ?>
           <?php foreach ($footerProducts as$fProd): ?>
-            <a href="product-details.php?id=<?= $fProd['id'] ?>" class="footer__link"><?= htmlspecialchars($fProd['name']) ?></a>
+            <a href="<?= product_details_url($fProd) ?>" class="footer__link"><?= htmlspecialchars($fProd['name']) ?></a>
           <?php endforeach; ?>
         <?php else: ?>
         <?php endif; ?>

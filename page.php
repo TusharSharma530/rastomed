@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/manager/database/db.php';
 
-// ===== get slug from clean URL =====
+// get slug from clean URL 
 $slug = trim(trim($_GET['slug'] ?? ''), '/');
 
 
@@ -10,7 +10,7 @@ if ($slug !== '' && basename($slug) === $slug && $slug !== 'page' && is_file(__D
 	exit;
 }
 
-// ===== load category row by slug =====
+// load category row by slug 
 $pageRow = null;
 if ($con && $slug !== '') {
 	$escSlug = mysqli_real_escape_string($con, $slug);
@@ -20,7 +20,6 @@ if ($con && $slug !== '') {
 	}
 }
 
-// ===== custom page file override (c_page column) =====
 if (!empty($pageRow['c_page'])) {
 	$customFile = basename(trim((string) $pageRow['c_page']));
 	if ($customFile !== '' && $customFile !== '.' && is_file(__DIR__ . '/' . $customFile)) {
@@ -29,19 +28,19 @@ if (!empty($pageRow['c_page'])) {
 	}
 }
 
-// ===== page not found =====
+//  page not found 
 if (!$pageRow) {
 	http_response_code(404);
 	require __DIR__ . '/404.php';
 	exit;
 }
 
-// ===== page meta =====
+// page meta 
 $pageTitle    = trim((string) $pageRow['c_name']) !== '' ? $pageRow['c_name'] : 'Page';
 $pageSubtitle = (string) ($pageRow['sdesc'] ?? '');
 $pageImage    = (string) ($pageRow['featured_img'] ?? '');
 
-// ===== page description: plain text -> HTML, HTML -> as-is, empty -> fallback =====
+//  page description
 $pageDesc = (string) ($pageRow['c_desc'] ?? '');
 $pageContentHtml = $pageDesc;
 if ($pageDesc !== '' && strpos($pageDesc, '<') === false) {
@@ -51,7 +50,7 @@ if (trim($pageContentHtml) === '') {
 	$pageContentHtml = '<p class="legal-page__intro">Content for this page is coming soon.</p>';
 }
 
-// ===== banner (web_banner for this category) =====
+// banner 
 $bannerBg = '';
 $bannerVideo = '';
 $rsBanner = mysqli_query($con, "SELECT * FROM web_banner WHERE category_id = " . (int) $pageRow['id'] . " AND status = 1 ORDER BY wb_order ASC LIMIT 1");
@@ -63,7 +62,7 @@ if ($bannerBg === '' && $bannerVideo === '') {
 	$bannerBg = 'assets/images/about-banner.jpg';
 }
 
-// ===== escaped vars (used many times in layout) =====
+// escaped vars (used many times in layout) 
 $eTitle       = htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8');
 $eSubtitle    = htmlspecialchars($pageSubtitle, ENT_QUOTES, 'UTF-8');
 $eImage       = htmlspecialchars($pageImage, ENT_QUOTES, 'UTF-8');
