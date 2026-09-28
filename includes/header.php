@@ -1,5 +1,5 @@
 <?php
-// ===== dependencies: db, components, recaptcha =====
+
 if (!isset($con)) {
     require_once __DIR__ . '/../manager/database/db.php';
 }
@@ -8,7 +8,7 @@ if (!isset($renderButton)) {
 }
 require_once __DIR__ . '/recaptcha.php';
 
-// ===== site base path (used by JS) =====
+
 $siteBase = '/rastomed/';
 if (!empty($_SERVER['SCRIPT_NAME'])) {
     $dir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
@@ -16,10 +16,9 @@ if (!empty($_SERVER['SCRIPT_NAME'])) {
     $siteBase = ($dir !== '' && $dir !== '/') ? $dir . '/' : '/';
 }
 
-// ===== cache-bust version for script.js =====
 $scriptVersion = file_exists(__DIR__ . '/../assets/js/script.js') ? filemtime(__DIR__ . '/../assets/js/script.js') : time();
 
-// ===== escaped vars (used many times below) =====
+// escaped vars 
 $eSiteName  = htmlspecialchars((string) ($websitename ?? ''), ENT_QUOTES, 'UTF-8');
 $eContactNo = htmlspecialchars((string) ($contactno ?? ''), ENT_QUOTES, 'UTF-8');
 $eEmail     = htmlspecialchars((string) ($emailid ?? ''), ENT_QUOTES, 'UTF-8');
@@ -58,7 +57,7 @@ window.RASTOMED_withRecaptcha = function (fn) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Learn about RastoMed Pharma Private Limited - our history, leadership, vision, and mission to advance healthcare.">
-  <title>About Us - RastoMed Pharma Private Limited</title>
+  <title>RastoMed Pharma Private Limited</title>
 <?php if (!empty($useBaseTag)): ?>
   <base href="<?= htmlspecialchars($siteBase, ENT_QUOTES, 'UTF-8') ?>">
 <?php endif; ?>

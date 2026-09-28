@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/manager/database/db.php';
 
-// ===== admin email HTML table from label => value rows =====
 function apply_email_body($rows) {
 	$td = 'padding:6px 10px;border:1px solid #ddd;';
 	$labelTd = $td . 'background:#f5f7fa;width:120px;';
@@ -19,7 +18,7 @@ function apply_email_body($rows) {
 	return $html;
 }
 
-// ===== handle form POST: returns [success, error] =====
+// handle form POST: returns [success, error]
 function apply_handle_post($con) {
 	$email      = trim($_POST['email'] ?? '');
 	$mobile     = trim($_POST['mobile'] ?? '');

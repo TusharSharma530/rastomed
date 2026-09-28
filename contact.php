@@ -3,16 +3,16 @@ require_once __DIR__ . '/manager/database/db.php';
 
 $currentPage = 'contact';
 
-// ===== contact category 
+// contact category 
 $contactRow = fetch_one_row($con, "SELECT * FROM category WHERE id = 72 AND status = 1");
 $contactBanner = fetch_one_row($con, "SELECT * FROM web_banner WHERE category_id = 72 AND status = 1 ORDER BY wb_order ASC LIMIT 1");
 
-// ===== settings: map + hours 
+// settings: map + hours 
 $settingsRow = fetch_one_row($con, "SELECT * FROM settings WHERE id = 1");
 $openingHour = trim((string) ($settingsRow['opening_hour'] ?? ''));
 $contactMapIframe = trim((string) ($settingsRow['map_iframe'] ?? ''));
 
-// ===== hero media
+// hero media
 $heroVideo = (string) ($contactBanner['wb_video'] ?? '');
 $heroImg = (string) ($contactBanner['wb_img'] ?? '');
 if ($heroVideo === '' && $heroImg === '') {

@@ -20,7 +20,7 @@ $eAboutTitle    = htmlspecialchars($aboutTitle, ENT_QUOTES, 'UTF-8');
 $eAboutImg      = htmlspecialchars($aboutImg, ENT_QUOTES, 'UTF-8');
 $aboutParagraphs = array_filter(array_map('trim', explode("\n", str_replace("\\n", "\n", $aboutDesc))));
 
-// ===== product list =====
+//  product list 
 $ourProducts = [];
 $rsProducts = mysqli_query($con, "SELECT * FROM products WHERE status = 1 ORDER BY `order` ASC, id DESC");
 if ($rsProducts) {
@@ -29,10 +29,10 @@ if ($rsProducts) {
 	}
 }
 
-// ===== site settings (loaded in db.php) =====
+//site settings (loaded in db.php)
 $eWebName     = htmlspecialchars((string) $websitename, ENT_QUOTES, 'UTF-8');
 
-// ===== testimonials 
+// testimonials 
 $testimonials = [];
 $rsTc = mysqli_query($con, "SELECT * FROM testimonials WHERE status = 1 ORDER BY `order` ASC, id ASC");
 if ($rsTc) {

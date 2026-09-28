@@ -11,17 +11,31 @@ if (!isset($con)) {
 }
 if ($con) {
     $sqlNav = mysqli_query($con, "SELECT c_name, c_url, c_page FROM category WHERE c_type = '1' AND status = 1 ORDER BY `order` ASC");
-    if ($sqlNav) {
-        while ($row = mysqli_fetch_assoc($sqlNav)) {
-            $slug = trim((string)($row['c_url'] ?? ''));
-            if ($slug === '') {
-                continue;
-            }
-            $navItems[] = [
-                'label' => $row['c_name'],
-                'url'   => $slug,
-                'key'   => $slug,
-            ];
+  if ($sqlNav) {
+      while ($row = mysqli_fetch_assoc($sqlNav)) {
+          $slug = trim((string)($row['c_url'] ?? ''));
+
+      if ($slug === '') {
+          continue;
+      }
+
+      if (strtolower($slug) === 'home') {
+          $navUrl = '/rastomed/';
+          $navKey = 'home';
+      } else {
+          $slug = ltrim($slug, '/');
+          $slug = preg_replace('/\.php$/i', '', $slug);
+
+          $navUrl = '/rastomed/' . $slug;
+          $navKey = $slug;
+      }
+
+        $navItems[] = [
+            'label' => $row['c_name'],
+            'url'   => $navUrl,
+            'key'   => $navKey,
+        ];
+
         }
     }
 }
