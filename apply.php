@@ -90,14 +90,13 @@ function apply_handle_post($con) {
 	return ['Thank you! Your application has been submitted. Our team will contact you shortly.', ''];
 }
 
-// ===== process POST =====
+
 $applySuccess = '';
 $applyError = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	[$applySuccess, $applyError] = apply_handle_post($con);
 }
 
-// ===== form options =====
 $countries = ['India', 'United States', 'United Kingdom', 'Canada', 'Australia', 'Germany', 'Other'];
 $functions = ['Sales', 'Marketing', 'Research & Development', 'Quality Assurance', 'Manufacturing', 'Finance', 'Human Resources', 'Operations', 'Other'];
 $selCountry = $_POST['country'] ?? 'India';
