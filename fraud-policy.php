@@ -9,7 +9,7 @@ if ($rsPp && mysqli_num_rows($rsPp)) {
 }
 
 // title / subtitle / description 
-$ppTitle    = trim((string) $pp['title']) !== '' ? $pp['title'] : 'Recruitment Fraud Policy';
+$ppTitle    = trim((string) $pp['title']) !== '' ? $pp['title'] : '';
 $ppSubtitle = (string) ($pp['subtitle'] ?? '');
 $ppDescHtml = trim((string) ($pp['description'] ?? ''));
 if ($ppDescHtml !== '' && strpos($ppDescHtml, '<') === false) {
