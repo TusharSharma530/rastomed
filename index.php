@@ -1,17 +1,17 @@
 <?php
 require_once __DIR__ . '/manager/database/db.php';
 
-// ===== hero banner (web_banner id = 8) =====
+// ===== hero banner 
 $homeBannerRow  = fetch_one_row($con, "SELECT * FROM web_banner WHERE id = 8 AND status = 1 LIMIT 1");
 $eBannerVideo   = htmlspecialchars((string) ($homeBannerRow['wb_video'] ?? ''), ENT_QUOTES, 'UTF-8');
 $eBannerImg     = htmlspecialchars((string) ($homeBannerRow['wb_img'] ?? ''), ENT_QUOTES, 'UTF-8');
 
-// ===== hero text (category id = 76) =====
+// ===== hero text 
 $heroRow        = fetch_one_row($con, "SELECT * FROM category WHERE id = 76 AND status = 1 LIMIT 1");
 $eHeroTitle     = htmlspecialchars((string) ($heroRow['c_name'] ?? ''), ENT_QUOTES, 'UTF-8');
 $eHeroSubtitle  = htmlspecialchars((string) ($heroRow['sdesc'] ?? ''), ENT_QUOTES, 'UTF-8');
 
-// ===== about section (category id = 77) =====
+// ===== about section 
 $aboutRow       = fetch_one_row($con, "SELECT * FROM category WHERE id = 77 AND status = 1 LIMIT 1");
 $aboutTitle     = (string) ($aboutRow['c_name'] ?? '');
 $aboutDesc      = (string) ($aboutRow['c_desc'] ?? '');
@@ -33,7 +33,7 @@ if ($rsProducts) {
 $siteSettings = fetch_one_row($con, "SELECT * FROM settings WHERE id = 1 LIMIT 1") ?: [];
 $eWebName     = htmlspecialchars((string) ($siteSettings['web_name'] ?? ''), ENT_QUOTES, 'UTF-8');
 
-// ===== testimonials (with avatar initials) =====
+// ===== testimonials 
 $testimonials = [];
 $rsTc = mysqli_query($con, "SELECT * FROM testimonials WHERE status = 1 ORDER BY `order` ASC, id ASC");
 if ($rsTc) {

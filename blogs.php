@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/manager/database/db.php';
 
-// ===== blogs category (id = 75) + banner =====
+// ===== blogs category 
 $blogCatId = 75;
 $blogsRow = fetch_one_row($con, "SELECT * FROM category WHERE id = $blogCatId AND status = 1");
 $blogsBanner = fetch_one_row($con, "SELECT * FROM web_banner WHERE category_id = $blogCatId AND status = 1 ORDER BY wb_order ASC LIMIT 1");

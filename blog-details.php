@@ -28,11 +28,18 @@ if ($rsBanner && mysqli_num_rows($rsBanner)) {
 
 // ===== blog texts =====
 $blogSdesc = trim((string) ($blog['sdesc'] ?? ''));
-$blogDescHtml = render_pages_description($blog['desc'] ?? '', [
-	'intro' => false,
-	'article' => false,
-	'list_class' => '',
-]);
+
+// ===== blogs description : HTML from TinyMCE -> as-is, plain text -> formatted =====
+$blogDescRaw = (string) ($blog['desc'] ?? '');
+if (strpos($blogDescRaw, '<') !== false && strpos($blogDescRaw, '>') !== false) {
+	$blogDescHtml = $blogDescRaw;
+} else {
+	$blogDescHtml = render_pages_description($blogDescRaw, [
+		'intro' => false,
+		'article' => false,
+		'list_class' => '',
+	]);
+}
 
 // ===== escaped vars =====
 $eTitle     = htmlspecialchars($blog['title'], ENT_QUOTES, 'UTF-8');

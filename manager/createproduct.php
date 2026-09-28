@@ -11,7 +11,6 @@ if(isset($_POST['addProduct'])){
 	$url = seo_friendly_url($name);
 	$sdesc = trim(mysqli_real_escape_string($con, $_POST['sdesc']));
 	$cdesc = trim(mysqli_real_escape_string($con, $_POST['cdesc']));
-	$faq = trim(mysqli_real_escape_string($con, $_POST['faq']));
 	$metatitle = trim(mysqli_real_escape_string($con, $_POST['meta-title']));
 	$metakeywords = trim(mysqli_real_escape_string($con, $_POST['meta-keywords']));
 	$metadesc = trim(mysqli_real_escape_string($con, $_POST['meta-desc']));
@@ -22,7 +21,7 @@ if(isset($_POST['addProduct'])){
 		$uploadpath = createImgWebp("img", "products");
 	}
 
-	$sqlins = mysqli_query($con,"INSERT INTO `products`(`id`, `cat_id`, `subcat_id`, `childcat_id`, `name`, `price`, `sdesc`, `cdesc`, `faq`, `featured_img`, `meta_title`, `meta_keywords`, `meta_desc`, `url`, `order`, `status`) VALUES (NULL, '$category', 0, 0, '$name', '$price', '$sdesc', '$cdesc', '$faq', '$uploadpath', '$metatitle', '$metakeywords', '$metadesc', '$url', '$order', 1)");
+	$sqlins = mysqli_query($con,"INSERT INTO `products`(`id`, `cat_id`, `subcat_id`, `childcat_id`, `name`, `price`, `sdesc`, `cdesc`, `featured_img`, `meta_title`, `meta_keywords`, `meta_desc`, `url`, `order`, `status`) VALUES (NULL, '$category', 0, 0, '$name', '$price', '$sdesc', '$cdesc', '$uploadpath', '$metatitle', '$metakeywords', '$metadesc', '$url', '$order', 1)");
 
 	if($sqlins){
 		echo "<script>swal('Added Successfully', 'Click `OK` to Close', 'success'); 
@@ -98,11 +97,6 @@ echo "<option {$selected} value='{$rwcat['id']}'>{$rwcat['c_name']}</option>";	}
 		<div class="mb-3 col-md-12">
 			<label for="cdesc" class="form-label">Description</label>
 			<textarea class="tinyMCE" name="cdesc" id="cdesc"></textarea>
-		</div>
-
-		<div class="mb-3 col-md-12">
-			<label for="faq" class="form-label">FAQ</label>
-			<textarea class="tinyMCE" name="faq" id="faq"></textarea>
 		</div>
 
 		<div class="mb-3 col-md-4">

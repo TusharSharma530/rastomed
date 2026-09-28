@@ -4,7 +4,7 @@ require_once __DIR__ . '/manager/database/db.php';
 // ===== get slug from clean URL =====
 $slug = trim(trim($_GET['slug'] ?? ''), '/');
 
-// ===== slug ki same-named .php file hai to seedha chalao (page.php khud ko chhode) =====
+
 if ($slug !== '' && basename($slug) === $slug && $slug !== 'page' && is_file(__DIR__ . '/' . $slug . '.php')) {
 	require __DIR__ . '/' . $slug . '.php';
 	exit;

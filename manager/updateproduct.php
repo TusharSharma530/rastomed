@@ -22,7 +22,6 @@ if(isset($_POST['editRecord'])){
 	$url = seo_friendly_url($name);
 	$sdesc = trim(mysqli_real_escape_string($con, $_POST['sdesc']));
 	$cdesc = trim(mysqli_real_escape_string($con, $_POST['cdesc']));
-	$faq = trim(mysqli_real_escape_string($con, $_POST['faq']));
 	$metatitle = trim(mysqli_real_escape_string($con, $_POST['meta-title']));
 	$metakeywords = trim(mysqli_real_escape_string($con, $_POST['meta-keywords']));
 	$metadesc = trim(mysqli_real_escape_string($con, $_POST['meta-desc']));
@@ -40,7 +39,7 @@ if(isset($_POST['editRecord'])){
 		}
 	}
 
-	$sqlcheck = mysqli_query($con,"UPDATE products SET `cat_id` = '$category', `subcat_id` = 0, `childcat_id` = 0, `name` = '$name', `price` = '$price', `sdesc` = '$sdesc', `cdesc` = '$cdesc', `faq` = '$faq', `featured_img` = '$uploadpath', `meta_title` = '$metatitle', `meta_keywords` = '$metakeywords', `meta_desc` = '$metadesc', `url` = '$url', `order` = '$order' WHERE id = $id");
+	$sqlcheck = mysqli_query($con,"UPDATE products SET `cat_id` = '$category', `subcat_id` = 0, `childcat_id` = 0, `name` = '$name', `price` = '$price', `sdesc` = '$sdesc', `cdesc` = '$cdesc', `featured_img` = '$uploadpath', `meta_title` = '$metatitle', `meta_keywords` = '$metakeywords', `meta_desc` = '$metadesc', `url` = '$url', `order` = '$order' WHERE id = $id");
 		
 	if($sqlcheck){
 		echo "<script>swal('Update Successfully', 'Click `OK` to Close', 'success'); </script>";
@@ -116,11 +115,6 @@ echo "<option {$selected} value='{$rwcat['id']}'>{$rwcat['c_name']}</option>";	}
 	<div class="mb-3 col-md-12">
 		<label for="cdesc" class="form-label">Description</label>
 		<textarea class="tinyMCE" name="cdesc" id="cdesc"><?=$rwprod['cdesc'];?></textarea>
-	</div>
-
-	<div class="mb-3 col-md-12">
-		<label for="faq" class="form-label">FAQ</label>
-		<textarea class="tinyMCE" name="faq" id="faq"><?=$rwprod['faq'];?></textarea>
 	</div>
 
 	<div class="mb-3 col-md-4">

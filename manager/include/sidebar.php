@@ -139,6 +139,9 @@
 <li class="submenu-item">
 <a href="quickaccess.php" class="submenu-link">Quick Access</a>
 </li>
+<li class="submenu-item">
+<a href="faq.php" class="submenu-link">FAQ</a>
+</li>
 <!--
 <li class="submenu-item">
 <a href="teams.php" class="submenu-link">Our Team</a>

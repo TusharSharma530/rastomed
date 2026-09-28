@@ -1,8 +1,14 @@
 RewriteEngine On
-# 1. .php -> clean URL (301, GET only)
+# 1. .php -> clean URL (301, GET only), manager excluded
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
 RewriteCond %{REQUEST_METHOD} =GET [NC]
+RewriteCond %{REQUEST_URI} !^/rastomed/manager/ [NC]
 RewriteRule ^(.+)\.php$ /rastomed/$1 [R=301,L]
+# 1b. manager clean URL -> manager/xxx.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !\.php$ [NC]
+RewriteCond %{REQUEST_URI} ^/rastomed/manager/ [NC]
+RewriteRule ^manager/(.+?)/?$ manager/$1.php [L]
 # 2. clean URL -> page.php router 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

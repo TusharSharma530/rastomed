@@ -1,14 +1,14 @@
 <?php
 require_once __DIR__ . '/manager/database/db.php';
 
-// ===== page content from `pages` table =====
+
 $pp = ['title' => 'Disclaimer', 'subtitle' => '', 'description' => ''];
 $rsPp = mysqli_query($con, "SELECT * FROM `pages` WHERE slug = 'disclaimer'");
 if ($rsPp && mysqli_num_rows($rsPp)) {
 	$pp = mysqli_fetch_assoc($rsPp);
 }
 
-// ===== title / subtitle / description =====
+// ===== title 
 $ppTitle    = trim((string) $pp['title']) !== '' ? $pp['title'] : 'Disclaimer';
 $ppSubtitle = (string) ($pp['subtitle'] ?? '');
 $ppDescHtml = trim((string) ($pp['description'] ?? ''));

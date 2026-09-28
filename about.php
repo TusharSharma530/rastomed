@@ -1,18 +1,18 @@
 <?php
 require_once __DIR__ . '/manager/database/db.php';
 
-// ===== about category (id = 69) + banner =====
+// ===== about category 
 $aboutRow = fetch_one_row($con, "SELECT * FROM category WHERE id = 69 AND status = 1");
 $aboutBanner = fetch_one_row($con, "SELECT * FROM web_banner WHERE category_id = 69 AND status = 1 ORDER BY wb_order ASC LIMIT 1");
 
-// ===== mission (id = 73) + vision (id = 78) =====
+// ===== mission 
 $missionRow = fetch_one_row($con, "SELECT * FROM category WHERE id = 73 AND status = 1");
 $visionRow = fetch_one_row($con, "SELECT * FROM category WHERE id = 78 AND status = 1");
 
 // ===== about story paragraphs =====
 $aboutParagraphs = array_filter(array_map('trim', explode("\n", str_replace("\\n", "\n", (string) ($aboutRow['c_desc'] ?? '')))));
 
-// ===== mission / vision texts (sdesc priority, then c_desc) =====
+// ===== mission 
 $missionText = '';
 if ($missionRow) {
 	$missionText = trim($missionRow['sdesc']) !== '' ? $missionRow['sdesc'] : $missionRow['c_desc'];

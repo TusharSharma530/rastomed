@@ -1,10 +1,7 @@
 <?php
 require_once __DIR__ . '/manager/database/db.php';
 
-// ===== products category (id = 70) =====
 $proCatId = 70;
-
-// ===== category row + banner =====
 $productsRow = null;
 $rsCat = mysqli_query($con, "SELECT * FROM category WHERE id = $proCatId AND status = 1");
 if ($rsCat && mysqli_num_rows($rsCat)) {

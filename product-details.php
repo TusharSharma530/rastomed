@@ -19,19 +19,17 @@ if (!$product) {
 	exit();
 }
 
-// ===== FAQ pairs (odd <p> = question, even <p> = answer) =====
+// ===== FAQ for this product 
 $faqItems = [];
-if (!empty($product['faq'])) {
-	preg_match_all('/<p>(.*?)<\/p>/si', $product['faq'], $matches);
-	if (!empty($matches[1])) {
-		for ($i = 0, $total = count($matches[1]); $i < $total; $i += 2) {
-			$question = trim(strip_tags($matches[1][$i]));
-			if ($question !== '') {
-				$faqItems[] = [
-					'q' => $question,
-					'a' => isset($matches[1][$i + 1]) ? trim($matches[1][$i + 1]) : '',
-				];
-			}
+$rsFaq = mysqli_query($con, "SELECT * FROM product_faq WHERE product_id = $id AND status = 1 ORDER BY `order` ASC, id ASC");
+if ($rsFaq && mysqli_num_rows($rsFaq)) {
+	while ($rowFaq = mysqli_fetch_assoc($rsFaq)) {
+		$question = trim(strip_tags($rowFaq['question']));
+		if ($question !== '') {
+			$faqItems[] = [
+				'q' => $question,
+				'a' => nl2br(htmlspecialchars(trim($rowFaq['answer']), ENT_QUOTES, 'UTF-8')),
+			];
 		}
 	}
 }

@@ -19,7 +19,7 @@ if(mysqli_num_rows($sqlnews)){
 if(isset($_POST['editRecord'])){
 	$title = trim(mysqli_real_escape_string($con,$_POST['title']));
 	$url = seo_friendly_url($title);
-	$desc = trim(mysqli_real_escape_string($con, pages_plain_input($_POST['idesc'])));
+	$desc = trim(mysqli_real_escape_string($con, $_POST['idesc']));
 	$sdesc = trim(mysqli_real_escape_string($con, pages_plain_input($_POST['sdesc'])));
 	$order = trim(mysqli_real_escape_string($con,$_POST['order']));
 	$author = trim(mysqli_real_escape_string($con,$_POST['author']));
@@ -108,8 +108,7 @@ include 'include/sidebar.php';
 
 			<div class="mb-3 col-md-12">
 				<label for="idesc" class="form-label">Description</label>
-				<textarea class="form-control" name="idesc" id="idesc" rows="14" placeholder="Blank line = new paragraph&#10;## Heading&#10;- List item"><?php echo htmlspecialchars(pages_plain_input($rwnews['desc'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></textarea>
-				<small class="text-muted">Plain text only — blank line = paragraph, ## Heading, - list item</small>
+				<textarea class="form-control tinyMCE" name="idesc" id="idesc" rows="14"><?php echo htmlspecialchars($rwnews['desc'] ?? '', ENT_QUOTES, 'UTF-8'); ?></textarea>
 			</div>
 			<div class="mb-3 col-md-6">
     			<label for="metatitle" class="form-label">Meta Title</label>
