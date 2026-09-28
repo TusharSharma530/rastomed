@@ -1195,6 +1195,23 @@
   color: var(--dark-text-muted);
 }
 
+.footer__credit {
+  font-size: var(--fs-xs);
+  color: var(--dark-text-muted);
+  text-align: right;
+}
+
+.footer__credit a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer__credit a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
 .footer__legal {
   display: flex;
   gap: var(--space-6);

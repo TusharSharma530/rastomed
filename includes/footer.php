@@ -155,6 +155,9 @@ if (isset($con)) {
       <p class="footer__copyright">
         &copy; <?= date('Y') ?> RastoMed Pharma Private Limited. All Rights Reserved.
       </p>
+      <p class="footer__credit">
+        Design and Developed by <a href="https://promotionparadise.in/" target="_blank" rel="noopener">Promotion Paradise</a>
+      </p>
     </div>
   </div>
 </footer>
