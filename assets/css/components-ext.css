@@ -1230,7 +1230,7 @@
 
 .back-to-top {
   position: fixed;
-  bottom: 140px;
+  bottom: 154px;
   right: 24px;
   width: 48px;
   height: 48px;
@@ -1849,7 +1849,7 @@
 
 .enquiry-float {
   position: fixed;
-  bottom: 24px;
+  bottom: 45px;
   right: 24px;
   z-index: var(--z-fixed);
   display: flex;
