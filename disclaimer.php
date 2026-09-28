@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/manager/database/db.php';
+require_once __DIR__ . '/includes/header.php';
 
 
 $pp = ['title' => 'Disclaimer', 'subtitle' => '', 'description' => ''];
@@ -27,7 +27,6 @@ $eSubtitle   = htmlspecialchars($ppSubtitle, ENT_QUOTES, 'UTF-8');
 $eFirstWords = htmlspecialchars($ppFirstWords, ENT_QUOTES, 'UTF-8');
 $eLastWord   = htmlspecialchars($ppLastWord, ENT_QUOTES, 'UTF-8');
 
-require_once __DIR__ . '/includes/header.php';
 ?>
 
   <main>

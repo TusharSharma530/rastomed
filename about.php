@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/manager/database/db.php';
+require_once __DIR__ . '/includes/header.php';
 
 // about category 
 $aboutRow = fetch_one_row($con, "SELECT * FROM category WHERE id = 69 AND status = 1");
@@ -34,7 +34,6 @@ if ($missionRow && trim($missionRow['c_name']) !== '') {
 	$mvHeading = $visionRow['c_name'];
 }
 
-require_once __DIR__ . '/includes/header.php';
 ?>
 
   <main>

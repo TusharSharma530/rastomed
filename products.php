@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/manager/database/db.php';
+require_once __DIR__ . '/includes/header.php';
 
 $proCatId = 70;
 $productsRow = null;
@@ -14,7 +14,7 @@ if ($rsBanner && mysqli_num_rows($rsBanner)) {
 	$productsBanner = mysqli_fetch_assoc($rsBanner);
 }
 
-// ===== product list =====
+// product list
 $allProducts = [];
 $rsProducts = mysqli_query($con, "SELECT * FROM products WHERE cat_id = $proCatId AND status = 1 ORDER BY `order` ASC, id DESC");
 if ($rsProducts) {

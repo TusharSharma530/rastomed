@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/manager/database/db.php';
+require_once __DIR__ . '/includes/header.php';
 
 // blog by id 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
@@ -41,7 +41,7 @@ if (strpos($blogDescRaw, '<') !== false && strpos($blogDescRaw, '>') !== false) 
 	]);
 }
 
-require_once __DIR__ . '/includes/header.php';
+
 ?>
 
   <main>

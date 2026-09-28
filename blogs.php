@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/manager/database/db.php';
+require_once __DIR__ . '/includes/header.php';
 
 //blogs category 
 $blogCatId = 75;
@@ -15,7 +15,6 @@ if ($rsBlogs) {
 	}
 }
 
-require_once __DIR__ . '/includes/header.php';
 ?>
 
   <main>

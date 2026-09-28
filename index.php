@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/manager/database/db.php';
+require_once __DIR__ . '/includes/header.php';
 
 // ===== hero banner 
 $homeBannerRow  = fetch_one_row($con, "SELECT * FROM web_banner WHERE id = 8 AND status = 1 LIMIT 1");
@@ -56,7 +56,7 @@ if ($rsTc) {
 }
 
 
-require_once __DIR__ . '/includes/header.php';
+
 ?>
 
   <main>

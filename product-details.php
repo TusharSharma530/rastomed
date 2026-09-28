@@ -1,10 +1,7 @@
 <?php
 require_once __DIR__ . '/manager/database/db.php';
-
-// nested URL (product-details/product-name) -> resolve relative links from site root
 $useBaseTag = true;
 
-// ===== product by name
 $id = 0;
 $productSlug = trim((string) ($_GET['product'] ?? ''));
 if ($productSlug !== '') {
@@ -25,7 +22,7 @@ if ($id) {
 	}
 }
 
-// ===== product not found =====
+//  product not found 
 if (!$product) {
 	require_once __DIR__ . '/includes/header.php';
 	echo '<main><section class="section"><div class="container"><p>Product not found.</p></div></section></main>';
@@ -33,7 +30,7 @@ if (!$product) {
 	exit();
 }
 
-// ===== FAQ for this product 
+// FAQ for this product 
 $faqItems = [];
 $rsFaq = mysqli_query($con, "SELECT * FROM product_faq WHERE product_id = $id AND status = 1 ORDER BY `order` ASC, id ASC");
 if ($rsFaq && mysqli_num_rows($rsFaq)) {
@@ -48,7 +45,7 @@ if ($rsFaq && mysqli_num_rows($rsFaq)) {
 	}
 }
 
-// ===== escaped vars =====
+// escaped vars 
 $eName  = htmlspecialchars($product['name'], ENT_QUOTES, 'UTF-8');
 $ePrice = htmlspecialchars((string) $product['price'], ENT_QUOTES, 'UTF-8');
 $eImg   = htmlspecialchars((string) $product['featured_img'], ENT_QUOTES, 'UTF-8');
