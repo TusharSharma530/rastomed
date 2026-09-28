@@ -1,17 +1,17 @@
 <?php
 require_once __DIR__ . '/includes/header.php';
 
-// ===== hero banner 
+//  hero banner 
 $homeBannerRow  = fetch_one_row($con, "SELECT * FROM web_banner WHERE id = 8 AND status = 1 LIMIT 1");
 $eBannerVideo   = htmlspecialchars((string) ($homeBannerRow['wb_video'] ?? ''), ENT_QUOTES, 'UTF-8');
 $eBannerImg     = htmlspecialchars((string) ($homeBannerRow['wb_img'] ?? ''), ENT_QUOTES, 'UTF-8');
 
-// ===== hero text 
+// hero text 
 $heroRow        = fetch_one_row($con, "SELECT * FROM category WHERE id = 76 AND status = 1 LIMIT 1");
 $eHeroTitle     = htmlspecialchars((string) ($heroRow['c_name'] ?? ''), ENT_QUOTES, 'UTF-8');
 $eHeroSubtitle  = htmlspecialchars((string) ($heroRow['sdesc'] ?? ''), ENT_QUOTES, 'UTF-8');
 
-// ===== about section 
+// about section 
 $aboutRow       = fetch_one_row($con, "SELECT * FROM category WHERE id = 77 AND status = 1 LIMIT 1");
 $aboutTitle     = (string) ($aboutRow['c_name'] ?? '');
 $aboutDesc      = (string) ($aboutRow['c_desc'] ?? '');
