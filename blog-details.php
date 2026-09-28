@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/header.php';
 
-// blog by id 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 $blog = null;
 if ($id) {
@@ -19,7 +18,7 @@ if (!$blog) {
 	exit();
 }
 
-//  blogs banner 
+// banner 
 $blogsBanner = null;
 $rsBanner = mysqli_query($con, "SELECT * FROM web_banner WHERE category_id = 75 AND status = 1 ORDER BY wb_order ASC LIMIT 1");
 if ($rsBanner && mysqli_num_rows($rsBanner)) {
