@@ -62,7 +62,7 @@ if ($bannerBg === '' && $bannerVideo === '') {
 	$bannerBg = 'assets/images/about-banner.jpg';
 }
 
-// escaped vars (used many times in layout) 
+// escaped vars
 $eTitle       = htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8');
 $eSubtitle    = htmlspecialchars($pageSubtitle, ENT_QUOTES, 'UTF-8');
 $eImage       = htmlspecialchars($pageImage, ENT_QUOTES, 'UTF-8');
