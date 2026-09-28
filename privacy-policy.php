@@ -8,7 +8,7 @@ if ($rsPp && mysqli_num_rows($rsPp)) {
 	$pp = mysqli_fetch_assoc($rsPp);
 }
 
-// ===== title / subtitle / description =====
+// title / subtitle / description =====
 $ppTitle    = trim((string) $pp['title']) !== '' ? $pp['title'] : 'Privacy Policy';
 $ppSubtitle = (string) ($pp['subtitle'] ?? '');
 $ppDescHtml = trim((string) ($pp['description'] ?? ''));
@@ -16,12 +16,12 @@ if ($ppDescHtml !== '' && strpos($ppDescHtml, '<') === false) {
 	$ppDescHtml = render_pages_description($ppDescHtml);
 }
 
-// ===== split title: first words plain, last word gradient =====
+//  split title: first words plain, last word gradient =====
 $ppParts = explode(' ', $ppTitle);
 $ppLastWord = array_pop($ppParts);
 $ppFirstWords = implode(' ', $ppParts);
 
-// ===== escaped vars =====
+// escaped vars 
 $eTitle      = htmlspecialchars($ppTitle, ENT_QUOTES, 'UTF-8');
 $eSubtitle   = htmlspecialchars($ppSubtitle, ENT_QUOTES, 'UTF-8');
 $eFirstWords = htmlspecialchars($ppFirstWords, ENT_QUOTES, 'UTF-8');
