@@ -14,7 +14,7 @@
       }
   }
   if ($careerBannerSrc === '') {
-      $careerBannerSrc = $path . 'assets/images/career-hero.jpg';
+      $careerBannerSrc = $path . '';
   }
   ?>
 
