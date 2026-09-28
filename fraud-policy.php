@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/header.php';
 
-//  page content from `pages` table 
+// 
 $pp = ['title' => 'Recruitment Fraud Policy', 'subtitle' => '', 'description' => ''];
 $rsPp = mysqli_query($con, "SELECT * FROM `pages` WHERE slug = 'fraud-policy'");
 if ($rsPp && mysqli_num_rows($rsPp)) {
