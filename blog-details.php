@@ -28,7 +28,7 @@ if ($rsBanner && mysqli_num_rows($rsBanner)) {
 // blog texts 
 $blogSdesc = trim((string) ($blog['sdesc'] ?? ''));
 
-// blogs description : HTML from TinyMCE -> as-is, plain text -> formatted =====
+// blogs description : HTML from TinyMCE -> as-is, plain text -> formatted
 $blogDescRaw = (string) ($blog['desc'] ?? '');
 if (strpos($blogDescRaw, '<') !== false && strpos($blogDescRaw, '>') !== false) {
 	$blogDescHtml = $blogDescRaw;
